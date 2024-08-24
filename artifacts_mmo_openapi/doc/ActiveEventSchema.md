@@ -1,0 +1,20 @@
+# artifacts_mmo_openapi.model.ActiveEventSchema
+
+## Load the model package
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **String** | Name of the event. | 
+**map** | [**MapSchema**](MapSchema.md) |  | 
+**previousSkin** | **String** | Previous map skin. | 
+**duration** | **int** | Duration in minutes. | 
+**expiration** | [**DateTime**](DateTime.md) | Expiration datetime. | 
+**createdAt** | [**DateTime**](DateTime.md) | Start datetime. | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
