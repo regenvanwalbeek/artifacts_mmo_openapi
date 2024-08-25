@@ -7,7 +7,7 @@ Add the following to your library's `pubspec.yaml`:
 
 ```yaml
   http: ^1.2.2
-  artifacts_mmo_openapi: ^1.0.0
+  artifacts_mmo_openapi: ^2.0.0
 ```
 
 Run `dart pub get`
