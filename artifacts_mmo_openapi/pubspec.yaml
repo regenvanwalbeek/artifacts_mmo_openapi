@@ -4,8 +4,8 @@
 
 name: 'artifacts_mmo_openapi'
 version: '1.0.0'
-description: 'OpenAPI API client'
-homepage: 'homepage'
+description: 'Generated client for ArtifactsMMO'
+homepage: 'https://github.com/regenvanwalbeek/artifacts_mmo_openapi'
 environment:
   sdk: '>=2.12.0 <3.0.0'
 dependencies:
