@@ -7,7 +7,7 @@ import 'package:openapi_generator_annotations/openapi_generator_annotations.dart
     pubName: 'artifacts_mmo_openapi',
     pubDescription: 'Generated client for ArtifactsMMO',
     pubHomepage: 'https://github.com/regenvanwalbeek/artifacts_mmo_openapi',
-    pubVersion: "1.0.0",
+    pubVersion: "2.0.0",
   ),
   inputSpec: RemoteSpec(path: 'https://api.artifactsmmo.com/openapi.json'),
   generatorName: Generator.dart,
