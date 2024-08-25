@@ -6,12 +6,8 @@ OpenApi models for https://artifactsmmo.com/
 Add the following to your library's `pubspec.yaml`:
 
 ```yaml
-dependencies:
   http: ^1.2.2
-  artifacts_mmo_openapi:
-    git:
-      url: git@github.com:regenvanwalbeek/artifacts_mmo_openapi.git
-      path: artifacts_mmo_openapi
+  artifacts_mmo_openapi: ^1.0.0
 ```
 
 Run `dart pub get`
