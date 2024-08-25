@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllResourcesResourcesGet**](ResourcesApi.md#getallresourcesresourcesget) | **GET** /resources/ | Get All Resources
+[**getAllResourcesResourcesGet**](ResourcesApi.md#getallresourcesresourcesget) | **GET** /resources | Get All Resources
 [**getResourceResourcesCodeGet**](ResourcesApi.md#getresourceresourcescodeget) | **GET** /resources/{code} | Get Resource
 
 

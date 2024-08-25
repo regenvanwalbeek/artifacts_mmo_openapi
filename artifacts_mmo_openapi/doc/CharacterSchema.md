@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **level** | **int** | Combat level. | 
 **xp** | **int** | The current xp level of the combat level. | 
 **maxXp** | **int** | XP required to level up the character. | 
-**totalXp** | **int** | Total XP of your character. | 
+**achievementsPoints** | **int** | achievements points. | 
 **gold** | **int** | The numbers of golds on this character. | 
 **speed** | **int** | *Not available, on the roadmap. Character movement speed. | 
 **miningLevel** | **int** | Mining level. | 

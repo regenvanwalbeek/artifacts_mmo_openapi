@@ -10,6 +10,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**actionAcceptNewTaskMyNameActionTaskNewPost**](MyCharactersApi.md#actionacceptnewtaskmynameactiontasknewpost) | **POST** /my/{name}/action/task/new | Action Accept New Task
+[**actionBuyBankExpansionMyNameActionBankBuyExpansionPost**](MyCharactersApi.md#actionbuybankexpansionmynameactionbankbuyexpansionpost) | **POST** /my/{name}/action/bank/buy_expansion | Action Buy Bank Expansion
 [**actionCompleteTaskMyNameActionTaskCompletePost**](MyCharactersApi.md#actioncompletetaskmynameactiontaskcompletepost) | **POST** /my/{name}/action/task/complete | Action Complete Task
 [**actionCraftingMyNameActionCraftingPost**](MyCharactersApi.md#actioncraftingmynameactioncraftingpost) | **POST** /my/{name}/action/crafting | Action Crafting
 [**actionDeleteItemMyNameActionDeletePost**](MyCharactersApi.md#actiondeleteitemmynameactiondeletepost) | **POST** /my/{name}/action/delete | Action Delete Item
@@ -22,6 +23,7 @@ Method | HTTP request | Description
 [**actionGeSellItemMyNameActionGeSellPost**](MyCharactersApi.md#actiongesellitemmynameactiongesellpost) | **POST** /my/{name}/action/ge/sell | Action Ge Sell Item
 [**actionMoveMyNameActionMovePost**](MyCharactersApi.md#actionmovemynameactionmovepost) | **POST** /my/{name}/action/move | Action Move
 [**actionRecyclingMyNameActionRecyclingPost**](MyCharactersApi.md#actionrecyclingmynameactionrecyclingpost) | **POST** /my/{name}/action/recycling | Action Recycling
+[**actionTaskCancelMyNameActionTaskCancelPost**](MyCharactersApi.md#actiontaskcancelmynameactiontaskcancelpost) | **POST** /my/{name}/action/task/cancel | Action Task Cancel
 [**actionTaskExchangeMyNameActionTaskExchangePost**](MyCharactersApi.md#actiontaskexchangemynameactiontaskexchangepost) | **POST** /my/{name}/action/task/exchange | Action Task Exchange
 [**actionUnequipItemMyNameActionUnequipPost**](MyCharactersApi.md#actionunequipitemmynameactionunequippost) | **POST** /my/{name}/action/unequip | Action Unequip Item
 [**actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost**](MyCharactersApi.md#actionwithdrawbankgoldmynameactionbankwithdrawgoldpost) | **POST** /my/{name}/action/bank/withdraw/gold | Action Withdraw Bank Gold
@@ -67,6 +69,55 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TaskResponseSchema**](TaskResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionBuyBankExpansionMyNameActionBankBuyExpansionPost**
+> BankExtensionTransactionResponseSchema actionBuyBankExpansionMyNameActionBankBuyExpansionPost(name)
+
+Action Buy Bank Expansion
+
+Buy a 20 slots bank expansion.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+
+try {
+    final result = api_instance.actionBuyBankExpansionMyNameActionBankBuyExpansionPost(name);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionBuyBankExpansionMyNameActionBankBuyExpansionPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+
+### Return type
+
+[**BankExtensionTransactionResponseSchema**](BankExtensionTransactionResponseSchema.md)
 
 ### Authorization
 
@@ -231,7 +282,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionDepositBankGoldMyNameActionBankDepositGoldPost**
-> GoldResponseSchema actionDepositBankGoldMyNameActionBankDepositGoldPost(name, depositWithdrawGoldSchema)
+> BankGoldTransactionResponseSchema actionDepositBankGoldMyNameActionBankDepositGoldPost(name, depositWithdrawGoldSchema)
 
 Action Deposit Bank Gold
 
@@ -268,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GoldResponseSchema**](GoldResponseSchema.md)
+[**BankGoldTransactionResponseSchema**](BankGoldTransactionResponseSchema.md)
 
 ### Authorization
 
@@ -282,7 +333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionDepositBankMyNameActionBankDepositPost**
-> ActionItemBankResponseSchema actionDepositBankMyNameActionBankDepositPost(name, simpleItemSchema)
+> BankItemTransactionResponseSchema actionDepositBankMyNameActionBankDepositPost(name, simpleItemSchema)
 
 Action Deposit Bank
 
@@ -319,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ActionItemBankResponseSchema**](ActionItemBankResponseSchema.md)
+[**BankItemTransactionResponseSchema**](BankItemTransactionResponseSchema.md)
 
 ### Authorization
 
@@ -685,6 +736,55 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **actionTaskCancelMyNameActionTaskCancelPost**
+> TaskCancelledResponseSchema actionTaskCancelMyNameActionTaskCancelPost(name)
+
+Action Task Cancel
+
+Cancel a task for 1 tasks coin.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+
+try {
+    final result = api_instance.actionTaskCancelMyNameActionTaskCancelPost(name);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionTaskCancelMyNameActionTaskCancelPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+
+### Return type
+
+[**TaskCancelledResponseSchema**](TaskCancelledResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **actionTaskExchangeMyNameActionTaskExchangePost**
 > TaskRewardResponseSchema actionTaskExchangeMyNameActionTaskExchangePost(name)
 
@@ -786,7 +886,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost**
-> GoldResponseSchema actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(name, depositWithdrawGoldSchema)
+> BankGoldTransactionResponseSchema actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(name, depositWithdrawGoldSchema)
 
 Action Withdraw Bank Gold
 
@@ -823,7 +923,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GoldResponseSchema**](GoldResponseSchema.md)
+[**BankGoldTransactionResponseSchema**](BankGoldTransactionResponseSchema.md)
 
 ### Authorization
 
@@ -837,7 +937,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionWithdrawBankMyNameActionBankWithdrawPost**
-> ActionItemBankResponseSchema actionWithdrawBankMyNameActionBankWithdrawPost(name, simpleItemSchema)
+> BankItemTransactionResponseSchema actionWithdrawBankMyNameActionBankWithdrawPost(name, simpleItemSchema)
 
 Action Withdraw Bank
 
@@ -874,7 +974,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ActionItemBankResponseSchema**](ActionItemBankResponseSchema.md)
+[**BankItemTransactionResponseSchema**](BankItemTransactionResponseSchema.md)
 
 ### Authorization
 

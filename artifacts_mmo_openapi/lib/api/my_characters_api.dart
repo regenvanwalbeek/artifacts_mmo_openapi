@@ -83,6 +83,76 @@ class MyCharactersApi {
     return null;
   }
 
+  /// Action Buy Bank Expansion
+  ///
+  /// Buy a 20 slots bank expansion.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<Response>
+      actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
+    String name,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/my/{name}/action/bank/buy_expansion'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Buy Bank Expansion
+  ///
+  /// Buy a 20 slots bank expansion.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<BankExtensionTransactionResponseSchema?>
+      actionBuyBankExpansionMyNameActionBankBuyExpansionPost(
+    String name,
+  ) async {
+    final response =
+        await actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
+      name,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'BankExtensionTransactionResponseSchema',
+      ) as BankExtensionTransactionResponseSchema;
+    }
+    return null;
+  }
+
   /// Action Complete Task
   ///
   /// Complete a task.
@@ -348,7 +418,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [DepositWithdrawGoldSchema] depositWithdrawGoldSchema (required):
-  Future<GoldResponseSchema?>
+  Future<BankGoldTransactionResponseSchema?>
       actionDepositBankGoldMyNameActionBankDepositGoldPost(
     String name,
     DepositWithdrawGoldSchema depositWithdrawGoldSchema,
@@ -368,8 +438,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'GoldResponseSchema',
-      ) as GoldResponseSchema;
+        'BankGoldTransactionResponseSchema',
+      ) as BankGoldTransactionResponseSchema;
     }
     return null;
   }
@@ -423,7 +493,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [SimpleItemSchema] simpleItemSchema (required):
-  Future<ActionItemBankResponseSchema?>
+  Future<BankItemTransactionResponseSchema?>
       actionDepositBankMyNameActionBankDepositPost(
     String name,
     SimpleItemSchema simpleItemSchema,
@@ -443,8 +513,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'ActionItemBankResponseSchema',
-      ) as ActionItemBankResponseSchema;
+        'BankItemTransactionResponseSchema',
+      ) as BankItemTransactionResponseSchema;
     }
     return null;
   }
@@ -946,6 +1016,74 @@ class MyCharactersApi {
     return null;
   }
 
+  /// Action Task Cancel
+  ///
+  /// Cancel a task for 1 tasks coin.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<Response> actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo(
+    String name,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/task/cancel'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Task Cancel
+  ///
+  /// Cancel a task for 1 tasks coin.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<TaskCancelledResponseSchema?>
+      actionTaskCancelMyNameActionTaskCancelPost(
+    String name,
+  ) async {
+    final response =
+        await actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo(
+      name,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'TaskCancelledResponseSchema',
+      ) as TaskCancelledResponseSchema;
+    }
+    return null;
+  }
+
   /// Action Task Exchange
   ///
   /// Exchange 3 tasks coins for a random reward. Rewards are exclusive resources for crafting  items.
@@ -1138,7 +1276,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [DepositWithdrawGoldSchema] depositWithdrawGoldSchema (required):
-  Future<GoldResponseSchema?>
+  Future<BankGoldTransactionResponseSchema?>
       actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(
     String name,
     DepositWithdrawGoldSchema depositWithdrawGoldSchema,
@@ -1158,8 +1296,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'GoldResponseSchema',
-      ) as GoldResponseSchema;
+        'BankGoldTransactionResponseSchema',
+      ) as BankGoldTransactionResponseSchema;
     }
     return null;
   }
@@ -1213,7 +1351,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [SimpleItemSchema] simpleItemSchema (required):
-  Future<ActionItemBankResponseSchema?>
+  Future<BankItemTransactionResponseSchema?>
       actionWithdrawBankMyNameActionBankWithdrawPost(
     String name,
     SimpleItemSchema simpleItemSchema,
@@ -1233,8 +1371,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'ActionItemBankResponseSchema',
-      ) as ActionItemBankResponseSchema;
+        'BankItemTransactionResponseSchema',
+      ) as BankItemTransactionResponseSchema;
     }
     return null;
   }

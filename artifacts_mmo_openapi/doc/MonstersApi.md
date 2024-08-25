@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllMonstersMonstersGet**](MonstersApi.md#getallmonstersmonstersget) | **GET** /monsters/ | Get All Monsters
+[**getAllMonstersMonstersGet**](MonstersApi.md#getallmonstersmonstersget) | **GET** /monsters | Get All Monsters
 [**getMonsterMonstersCodeGet**](MonstersApi.md#getmonstermonsterscodeget) | **GET** /monsters/{code} | Get Monster
 
 
@@ -76,7 +76,7 @@ Retrieve the details of a monster.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MonstersApi();
-final code = red_slime; // String | The code of the monster.
+final code = code_example; // String | The code of the monster.
 
 try {
     final result = api_instance.getMonsterMonstersCodeGet(code);

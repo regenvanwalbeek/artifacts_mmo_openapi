@@ -41,7 +41,7 @@ class MapsApi {
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/maps/';
+    final path = r'/maps';
 
     // ignore: prefer_final_locals
     Object? postBody;

@@ -34,7 +34,7 @@ class GrandExchangeApi {
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/ge/';
+    final path = r'/ge';
 
     // ignore: prefer_final_locals
     Object? postBody;

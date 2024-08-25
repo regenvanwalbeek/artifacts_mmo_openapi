@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllGeItemsGeGet**](GrandExchangeApi.md#getallgeitemsgeget) | **GET** /ge/ | Get All Ge Items
+[**getAllGeItemsGeGet**](GrandExchangeApi.md#getallgeitemsgeget) | **GET** /ge | Get All Ge Items
 [**getGeItemGeCodeGet**](GrandExchangeApi.md#getgeitemgecodeget) | **GET** /ge/{code} | Get Ge Item
 
 

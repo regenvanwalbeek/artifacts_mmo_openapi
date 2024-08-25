@@ -22,7 +22,7 @@ class TokenApi {
   /// Note: This method returns the HTTP [Response].
   Future<Response> generateTokenTokenPostWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/token/';
+    final path = r'/token';
 
     // ignore: prefer_final_locals
     Object? postBody;

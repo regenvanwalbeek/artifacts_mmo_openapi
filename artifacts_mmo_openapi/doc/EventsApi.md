@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllEventsEventsGet**](EventsApi.md#getalleventseventsget) | **GET** /events/ | Get All Events
+[**getAllEventsEventsGet**](EventsApi.md#getalleventseventsget) | **GET** /events | Get All Events
 
 
 # **getAllEventsEventsGet**

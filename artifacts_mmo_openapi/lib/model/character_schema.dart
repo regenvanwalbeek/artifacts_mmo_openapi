@@ -18,7 +18,7 @@ class CharacterSchema {
     required this.level,
     required this.xp,
     required this.maxXp,
-    required this.totalXp,
+    required this.achievementsPoints,
     required this.gold,
     required this.speed,
     required this.miningLevel,
@@ -101,8 +101,8 @@ class CharacterSchema {
   /// XP required to level up the character.
   int maxXp;
 
-  /// Total XP of your character.
-  int totalXp;
+  /// achievements points.
+  int achievementsPoints;
 
   /// The numbers of golds on this character.
   int gold;
@@ -314,7 +314,7 @@ class CharacterSchema {
           other.level == level &&
           other.xp == xp &&
           other.maxXp == maxXp &&
-          other.totalXp == totalXp &&
+          other.achievementsPoints == achievementsPoints &&
           other.gold == gold &&
           other.speed == speed &&
           other.miningLevel == miningLevel &&
@@ -389,7 +389,7 @@ class CharacterSchema {
       (level.hashCode) +
       (xp.hashCode) +
       (maxXp.hashCode) +
-      (totalXp.hashCode) +
+      (achievementsPoints.hashCode) +
       (gold.hashCode) +
       (speed.hashCode) +
       (miningLevel.hashCode) +
@@ -458,7 +458,7 @@ class CharacterSchema {
 
   @override
   String toString() =>
-      'CharacterSchema[name=$name, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, totalXp=$totalXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, hp=$hp, haste=$haste, criticalStrike=$criticalStrike, stamina=$stamina, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, weaponSlot=$weaponSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, consumable1Slot=$consumable1Slot, consumable1SlotQuantity=$consumable1SlotQuantity, consumable2Slot=$consumable2Slot, consumable2SlotQuantity=$consumable2SlotQuantity, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, cooldownExpiration=$cooldownExpiration, inventory=$inventory]';
+      'CharacterSchema[name=$name, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, achievementsPoints=$achievementsPoints, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, hp=$hp, haste=$haste, criticalStrike=$criticalStrike, stamina=$stamina, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, weaponSlot=$weaponSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, consumable1Slot=$consumable1Slot, consumable1SlotQuantity=$consumable1SlotQuantity, consumable2Slot=$consumable2Slot, consumable2SlotQuantity=$consumable2SlotQuantity, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, cooldownExpiration=$cooldownExpiration, inventory=$inventory]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -467,7 +467,7 @@ class CharacterSchema {
     json[r'level'] = this.level;
     json[r'xp'] = this.xp;
     json[r'max_xp'] = this.maxXp;
-    json[r'total_xp'] = this.totalXp;
+    json[r'achievements_points'] = this.achievementsPoints;
     json[r'gold'] = this.gold;
     json[r'speed'] = this.speed;
     json[r'mining_level'] = this.miningLevel;
@@ -567,7 +567,7 @@ class CharacterSchema {
         level: mapValueOfType<int>(json, r'level')!,
         xp: mapValueOfType<int>(json, r'xp')!,
         maxXp: mapValueOfType<int>(json, r'max_xp')!,
-        totalXp: mapValueOfType<int>(json, r'total_xp')!,
+        achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         gold: mapValueOfType<int>(json, r'gold')!,
         speed: mapValueOfType<int>(json, r'speed')!,
         miningLevel: mapValueOfType<int>(json, r'mining_level')!,
@@ -700,7 +700,7 @@ class CharacterSchema {
     'level',
     'xp',
     'max_xp',
-    'total_xp',
+    'achievements_points',
     'gold',
     'speed',
     'mining_level',

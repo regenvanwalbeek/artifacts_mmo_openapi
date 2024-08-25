@@ -50,7 +50,7 @@ class ResourcesApi {
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/resources/';
+    final path = r'/resources';
 
     // ignore: prefer_final_locals
     Object? postBody;

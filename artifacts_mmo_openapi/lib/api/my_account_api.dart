@@ -80,14 +80,14 @@ class MyAccountApi {
     return null;
   }
 
-  /// Get Bank Golds
+  /// Get Bank Details
   ///
-  /// Fetch golds in your bank.
+  /// Fetch bank details.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getBankGoldsMyBankGoldGetWithHttpInfo() async {
+  Future<Response> getBankDetailsMyBankGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
-    final path = r'/my/bank/gold';
+    final path = r'/my/bank';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -109,11 +109,11 @@ class MyAccountApi {
     );
   }
 
-  /// Get Bank Golds
+  /// Get Bank Details
   ///
-  /// Fetch golds in your bank.
-  Future<GoldBankResponseSchema?> getBankGoldsMyBankGoldGet() async {
-    final response = await getBankGoldsMyBankGoldGetWithHttpInfo();
+  /// Fetch bank details.
+  Future<BankResponseSchema?> getBankDetailsMyBankGet() async {
+    final response = await getBankDetailsMyBankGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -124,8 +124,8 @@ class MyAccountApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'GoldBankResponseSchema',
-      ) as GoldBankResponseSchema;
+        'BankResponseSchema',
+      ) as BankResponseSchema;
     }
     return null;
   }

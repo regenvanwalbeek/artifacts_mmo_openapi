@@ -229,8 +229,8 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
-        case 'ActionItemBankResponseSchema':
-          return ActionItemBankResponseSchema.fromJson(value);
+        case 'AchievementSchema':
+          return AchievementSchema.fromJson(value);
         case 'ActiveEventSchema':
           return ActiveEventSchema.fromJson(value);
         case 'AddAccountSchema':
@@ -239,8 +239,28 @@ class ApiClient {
           return AddCharacterSchema.fromJson(value);
         case 'AnnouncementSchema':
           return AnnouncementSchema.fromJson(value);
-        case 'BankItemSchema':
-          return BankItemSchema.fromJson(value);
+        case 'BankExtensionSchema':
+          return BankExtensionSchema.fromJson(value);
+        case 'BankExtensionTransactionResponseSchema':
+          return BankExtensionTransactionResponseSchema.fromJson(value);
+        case 'BankExtensionTransactionSchema':
+          return BankExtensionTransactionSchema.fromJson(value);
+        case 'BankGoldTransactionResponseSchema':
+          return BankGoldTransactionResponseSchema.fromJson(value);
+        case 'BankGoldTransactionSchema':
+          return BankGoldTransactionSchema.fromJson(value);
+        case 'BankItemTransactionResponseSchema':
+          return BankItemTransactionResponseSchema.fromJson(value);
+        case 'BankItemTransactionSchema':
+          return BankItemTransactionSchema.fromJson(value);
+        case 'BankResponseSchema':
+          return BankResponseSchema.fromJson(value);
+        case 'BankSchema':
+          return BankSchema.fromJson(value);
+        case 'BaseAchievementSchema':
+          return BaseAchievementSchema.fromJson(value);
+        case 'BaseachievementResponseSchema':
+          return BaseachievementResponseSchema.fromJson(value);
         case 'BlockedHitsSchema':
           return BlockedHitsSchema.fromJson(value);
         case 'ChangePassword':
@@ -249,6 +269,8 @@ class ApiClient {
           return CharacterFightDataSchema.fromJson(value);
         case 'CharacterFightResponseSchema':
           return CharacterFightResponseSchema.fromJson(value);
+        case 'CharacterLeaderboardSchema':
+          return CharacterLeaderboardSchema.fromJson(value);
         case 'CharacterMovementDataSchema':
           return CharacterMovementDataSchema.fromJson(value);
         case 'CharacterMovementResponseSchema':
@@ -263,8 +285,14 @@ class ApiClient {
           return CraftSchema.fromJson(value);
         case 'CraftingSchema':
           return CraftingSchema.fromJson(value);
+        case 'DataPageAchievementSchema':
+          return DataPageAchievementSchema.fromJson(value);
         case 'DataPageActiveEventSchema':
           return DataPageActiveEventSchema.fromJson(value);
+        case 'DataPageBaseAchievementSchema':
+          return DataPageBaseAchievementSchema.fromJson(value);
+        case 'DataPageCharacterLeaderboardSchema':
+          return DataPageCharacterLeaderboardSchema.fromJson(value);
         case 'DataPageCharacterSchema':
           return DataPageCharacterSchema.fromJson(value);
         case 'DataPageGEItemSchema':
@@ -315,14 +343,8 @@ class ApiClient {
           return GETransactionResponseSchema.fromJson(value);
         case 'GETransactionSchema':
           return GETransactionSchema.fromJson(value);
-        case 'GoldBankResponseSchema':
-          return GoldBankResponseSchema.fromJson(value);
-        case 'GoldResponseSchema':
-          return GoldResponseSchema.fromJson(value);
         case 'GoldSchema':
           return GoldSchema.fromJson(value);
-        case 'GoldTransactionSchema':
-          return GoldTransactionSchema.fromJson(value);
         case 'HTTPValidationError':
           return HTTPValidationError.fromJson(value);
         case 'InventorySlot':
@@ -375,6 +397,10 @@ class ApiClient {
           return StatusResponseSchema.fromJson(value);
         case 'StatusSchema':
           return StatusSchema.fromJson(value);
+        case 'TaskCancelledResponseSchema':
+          return TaskCancelledResponseSchema.fromJson(value);
+        case 'TaskCancelledSchema':
+          return TaskCancelledSchema.fromJson(value);
         case 'TaskDataSchema':
           return TaskDataSchema.fromJson(value);
         case 'TaskResponseSchema':

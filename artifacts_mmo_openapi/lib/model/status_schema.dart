@@ -14,16 +14,29 @@ class StatusSchema {
   /// Returns a new [StatusSchema] instance.
   StatusSchema({
     required this.status,
+    required this.maxLevel,
+    required this.charactersOnline,
+    required this.serverTime,
+    this.announcements = const [],
     required this.lastWipe,
     required this.nextWipe,
     this.version,
-    this.charactersOnline,
-    this.serverTime,
-    this.announcements = const [],
   });
 
   /// Server status
   String status;
+
+  /// Maximum level.
+  int maxLevel;
+
+  /// Characters online.
+  int charactersOnline;
+
+  /// Server time.
+  DateTime serverTime;
+
+  /// Server announcements.
+  List<AnnouncementSchema> announcements;
 
   /// Last server wipe.
   String lastWipe;
@@ -39,54 +52,42 @@ class StatusSchema {
   ///
   String? version;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? charactersOnline;
-
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  DateTime? serverTime;
-
-  List<AnnouncementSchema> announcements;
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is StatusSchema &&
           other.status == status &&
-          other.lastWipe == lastWipe &&
-          other.nextWipe == nextWipe &&
-          other.version == version &&
+          other.maxLevel == maxLevel &&
           other.charactersOnline == charactersOnline &&
           other.serverTime == serverTime &&
-          _deepEquality.equals(other.announcements, announcements);
+          _deepEquality.equals(other.announcements, announcements) &&
+          other.lastWipe == lastWipe &&
+          other.nextWipe == nextWipe &&
+          other.version == version;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (status.hashCode) +
+      (maxLevel.hashCode) +
+      (charactersOnline.hashCode) +
+      (serverTime.hashCode) +
+      (announcements.hashCode) +
       (lastWipe.hashCode) +
       (nextWipe.hashCode) +
-      (version == null ? 0 : version!.hashCode) +
-      (charactersOnline == null ? 0 : charactersOnline!.hashCode) +
-      (serverTime == null ? 0 : serverTime!.hashCode) +
-      (announcements.hashCode);
+      (version == null ? 0 : version!.hashCode);
 
   @override
   String toString() =>
-      'StatusSchema[status=$status, lastWipe=$lastWipe, nextWipe=$nextWipe, version=$version, charactersOnline=$charactersOnline, serverTime=$serverTime, announcements=$announcements]';
+      'StatusSchema[status=$status, maxLevel=$maxLevel, charactersOnline=$charactersOnline, serverTime=$serverTime, announcements=$announcements, lastWipe=$lastWipe, nextWipe=$nextWipe, version=$version]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'status'] = this.status;
+    json[r'max_level'] = this.maxLevel;
+    json[r'characters_online'] = this.charactersOnline;
+    json[r'server_time'] = this.serverTime.toUtc().toIso8601String();
+    json[r'announcements'] = this.announcements;
     json[r'last_wipe'] = this.lastWipe;
     json[r'next_wipe'] = this.nextWipe;
     if (this.version != null) {
@@ -94,17 +95,6 @@ class StatusSchema {
     } else {
       json[r'version'] = null;
     }
-    if (this.charactersOnline != null) {
-      json[r'characters_online'] = this.charactersOnline;
-    } else {
-      json[r'characters_online'] = null;
-    }
-    if (this.serverTime != null) {
-      json[r'server_time'] = this.serverTime!.toUtc().toIso8601String();
-    } else {
-      json[r'server_time'] = null;
-    }
-    json[r'announcements'] = this.announcements;
     return json;
   }
 
@@ -130,12 +120,13 @@ class StatusSchema {
 
       return StatusSchema(
         status: mapValueOfType<String>(json, r'status')!,
+        maxLevel: mapValueOfType<int>(json, r'max_level')!,
+        charactersOnline: mapValueOfType<int>(json, r'characters_online')!,
+        serverTime: mapDateTime(json, r'server_time', r'')!,
+        announcements: AnnouncementSchema.listFromJson(json[r'announcements']),
         lastWipe: mapValueOfType<String>(json, r'last_wipe')!,
         nextWipe: mapValueOfType<String>(json, r'next_wipe')!,
         version: mapValueOfType<String>(json, r'version'),
-        charactersOnline: mapValueOfType<int>(json, r'characters_online'),
-        serverTime: mapDateTime(json, r'server_time', r''),
-        announcements: AnnouncementSchema.listFromJson(json[r'announcements']),
       );
     }
     return null;
@@ -193,6 +184,10 @@ class StatusSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'status',
+    'max_level',
+    'characters_online',
+    'server_time',
+    'announcements',
     'last_wipe',
     'next_wipe',
   };

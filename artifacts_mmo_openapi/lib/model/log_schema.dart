@@ -40,8 +40,7 @@ class LogSchema {
   /// Cooldown in seconds.
   int cooldown;
 
-  /// Datetime of cooldown expiration.
-  DateTime cooldownExpiration;
+  DateTime? cooldownExpiration;
 
   /// Datetime of creation.
   DateTime createdAt;
@@ -68,7 +67,7 @@ class LogSchema {
       (description.hashCode) +
       (content == null ? 0 : content!.hashCode) +
       (cooldown.hashCode) +
-      (cooldownExpiration.hashCode) +
+      (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode) +
       (createdAt.hashCode);
 
   @override
@@ -87,8 +86,12 @@ class LogSchema {
       json[r'content'] = null;
     }
     json[r'cooldown'] = this.cooldown;
-    json[r'cooldown_expiration'] =
-        this.cooldownExpiration.toUtc().toIso8601String();
+    if (this.cooldownExpiration != null) {
+      json[r'cooldown_expiration'] =
+          this.cooldownExpiration!.toUtc().toIso8601String();
+    } else {
+      json[r'cooldown_expiration'] = null;
+    }
     json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
     return json;
   }
@@ -120,7 +123,7 @@ class LogSchema {
         description: mapValueOfType<String>(json, r'description')!,
         content: mapValueOfType<Object>(json, r'content'),
         cooldown: mapValueOfType<int>(json, r'cooldown')!,
-        cooldownExpiration: mapDateTime(json, r'cooldown_expiration', r'')!,
+        cooldownExpiration: mapDateTime(json, r'cooldown_expiration', r''),
         createdAt: mapDateTime(json, r'created_at', r'')!,
       );
     }

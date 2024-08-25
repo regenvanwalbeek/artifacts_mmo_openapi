@@ -46,7 +46,7 @@ class MonstersApi {
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/monsters/';
+    final path = r'/monsters';
 
     // ignore: prefer_final_locals
     Object? postBody;

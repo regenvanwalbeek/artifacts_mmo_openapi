@@ -57,7 +57,7 @@ class ItemsApi {
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/items/';
+    final path = r'/items';
 
     // ignore: prefer_final_locals
     Object? postBody;

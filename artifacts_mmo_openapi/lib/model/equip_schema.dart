@@ -15,6 +15,7 @@ class EquipSchema {
   EquipSchema({
     required this.code,
     required this.slot,
+    this.quantity = 1,
   });
 
   /// Item code.
@@ -23,23 +24,33 @@ class EquipSchema {
   /// Item slot.
   EquipSchemaSlotEnum slot;
 
+  /// Item quantity. Applicable to consumables only.
+  ///
+  /// Maximum value: 100
+  int quantity;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is EquipSchema && other.code == code && other.slot == slot;
+      other is EquipSchema &&
+          other.code == code &&
+          other.slot == slot &&
+          other.quantity == quantity;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code.hashCode) + (slot.hashCode);
+      (code.hashCode) + (slot.hashCode) + (quantity.hashCode);
 
   @override
-  String toString() => 'EquipSchema[code=$code, slot=$slot]';
+  String toString() =>
+      'EquipSchema[code=$code, slot=$slot, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'slot'] = this.slot;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -66,6 +77,7 @@ class EquipSchema {
       return EquipSchema(
         code: mapValueOfType<String>(json, r'code')!,
         slot: EquipSchemaSlotEnum.fromJson(json[r'slot'])!,
+        quantity: mapValueOfType<int>(json, r'quantity') ?? 1,
       );
     }
     return null;

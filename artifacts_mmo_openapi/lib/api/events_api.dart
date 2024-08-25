@@ -33,7 +33,7 @@ class EventsApi {
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/events/';
+    final path = r'/events';
 
     // ignore: prefer_final_locals
     Object? postBody;

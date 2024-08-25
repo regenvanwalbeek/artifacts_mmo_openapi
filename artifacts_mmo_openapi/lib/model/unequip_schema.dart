@@ -14,26 +14,36 @@ class UnequipSchema {
   /// Returns a new [UnequipSchema] instance.
   UnequipSchema({
     required this.slot,
+    this.quantity = 1,
   });
 
   /// Item slot.
   UnequipSchemaSlotEnum slot;
 
+  /// Item quantity. Applicable to consumables only.
+  ///
+  /// Maximum value: 100
+  int quantity;
+
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is UnequipSchema && other.slot == slot;
+      identical(this, other) ||
+      other is UnequipSchema &&
+          other.slot == slot &&
+          other.quantity == quantity;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (slot.hashCode);
+      (slot.hashCode) + (quantity.hashCode);
 
   @override
-  String toString() => 'UnequipSchema[slot=$slot]';
+  String toString() => 'UnequipSchema[slot=$slot, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'slot'] = this.slot;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -59,6 +69,7 @@ class UnequipSchema {
 
       return UnequipSchema(
         slot: UnequipSchemaSlotEnum.fromJson(json[r'slot'])!,
+        quantity: mapValueOfType<int>(json, r'quantity') ?? 1,
       );
     }
     return null;

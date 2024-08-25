@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllMapsMapsGet**](MapsApi.md#getallmapsmapsget) | **GET** /maps/ | Get All Maps
+[**getAllMapsMapsGet**](MapsApi.md#getallmapsmapsget) | **GET** /maps | Get All Maps
 [**getMapMapsXYGet**](MapsApi.md#getmapmapsxyget) | **GET** /maps/{x}/{y} | Get Map
 
 

@@ -15,6 +15,7 @@ class GEItemSchema {
   GEItemSchema({
     required this.code,
     required this.stock,
+    required this.maxQuantity,
     this.sellPrice,
     this.buyPrice,
   });
@@ -24,6 +25,9 @@ class GEItemSchema {
 
   /// Item stock.
   int stock;
+
+  /// The number of items you can buy or sell at the same time.
+  int maxQuantity;
 
   /// The item's selling price.
   ///
@@ -49,6 +53,7 @@ class GEItemSchema {
       other is GEItemSchema &&
           other.code == code &&
           other.stock == stock &&
+          other.maxQuantity == maxQuantity &&
           other.sellPrice == sellPrice &&
           other.buyPrice == buyPrice;
 
@@ -57,17 +62,19 @@ class GEItemSchema {
       // ignore: unnecessary_parenthesis
       (code.hashCode) +
       (stock.hashCode) +
+      (maxQuantity.hashCode) +
       (sellPrice == null ? 0 : sellPrice!.hashCode) +
       (buyPrice == null ? 0 : buyPrice!.hashCode);
 
   @override
   String toString() =>
-      'GEItemSchema[code=$code, stock=$stock, sellPrice=$sellPrice, buyPrice=$buyPrice]';
+      'GEItemSchema[code=$code, stock=$stock, maxQuantity=$maxQuantity, sellPrice=$sellPrice, buyPrice=$buyPrice]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'stock'] = this.stock;
+    json[r'max_quantity'] = this.maxQuantity;
     if (this.sellPrice != null) {
       json[r'sell_price'] = this.sellPrice;
     } else {
@@ -104,6 +111,7 @@ class GEItemSchema {
       return GEItemSchema(
         code: mapValueOfType<String>(json, r'code')!,
         stock: mapValueOfType<int>(json, r'stock')!,
+        maxQuantity: mapValueOfType<int>(json, r'max_quantity')!,
         sellPrice: mapValueOfType<int>(json, r'sell_price'),
         buyPrice: mapValueOfType<int>(json, r'buy_price'),
       );
@@ -164,5 +172,6 @@ class GEItemSchema {
   static const requiredKeys = <String>{
     'code',
     'stock',
+    'max_quantity',
   };
 }

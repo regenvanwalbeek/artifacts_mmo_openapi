@@ -24,7 +24,7 @@ class GETransactionItemSchema {
   /// Item quantity.
   ///
   /// Minimum value: 1
-  /// Maximum value: 50
+  /// Maximum value: 100
   int quantity;
 
   /// Item price. Item price validation protects you if the price has changed since you last checked the buy/sale price of an item.

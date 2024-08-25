@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**generateTokenTokenPost**](TokenApi.md#generatetokentokenpost) | **POST** /token/ | Generate Token
+[**generateTokenTokenPost**](TokenApi.md#generatetokentokenpost) | **POST** /token | Generate Token
 
 
 # **generateTokenTokenPost**
