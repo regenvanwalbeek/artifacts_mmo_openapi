@@ -16,7 +16,7 @@ class TasksRewardFullSchema {
     required this.code,
     required this.minQuantity,
     required this.maxQuantity,
-    required this.odd,
+    required this.odds,
   });
 
   /// Item code.
@@ -28,8 +28,8 @@ class TasksRewardFullSchema {
   /// Maximum quantity of item.
   int maxQuantity;
 
-  /// Item odd.
-  num odd;
+  /// Item odds.
+  num odds;
 
   @override
   bool operator ==(Object other) =>
@@ -38,7 +38,7 @@ class TasksRewardFullSchema {
           other.code == code &&
           other.minQuantity == minQuantity &&
           other.maxQuantity == maxQuantity &&
-          other.odd == odd;
+          other.odds == odds;
 
   @override
   int get hashCode =>
@@ -46,18 +46,18 @@ class TasksRewardFullSchema {
       (code.hashCode) +
       (minQuantity.hashCode) +
       (maxQuantity.hashCode) +
-      (odd.hashCode);
+      (odds.hashCode);
 
   @override
   String toString() =>
-      'TasksRewardFullSchema[code=$code, minQuantity=$minQuantity, maxQuantity=$maxQuantity, odd=$odd]';
+      'TasksRewardFullSchema[code=$code, minQuantity=$minQuantity, maxQuantity=$maxQuantity, odds=$odds]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'min_quantity'] = this.minQuantity;
     json[r'max_quantity'] = this.maxQuantity;
-    json[r'odd'] = this.odd;
+    json[r'odds'] = this.odds;
     return json;
   }
 
@@ -85,7 +85,7 @@ class TasksRewardFullSchema {
         code: mapValueOfType<String>(json, r'code')!,
         minQuantity: mapValueOfType<int>(json, r'min_quantity')!,
         maxQuantity: mapValueOfType<int>(json, r'max_quantity')!,
-        odd: num.parse('${json[r'odd']}'),
+        odds: num.parse('${json[r'odds']}'),
       );
     }
     return null;
@@ -145,6 +145,6 @@ class TasksRewardFullSchema {
     'code',
     'min_quantity',
     'max_quantity',
-    'odd',
+    'odds',
   };
 }
