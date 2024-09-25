@@ -41,6 +41,7 @@ part 'api/monsters_api.dart';
 part 'api/my_account_api.dart';
 part 'api/my_characters_api.dart';
 part 'api/resources_api.dart';
+part 'api/tasks_api.dart';
 part 'api/token_api.dart';
 
 part 'model/achievement_schema.dart';
@@ -85,6 +86,8 @@ part 'model/data_page_map_schema.dart';
 part 'model/data_page_monster_schema.dart';
 part 'model/data_page_resource_schema.dart';
 part 'model/data_page_simple_item_schema.dart';
+part 'model/data_page_task_full_schema.dart';
+part 'model/data_page_tasks_reward_full_schema.dart';
 part 'model/delete_character_schema.dart';
 part 'model/delete_item_response_schema.dart';
 part 'model/delete_item_schema.dart';
@@ -135,15 +138,25 @@ part 'model/status_schema.dart';
 part 'model/task_cancelled_response_schema.dart';
 part 'model/task_cancelled_schema.dart';
 part 'model/task_data_schema.dart';
+part 'model/task_full_response_schema.dart';
+part 'model/task_full_schema.dart';
 part 'model/task_response_schema.dart';
 part 'model/task_reward_data_schema.dart';
 part 'model/task_reward_response_schema.dart';
 part 'model/task_reward_schema.dart';
 part 'model/task_schema.dart';
+part 'model/task_trade_data_schema.dart';
+part 'model/task_trade_response_schema.dart';
+part 'model/task_trade_schema.dart';
+part 'model/tasks_reward_data_schema.dart';
+part 'model/tasks_reward_full_response_schema.dart';
+part 'model/tasks_reward_full_schema.dart';
+part 'model/tasks_reward_response_schema.dart';
+part 'model/tasks_reward_schema.dart';
 part 'model/token_response_schema.dart';
 part 'model/unequip_schema.dart';
-part 'model/validation_error_loc_inner.dart';
 part 'model/validation_error.dart';
+part 'model/validation_error_loc_inner.dart';
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.

@@ -26,6 +26,7 @@ class EquipSchema {
 
   /// Item quantity. Applicable to consumables only.
   ///
+  /// Minimum value: 1
   /// Maximum value: 100
   int quantity;
 

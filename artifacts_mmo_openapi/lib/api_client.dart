@@ -309,6 +309,10 @@ class ApiClient {
           return DataPageResourceSchema.fromJson(value);
         case 'DataPageSimpleItemSchema':
           return DataPageSimpleItemSchema.fromJson(value);
+        case 'DataPageTaskFullSchema':
+          return DataPageTaskFullSchema.fromJson(value);
+        case 'DataPageTasksRewardFullSchema':
+          return DataPageTasksRewardFullSchema.fromJson(value);
         case 'DeleteCharacterSchema':
           return DeleteCharacterSchema.fromJson(value);
         case 'DeleteItemResponseSchema':
@@ -403,16 +407,30 @@ class ApiClient {
           return TaskCancelledSchema.fromJson(value);
         case 'TaskDataSchema':
           return TaskDataSchema.fromJson(value);
+        case 'TaskFullResponseSchema':
+          return TaskFullResponseSchema.fromJson(value);
+        case 'TaskFullSchema':
+          return TaskFullSchema.fromJson(value);
         case 'TaskResponseSchema':
           return TaskResponseSchema.fromJson(value);
-        case 'TaskRewardDataSchema':
-          return TaskRewardDataSchema.fromJson(value);
-        case 'TaskRewardResponseSchema':
-          return TaskRewardResponseSchema.fromJson(value);
-        case 'TaskRewardSchema':
-          return TaskRewardSchema.fromJson(value);
         case 'TaskSchema':
           return TaskSchema.fromJson(value);
+        case 'TaskTradeDataSchema':
+          return TaskTradeDataSchema.fromJson(value);
+        case 'TaskTradeResponseSchema':
+          return TaskTradeResponseSchema.fromJson(value);
+        case 'TaskTradeSchema':
+          return TaskTradeSchema.fromJson(value);
+        case 'TasksRewardDataSchema':
+          return TasksRewardDataSchema.fromJson(value);
+        case 'TasksRewardFullResponseSchema':
+          return TasksRewardFullResponseSchema.fromJson(value);
+        case 'TasksRewardFullSchema':
+          return TasksRewardFullSchema.fromJson(value);
+        case 'TasksRewardResponseSchema':
+          return TasksRewardResponseSchema.fromJson(value);
+        case 'TasksRewardSchema':
+          return TasksRewardSchema.fromJson(value);
         case 'TokenResponseSchema':
           return TokenResponseSchema.fromJson(value);
         case 'UnequipSchema':

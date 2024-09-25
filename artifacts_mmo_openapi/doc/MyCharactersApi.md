@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**actionRecyclingMyNameActionRecyclingPost**](MyCharactersApi.md#actionrecyclingmynameactionrecyclingpost) | **POST** /my/{name}/action/recycling | Action Recycling
 [**actionTaskCancelMyNameActionTaskCancelPost**](MyCharactersApi.md#actiontaskcancelmynameactiontaskcancelpost) | **POST** /my/{name}/action/task/cancel | Action Task Cancel
 [**actionTaskExchangeMyNameActionTaskExchangePost**](MyCharactersApi.md#actiontaskexchangemynameactiontaskexchangepost) | **POST** /my/{name}/action/task/exchange | Action Task Exchange
+[**actionTaskTradeMyNameActionTaskTradePost**](MyCharactersApi.md#actiontasktrademynameactiontasktradepost) | **POST** /my/{name}/action/task/trade | Action Task Trade
 [**actionUnequipItemMyNameActionUnequipPost**](MyCharactersApi.md#actionunequipitemmynameactionunequippost) | **POST** /my/{name}/action/unequip | Action Unequip Item
 [**actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost**](MyCharactersApi.md#actionwithdrawbankgoldmynameactionbankwithdrawgoldpost) | **POST** /my/{name}/action/bank/withdraw/gold | Action Withdraw Bank Gold
 [**actionWithdrawBankMyNameActionBankWithdrawPost**](MyCharactersApi.md#actionwithdrawbankmynameactionbankwithdrawpost) | **POST** /my/{name}/action/bank/withdraw | Action Withdraw Bank
@@ -131,7 +132,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionCompleteTaskMyNameActionTaskCompletePost**
-> TaskRewardResponseSchema actionCompleteTaskMyNameActionTaskCompletePost(name)
+> TasksRewardResponseSchema actionCompleteTaskMyNameActionTaskCompletePost(name)
 
 Action Complete Task
 
@@ -166,7 +167,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaskRewardResponseSchema**](TaskRewardResponseSchema.md)
+[**TasksRewardResponseSchema**](TasksRewardResponseSchema.md)
 
 ### Authorization
 
@@ -786,11 +787,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionTaskExchangeMyNameActionTaskExchangePost**
-> TaskRewardResponseSchema actionTaskExchangeMyNameActionTaskExchangePost(name)
+> TasksRewardResponseSchema actionTaskExchangeMyNameActionTaskExchangePost(name)
 
 Action Task Exchange
 
-Exchange 3 tasks coins for a random reward. Rewards are exclusive resources for crafting  items.
+Exchange 6 tasks coins for a random reward. Rewards are exclusive items or resources.
 
 ### Example
 ```dart
@@ -821,7 +822,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaskRewardResponseSchema**](TaskRewardResponseSchema.md)
+[**TasksRewardResponseSchema**](TasksRewardResponseSchema.md)
 
 ### Authorization
 
@@ -830,6 +831,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionTaskTradeMyNameActionTaskTradePost**
+> TaskTradeResponseSchema actionTaskTradeMyNameActionTaskTradePost(name, simpleItemSchema)
+
+Action Task Trade
+
+Trading items with a Tasks Master.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final simpleItemSchema = SimpleItemSchema(); // SimpleItemSchema | 
+
+try {
+    final result = api_instance.actionTaskTradeMyNameActionTaskTradePost(name, simpleItemSchema);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionTaskTradeMyNameActionTaskTradePost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **simpleItemSchema** | [**SimpleItemSchema**](SimpleItemSchema.md)|  | 
+
+### Return type
+
+[**TaskTradeResponseSchema**](TaskTradeResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

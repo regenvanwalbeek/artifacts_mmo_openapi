@@ -197,7 +197,7 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<TaskRewardResponseSchema?>
+  Future<TasksRewardResponseSchema?>
       actionCompleteTaskMyNameActionTaskCompletePost(
     String name,
   ) async {
@@ -215,8 +215,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TaskRewardResponseSchema',
-      ) as TaskRewardResponseSchema;
+        'TasksRewardResponseSchema',
+      ) as TasksRewardResponseSchema;
     }
     return null;
   }
@@ -1086,7 +1086,7 @@ class MyCharactersApi {
 
   /// Action Task Exchange
   ///
-  /// Exchange 3 tasks coins for a random reward. Rewards are exclusive resources for crafting  items.
+  /// Exchange 6 tasks coins for a random reward. Rewards are exclusive items or resources.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1122,13 +1122,13 @@ class MyCharactersApi {
 
   /// Action Task Exchange
   ///
-  /// Exchange 3 tasks coins for a random reward. Rewards are exclusive resources for crafting  items.
+  /// Exchange 6 tasks coins for a random reward. Rewards are exclusive items or resources.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<TaskRewardResponseSchema?>
+  Future<TasksRewardResponseSchema?>
       actionTaskExchangeMyNameActionTaskExchangePost(
     String name,
   ) async {
@@ -1146,8 +1146,81 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TaskRewardResponseSchema',
-      ) as TaskRewardResponseSchema;
+        'TasksRewardResponseSchema',
+      ) as TasksRewardResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Task Trade
+  ///
+  /// Trading items with a Tasks Master.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [SimpleItemSchema] simpleItemSchema (required):
+  Future<Response> actionTaskTradeMyNameActionTaskTradePostWithHttpInfo(
+    String name,
+    SimpleItemSchema simpleItemSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/task/trade'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = simpleItemSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Task Trade
+  ///
+  /// Trading items with a Tasks Master.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [SimpleItemSchema] simpleItemSchema (required):
+  Future<TaskTradeResponseSchema?> actionTaskTradeMyNameActionTaskTradePost(
+    String name,
+    SimpleItemSchema simpleItemSchema,
+  ) async {
+    final response = await actionTaskTradeMyNameActionTaskTradePostWithHttpInfo(
+      name,
+      simpleItemSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'TaskTradeResponseSchema',
+      ) as TaskTradeResponseSchema;
     }
     return null;
   }

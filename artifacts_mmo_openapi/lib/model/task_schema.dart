@@ -151,14 +151,12 @@ class TaskSchemaTypeEnum {
   String toJson() => value;
 
   static const monsters = TaskSchemaTypeEnum._(r'monsters');
-  static const resources = TaskSchemaTypeEnum._(r'resources');
-  static const crafts = TaskSchemaTypeEnum._(r'crafts');
+  static const items = TaskSchemaTypeEnum._(r'items');
 
   /// List of all possible values in this [enum][TaskSchemaTypeEnum].
   static const values = <TaskSchemaTypeEnum>[
     monsters,
-    resources,
-    crafts,
+    items,
   ];
 
   static TaskSchemaTypeEnum? fromJson(dynamic value) =>
@@ -204,10 +202,8 @@ class TaskSchemaTypeEnumTypeTransformer {
       switch (data) {
         case r'monsters':
           return TaskSchemaTypeEnum.monsters;
-        case r'resources':
-          return TaskSchemaTypeEnum.resources;
-        case r'crafts':
-          return TaskSchemaTypeEnum.crafts;
+        case r'items':
+          return TaskSchemaTypeEnum.items;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

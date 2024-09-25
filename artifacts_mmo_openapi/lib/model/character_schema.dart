@@ -270,12 +270,16 @@ class CharacterSchema {
   String consumable1Slot;
 
   /// Consumable 1 quantity.
+  ///
+  /// Minimum value: 0
   int consumable1SlotQuantity;
 
   /// Consumable 2 slot.
   String consumable2Slot;
 
   /// Consumable 2 quantity.
+  ///
+  /// Minimum value: 0
   int consumable2SlotQuantity;
 
   /// Task in progress.
