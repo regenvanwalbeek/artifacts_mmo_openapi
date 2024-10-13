@@ -19,6 +19,7 @@ class TaskFullSchema {
     required this.minQuantity,
     required this.maxQuantity,
     required this.skill,
+    required this.rewards,
   });
 
   /// Task objective.
@@ -38,6 +39,8 @@ class TaskFullSchema {
 
   String? skill;
 
+  TaskRewardsSchema rewards;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -47,7 +50,8 @@ class TaskFullSchema {
           other.type == type &&
           other.minQuantity == minQuantity &&
           other.maxQuantity == maxQuantity &&
-          other.skill == skill;
+          other.skill == skill &&
+          other.rewards == rewards;
 
   @override
   int get hashCode =>
@@ -57,11 +61,12 @@ class TaskFullSchema {
       (type.hashCode) +
       (minQuantity.hashCode) +
       (maxQuantity.hashCode) +
-      (skill == null ? 0 : skill!.hashCode);
+      (skill == null ? 0 : skill!.hashCode) +
+      (rewards.hashCode);
 
   @override
   String toString() =>
-      'TaskFullSchema[code=$code, level=$level, type=$type, minQuantity=$minQuantity, maxQuantity=$maxQuantity, skill=$skill]';
+      'TaskFullSchema[code=$code, level=$level, type=$type, minQuantity=$minQuantity, maxQuantity=$maxQuantity, skill=$skill, rewards=$rewards]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -75,6 +80,7 @@ class TaskFullSchema {
     } else {
       json[r'skill'] = null;
     }
+    json[r'rewards'] = this.rewards;
     return json;
   }
 
@@ -105,6 +111,7 @@ class TaskFullSchema {
         minQuantity: mapValueOfType<int>(json, r'min_quantity')!,
         maxQuantity: mapValueOfType<int>(json, r'max_quantity')!,
         skill: mapValueOfType<String>(json, r'skill'),
+        rewards: TaskRewardsSchema.fromJson(json[r'rewards'])!,
       );
     }
     return null;
@@ -167,6 +174,7 @@ class TaskFullSchema {
     'min_quantity',
     'max_quantity',
     'skill',
+    'rewards',
   };
 }
 

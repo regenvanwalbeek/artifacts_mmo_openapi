@@ -144,6 +144,7 @@ part 'model/task_response_schema.dart';
 part 'model/task_reward_data_schema.dart';
 part 'model/task_reward_response_schema.dart';
 part 'model/task_reward_schema.dart';
+part 'model/task_rewards_schema.dart';
 part 'model/task_schema.dart';
 part 'model/task_trade_data_schema.dart';
 part 'model/task_trade_response_schema.dart';
@@ -155,8 +156,8 @@ part 'model/tasks_reward_response_schema.dart';
 part 'model/tasks_reward_schema.dart';
 part 'model/token_response_schema.dart';
 part 'model/unequip_schema.dart';
-part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
+part 'model/validation_error.dart';
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.

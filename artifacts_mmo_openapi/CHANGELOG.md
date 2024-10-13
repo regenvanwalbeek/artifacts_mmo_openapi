@@ -1,3 +1,7 @@
+## 2.3.0
+
+- Consume Halloween update
+
 ## 2.2.0
 
 - Consume `odds` schema change

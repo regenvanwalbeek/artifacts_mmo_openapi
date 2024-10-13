@@ -413,6 +413,8 @@ class ApiClient {
           return TaskFullSchema.fromJson(value);
         case 'TaskResponseSchema':
           return TaskResponseSchema.fromJson(value);
+        case 'TaskRewardsSchema':
+          return TaskRewardsSchema.fromJson(value);
         case 'TaskSchema':
           return TaskSchema.fromJson(value);
         case 'TaskTradeDataSchema':

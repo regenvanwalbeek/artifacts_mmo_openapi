@@ -107,6 +107,7 @@ doc/TaskDataSchema.md
 doc/TaskFullResponseSchema.md
 doc/TaskFullSchema.md
 doc/TaskResponseSchema.md
+doc/TaskRewardsSchema.md
 doc/TaskSchema.md
 doc/TaskTradeDataSchema.md
 doc/TaskTradeResponseSchema.md
@@ -239,6 +240,7 @@ lib/model/task_data_schema.dart
 lib/model/task_full_response_schema.dart
 lib/model/task_full_schema.dart
 lib/model/task_response_schema.dart
+lib/model/task_rewards_schema.dart
 lib/model/task_schema.dart
 lib/model/task_trade_data_schema.dart
 lib/model/task_trade_response_schema.dart

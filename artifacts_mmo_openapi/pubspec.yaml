@@ -3,7 +3,7 @@
 #
 
 name: 'artifacts_mmo_openapi'
-version: '2.2.0'
+version: '2.3.0'
 description: 'Generated client for ArtifactsMMO'
 homepage: 'https://github.com/regenvanwalbeek/artifacts_mmo_openapi'
 environment:
