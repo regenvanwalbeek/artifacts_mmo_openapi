@@ -28,26 +28,27 @@ class InventorySlot {
   int quantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is InventorySlot &&
-    other.slot == slot &&
-    other.code == code &&
-    other.quantity == quantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is InventorySlot &&
+          other.slot == slot &&
+          other.code == code &&
+          other.quantity == quantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (slot.hashCode) +
-    (code.hashCode) +
-    (quantity.hashCode);
+      // ignore: unnecessary_parenthesis
+      (slot.hashCode) + (code.hashCode) + (quantity.hashCode);
 
   @override
-  String toString() => 'InventorySlot[slot=$slot, code=$code, quantity=$quantity]';
+  String toString() =>
+      'InventorySlot[slot=$slot, code=$code, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'slot'] = this.slot;
-      json[r'code'] = this.code;
-      json[r'quantity'] = this.quantity;
+    json[r'slot'] = this.slot;
+    json[r'code'] = this.code;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -63,8 +64,10 @@ class InventorySlot {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "InventorySlot[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "InventorySlot[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "InventorySlot[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "InventorySlot[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -78,7 +81,10 @@ class InventorySlot {
     return null;
   }
 
-  static List<InventorySlot> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<InventorySlot> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <InventorySlot>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,13 +112,19 @@ class InventorySlot {
   }
 
   // maps a json object with a list of InventorySlot-objects as value to a dart map
-  static Map<String, List<InventorySlot>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<InventorySlot>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<InventorySlot>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = InventorySlot.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = InventorySlot.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -125,4 +137,3 @@ class InventorySlot {
     'quantity',
   };
 }
-

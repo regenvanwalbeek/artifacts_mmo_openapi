@@ -27,7 +27,7 @@ class AchievementSchema {
   /// Name of the achievement.
   String name;
 
-  /// Code of the achievement. 
+  /// Code of the achievement.
   String code;
 
   /// Description of the achievement.
@@ -50,47 +50,50 @@ class AchievementSchema {
   DateTime? completedAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AchievementSchema &&
-    other.name == name &&
-    other.code == code &&
-    other.description == description &&
-    other.points == points &&
-    other.type == type &&
-    other.target == target &&
-    other.total == total &&
-    other.current == current &&
-    other.completedAt == completedAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AchievementSchema &&
+          other.name == name &&
+          other.code == code &&
+          other.description == description &&
+          other.points == points &&
+          other.type == type &&
+          other.target == target &&
+          other.total == total &&
+          other.current == current &&
+          other.completedAt == completedAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (code.hashCode) +
-    (description.hashCode) +
-    (points.hashCode) +
-    (type.hashCode) +
-    (target == null ? 0 : target!.hashCode) +
-    (total.hashCode) +
-    (current.hashCode) +
-    (completedAt == null ? 0 : completedAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) +
+      (code.hashCode) +
+      (description.hashCode) +
+      (points.hashCode) +
+      (type.hashCode) +
+      (target == null ? 0 : target!.hashCode) +
+      (total.hashCode) +
+      (current.hashCode) +
+      (completedAt == null ? 0 : completedAt!.hashCode);
 
   @override
-  String toString() => 'AchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, current=$current, completedAt=$completedAt]';
+  String toString() =>
+      'AchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, current=$current, completedAt=$completedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'name'] = this.name;
-      json[r'code'] = this.code;
-      json[r'description'] = this.description;
-      json[r'points'] = this.points;
-      json[r'type'] = this.type;
+    json[r'name'] = this.name;
+    json[r'code'] = this.code;
+    json[r'description'] = this.description;
+    json[r'points'] = this.points;
+    json[r'type'] = this.type;
     if (this.target != null) {
       json[r'target'] = this.target;
     } else {
       json[r'target'] = null;
     }
-      json[r'total'] = this.total;
-      json[r'current'] = this.current;
+    json[r'total'] = this.total;
+    json[r'current'] = this.current;
     if (this.completedAt != null) {
       json[r'completed_at'] = this.completedAt!.toUtc().toIso8601String();
     } else {
@@ -111,8 +114,10 @@ class AchievementSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AchievementSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AchievementSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AchievementSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AchievementSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -132,7 +137,10 @@ class AchievementSchema {
     return null;
   }
 
-  static List<AchievementSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AchievementSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AchievementSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -160,13 +168,19 @@ class AchievementSchema {
   }
 
   // maps a json object with a list of AchievementSchema-objects as value to a dart map
-  static Map<String, List<AchievementSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AchievementSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AchievementSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AchievementSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AchievementSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -220,9 +234,13 @@ class AchievementSchemaTypeEnum {
     other,
   ];
 
-  static AchievementSchemaTypeEnum? fromJson(dynamic value) => AchievementSchemaTypeEnumTypeTransformer().decode(value);
+  static AchievementSchemaTypeEnum? fromJson(dynamic value) =>
+      AchievementSchemaTypeEnumTypeTransformer().decode(value);
 
-  static List<AchievementSchemaTypeEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AchievementSchemaTypeEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AchievementSchemaTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -239,7 +257,8 @@ class AchievementSchemaTypeEnum {
 /// Transformation class that can [encode] an instance of [AchievementSchemaTypeEnum] to String,
 /// and [decode] dynamic data back to [AchievementSchemaTypeEnum].
 class AchievementSchemaTypeEnumTypeTransformer {
-  factory AchievementSchemaTypeEnumTypeTransformer() => _instance ??= const AchievementSchemaTypeEnumTypeTransformer._();
+  factory AchievementSchemaTypeEnumTypeTransformer() =>
+      _instance ??= const AchievementSchemaTypeEnumTypeTransformer._();
 
   const AchievementSchemaTypeEnumTypeTransformer._();
 
@@ -256,14 +275,22 @@ class AchievementSchemaTypeEnumTypeTransformer {
   AchievementSchemaTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'combat_kill': return AchievementSchemaTypeEnum.combatKill;
-        case r'combat_drop': return AchievementSchemaTypeEnum.combatDrop;
-        case r'combat_level': return AchievementSchemaTypeEnum.combatLevel;
-        case r'gathering': return AchievementSchemaTypeEnum.gathering;
-        case r'crafting': return AchievementSchemaTypeEnum.crafting;
-        case r'recycling': return AchievementSchemaTypeEnum.recycling;
-        case r'task': return AchievementSchemaTypeEnum.task;
-        case r'other': return AchievementSchemaTypeEnum.other;
+        case r'combat_kill':
+          return AchievementSchemaTypeEnum.combatKill;
+        case r'combat_drop':
+          return AchievementSchemaTypeEnum.combatDrop;
+        case r'combat_level':
+          return AchievementSchemaTypeEnum.combatLevel;
+        case r'gathering':
+          return AchievementSchemaTypeEnum.gathering;
+        case r'crafting':
+          return AchievementSchemaTypeEnum.crafting;
+        case r'recycling':
+          return AchievementSchemaTypeEnum.recycling;
+        case r'task':
+          return AchievementSchemaTypeEnum.task;
+        case r'other':
+          return AchievementSchemaTypeEnum.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -276,5 +303,3 @@ class AchievementSchemaTypeEnumTypeTransformer {
   /// Singleton [AchievementSchemaTypeEnumTypeTransformer] instance.
   static AchievementSchemaTypeEnumTypeTransformer? _instance;
 }
-
-

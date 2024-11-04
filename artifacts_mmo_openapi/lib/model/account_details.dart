@@ -69,44 +69,47 @@ class AccountDetails {
   String? banReason;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AccountDetails &&
-    other.username == username &&
-    other.email == email &&
-    other.subscribed == subscribed &&
-    other.subscribedUntil == subscribedUntil &&
-    other.founder == founder &&
-    _deepEquality.equals(other.badges, badges) &&
-    other.gems == gems &&
-    other.banned == banned &&
-    other.banReason == banReason;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AccountDetails &&
+          other.username == username &&
+          other.email == email &&
+          other.subscribed == subscribed &&
+          other.subscribedUntil == subscribedUntil &&
+          other.founder == founder &&
+          _deepEquality.equals(other.badges, badges) &&
+          other.gems == gems &&
+          other.banned == banned &&
+          other.banReason == banReason;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (username.hashCode) +
-    (email.hashCode) +
-    (subscribed.hashCode) +
-    (subscribedUntil == null ? 0 : subscribedUntil!.hashCode) +
-    (founder.hashCode) +
-    (badges == null ? 0 : badges!.hashCode) +
-    (gems == null ? 0 : gems!.hashCode) +
-    (banned.hashCode) +
-    (banReason == null ? 0 : banReason!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (username.hashCode) +
+      (email.hashCode) +
+      (subscribed.hashCode) +
+      (subscribedUntil == null ? 0 : subscribedUntil!.hashCode) +
+      (founder.hashCode) +
+      (badges == null ? 0 : badges!.hashCode) +
+      (gems == null ? 0 : gems!.hashCode) +
+      (banned.hashCode) +
+      (banReason == null ? 0 : banReason!.hashCode);
 
   @override
-  String toString() => 'AccountDetails[username=$username, email=$email, subscribed=$subscribed, subscribedUntil=$subscribedUntil, founder=$founder, badges=$badges, gems=$gems, banned=$banned, banReason=$banReason]';
+  String toString() =>
+      'AccountDetails[username=$username, email=$email, subscribed=$subscribed, subscribedUntil=$subscribedUntil, founder=$founder, badges=$badges, gems=$gems, banned=$banned, banReason=$banReason]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'username'] = this.username;
-      json[r'email'] = this.email;
-      json[r'subscribed'] = this.subscribed;
+    json[r'username'] = this.username;
+    json[r'email'] = this.email;
+    json[r'subscribed'] = this.subscribed;
     if (this.subscribedUntil != null) {
       json[r'subscribed_until'] = this.subscribedUntil;
     } else {
       json[r'subscribed_until'] = null;
     }
-      json[r'founder'] = this.founder;
+    json[r'founder'] = this.founder;
     if (this.badges != null) {
       json[r'badges'] = this.badges;
     } else {
@@ -117,7 +120,7 @@ class AccountDetails {
     } else {
       json[r'gems'] = null;
     }
-      json[r'banned'] = this.banned;
+    json[r'banned'] = this.banned;
     if (this.banReason != null) {
       json[r'ban_reason'] = this.banReason;
     } else {
@@ -138,8 +141,10 @@ class AccountDetails {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AccountDetails[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AccountDetails[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AccountDetails[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AccountDetails[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -159,7 +164,10 @@ class AccountDetails {
     return null;
   }
 
-  static List<AccountDetails> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AccountDetails> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AccountDetails>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -187,13 +195,19 @@ class AccountDetails {
   }
 
   // maps a json object with a list of AccountDetails-objects as value to a dart map
-  static Map<String, List<AccountDetails>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AccountDetails>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AccountDetails>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AccountDetails.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AccountDetails.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -208,4 +222,3 @@ class AccountDetails {
     'banned',
   };
 }
-

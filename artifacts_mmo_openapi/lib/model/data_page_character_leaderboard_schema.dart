@@ -35,28 +35,31 @@ class DataPageCharacterLeaderboardSchema {
   int? pages;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is DataPageCharacterLeaderboardSchema &&
-    _deepEquality.equals(other.data, data) &&
-    other.total == total &&
-    other.page == page &&
-    other.size == size &&
-    other.pages == pages;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is DataPageCharacterLeaderboardSchema &&
+          _deepEquality.equals(other.data, data) &&
+          other.total == total &&
+          other.page == page &&
+          other.size == size &&
+          other.pages == pages;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (data.hashCode) +
-    (total == null ? 0 : total!.hashCode) +
-    (page == null ? 0 : page!.hashCode) +
-    (size == null ? 0 : size!.hashCode) +
-    (pages == null ? 0 : pages!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (data.hashCode) +
+      (total == null ? 0 : total!.hashCode) +
+      (page == null ? 0 : page!.hashCode) +
+      (size == null ? 0 : size!.hashCode) +
+      (pages == null ? 0 : pages!.hashCode);
 
   @override
-  String toString() => 'DataPageCharacterLeaderboardSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+  String toString() =>
+      'DataPageCharacterLeaderboardSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'data'] = this.data;
+    json[r'data'] = this.data;
     if (this.total != null) {
       json[r'total'] = this.total;
     } else {
@@ -92,8 +95,10 @@ class DataPageCharacterLeaderboardSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "DataPageCharacterLeaderboardSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "DataPageCharacterLeaderboardSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "DataPageCharacterLeaderboardSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "DataPageCharacterLeaderboardSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -109,7 +114,10 @@ class DataPageCharacterLeaderboardSchema {
     return null;
   }
 
-  static List<DataPageCharacterLeaderboardSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<DataPageCharacterLeaderboardSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <DataPageCharacterLeaderboardSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -122,7 +130,8 @@ class DataPageCharacterLeaderboardSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageCharacterLeaderboardSchema> mapFromJson(dynamic json) {
+  static Map<String, DataPageCharacterLeaderboardSchema> mapFromJson(
+      dynamic json) {
     final map = <String, DataPageCharacterLeaderboardSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -137,13 +146,19 @@ class DataPageCharacterLeaderboardSchema {
   }
 
   // maps a json object with a list of DataPageCharacterLeaderboardSchema-objects as value to a dart map
-  static Map<String, List<DataPageCharacterLeaderboardSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<DataPageCharacterLeaderboardSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<DataPageCharacterLeaderboardSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageCharacterLeaderboardSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = DataPageCharacterLeaderboardSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -157,4 +172,3 @@ class DataPageCharacterLeaderboardSchema {
     'size',
   };
 }
-

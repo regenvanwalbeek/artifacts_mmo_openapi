@@ -53,45 +53,48 @@ class StatusSchema {
   String nextWipe;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is StatusSchema &&
-    other.status == status &&
-    other.version == version &&
-    other.maxLevel == maxLevel &&
-    other.charactersOnline == charactersOnline &&
-    other.serverTime == serverTime &&
-    _deepEquality.equals(other.announcements, announcements) &&
-    other.lastWipe == lastWipe &&
-    other.nextWipe == nextWipe;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is StatusSchema &&
+          other.status == status &&
+          other.version == version &&
+          other.maxLevel == maxLevel &&
+          other.charactersOnline == charactersOnline &&
+          other.serverTime == serverTime &&
+          _deepEquality.equals(other.announcements, announcements) &&
+          other.lastWipe == lastWipe &&
+          other.nextWipe == nextWipe;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (status.hashCode) +
-    (version == null ? 0 : version!.hashCode) +
-    (maxLevel.hashCode) +
-    (charactersOnline.hashCode) +
-    (serverTime.hashCode) +
-    (announcements.hashCode) +
-    (lastWipe.hashCode) +
-    (nextWipe.hashCode);
+      // ignore: unnecessary_parenthesis
+      (status.hashCode) +
+      (version == null ? 0 : version!.hashCode) +
+      (maxLevel.hashCode) +
+      (charactersOnline.hashCode) +
+      (serverTime.hashCode) +
+      (announcements.hashCode) +
+      (lastWipe.hashCode) +
+      (nextWipe.hashCode);
 
   @override
-  String toString() => 'StatusSchema[status=$status, version=$version, maxLevel=$maxLevel, charactersOnline=$charactersOnline, serverTime=$serverTime, announcements=$announcements, lastWipe=$lastWipe, nextWipe=$nextWipe]';
+  String toString() =>
+      'StatusSchema[status=$status, version=$version, maxLevel=$maxLevel, charactersOnline=$charactersOnline, serverTime=$serverTime, announcements=$announcements, lastWipe=$lastWipe, nextWipe=$nextWipe]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'status'] = this.status;
+    json[r'status'] = this.status;
     if (this.version != null) {
       json[r'version'] = this.version;
     } else {
       json[r'version'] = null;
     }
-      json[r'max_level'] = this.maxLevel;
-      json[r'characters_online'] = this.charactersOnline;
-      json[r'server_time'] = this.serverTime.toUtc().toIso8601String();
-      json[r'announcements'] = this.announcements;
-      json[r'last_wipe'] = this.lastWipe;
-      json[r'next_wipe'] = this.nextWipe;
+    json[r'max_level'] = this.maxLevel;
+    json[r'characters_online'] = this.charactersOnline;
+    json[r'server_time'] = this.serverTime.toUtc().toIso8601String();
+    json[r'announcements'] = this.announcements;
+    json[r'last_wipe'] = this.lastWipe;
+    json[r'next_wipe'] = this.nextWipe;
     return json;
   }
 
@@ -107,8 +110,10 @@ class StatusSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "StatusSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "StatusSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "StatusSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "StatusSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -127,7 +132,10 @@ class StatusSchema {
     return null;
   }
 
-  static List<StatusSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<StatusSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <StatusSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -155,13 +163,19 @@ class StatusSchema {
   }
 
   // maps a json object with a list of StatusSchema-objects as value to a dart map
-  static Map<String, List<StatusSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<StatusSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<StatusSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = StatusSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = StatusSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -178,4 +192,3 @@ class StatusSchema {
     'next_wipe',
   };
 }
-

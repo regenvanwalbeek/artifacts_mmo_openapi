@@ -48,41 +48,44 @@ class FightSchema {
   FightSchemaResultEnum result;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is FightSchema &&
-    other.xp == xp &&
-    other.gold == gold &&
-    _deepEquality.equals(other.drops, drops) &&
-    other.turns == turns &&
-    other.monsterBlockedHits == monsterBlockedHits &&
-    other.playerBlockedHits == playerBlockedHits &&
-    _deepEquality.equals(other.logs, logs) &&
-    other.result == result;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FightSchema &&
+          other.xp == xp &&
+          other.gold == gold &&
+          _deepEquality.equals(other.drops, drops) &&
+          other.turns == turns &&
+          other.monsterBlockedHits == monsterBlockedHits &&
+          other.playerBlockedHits == playerBlockedHits &&
+          _deepEquality.equals(other.logs, logs) &&
+          other.result == result;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (xp.hashCode) +
-    (gold.hashCode) +
-    (drops.hashCode) +
-    (turns.hashCode) +
-    (monsterBlockedHits.hashCode) +
-    (playerBlockedHits.hashCode) +
-    (logs.hashCode) +
-    (result.hashCode);
+      // ignore: unnecessary_parenthesis
+      (xp.hashCode) +
+      (gold.hashCode) +
+      (drops.hashCode) +
+      (turns.hashCode) +
+      (monsterBlockedHits.hashCode) +
+      (playerBlockedHits.hashCode) +
+      (logs.hashCode) +
+      (result.hashCode);
 
   @override
-  String toString() => 'FightSchema[xp=$xp, gold=$gold, drops=$drops, turns=$turns, monsterBlockedHits=$monsterBlockedHits, playerBlockedHits=$playerBlockedHits, logs=$logs, result=$result]';
+  String toString() =>
+      'FightSchema[xp=$xp, gold=$gold, drops=$drops, turns=$turns, monsterBlockedHits=$monsterBlockedHits, playerBlockedHits=$playerBlockedHits, logs=$logs, result=$result]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'xp'] = this.xp;
-      json[r'gold'] = this.gold;
-      json[r'drops'] = this.drops;
-      json[r'turns'] = this.turns;
-      json[r'monster_blocked_hits'] = this.monsterBlockedHits;
-      json[r'player_blocked_hits'] = this.playerBlockedHits;
-      json[r'logs'] = this.logs;
-      json[r'result'] = this.result;
+    json[r'xp'] = this.xp;
+    json[r'gold'] = this.gold;
+    json[r'drops'] = this.drops;
+    json[r'turns'] = this.turns;
+    json[r'monster_blocked_hits'] = this.monsterBlockedHits;
+    json[r'player_blocked_hits'] = this.playerBlockedHits;
+    json[r'logs'] = this.logs;
+    json[r'result'] = this.result;
     return json;
   }
 
@@ -98,8 +101,10 @@ class FightSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "FightSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "FightSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "FightSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "FightSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -109,8 +114,10 @@ class FightSchema {
         gold: mapValueOfType<int>(json, r'gold')!,
         drops: DropSchema.listFromJson(json[r'drops']),
         turns: mapValueOfType<int>(json, r'turns')!,
-        monsterBlockedHits: BlockedHitsSchema.fromJson(json[r'monster_blocked_hits'])!,
-        playerBlockedHits: BlockedHitsSchema.fromJson(json[r'player_blocked_hits'])!,
+        monsterBlockedHits:
+            BlockedHitsSchema.fromJson(json[r'monster_blocked_hits'])!,
+        playerBlockedHits:
+            BlockedHitsSchema.fromJson(json[r'player_blocked_hits'])!,
         logs: json[r'logs'] is Iterable
             ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
@@ -120,7 +127,10 @@ class FightSchema {
     return null;
   }
 
-  static List<FightSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FightSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FightSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -148,13 +158,19 @@ class FightSchema {
   }
 
   // maps a json object with a list of FightSchema-objects as value to a dart map
-  static Map<String, List<FightSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<FightSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<FightSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = FightSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = FightSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -195,9 +211,13 @@ class FightSchemaResultEnum {
     lose,
   ];
 
-  static FightSchemaResultEnum? fromJson(dynamic value) => FightSchemaResultEnumTypeTransformer().decode(value);
+  static FightSchemaResultEnum? fromJson(dynamic value) =>
+      FightSchemaResultEnumTypeTransformer().decode(value);
 
-  static List<FightSchemaResultEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FightSchemaResultEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FightSchemaResultEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -214,7 +234,8 @@ class FightSchemaResultEnum {
 /// Transformation class that can [encode] an instance of [FightSchemaResultEnum] to String,
 /// and [decode] dynamic data back to [FightSchemaResultEnum].
 class FightSchemaResultEnumTypeTransformer {
-  factory FightSchemaResultEnumTypeTransformer() => _instance ??= const FightSchemaResultEnumTypeTransformer._();
+  factory FightSchemaResultEnumTypeTransformer() =>
+      _instance ??= const FightSchemaResultEnumTypeTransformer._();
 
   const FightSchemaResultEnumTypeTransformer._();
 
@@ -231,8 +252,10 @@ class FightSchemaResultEnumTypeTransformer {
   FightSchemaResultEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'win': return FightSchemaResultEnum.win;
-        case r'lose': return FightSchemaResultEnum.lose;
+        case r'win':
+          return FightSchemaResultEnum.win;
+        case r'lose':
+          return FightSchemaResultEnum.lose;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -245,5 +268,3 @@ class FightSchemaResultEnumTypeTransformer {
   /// Singleton [FightSchemaResultEnumTypeTransformer] instance.
   static FightSchemaResultEnumTypeTransformer? _instance;
 }
-
-

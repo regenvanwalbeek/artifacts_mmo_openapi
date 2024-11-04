@@ -43,42 +43,45 @@ class TaskFullSchema {
   TaskRewardsSchema rewards;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TaskFullSchema &&
-    other.code == code &&
-    other.level == level &&
-    other.type == type &&
-    other.minQuantity == minQuantity &&
-    other.maxQuantity == maxQuantity &&
-    other.skill == skill &&
-    other.rewards == rewards;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TaskFullSchema &&
+          other.code == code &&
+          other.level == level &&
+          other.type == type &&
+          other.minQuantity == minQuantity &&
+          other.maxQuantity == maxQuantity &&
+          other.skill == skill &&
+          other.rewards == rewards;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code.hashCode) +
-    (level.hashCode) +
-    (type.hashCode) +
-    (minQuantity.hashCode) +
-    (maxQuantity.hashCode) +
-    (skill == null ? 0 : skill!.hashCode) +
-    (rewards.hashCode);
+      // ignore: unnecessary_parenthesis
+      (code.hashCode) +
+      (level.hashCode) +
+      (type.hashCode) +
+      (minQuantity.hashCode) +
+      (maxQuantity.hashCode) +
+      (skill == null ? 0 : skill!.hashCode) +
+      (rewards.hashCode);
 
   @override
-  String toString() => 'TaskFullSchema[code=$code, level=$level, type=$type, minQuantity=$minQuantity, maxQuantity=$maxQuantity, skill=$skill, rewards=$rewards]';
+  String toString() =>
+      'TaskFullSchema[code=$code, level=$level, type=$type, minQuantity=$minQuantity, maxQuantity=$maxQuantity, skill=$skill, rewards=$rewards]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'code'] = this.code;
-      json[r'level'] = this.level;
-      json[r'type'] = this.type;
-      json[r'min_quantity'] = this.minQuantity;
-      json[r'max_quantity'] = this.maxQuantity;
+    json[r'code'] = this.code;
+    json[r'level'] = this.level;
+    json[r'type'] = this.type;
+    json[r'min_quantity'] = this.minQuantity;
+    json[r'max_quantity'] = this.maxQuantity;
     if (this.skill != null) {
       json[r'skill'] = this.skill;
     } else {
       json[r'skill'] = null;
     }
-      json[r'rewards'] = this.rewards;
+    json[r'rewards'] = this.rewards;
     return json;
   }
 
@@ -94,8 +97,10 @@ class TaskFullSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TaskFullSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TaskFullSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TaskFullSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TaskFullSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -113,7 +118,10 @@ class TaskFullSchema {
     return null;
   }
 
-  static List<TaskFullSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TaskFullSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TaskFullSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -141,13 +149,19 @@ class TaskFullSchema {
   }
 
   // maps a json object with a list of TaskFullSchema-objects as value to a dart map
-  static Map<String, List<TaskFullSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TaskFullSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TaskFullSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskFullSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TaskFullSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -187,9 +201,13 @@ class TaskFullSchemaTypeEnum {
     items,
   ];
 
-  static TaskFullSchemaTypeEnum? fromJson(dynamic value) => TaskFullSchemaTypeEnumTypeTransformer().decode(value);
+  static TaskFullSchemaTypeEnum? fromJson(dynamic value) =>
+      TaskFullSchemaTypeEnumTypeTransformer().decode(value);
 
-  static List<TaskFullSchemaTypeEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TaskFullSchemaTypeEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TaskFullSchemaTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -206,7 +224,8 @@ class TaskFullSchemaTypeEnum {
 /// Transformation class that can [encode] an instance of [TaskFullSchemaTypeEnum] to String,
 /// and [decode] dynamic data back to [TaskFullSchemaTypeEnum].
 class TaskFullSchemaTypeEnumTypeTransformer {
-  factory TaskFullSchemaTypeEnumTypeTransformer() => _instance ??= const TaskFullSchemaTypeEnumTypeTransformer._();
+  factory TaskFullSchemaTypeEnumTypeTransformer() =>
+      _instance ??= const TaskFullSchemaTypeEnumTypeTransformer._();
 
   const TaskFullSchemaTypeEnumTypeTransformer._();
 
@@ -223,8 +242,10 @@ class TaskFullSchemaTypeEnumTypeTransformer {
   TaskFullSchemaTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'monsters': return TaskFullSchemaTypeEnum.monsters;
-        case r'items': return TaskFullSchemaTypeEnum.items;
+        case r'monsters':
+          return TaskFullSchemaTypeEnum.monsters;
+        case r'items':
+          return TaskFullSchemaTypeEnum.items;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -237,5 +258,3 @@ class TaskFullSchemaTypeEnumTypeTransformer {
   /// Singleton [TaskFullSchemaTypeEnumTypeTransformer] instance.
   static TaskFullSchemaTypeEnumTypeTransformer? _instance;
 }
-
-

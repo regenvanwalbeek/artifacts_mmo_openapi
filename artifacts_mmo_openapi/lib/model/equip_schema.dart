@@ -31,26 +31,27 @@ class EquipSchema {
   int quantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EquipSchema &&
-    other.slot == slot &&
-    other.code == code &&
-    other.quantity == quantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EquipSchema &&
+          other.slot == slot &&
+          other.code == code &&
+          other.quantity == quantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (slot.hashCode) +
-    (code.hashCode) +
-    (quantity.hashCode);
+      // ignore: unnecessary_parenthesis
+      (slot.hashCode) + (code.hashCode) + (quantity.hashCode);
 
   @override
-  String toString() => 'EquipSchema[slot=$slot, code=$code, quantity=$quantity]';
+  String toString() =>
+      'EquipSchema[slot=$slot, code=$code, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'slot'] = this.slot;
-      json[r'code'] = this.code;
-      json[r'quantity'] = this.quantity;
+    json[r'slot'] = this.slot;
+    json[r'code'] = this.code;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -66,8 +67,10 @@ class EquipSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EquipSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EquipSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EquipSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EquipSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -81,7 +84,10 @@ class EquipSchema {
     return null;
   }
 
-  static List<EquipSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EquipSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EquipSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -109,13 +115,19 @@ class EquipSchema {
   }
 
   // maps a json object with a list of EquipSchema-objects as value to a dart map
-  static Map<String, List<EquipSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EquipSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EquipSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EquipSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EquipSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -174,9 +186,13 @@ class EquipSchemaSlotEnum {
     consumable2,
   ];
 
-  static EquipSchemaSlotEnum? fromJson(dynamic value) => EquipSchemaSlotEnumTypeTransformer().decode(value);
+  static EquipSchemaSlotEnum? fromJson(dynamic value) =>
+      EquipSchemaSlotEnumTypeTransformer().decode(value);
 
-  static List<EquipSchemaSlotEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EquipSchemaSlotEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EquipSchemaSlotEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -193,7 +209,8 @@ class EquipSchemaSlotEnum {
 /// Transformation class that can [encode] an instance of [EquipSchemaSlotEnum] to String,
 /// and [decode] dynamic data back to [EquipSchemaSlotEnum].
 class EquipSchemaSlotEnumTypeTransformer {
-  factory EquipSchemaSlotEnumTypeTransformer() => _instance ??= const EquipSchemaSlotEnumTypeTransformer._();
+  factory EquipSchemaSlotEnumTypeTransformer() =>
+      _instance ??= const EquipSchemaSlotEnumTypeTransformer._();
 
   const EquipSchemaSlotEnumTypeTransformer._();
 
@@ -210,20 +227,34 @@ class EquipSchemaSlotEnumTypeTransformer {
   EquipSchemaSlotEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'weapon': return EquipSchemaSlotEnum.weapon;
-        case r'shield': return EquipSchemaSlotEnum.shield;
-        case r'helmet': return EquipSchemaSlotEnum.helmet;
-        case r'body_armor': return EquipSchemaSlotEnum.bodyArmor;
-        case r'leg_armor': return EquipSchemaSlotEnum.legArmor;
-        case r'boots': return EquipSchemaSlotEnum.boots;
-        case r'ring1': return EquipSchemaSlotEnum.ring1;
-        case r'ring2': return EquipSchemaSlotEnum.ring2;
-        case r'amulet': return EquipSchemaSlotEnum.amulet;
-        case r'artifact1': return EquipSchemaSlotEnum.artifact1;
-        case r'artifact2': return EquipSchemaSlotEnum.artifact2;
-        case r'artifact3': return EquipSchemaSlotEnum.artifact3;
-        case r'consumable1': return EquipSchemaSlotEnum.consumable1;
-        case r'consumable2': return EquipSchemaSlotEnum.consumable2;
+        case r'weapon':
+          return EquipSchemaSlotEnum.weapon;
+        case r'shield':
+          return EquipSchemaSlotEnum.shield;
+        case r'helmet':
+          return EquipSchemaSlotEnum.helmet;
+        case r'body_armor':
+          return EquipSchemaSlotEnum.bodyArmor;
+        case r'leg_armor':
+          return EquipSchemaSlotEnum.legArmor;
+        case r'boots':
+          return EquipSchemaSlotEnum.boots;
+        case r'ring1':
+          return EquipSchemaSlotEnum.ring1;
+        case r'ring2':
+          return EquipSchemaSlotEnum.ring2;
+        case r'amulet':
+          return EquipSchemaSlotEnum.amulet;
+        case r'artifact1':
+          return EquipSchemaSlotEnum.artifact1;
+        case r'artifact2':
+          return EquipSchemaSlotEnum.artifact2;
+        case r'artifact3':
+          return EquipSchemaSlotEnum.artifact3;
+        case r'consumable1':
+          return EquipSchemaSlotEnum.consumable1;
+        case r'consumable2':
+          return EquipSchemaSlotEnum.consumable2;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -236,5 +267,3 @@ class EquipSchemaSlotEnumTypeTransformer {
   /// Singleton [EquipSchemaSlotEnumTypeTransformer] instance.
   static EquipSchemaSlotEnumTypeTransformer? _instance;
 }
-
-

@@ -24,23 +24,25 @@ class TaskCancelledSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TaskCancelledSchema &&
-    other.cooldown == cooldown &&
-    other.character == character;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TaskCancelledSchema &&
+          other.cooldown == cooldown &&
+          other.character == character;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (cooldown.hashCode) +
-    (character.hashCode);
+      // ignore: unnecessary_parenthesis
+      (cooldown.hashCode) + (character.hashCode);
 
   @override
-  String toString() => 'TaskCancelledSchema[cooldown=$cooldown, character=$character]';
+  String toString() =>
+      'TaskCancelledSchema[cooldown=$cooldown, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'cooldown'] = this.cooldown;
-      json[r'character'] = this.character;
+    json[r'cooldown'] = this.cooldown;
+    json[r'character'] = this.character;
     return json;
   }
 
@@ -56,8 +58,10 @@ class TaskCancelledSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TaskCancelledSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TaskCancelledSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TaskCancelledSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TaskCancelledSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +74,10 @@ class TaskCancelledSchema {
     return null;
   }
 
-  static List<TaskCancelledSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TaskCancelledSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TaskCancelledSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,13 +105,19 @@ class TaskCancelledSchema {
   }
 
   // maps a json object with a list of TaskCancelledSchema-objects as value to a dart map
-  static Map<String, List<TaskCancelledSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TaskCancelledSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TaskCancelledSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskCancelledSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TaskCancelledSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -116,4 +129,3 @@ class TaskCancelledSchema {
     'character',
   };
 }
-

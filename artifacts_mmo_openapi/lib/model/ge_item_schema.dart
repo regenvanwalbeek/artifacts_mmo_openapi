@@ -48,29 +48,32 @@ class GEItemSchema {
   int maxQuantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GEItemSchema &&
-    other.code == code &&
-    other.stock == stock &&
-    other.sellPrice == sellPrice &&
-    other.buyPrice == buyPrice &&
-    other.maxQuantity == maxQuantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GEItemSchema &&
+          other.code == code &&
+          other.stock == stock &&
+          other.sellPrice == sellPrice &&
+          other.buyPrice == buyPrice &&
+          other.maxQuantity == maxQuantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code.hashCode) +
-    (stock.hashCode) +
-    (sellPrice == null ? 0 : sellPrice!.hashCode) +
-    (buyPrice == null ? 0 : buyPrice!.hashCode) +
-    (maxQuantity.hashCode);
+      // ignore: unnecessary_parenthesis
+      (code.hashCode) +
+      (stock.hashCode) +
+      (sellPrice == null ? 0 : sellPrice!.hashCode) +
+      (buyPrice == null ? 0 : buyPrice!.hashCode) +
+      (maxQuantity.hashCode);
 
   @override
-  String toString() => 'GEItemSchema[code=$code, stock=$stock, sellPrice=$sellPrice, buyPrice=$buyPrice, maxQuantity=$maxQuantity]';
+  String toString() =>
+      'GEItemSchema[code=$code, stock=$stock, sellPrice=$sellPrice, buyPrice=$buyPrice, maxQuantity=$maxQuantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'code'] = this.code;
-      json[r'stock'] = this.stock;
+    json[r'code'] = this.code;
+    json[r'stock'] = this.stock;
     if (this.sellPrice != null) {
       json[r'sell_price'] = this.sellPrice;
     } else {
@@ -81,7 +84,7 @@ class GEItemSchema {
     } else {
       json[r'buy_price'] = null;
     }
-      json[r'max_quantity'] = this.maxQuantity;
+    json[r'max_quantity'] = this.maxQuantity;
     return json;
   }
 
@@ -97,8 +100,10 @@ class GEItemSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GEItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GEItemSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GEItemSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GEItemSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -114,7 +119,10 @@ class GEItemSchema {
     return null;
   }
 
-  static List<GEItemSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GEItemSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GEItemSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -142,13 +150,19 @@ class GEItemSchema {
   }
 
   // maps a json object with a list of GEItemSchema-objects as value to a dart map
-  static Map<String, List<GEItemSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GEItemSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GEItemSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEItemSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GEItemSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -161,4 +175,3 @@ class GEItemSchema {
     'max_quantity',
   };
 }
-
