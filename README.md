@@ -36,8 +36,8 @@ This library can also be consumed from Github by adding the following dependency
 ```
 dependencies:
   artifacts_mmo_openapi:
-    url:
-      git: https://github.com/regenvanwalbeek/artifacts_mmo_openapi.git
+    git:
+      url: https://github.com/regenvanwalbeek/artifacts_mmo_openapi.git
       ref: some-branch
 ```
 
