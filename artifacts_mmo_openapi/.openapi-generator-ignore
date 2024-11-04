@@ -23,3 +23,6 @@
 #!docs/README.md
 
 test/*
+
+# Ignored because this generates a broken class. There's something wrong here that needs to be addressed.
+lib/model/validation_error_loc_inner.dart
