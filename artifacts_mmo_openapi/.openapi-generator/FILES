@@ -257,4 +257,5 @@ lib/model/tasks_reward_schema.dart
 lib/model/token_response_schema.dart
 lib/model/unequip_schema.dart
 lib/model/validation_error.dart
+lib/model/validation_error_loc_inner.dart
 pubspec.yaml
