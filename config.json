@@ -1,6 +1,6 @@
 {
     "pubAuthor": "Regen Van Walbeek",
-    "pubDescription": "Generated client for ArtifactsMMO",
+    "pubDescription": "An OpenApi generated client for ArtifactsMMO: https://artifactsmmo.com/",
     "pubHomepage": "https://github.com/regenvanwalbeek/artifacts_mmo_openapi",
     "pubLibrary": "openapi_generation",
     "pubName": "artifacts_mmo_openapi",
