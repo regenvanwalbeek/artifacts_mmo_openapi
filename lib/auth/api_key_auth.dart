@@ -8,7 +8,7 @@
 // ignore_for_file: constant_identifier_names
 // ignore_for_file: lines_longer_than_80_chars
 
-part of artifacts_mmo_openapi;
+part of openapi_generation;
 
 class ApiKeyAuth implements Authentication {
   ApiKeyAuth(this.location, this.paramName);
