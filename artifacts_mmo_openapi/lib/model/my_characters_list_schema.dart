@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -20,21 +20,20 @@ class MyCharactersListSchema {
   List<CharacterSchema> data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is MyCharactersListSchema && _deepEquality.equals(other.data, data);
+  bool operator ==(Object other) => identical(this, other) || other is MyCharactersListSchema &&
+    _deepEquality.equals(other.data, data);
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode);
 
   @override
   String toString() => 'MyCharactersListSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     return json;
   }
 
@@ -50,10 +49,8 @@ class MyCharactersListSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "MyCharactersListSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "MyCharactersListSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MyCharactersListSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MyCharactersListSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -65,10 +62,7 @@ class MyCharactersListSchema {
     return null;
   }
 
-  static List<MyCharactersListSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<MyCharactersListSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <MyCharactersListSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -96,19 +90,13 @@ class MyCharactersListSchema {
   }
 
   // maps a json object with a list of MyCharactersListSchema-objects as value to a dart map
-  static Map<String, List<MyCharactersListSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<MyCharactersListSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<MyCharactersListSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MyCharactersListSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = MyCharactersListSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -119,3 +107,4 @@ class MyCharactersListSchema {
     'data',
   };
 }
+

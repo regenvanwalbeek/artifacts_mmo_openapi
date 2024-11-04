@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,34 +18,36 @@ class DeleteItemSchema {
     required this.character,
   });
 
+  /// Cooldown details.
   CooldownSchema cooldown;
 
+  /// Item details.
   SimpleItemSchema item;
 
+  /// Player details.
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DeleteItemSchema &&
-          other.cooldown == cooldown &&
-          other.item == item &&
-          other.character == character;
+  bool operator ==(Object other) => identical(this, other) || other is DeleteItemSchema &&
+    other.cooldown == cooldown &&
+    other.item == item &&
+    other.character == character;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (item.hashCode) + (character.hashCode);
+    // ignore: unnecessary_parenthesis
+    (cooldown.hashCode) +
+    (item.hashCode) +
+    (character.hashCode);
 
   @override
-  String toString() =>
-      'DeleteItemSchema[cooldown=$cooldown, item=$item, character=$character]';
+  String toString() => 'DeleteItemSchema[cooldown=$cooldown, item=$item, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'cooldown'] = this.cooldown;
-    json[r'item'] = this.item;
-    json[r'character'] = this.character;
+      json[r'cooldown'] = this.cooldown;
+      json[r'item'] = this.item;
+      json[r'character'] = this.character;
     return json;
   }
 
@@ -61,10 +63,8 @@ class DeleteItemSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DeleteItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DeleteItemSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DeleteItemSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DeleteItemSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -78,10 +78,7 @@ class DeleteItemSchema {
     return null;
   }
 
-  static List<DeleteItemSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<DeleteItemSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DeleteItemSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -109,19 +106,13 @@ class DeleteItemSchema {
   }
 
   // maps a json object with a list of DeleteItemSchema-objects as value to a dart map
-  static Map<String, List<DeleteItemSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<DeleteItemSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DeleteItemSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DeleteItemSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = DeleteItemSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -134,3 +125,4 @@ class DeleteItemSchema {
     'character',
   };
 }
+

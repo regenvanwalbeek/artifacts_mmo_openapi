@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the event. | 
-**map** | [**MapSchema**](MapSchema.md) |  | 
+**map** | [**MapSchema**](MapSchema.md) | Map of the event. | 
 **previousSkin** | **String** | Previous map skin. | 
 **duration** | **int** | Duration in minutes. | 
 **expiration** | [**DateTime**](DateTime.md) | Expiration datetime. | 

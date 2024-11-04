@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -44,25 +44,22 @@ class CraftSchema {
   int? quantity;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CraftSchema &&
-          other.skill == skill &&
-          other.level == level &&
-          _deepEquality.equals(other.items, items) &&
-          other.quantity == quantity;
+  bool operator ==(Object other) => identical(this, other) || other is CraftSchema &&
+    other.skill == skill &&
+    other.level == level &&
+    _deepEquality.equals(other.items, items) &&
+    other.quantity == quantity;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (skill == null ? 0 : skill!.hashCode) +
-      (level == null ? 0 : level!.hashCode) +
-      (items.hashCode) +
-      (quantity == null ? 0 : quantity!.hashCode);
+    // ignore: unnecessary_parenthesis
+    (skill == null ? 0 : skill!.hashCode) +
+    (level == null ? 0 : level!.hashCode) +
+    (items.hashCode) +
+    (quantity == null ? 0 : quantity!.hashCode);
 
   @override
-  String toString() =>
-      'CraftSchema[skill=$skill, level=$level, items=$items, quantity=$quantity]';
+  String toString() => 'CraftSchema[skill=$skill, level=$level, items=$items, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -76,7 +73,7 @@ class CraftSchema {
     } else {
       json[r'level'] = null;
     }
-    json[r'items'] = this.items;
+      json[r'items'] = this.items;
     if (this.quantity != null) {
       json[r'quantity'] = this.quantity;
     } else {
@@ -97,10 +94,8 @@ class CraftSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CraftSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CraftSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CraftSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CraftSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -115,10 +110,7 @@ class CraftSchema {
     return null;
   }
 
-  static List<CraftSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CraftSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CraftSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -146,26 +138,21 @@ class CraftSchema {
   }
 
   // maps a json object with a list of CraftSchema-objects as value to a dart map
-  static Map<String, List<CraftSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CraftSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CraftSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CraftSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CraftSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+  };
 }
 
 /// Skill required to craft the item.
@@ -198,13 +185,9 @@ class CraftSchemaSkillEnum {
     mining,
   ];
 
-  static CraftSchemaSkillEnum? fromJson(dynamic value) =>
-      CraftSchemaSkillEnumTypeTransformer().decode(value);
+  static CraftSchemaSkillEnum? fromJson(dynamic value) => CraftSchemaSkillEnumTypeTransformer().decode(value);
 
-  static List<CraftSchemaSkillEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CraftSchemaSkillEnum> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CraftSchemaSkillEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -221,8 +204,7 @@ class CraftSchemaSkillEnum {
 /// Transformation class that can [encode] an instance of [CraftSchemaSkillEnum] to String,
 /// and [decode] dynamic data back to [CraftSchemaSkillEnum].
 class CraftSchemaSkillEnumTypeTransformer {
-  factory CraftSchemaSkillEnumTypeTransformer() =>
-      _instance ??= const CraftSchemaSkillEnumTypeTransformer._();
+  factory CraftSchemaSkillEnumTypeTransformer() => _instance ??= const CraftSchemaSkillEnumTypeTransformer._();
 
   const CraftSchemaSkillEnumTypeTransformer._();
 
@@ -239,18 +221,12 @@ class CraftSchemaSkillEnumTypeTransformer {
   CraftSchemaSkillEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'weaponcrafting':
-          return CraftSchemaSkillEnum.weaponcrafting;
-        case r'gearcrafting':
-          return CraftSchemaSkillEnum.gearcrafting;
-        case r'jewelrycrafting':
-          return CraftSchemaSkillEnum.jewelrycrafting;
-        case r'cooking':
-          return CraftSchemaSkillEnum.cooking;
-        case r'woodcutting':
-          return CraftSchemaSkillEnum.woodcutting;
-        case r'mining':
-          return CraftSchemaSkillEnum.mining;
+        case r'weaponcrafting': return CraftSchemaSkillEnum.weaponcrafting;
+        case r'gearcrafting': return CraftSchemaSkillEnum.gearcrafting;
+        case r'jewelrycrafting': return CraftSchemaSkillEnum.jewelrycrafting;
+        case r'cooking': return CraftSchemaSkillEnum.cooking;
+        case r'woodcutting': return CraftSchemaSkillEnum.woodcutting;
+        case r'mining': return CraftSchemaSkillEnum.mining;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -263,3 +239,5 @@ class CraftSchemaSkillEnumTypeTransformer {
   /// Singleton [CraftSchemaSkillEnumTypeTransformer] instance.
   static CraftSchemaSkillEnumTypeTransformer? _instance;
 }
+
+

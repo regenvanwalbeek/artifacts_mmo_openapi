@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,24 +24,23 @@ class TaskTradeSchema {
   int quantity;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is TaskTradeSchema &&
-          other.code == code &&
-          other.quantity == quantity;
+  bool operator ==(Object other) => identical(this, other) || other is TaskTradeSchema &&
+    other.code == code &&
+    other.quantity == quantity;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (code.hashCode) + (quantity.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (quantity.hashCode);
 
   @override
   String toString() => 'TaskTradeSchema[code=$code, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'quantity'] = this.quantity;
+      json[r'code'] = this.code;
+      json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -57,10 +56,8 @@ class TaskTradeSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "TaskTradeSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "TaskTradeSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "TaskTradeSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TaskTradeSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -73,10 +70,7 @@ class TaskTradeSchema {
     return null;
   }
 
-  static List<TaskTradeSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<TaskTradeSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <TaskTradeSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,19 +98,13 @@ class TaskTradeSchema {
   }
 
   // maps a json object with a list of TaskTradeSchema-objects as value to a dart map
-  static Map<String, List<TaskTradeSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<TaskTradeSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TaskTradeSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskTradeSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = TaskTradeSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -128,3 +116,4 @@ class TaskTradeSchema {
     'quantity',
   };
 }
+

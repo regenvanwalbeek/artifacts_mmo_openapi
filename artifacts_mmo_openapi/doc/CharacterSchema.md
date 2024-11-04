@@ -56,6 +56,7 @@ Name | Type | Description | Notes
 **x** | **int** | Character x coordinate. | 
 **y** | **int** | Character y coordinate. | 
 **cooldown** | **int** | Cooldown in seconds. | 
+**cooldownExpiration** | [**DateTime**](DateTime.md) | Datetime Cooldown expiration. | [optional] 
 **weaponSlot** | **String** | Weapon slot. | 
 **shieldSlot** | **String** | Shield slot. | 
 **helmetSlot** | **String** | Helmet slot. | 
@@ -77,7 +78,6 @@ Name | Type | Description | Notes
 **taskProgress** | **int** | Task progression. | 
 **taskTotal** | **int** | Task total objective. | 
 **inventoryMaxItems** | **int** | Inventory max items. | 
-**cooldownExpiration** | [**DateTime**](DateTime.md) | Datetime Cooldown expiration. | [optional] 
 **inventory** | [**List<InventorySlot>**](InventorySlot.md) | List of inventory slots. | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -33,27 +33,26 @@ class GETransactionItemSchema {
   int price;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GETransactionItemSchema &&
-          other.code == code &&
-          other.quantity == quantity &&
-          other.price == price;
+  bool operator ==(Object other) => identical(this, other) || other is GETransactionItemSchema &&
+    other.code == code &&
+    other.quantity == quantity &&
+    other.price == price;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (code.hashCode) + (quantity.hashCode) + (price.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (quantity.hashCode) +
+    (price.hashCode);
 
   @override
-  String toString() =>
-      'GETransactionItemSchema[code=$code, quantity=$quantity, price=$price]';
+  String toString() => 'GETransactionItemSchema[code=$code, quantity=$quantity, price=$price]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'quantity'] = this.quantity;
-    json[r'price'] = this.price;
+      json[r'code'] = this.code;
+      json[r'quantity'] = this.quantity;
+      json[r'price'] = this.price;
     return json;
   }
 
@@ -69,10 +68,8 @@ class GETransactionItemSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GETransactionItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GETransactionItemSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GETransactionItemSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GETransactionItemSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -86,10 +83,7 @@ class GETransactionItemSchema {
     return null;
   }
 
-  static List<GETransactionItemSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GETransactionItemSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GETransactionItemSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -117,19 +111,13 @@ class GETransactionItemSchema {
   }
 
   // maps a json object with a list of GETransactionItemSchema-objects as value to a dart map
-  static Map<String, List<GETransactionItemSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GETransactionItemSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GETransactionItemSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GETransactionItemSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = GETransactionItemSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -142,3 +130,4 @@ class GETransactionItemSchema {
     'price',
   };
 }
+

@@ -2,6 +2,8 @@
 .travis.yml
 README.md
 analysis_options.yaml
+doc/AccountDetails.md
+doc/AccountDetailsSchema.md
 doc/AccountsApi.md
 doc/AchievementSchema.md
 doc/AchievementsApi.md
@@ -148,6 +150,8 @@ lib/auth/authentication.dart
 lib/auth/http_basic_auth.dart
 lib/auth/http_bearer_auth.dart
 lib/auth/oauth.dart
+lib/model/account_details.dart
+lib/model/account_details_schema.dart
 lib/model/achievement_schema.dart
 lib/model/active_event_schema.dart
 lib/model/add_account_schema.dart

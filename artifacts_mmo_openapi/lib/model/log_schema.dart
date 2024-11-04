@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -46,53 +46,49 @@ class LogSchema {
   DateTime createdAt;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is LogSchema &&
-          other.character == character &&
-          other.account == account &&
-          other.type == type &&
-          other.description == description &&
-          other.content == content &&
-          other.cooldown == cooldown &&
-          other.cooldownExpiration == cooldownExpiration &&
-          other.createdAt == createdAt;
+  bool operator ==(Object other) => identical(this, other) || other is LogSchema &&
+    other.character == character &&
+    other.account == account &&
+    other.type == type &&
+    other.description == description &&
+    other.content == content &&
+    other.cooldown == cooldown &&
+    other.cooldownExpiration == cooldownExpiration &&
+    other.createdAt == createdAt;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (character.hashCode) +
-      (account.hashCode) +
-      (type.hashCode) +
-      (description.hashCode) +
-      (content == null ? 0 : content!.hashCode) +
-      (cooldown.hashCode) +
-      (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode) +
-      (createdAt.hashCode);
+    // ignore: unnecessary_parenthesis
+    (character.hashCode) +
+    (account.hashCode) +
+    (type.hashCode) +
+    (description.hashCode) +
+    (content == null ? 0 : content!.hashCode) +
+    (cooldown.hashCode) +
+    (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode) +
+    (createdAt.hashCode);
 
   @override
-  String toString() =>
-      'LogSchema[character=$character, account=$account, type=$type, description=$description, content=$content, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, createdAt=$createdAt]';
+  String toString() => 'LogSchema[character=$character, account=$account, type=$type, description=$description, content=$content, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'character'] = this.character;
-    json[r'account'] = this.account;
-    json[r'type'] = this.type;
-    json[r'description'] = this.description;
+      json[r'character'] = this.character;
+      json[r'account'] = this.account;
+      json[r'type'] = this.type;
+      json[r'description'] = this.description;
     if (this.content != null) {
       json[r'content'] = this.content;
     } else {
       json[r'content'] = null;
     }
-    json[r'cooldown'] = this.cooldown;
+      json[r'cooldown'] = this.cooldown;
     if (this.cooldownExpiration != null) {
-      json[r'cooldown_expiration'] =
-          this.cooldownExpiration!.toUtc().toIso8601String();
+      json[r'cooldown_expiration'] = this.cooldownExpiration!.toUtc().toIso8601String();
     } else {
       json[r'cooldown_expiration'] = null;
     }
-    json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
+      json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
     return json;
   }
 
@@ -108,10 +104,8 @@ class LogSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "LogSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "LogSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "LogSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "LogSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -130,10 +124,7 @@ class LogSchema {
     return null;
   }
 
-  static List<LogSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<LogSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <LogSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -161,19 +152,13 @@ class LogSchema {
   }
 
   // maps a json object with a list of LogSchema-objects as value to a dart map
-  static Map<String, List<LogSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<LogSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<LogSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = LogSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = LogSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -191,3 +176,4 @@ class LogSchema {
     'created_at',
   };
 }
+

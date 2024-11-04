@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -9,6 +9,7 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 part of openapi.api;
+
 
 class MapsApi {
   MapsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
@@ -34,12 +35,7 @@ class MapsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllMapsMapsGetWithHttpInfo({
-    String? contentType,
-    String? contentCode,
-    int? page,
-    int? size,
-  }) async {
+  Future<Response> getAllMapsMapsGetWithHttpInfo({ String? contentType, String? contentCode, int? page, int? size, }) async {
     // ignore: prefer_const_declarations
     final path = r'/maps';
 
@@ -64,6 +60,7 @@ class MapsApi {
     }
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -93,30 +90,17 @@ class MapsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageMapSchema?> getAllMapsMapsGet({
-    String? contentType,
-    String? contentCode,
-    int? page,
-    int? size,
-  }) async {
-    final response = await getAllMapsMapsGetWithHttpInfo(
-      contentType: contentType,
-      contentCode: contentCode,
-      page: page,
-      size: size,
-    );
+  Future<DataPageMapSchema?> getAllMapsMapsGet({ String? contentType, String? contentCode, int? page, int? size, }) async {
+    final response = await getAllMapsMapsGetWithHttpInfo( contentType: contentType, contentCode: contentCode, page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'DataPageMapSchema',
-      ) as DataPageMapSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageMapSchema',) as DataPageMapSchema;
+    
     }
     return null;
   }
@@ -134,14 +118,11 @@ class MapsApi {
   ///
   /// * [int] y (required):
   ///   The position X of the map.
-  Future<Response> getMapMapsXYGetWithHttpInfo(
-    int x,
-    int y,
-  ) async {
+  Future<Response> getMapMapsXYGetWithHttpInfo(int x, int y,) async {
     // ignore: prefer_const_declarations
     final path = r'/maps/{x}/{y}'
-        .replaceAll('{x}', x.toString())
-        .replaceAll('{y}', y.toString());
+      .replaceAll('{x}', x.toString())
+      .replaceAll('{y}', y.toString());
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -151,6 +132,7 @@ class MapsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -174,26 +156,17 @@ class MapsApi {
   ///
   /// * [int] y (required):
   ///   The position X of the map.
-  Future<MapResponseSchema?> getMapMapsXYGet(
-    int x,
-    int y,
-  ) async {
-    final response = await getMapMapsXYGetWithHttpInfo(
-      x,
-      y,
-    );
+  Future<MapResponseSchema?> getMapMapsXYGet(int x, int y,) async {
+    final response = await getMapMapsXYGetWithHttpInfo(x, y,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'MapResponseSchema',
-      ) as MapResponseSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MapResponseSchema',) as MapResponseSchema;
+    
     }
     return null;
   }

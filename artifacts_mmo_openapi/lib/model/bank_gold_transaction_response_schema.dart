@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -19,21 +19,20 @@ class BankGoldTransactionResponseSchema {
   BankGoldTransactionSchema data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is BankGoldTransactionResponseSchema && other.data == data;
+  bool operator ==(Object other) => identical(this, other) || other is BankGoldTransactionResponseSchema &&
+    other.data == data;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode);
 
   @override
   String toString() => 'BankGoldTransactionResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     return json;
   }
 
@@ -49,10 +48,8 @@ class BankGoldTransactionResponseSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "BankGoldTransactionResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "BankGoldTransactionResponseSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "BankGoldTransactionResponseSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "BankGoldTransactionResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,10 +61,7 @@ class BankGoldTransactionResponseSchema {
     return null;
   }
 
-  static List<BankGoldTransactionResponseSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<BankGoldTransactionResponseSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <BankGoldTransactionResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -80,8 +74,7 @@ class BankGoldTransactionResponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, BankGoldTransactionResponseSchema> mapFromJson(
-      dynamic json) {
+  static Map<String, BankGoldTransactionResponseSchema> mapFromJson(dynamic json) {
     final map = <String, BankGoldTransactionResponseSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -96,19 +89,13 @@ class BankGoldTransactionResponseSchema {
   }
 
   // maps a json object with a list of BankGoldTransactionResponseSchema-objects as value to a dart map
-  static Map<String, List<BankGoldTransactionResponseSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<BankGoldTransactionResponseSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<BankGoldTransactionResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = BankGoldTransactionResponseSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = BankGoldTransactionResponseSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -119,3 +106,4 @@ class BankGoldTransactionResponseSchema {
     'data',
   };
 }
+

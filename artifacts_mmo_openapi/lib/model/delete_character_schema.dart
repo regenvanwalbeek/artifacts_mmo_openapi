@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -20,21 +20,20 @@ class DeleteCharacterSchema {
   String name;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DeleteCharacterSchema && other.name == name;
+  bool operator ==(Object other) => identical(this, other) || other is DeleteCharacterSchema &&
+    other.name == name;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (name.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name.hashCode);
 
   @override
   String toString() => 'DeleteCharacterSchema[name=$name]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'name'] = this.name;
+      json[r'name'] = this.name;
     return json;
   }
 
@@ -50,10 +49,8 @@ class DeleteCharacterSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DeleteCharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DeleteCharacterSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DeleteCharacterSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DeleteCharacterSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -65,10 +62,7 @@ class DeleteCharacterSchema {
     return null;
   }
 
-  static List<DeleteCharacterSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<DeleteCharacterSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DeleteCharacterSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -96,19 +90,13 @@ class DeleteCharacterSchema {
   }
 
   // maps a json object with a list of DeleteCharacterSchema-objects as value to a dart map
-  static Map<String, List<DeleteCharacterSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<DeleteCharacterSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DeleteCharacterSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DeleteCharacterSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = DeleteCharacterSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -119,3 +107,4 @@ class DeleteCharacterSchema {
     'name',
   };
 }
+

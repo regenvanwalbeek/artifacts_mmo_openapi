@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
+
 class GrandExchangeApi {
-  GrandExchangeApi([ApiClient? apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  GrandExchangeApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -29,10 +29,7 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllGeItemsGeGetWithHttpInfo({
-    int? page,
-    int? size,
-  }) async {
+  Future<Response> getAllGeItemsGeGetWithHttpInfo({ int? page, int? size, }) async {
     // ignore: prefer_const_declarations
     final path = r'/ge';
 
@@ -52,6 +49,7 @@ class GrandExchangeApi {
 
     const contentTypes = <String>[];
 
+
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -74,26 +72,17 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGEItemSchema?> getAllGeItemsGeGet({
-    int? page,
-    int? size,
-  }) async {
-    final response = await getAllGeItemsGeGetWithHttpInfo(
-      page: page,
-      size: size,
-    );
+  Future<DataPageGEItemSchema?> getAllGeItemsGeGet({ int? page, int? size, }) async {
+    final response = await getAllGeItemsGeGetWithHttpInfo( page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'DataPageGEItemSchema',
-      ) as DataPageGEItemSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageGEItemSchema',) as DataPageGEItemSchema;
+    
     }
     return null;
   }
@@ -108,11 +97,10 @@ class GrandExchangeApi {
   ///
   /// * [String] code (required):
   ///   The code of the item.
-  Future<Response> getGeItemGeCodeGetWithHttpInfo(
-    String code,
-  ) async {
+  Future<Response> getGeItemGeCodeGetWithHttpInfo(String code,) async {
     // ignore: prefer_const_declarations
-    final path = r'/ge/{code}'.replaceAll('{code}', code);
+    final path = r'/ge/{code}'
+      .replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -122,6 +110,7 @@ class GrandExchangeApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -142,24 +131,17 @@ class GrandExchangeApi {
   ///
   /// * [String] code (required):
   ///   The code of the item.
-  Future<GEItemResponseSchema?> getGeItemGeCodeGet(
-    String code,
-  ) async {
-    final response = await getGeItemGeCodeGetWithHttpInfo(
-      code,
-    );
+  Future<GEItemResponseSchema?> getGeItemGeCodeGet(String code,) async {
+    final response = await getGeItemGeCodeGetWithHttpInfo(code,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'GEItemResponseSchema',
-      ) as GEItemResponseSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GEItemResponseSchema',) as GEItemResponseSchema;
+    
     }
     return null;
   }

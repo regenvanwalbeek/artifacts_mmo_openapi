@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -66,75 +66,72 @@ class MonsterSchema {
   /// Monster % air resistance.
   int resAir;
 
-  /// Monster minimum gold drop.
+  /// Monster minimum gold drop. 
   int minGold;
 
-  /// Monster maximum gold drop.
+  /// Monster maximum gold drop. 
   int maxGold;
 
-  /// Monster drops. This is a list of items that the monster drops after killing the monster.
+  /// Monster drops. This is a list of items that the monster drops after killing the monster. 
   List<DropRateSchema> drops;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is MonsterSchema &&
-          other.name == name &&
-          other.code == code &&
-          other.level == level &&
-          other.hp == hp &&
-          other.attackFire == attackFire &&
-          other.attackEarth == attackEarth &&
-          other.attackWater == attackWater &&
-          other.attackAir == attackAir &&
-          other.resFire == resFire &&
-          other.resEarth == resEarth &&
-          other.resWater == resWater &&
-          other.resAir == resAir &&
-          other.minGold == minGold &&
-          other.maxGold == maxGold &&
-          _deepEquality.equals(other.drops, drops);
+  bool operator ==(Object other) => identical(this, other) || other is MonsterSchema &&
+    other.name == name &&
+    other.code == code &&
+    other.level == level &&
+    other.hp == hp &&
+    other.attackFire == attackFire &&
+    other.attackEarth == attackEarth &&
+    other.attackWater == attackWater &&
+    other.attackAir == attackAir &&
+    other.resFire == resFire &&
+    other.resEarth == resEarth &&
+    other.resWater == resWater &&
+    other.resAir == resAir &&
+    other.minGold == minGold &&
+    other.maxGold == maxGold &&
+    _deepEquality.equals(other.drops, drops);
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (name.hashCode) +
-      (code.hashCode) +
-      (level.hashCode) +
-      (hp.hashCode) +
-      (attackFire.hashCode) +
-      (attackEarth.hashCode) +
-      (attackWater.hashCode) +
-      (attackAir.hashCode) +
-      (resFire.hashCode) +
-      (resEarth.hashCode) +
-      (resWater.hashCode) +
-      (resAir.hashCode) +
-      (minGold.hashCode) +
-      (maxGold.hashCode) +
-      (drops.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name.hashCode) +
+    (code.hashCode) +
+    (level.hashCode) +
+    (hp.hashCode) +
+    (attackFire.hashCode) +
+    (attackEarth.hashCode) +
+    (attackWater.hashCode) +
+    (attackAir.hashCode) +
+    (resFire.hashCode) +
+    (resEarth.hashCode) +
+    (resWater.hashCode) +
+    (resAir.hashCode) +
+    (minGold.hashCode) +
+    (maxGold.hashCode) +
+    (drops.hashCode);
 
   @override
-  String toString() =>
-      'MonsterSchema[name=$name, code=$code, level=$level, hp=$hp, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, minGold=$minGold, maxGold=$maxGold, drops=$drops]';
+  String toString() => 'MonsterSchema[name=$name, code=$code, level=$level, hp=$hp, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, minGold=$minGold, maxGold=$maxGold, drops=$drops]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'name'] = this.name;
-    json[r'code'] = this.code;
-    json[r'level'] = this.level;
-    json[r'hp'] = this.hp;
-    json[r'attack_fire'] = this.attackFire;
-    json[r'attack_earth'] = this.attackEarth;
-    json[r'attack_water'] = this.attackWater;
-    json[r'attack_air'] = this.attackAir;
-    json[r'res_fire'] = this.resFire;
-    json[r'res_earth'] = this.resEarth;
-    json[r'res_water'] = this.resWater;
-    json[r'res_air'] = this.resAir;
-    json[r'min_gold'] = this.minGold;
-    json[r'max_gold'] = this.maxGold;
-    json[r'drops'] = this.drops;
+      json[r'name'] = this.name;
+      json[r'code'] = this.code;
+      json[r'level'] = this.level;
+      json[r'hp'] = this.hp;
+      json[r'attack_fire'] = this.attackFire;
+      json[r'attack_earth'] = this.attackEarth;
+      json[r'attack_water'] = this.attackWater;
+      json[r'attack_air'] = this.attackAir;
+      json[r'res_fire'] = this.resFire;
+      json[r'res_earth'] = this.resEarth;
+      json[r'res_water'] = this.resWater;
+      json[r'res_air'] = this.resAir;
+      json[r'min_gold'] = this.minGold;
+      json[r'max_gold'] = this.maxGold;
+      json[r'drops'] = this.drops;
     return json;
   }
 
@@ -150,10 +147,8 @@ class MonsterSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "MonsterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "MonsterSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "MonsterSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "MonsterSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -179,10 +174,7 @@ class MonsterSchema {
     return null;
   }
 
-  static List<MonsterSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<MonsterSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <MonsterSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -210,19 +202,13 @@ class MonsterSchema {
   }
 
   // maps a json object with a list of MonsterSchema-objects as value to a dart map
-  static Map<String, List<MonsterSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<MonsterSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<MonsterSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MonsterSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = MonsterSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -247,3 +233,4 @@ class MonsterSchema {
     'drops',
   };
 }
+

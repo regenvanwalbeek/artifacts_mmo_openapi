@@ -10,16 +10,16 @@
 
 part of openapi.api;
 
-class EquipmentResponseSchema {
-  /// Returns a new [EquipmentResponseSchema] instance.
-  EquipmentResponseSchema({
+class AccountDetailsSchema {
+  /// Returns a new [AccountDetailsSchema] instance.
+  AccountDetailsSchema({
     required this.data,
   });
 
-  EquipRequestSchema data;
+  AccountDetails data;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EquipmentResponseSchema &&
+  bool operator ==(Object other) => identical(this, other) || other is AccountDetailsSchema &&
     other.data == data;
 
   @override
@@ -28,7 +28,7 @@ class EquipmentResponseSchema {
     (data.hashCode);
 
   @override
-  String toString() => 'EquipmentResponseSchema[data=$data]';
+  String toString() => 'AccountDetailsSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -36,10 +36,10 @@ class EquipmentResponseSchema {
     return json;
   }
 
-  /// Returns a new [EquipmentResponseSchema] instance and imports its values from
+  /// Returns a new [AccountDetailsSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static EquipmentResponseSchema? fromJson(dynamic value) {
+  static AccountDetailsSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,24 +48,24 @@ class EquipmentResponseSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EquipmentResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EquipmentResponseSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "AccountDetailsSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AccountDetailsSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return EquipmentResponseSchema(
-        data: EquipRequestSchema.fromJson(json[r'data'])!,
+      return AccountDetailsSchema(
+        data: AccountDetails.fromJson(json[r'data'])!,
       );
     }
     return null;
   }
 
-  static List<EquipmentResponseSchema> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <EquipmentResponseSchema>[];
+  static List<AccountDetailsSchema> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <AccountDetailsSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = EquipmentResponseSchema.fromJson(row);
+        final value = AccountDetailsSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -74,12 +74,12 @@ class EquipmentResponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, EquipmentResponseSchema> mapFromJson(dynamic json) {
-    final map = <String, EquipmentResponseSchema>{};
+  static Map<String, AccountDetailsSchema> mapFromJson(dynamic json) {
+    final map = <String, AccountDetailsSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = EquipmentResponseSchema.fromJson(entry.value);
+        final value = AccountDetailsSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -88,14 +88,14 @@ class EquipmentResponseSchema {
     return map;
   }
 
-  // maps a json object with a list of EquipmentResponseSchema-objects as value to a dart map
-  static Map<String, List<EquipmentResponseSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<EquipmentResponseSchema>>{};
+  // maps a json object with a list of AccountDetailsSchema-objects as value to a dart map
+  static Map<String, List<AccountDetailsSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<AccountDetailsSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EquipmentResponseSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AccountDetailsSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -44,8 +44,9 @@ part 'api/resources_api.dart';
 part 'api/tasks_api.dart';
 part 'api/token_api.dart';
 
+part 'model/account_details.dart';
+part 'model/account_details_schema.dart';
 part 'model/achievement_schema.dart';
-part 'model/action_item_bank_response_schema.dart';
 part 'model/active_event_schema.dart';
 part 'model/add_account_schema.dart';
 part 'model/add_character_schema.dart';
@@ -55,7 +56,6 @@ part 'model/bank_extension_transaction_response_schema.dart';
 part 'model/bank_extension_transaction_schema.dart';
 part 'model/bank_gold_transaction_response_schema.dart';
 part 'model/bank_gold_transaction_schema.dart';
-part 'model/bank_item_schema.dart';
 part 'model/bank_item_transaction_response_schema.dart';
 part 'model/bank_item_transaction_schema.dart';
 part 'model/bank_response_schema.dart';
@@ -105,10 +105,7 @@ part 'model/ge_transaction_item_schema.dart';
 part 'model/ge_transaction_list_schema.dart';
 part 'model/ge_transaction_response_schema.dart';
 part 'model/ge_transaction_schema.dart';
-part 'model/gold_bank_response_schema.dart';
-part 'model/gold_response_schema.dart';
 part 'model/gold_schema.dart';
-part 'model/gold_transaction_schema.dart';
 part 'model/http_validation_error.dart';
 part 'model/inventory_slot.dart';
 part 'model/item_effect_schema.dart';
@@ -141,9 +138,6 @@ part 'model/task_data_schema.dart';
 part 'model/task_full_response_schema.dart';
 part 'model/task_full_schema.dart';
 part 'model/task_response_schema.dart';
-part 'model/task_reward_data_schema.dart';
-part 'model/task_reward_response_schema.dart';
-part 'model/task_reward_schema.dart';
 part 'model/task_rewards_schema.dart';
 part 'model/task_schema.dart';
 part 'model/task_trade_data_schema.dart';
@@ -156,8 +150,9 @@ part 'model/tasks_reward_response_schema.dart';
 part 'model/tasks_reward_schema.dart';
 part 'model/token_response_schema.dart';
 part 'model/unequip_schema.dart';
-part 'model/validation_error_loc_inner.dart';
 part 'model/validation_error.dart';
+part 'model/validation_error_loc_inner.dart';
+
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
@@ -171,5 +166,4 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) =>
-    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -35,31 +35,28 @@ class DataPageGEItemSchema {
   int? pages;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DataPageGEItemSchema &&
-          _deepEquality.equals(other.data, data) &&
-          other.total == total &&
-          other.page == page &&
-          other.size == size &&
-          other.pages == pages;
+  bool operator ==(Object other) => identical(this, other) || other is DataPageGEItemSchema &&
+    _deepEquality.equals(other.data, data) &&
+    other.total == total &&
+    other.page == page &&
+    other.size == size &&
+    other.pages == pages;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode) +
-      (total == null ? 0 : total!.hashCode) +
-      (page == null ? 0 : page!.hashCode) +
-      (size == null ? 0 : size!.hashCode) +
-      (pages == null ? 0 : pages!.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode) +
+    (total == null ? 0 : total!.hashCode) +
+    (page == null ? 0 : page!.hashCode) +
+    (size == null ? 0 : size!.hashCode) +
+    (pages == null ? 0 : pages!.hashCode);
 
   @override
-  String toString() =>
-      'DataPageGEItemSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+  String toString() => 'DataPageGEItemSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     if (this.total != null) {
       json[r'total'] = this.total;
     } else {
@@ -95,10 +92,8 @@ class DataPageGEItemSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DataPageGEItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DataPageGEItemSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DataPageGEItemSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DataPageGEItemSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -114,10 +109,7 @@ class DataPageGEItemSchema {
     return null;
   }
 
-  static List<DataPageGEItemSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<DataPageGEItemSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DataPageGEItemSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -145,19 +137,13 @@ class DataPageGEItemSchema {
   }
 
   // maps a json object with a list of DataPageGEItemSchema-objects as value to a dart map
-  static Map<String, List<DataPageGEItemSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<DataPageGEItemSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DataPageGEItemSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageGEItemSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = DataPageGEItemSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -171,3 +157,4 @@ class DataPageGEItemSchema {
     'size',
   };
 }
+

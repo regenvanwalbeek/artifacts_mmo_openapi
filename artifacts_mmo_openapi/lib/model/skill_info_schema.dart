@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,24 +24,23 @@ class SkillInfoSchema {
   List<DropSchema> items;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is SkillInfoSchema &&
-          other.xp == xp &&
-          _deepEquality.equals(other.items, items);
+  bool operator ==(Object other) => identical(this, other) || other is SkillInfoSchema &&
+    other.xp == xp &&
+    _deepEquality.equals(other.items, items);
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (xp.hashCode) + (items.hashCode);
+    // ignore: unnecessary_parenthesis
+    (xp.hashCode) +
+    (items.hashCode);
 
   @override
   String toString() => 'SkillInfoSchema[xp=$xp, items=$items]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'xp'] = this.xp;
-    json[r'items'] = this.items;
+      json[r'xp'] = this.xp;
+      json[r'items'] = this.items;
     return json;
   }
 
@@ -57,10 +56,8 @@ class SkillInfoSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "SkillInfoSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "SkillInfoSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "SkillInfoSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SkillInfoSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -73,10 +70,7 @@ class SkillInfoSchema {
     return null;
   }
 
-  static List<SkillInfoSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<SkillInfoSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <SkillInfoSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -104,19 +98,13 @@ class SkillInfoSchema {
   }
 
   // maps a json object with a list of SkillInfoSchema-objects as value to a dart map
-  static Map<String, List<SkillInfoSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<SkillInfoSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<SkillInfoSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = SkillInfoSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = SkillInfoSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -128,3 +116,4 @@ class SkillInfoSchema {
     'items',
   };
 }
+

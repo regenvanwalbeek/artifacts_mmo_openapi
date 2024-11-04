@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -28,26 +28,26 @@ class TaskSchema {
   int total;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is TaskSchema &&
-          other.code == code &&
-          other.type == type &&
-          other.total == total;
+  bool operator ==(Object other) => identical(this, other) || other is TaskSchema &&
+    other.code == code &&
+    other.type == type &&
+    other.total == total;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (code.hashCode) + (type.hashCode) + (total.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (type.hashCode) +
+    (total.hashCode);
 
   @override
   String toString() => 'TaskSchema[code=$code, type=$type, total=$total]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'type'] = this.type;
-    json[r'total'] = this.total;
+      json[r'code'] = this.code;
+      json[r'type'] = this.type;
+      json[r'total'] = this.total;
     return json;
   }
 
@@ -63,10 +63,8 @@ class TaskSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "TaskSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "TaskSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "TaskSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TaskSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -80,10 +78,7 @@ class TaskSchema {
     return null;
   }
 
-  static List<TaskSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<TaskSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <TaskSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -111,19 +106,13 @@ class TaskSchema {
   }
 
   // maps a json object with a list of TaskSchema-objects as value to a dart map
-  static Map<String, List<TaskSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<TaskSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TaskSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = TaskSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -159,13 +148,9 @@ class TaskSchemaTypeEnum {
     items,
   ];
 
-  static TaskSchemaTypeEnum? fromJson(dynamic value) =>
-      TaskSchemaTypeEnumTypeTransformer().decode(value);
+  static TaskSchemaTypeEnum? fromJson(dynamic value) => TaskSchemaTypeEnumTypeTransformer().decode(value);
 
-  static List<TaskSchemaTypeEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<TaskSchemaTypeEnum> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <TaskSchemaTypeEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -182,8 +167,7 @@ class TaskSchemaTypeEnum {
 /// Transformation class that can [encode] an instance of [TaskSchemaTypeEnum] to String,
 /// and [decode] dynamic data back to [TaskSchemaTypeEnum].
 class TaskSchemaTypeEnumTypeTransformer {
-  factory TaskSchemaTypeEnumTypeTransformer() =>
-      _instance ??= const TaskSchemaTypeEnumTypeTransformer._();
+  factory TaskSchemaTypeEnumTypeTransformer() => _instance ??= const TaskSchemaTypeEnumTypeTransformer._();
 
   const TaskSchemaTypeEnumTypeTransformer._();
 
@@ -200,10 +184,8 @@ class TaskSchemaTypeEnumTypeTransformer {
   TaskSchemaTypeEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'monsters':
-          return TaskSchemaTypeEnum.monsters;
-        case r'items':
-          return TaskSchemaTypeEnum.items;
+        case r'monsters': return TaskSchemaTypeEnum.monsters;
+        case r'items': return TaskSchemaTypeEnum.items;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -216,3 +198,5 @@ class TaskSchemaTypeEnumTypeTransformer {
   /// Singleton [TaskSchemaTypeEnumTypeTransformer] instance.
   static TaskSchemaTypeEnumTypeTransformer? _instance;
 }
+
+

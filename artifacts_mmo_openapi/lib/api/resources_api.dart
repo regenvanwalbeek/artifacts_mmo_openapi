@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.12
+// @dart=2.18
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
+
 class ResourcesApi {
-  ResourcesApi([ApiClient? apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  ResourcesApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -41,14 +41,7 @@ class ResourcesApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllResourcesResourcesGetWithHttpInfo({
-    int? minLevel,
-    int? maxLevel,
-    String? skill,
-    String? drop,
-    int? page,
-    int? size,
-  }) async {
+  Future<Response> getAllResourcesResourcesGetWithHttpInfo({ int? minLevel, int? maxLevel, String? skill, String? drop, int? page, int? size, }) async {
     // ignore: prefer_const_declarations
     final path = r'/resources';
 
@@ -80,6 +73,7 @@ class ResourcesApi {
 
     const contentTypes = <String>[];
 
+
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -114,34 +108,17 @@ class ResourcesApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageResourceSchema?> getAllResourcesResourcesGet({
-    int? minLevel,
-    int? maxLevel,
-    String? skill,
-    String? drop,
-    int? page,
-    int? size,
-  }) async {
-    final response = await getAllResourcesResourcesGetWithHttpInfo(
-      minLevel: minLevel,
-      maxLevel: maxLevel,
-      skill: skill,
-      drop: drop,
-      page: page,
-      size: size,
-    );
+  Future<DataPageResourceSchema?> getAllResourcesResourcesGet({ int? minLevel, int? maxLevel, String? skill, String? drop, int? page, int? size, }) async {
+    final response = await getAllResourcesResourcesGetWithHttpInfo( minLevel: minLevel, maxLevel: maxLevel, skill: skill, drop: drop, page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'DataPageResourceSchema',
-      ) as DataPageResourceSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageResourceSchema',) as DataPageResourceSchema;
+    
     }
     return null;
   }
@@ -156,11 +133,10 @@ class ResourcesApi {
   ///
   /// * [String] code (required):
   ///   The code of the resource.
-  Future<Response> getResourceResourcesCodeGetWithHttpInfo(
-    String code,
-  ) async {
+  Future<Response> getResourceResourcesCodeGetWithHttpInfo(String code,) async {
     // ignore: prefer_const_declarations
-    final path = r'/resources/{code}'.replaceAll('{code}', code);
+    final path = r'/resources/{code}'
+      .replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -170,6 +146,7 @@ class ResourcesApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -190,24 +167,17 @@ class ResourcesApi {
   ///
   /// * [String] code (required):
   ///   The code of the resource.
-  Future<ResourceResponseSchema?> getResourceResourcesCodeGet(
-    String code,
-  ) async {
-    final response = await getResourceResourcesCodeGetWithHttpInfo(
-      code,
-    );
+  Future<ResourceResponseSchema?> getResourceResourcesCodeGet(String code,) async {
+    final response = await getResourceResourcesCodeGetWithHttpInfo(code,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'ResourceResponseSchema',
-      ) as ResourceResponseSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResourceResponseSchema',) as ResourceResponseSchema;
+    
     }
     return null;
   }
