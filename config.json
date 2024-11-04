@@ -1,0 +1,10 @@
+{
+    "sortParamsByRequiredFlag": true,
+    "ensureUniqueParams": true,
+    "allowUnicodeIdentifiers": false,
+    "pubName": "artifacts_mmo_openapi",
+    "pubVersion": "3.0.0",
+    "pubDescription": "Generated client for ArtifactsMMO",
+    "useEnumExtension": true,
+    "sourceFolder": "dart"
+}
