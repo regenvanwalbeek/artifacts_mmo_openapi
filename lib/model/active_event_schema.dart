@@ -40,35 +40,38 @@ class ActiveEventSchema {
   DateTime createdAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is ActiveEventSchema &&
-    other.name == name &&
-    other.map == map &&
-    other.previousSkin == previousSkin &&
-    other.duration == duration &&
-    other.expiration == expiration &&
-    other.createdAt == createdAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ActiveEventSchema &&
+          other.name == name &&
+          other.map == map &&
+          other.previousSkin == previousSkin &&
+          other.duration == duration &&
+          other.expiration == expiration &&
+          other.createdAt == createdAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (map.hashCode) +
-    (previousSkin.hashCode) +
-    (duration.hashCode) +
-    (expiration.hashCode) +
-    (createdAt.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) +
+      (map.hashCode) +
+      (previousSkin.hashCode) +
+      (duration.hashCode) +
+      (expiration.hashCode) +
+      (createdAt.hashCode);
 
   @override
-  String toString() => 'ActiveEventSchema[name=$name, map=$map, previousSkin=$previousSkin, duration=$duration, expiration=$expiration, createdAt=$createdAt]';
+  String toString() =>
+      'ActiveEventSchema[name=$name, map=$map, previousSkin=$previousSkin, duration=$duration, expiration=$expiration, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'name'] = this.name;
-      json[r'map'] = this.map;
-      json[r'previous_skin'] = this.previousSkin;
-      json[r'duration'] = this.duration;
-      json[r'expiration'] = this.expiration.toUtc().toIso8601String();
-      json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
+    json[r'name'] = this.name;
+    json[r'map'] = this.map;
+    json[r'previous_skin'] = this.previousSkin;
+    json[r'duration'] = this.duration;
+    json[r'expiration'] = this.expiration.toUtc().toIso8601String();
+    json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
     return json;
   }
 
@@ -84,8 +87,10 @@ class ActiveEventSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "ActiveEventSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "ActiveEventSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "ActiveEventSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "ActiveEventSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -102,7 +107,10 @@ class ActiveEventSchema {
     return null;
   }
 
-  static List<ActiveEventSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ActiveEventSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ActiveEventSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,13 +138,19 @@ class ActiveEventSchema {
   }
 
   // maps a json object with a list of ActiveEventSchema-objects as value to a dart map
-  static Map<String, List<ActiveEventSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<ActiveEventSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<ActiveEventSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ActiveEventSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = ActiveEventSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -152,4 +166,3 @@ class ActiveEventSchema {
     'created_at',
   };
 }
-

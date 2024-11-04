@@ -24,23 +24,22 @@ class AddCharacterSchema {
   AddCharacterSchemaSkinEnum skin;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AddCharacterSchema &&
-    other.name == name &&
-    other.skin == skin;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AddCharacterSchema && other.name == name && other.skin == skin;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (skin.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) + (skin.hashCode);
 
   @override
   String toString() => 'AddCharacterSchema[name=$name, skin=$skin]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'name'] = this.name;
-      json[r'skin'] = this.skin;
+    json[r'name'] = this.name;
+    json[r'skin'] = this.skin;
     return json;
   }
 
@@ -56,8 +55,10 @@ class AddCharacterSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AddCharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AddCharacterSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AddCharacterSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AddCharacterSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +71,10 @@ class AddCharacterSchema {
     return null;
   }
 
-  static List<AddCharacterSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AddCharacterSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AddCharacterSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,13 +102,19 @@ class AddCharacterSchema {
   }
 
   // maps a json object with a list of AddCharacterSchema-objects as value to a dart map
-  static Map<String, List<AddCharacterSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AddCharacterSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AddCharacterSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AddCharacterSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AddCharacterSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -147,9 +157,13 @@ class AddCharacterSchemaSkinEnum {
     women3,
   ];
 
-  static AddCharacterSchemaSkinEnum? fromJson(dynamic value) => AddCharacterSchemaSkinEnumTypeTransformer().decode(value);
+  static AddCharacterSchemaSkinEnum? fromJson(dynamic value) =>
+      AddCharacterSchemaSkinEnumTypeTransformer().decode(value);
 
-  static List<AddCharacterSchemaSkinEnum> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AddCharacterSchemaSkinEnum> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AddCharacterSchemaSkinEnum>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -166,7 +180,8 @@ class AddCharacterSchemaSkinEnum {
 /// Transformation class that can [encode] an instance of [AddCharacterSchemaSkinEnum] to String,
 /// and [decode] dynamic data back to [AddCharacterSchemaSkinEnum].
 class AddCharacterSchemaSkinEnumTypeTransformer {
-  factory AddCharacterSchemaSkinEnumTypeTransformer() => _instance ??= const AddCharacterSchemaSkinEnumTypeTransformer._();
+  factory AddCharacterSchemaSkinEnumTypeTransformer() =>
+      _instance ??= const AddCharacterSchemaSkinEnumTypeTransformer._();
 
   const AddCharacterSchemaSkinEnumTypeTransformer._();
 
@@ -183,12 +198,18 @@ class AddCharacterSchemaSkinEnumTypeTransformer {
   AddCharacterSchemaSkinEnum? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'men1': return AddCharacterSchemaSkinEnum.men1;
-        case r'men2': return AddCharacterSchemaSkinEnum.men2;
-        case r'men3': return AddCharacterSchemaSkinEnum.men3;
-        case r'women1': return AddCharacterSchemaSkinEnum.women1;
-        case r'women2': return AddCharacterSchemaSkinEnum.women2;
-        case r'women3': return AddCharacterSchemaSkinEnum.women3;
+        case r'men1':
+          return AddCharacterSchemaSkinEnum.men1;
+        case r'men2':
+          return AddCharacterSchemaSkinEnum.men2;
+        case r'men3':
+          return AddCharacterSchemaSkinEnum.men3;
+        case r'women1':
+          return AddCharacterSchemaSkinEnum.women1;
+        case r'women2':
+          return AddCharacterSchemaSkinEnum.women2;
+        case r'women3':
+          return AddCharacterSchemaSkinEnum.women3;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -201,5 +222,3 @@ class AddCharacterSchemaSkinEnumTypeTransformer {
   /// Singleton [AddCharacterSchemaSkinEnumTypeTransformer] instance.
   static AddCharacterSchemaSkinEnumTypeTransformer? _instance;
 }
-
-

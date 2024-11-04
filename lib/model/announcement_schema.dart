@@ -30,22 +30,24 @@ class AnnouncementSchema {
   DateTime? createdAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AnnouncementSchema &&
-    other.message == message &&
-    other.createdAt == createdAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AnnouncementSchema &&
+          other.message == message &&
+          other.createdAt == createdAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (message.hashCode) +
-    (createdAt == null ? 0 : createdAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (message.hashCode) + (createdAt == null ? 0 : createdAt!.hashCode);
 
   @override
-  String toString() => 'AnnouncementSchema[message=$message, createdAt=$createdAt]';
+  String toString() =>
+      'AnnouncementSchema[message=$message, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'message'] = this.message;
+    json[r'message'] = this.message;
     if (this.createdAt != null) {
       json[r'created_at'] = this.createdAt!.toUtc().toIso8601String();
     } else {
@@ -66,8 +68,10 @@ class AnnouncementSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AnnouncementSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AnnouncementSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AnnouncementSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AnnouncementSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -80,7 +84,10 @@ class AnnouncementSchema {
     return null;
   }
 
-  static List<AnnouncementSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AnnouncementSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AnnouncementSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -108,13 +115,19 @@ class AnnouncementSchema {
   }
 
   // maps a json object with a list of AnnouncementSchema-objects as value to a dart map
-  static Map<String, List<AnnouncementSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AnnouncementSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AnnouncementSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AnnouncementSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AnnouncementSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -125,4 +138,3 @@ class AnnouncementSchema {
     'message',
   };
 }
-

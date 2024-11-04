@@ -24,23 +24,24 @@ class TasksRewardSchema {
   int quantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TasksRewardSchema &&
-    other.code == code &&
-    other.quantity == quantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TasksRewardSchema &&
+          other.code == code &&
+          other.quantity == quantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (code.hashCode) +
-    (quantity.hashCode);
+      // ignore: unnecessary_parenthesis
+      (code.hashCode) + (quantity.hashCode);
 
   @override
   String toString() => 'TasksRewardSchema[code=$code, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'code'] = this.code;
-      json[r'quantity'] = this.quantity;
+    json[r'code'] = this.code;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -56,8 +57,10 @@ class TasksRewardSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TasksRewardSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TasksRewardSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TasksRewardSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TasksRewardSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -70,7 +73,10 @@ class TasksRewardSchema {
     return null;
   }
 
-  static List<TasksRewardSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TasksRewardSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TasksRewardSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -98,13 +104,19 @@ class TasksRewardSchema {
   }
 
   // maps a json object with a list of TasksRewardSchema-objects as value to a dart map
-  static Map<String, List<TasksRewardSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TasksRewardSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TasksRewardSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TasksRewardSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TasksRewardSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -116,4 +128,3 @@ class TasksRewardSchema {
     'quantity',
   };
 }
-

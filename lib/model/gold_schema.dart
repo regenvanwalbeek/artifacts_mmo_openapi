@@ -22,20 +22,21 @@ class GoldSchema {
   int quantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GoldSchema &&
-    other.quantity == quantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GoldSchema && other.quantity == quantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (quantity.hashCode);
+      // ignore: unnecessary_parenthesis
+      (quantity.hashCode);
 
   @override
   String toString() => 'GoldSchema[quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'quantity'] = this.quantity;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -51,8 +52,10 @@ class GoldSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GoldSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GoldSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GoldSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GoldSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,7 +67,10 @@ class GoldSchema {
     return null;
   }
 
-  static List<GoldSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GoldSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GoldSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -92,13 +98,19 @@ class GoldSchema {
   }
 
   // maps a json object with a list of GoldSchema-objects as value to a dart map
-  static Map<String, List<GoldSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GoldSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GoldSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GoldSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GoldSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -109,4 +121,3 @@ class GoldSchema {
     'quantity',
   };
 }
-

@@ -22,20 +22,21 @@ class BankExtensionSchema {
   int price;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is BankExtensionSchema &&
-    other.price == price;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is BankExtensionSchema && other.price == price;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (price.hashCode);
+      // ignore: unnecessary_parenthesis
+      (price.hashCode);
 
   @override
   String toString() => 'BankExtensionSchema[price=$price]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'price'] = this.price;
+    json[r'price'] = this.price;
     return json;
   }
 
@@ -51,8 +52,10 @@ class BankExtensionSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "BankExtensionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "BankExtensionSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "BankExtensionSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "BankExtensionSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,7 +67,10 @@ class BankExtensionSchema {
     return null;
   }
 
-  static List<BankExtensionSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<BankExtensionSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <BankExtensionSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -92,13 +98,19 @@ class BankExtensionSchema {
   }
 
   // maps a json object with a list of BankExtensionSchema-objects as value to a dart map
-  static Map<String, List<BankExtensionSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<BankExtensionSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<BankExtensionSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = BankExtensionSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = BankExtensionSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -109,4 +121,3 @@ class BankExtensionSchema {
     'price',
   };
 }
-
