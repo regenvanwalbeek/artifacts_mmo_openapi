@@ -1,3 +1,7 @@
+## 3.0.0
+
+- Season 3 Generation
+
 ## 2.3.0
 
 - Consume Halloween update
