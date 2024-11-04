@@ -13,3 +13,9 @@ To modify the config, run
 ```
 java -jar .\openapi-generator-cli.jar config-help -g dart
 ```
+
+To format the code, run:
+
+```
+dart format .
+```
