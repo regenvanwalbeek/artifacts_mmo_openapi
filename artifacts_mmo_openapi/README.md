@@ -21,44 +21,57 @@ Dart 2.12 or later
 
 ## Installation & Usage
 
+### pub
+The recommended way to consume this package is by consuming the publicly published pub package.
+
+Add the following to your library's `pubspec.yaml`:
+
+```yaml
+  artifacts_mmo_openapi: ^3.0.0
+```
+
 ### Github
-If this Dart package is published to Github, add the following dependency to your pubspec.yaml
+This library can also be consumed from Github by adding the following dependency to your pubspec.yaml
+
 ```
 dependencies:
   artifacts_mmo_openapi:
-    git: https://github.com/GIT_USER_ID/GIT_REPO_ID.git
+    url:
+      git: https://github.com/regenvanwalbeek/artifacts_mmo_openapi.git
+      ref: some-branch
 ```
 
 ### Local
+
 To use the package in your local drive, add the following dependency to your pubspec.yaml
+
 ```
 dependencies:
   artifacts_mmo_openapi:
     path: /path/to/artifacts_mmo_openapi
 ```
 
-## Tests
-
-TODO
-
 ## Getting Started
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Please follow the [installation procedure](#installation--usage).
+
+In your dart library, use `import 'package:artifacts_mmo_openapi/api.dart';` 
+
+Initialize your client with:
 
 ```dart
-import 'package:artifacts_mmo_openapi/api.dart';
+  const token = 'MY_TOKEN_HERE';
+  defaultApiClient = ApiClient(
+    basePath: 'https://api.artifactsmmo.com',
+    authentication: HttpBearerAuth()..accessToken = token,
+  );
+```
 
+Then you can make a request. Example:
 
-final api_instance = AccountsApi();
-final addAccountSchema = AddAccountSchema(); // AddAccountSchema | 
-
-try {
-    final result = api_instance.createAccountAccountsCreatePost(addAccountSchema);
-    print(result);
-} catch (e) {
-    print('Exception when calling AccountsApi->createAccountAccountsCreatePost: $e\n');
-}
-
+```dart
+final destination = DestinationSchema(x: x, y: y);
+await MyCharactersApi().actionMoveMyNameActionMovePost('MY_CHARACTER_NAME', destination);
 ```
 
 ## Documentation for API Endpoints
@@ -231,22 +244,4 @@ Class | Method | HTTP request | Description
  - [UnequipSchema](doc//UnequipSchema.md)
  - [ValidationError](doc//ValidationError.md)
  - [ValidationErrorLocInner](doc//ValidationErrorLocInner.md)
-
-
-## Documentation For Authorization
-
-
-Authentication schemes defined for the API:
-### JWTBearer
-
-- **Type**: HTTP Bearer authentication
-
-### HTTPBasic
-
-- **Type**: HTTP Basic authentication
-
-
-## Author
-
-
 
