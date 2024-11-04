@@ -1,10 +1,8 @@
 {
-    "sortParamsByRequiredFlag": true,
-    "ensureUniqueParams": true,
-    "allowUnicodeIdentifiers": false,
-    "pubName": "artifacts_mmo_openapi",
-    "pubVersion": "3.0.0",
+    "pubAuthor": "Regen Van Walbeek",
     "pubDescription": "Generated client for ArtifactsMMO",
-    "useEnumExtension": true,
-    "sourceFolder": "dart"
+    "pubHomepage": "https://github.com/regenvanwalbeek/artifacts_mmo_openapi",
+    "pubLibrary": "openapi.api",
+    "pubName": "artifacts_mmo_openapi",
+    "pubVersion": "3.0.0"
 }
