@@ -153,15 +153,6 @@ part 'model/unequip_schema.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
 
-part 'model/action_item_bank_response_schema.dart';
-part 'model/bank_item_schema.dart';
-part 'model/gold_bank_response_schema.dart';
-part 'model/gold_response_schema.dart';
-part 'model/gold_transaction_schema.dart';
-part 'model/task_reward_data_schema.dart';
-part 'model/task_reward_response_schema.dart';
-part 'model/task_reward_schema.dart';
-
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.
 var defaultApiClient = ApiClient();

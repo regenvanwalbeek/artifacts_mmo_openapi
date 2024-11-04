@@ -23,4 +23,3 @@
 #!docs/README.md
 
 test/*
-lib/model/validation_error_loc_inner.dart
