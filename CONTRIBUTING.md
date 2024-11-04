@@ -7,3 +7,9 @@ To generate the latest client, run:
 ```
 java -jar .\openapi-generator-cli.jar generate --input-spec https://api.artifactsmmo.com/openapi.json --generator-name dart --output dart --config config.json
 ```
+
+To modify the config, run
+
+```
+java -jar .\openapi-generator-cli.jar config-help -g dart
+```
