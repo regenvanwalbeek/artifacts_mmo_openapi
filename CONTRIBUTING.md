@@ -12,7 +12,7 @@ rm -r doc/
 Then generate the client:
 
 ```
-java -jar .\openapi-generator-cli.jar generate --input-spec https://api.artifactsmmo.com/openapi.json --generator-name dart --config config.json --output artifacts_mmo_openapi --template-dir templates
+java -jar .\openapi-generator-cli.jar generate --input-spec https://api.artifactsmmo.com/openapi.json --generator-name dart --config config.json --output . --template-dir templates
 ```
 
 To format the code, run:
