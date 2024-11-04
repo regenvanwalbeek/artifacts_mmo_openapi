@@ -155,7 +155,7 @@ class AccountDetails {
         subscribed: mapValueOfType<bool>(json, r'subscribed')!,
         subscribedUntil: mapValueOfType<int>(json, r'subscribed_until'),
         founder: mapValueOfType<bool>(json, r'founder')!,
-        badges: Object.listFromJson(json[r'badges']),
+        badges: listFromJson(json[r'badges']),
         gems: mapValueOfType<int>(json, r'gems'),
         banned: mapValueOfType<bool>(json, r'banned')!,
         banReason: mapValueOfType<String>(json, r'ban_reason'),
