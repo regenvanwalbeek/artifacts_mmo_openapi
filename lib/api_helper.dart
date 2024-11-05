@@ -65,6 +65,48 @@ String parameterToString(dynamic value) {
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
+  if (value is AccountLeaderboardType) {
+    return AccountLeaderboardTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is AccountStatus) {
+    return AccountStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is AchievementType) {
+    return AchievementTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is ActionType) {
+    return ActionTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is CharacterLeaderboardType) {
+    return CharacterLeaderboardTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is CharacterSkin) {
+    return CharacterSkinTypeTransformer().encode(value).toString();
+  }
+  if (value is CraftSkill) {
+    return CraftSkillTypeTransformer().encode(value).toString();
+  }
+  if (value is FightResult) {
+    return FightResultTypeTransformer().encode(value).toString();
+  }
+  if (value is GatheringSkill) {
+    return GatheringSkillTypeTransformer().encode(value).toString();
+  }
+  if (value is ItemSlot) {
+    return ItemSlotTypeTransformer().encode(value).toString();
+  }
+  if (value is LogType) {
+    return LogTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is MapContentType) {
+    return MapContentTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is Skill) {
+    return SkillTypeTransformer().encode(value).toString();
+  }
+  if (value is TaskType) {
+    return TaskTypeTypeTransformer().encode(value).toString();
+  }
   return value.toString();
 }
 

@@ -9,12 +9,12 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the character. | 
-**skin** | **String** | Character skin code. | 
+**account** | **String** | Account name. | 
+**skin** | [**CharacterSkin**](CharacterSkin.md) | Character skin code. | 
 **level** | **int** | Combat level. | 
 **xp** | **int** | The current xp level of the combat level. | 
 **maxXp** | **int** | XP required to level up the character. | 
-**achievementsPoints** | **int** | achievements points. | 
-**gold** | **int** | The numbers of golds on this character. | 
+**gold** | **int** | The numbers of gold on this character. | 
 **speed** | **int** | *Not available, on the roadmap. Character movement speed. | 
 **miningLevel** | **int** | Mining level. | 
 **miningXp** | **int** | The current xp level of the Mining skill. | 
@@ -37,7 +37,11 @@ Name | Type | Description | Notes
 **cookingLevel** | **int** | The current xp level of the Cooking skill. | 
 **cookingXp** | **int** | Cooking XP. | 
 **cookingMaxXp** | **int** | Cooking XP required to level up the skill. | 
-**hp** | **int** | Character HP. | 
+**alchemyLevel** | **int** | Alchemy level. | 
+**alchemyXp** | **int** | Alchemy XP. | 
+**alchemyMaxXp** | **int** | Alchemy XP required to level up the skill. | 
+**hp** | **int** | Character actual HP. | 
+**maxHp** | **int** | Character max HP. | 
 **haste** | **int** | *Character Haste. Increase speed attack (reduce fight cooldown) | 
 **criticalStrike** | **int** | *Not available, on the roadmap. Character Critical   Strike. Critical strikes increase the attack's damage. | 
 **stamina** | **int** | *Not available, on the roadmap. Regenerates life at the start of each turn. | 
@@ -69,10 +73,10 @@ Name | Type | Description | Notes
 **artifact1Slot** | **String** | Artifact 1 slot. | 
 **artifact2Slot** | **String** | Artifact 2 slot. | 
 **artifact3Slot** | **String** | Artifact 3 slot. | 
-**consumable1Slot** | **String** | Consumable 1 slot. | 
-**consumable1SlotQuantity** | **int** | Consumable 1 quantity. | 
-**consumable2Slot** | **String** | Consumable 2 slot. | 
-**consumable2SlotQuantity** | **int** | Consumable 2 quantity. | 
+**utility1Slot** | **String** | Utility 1 slot. | 
+**utility1SlotQuantity** | **int** | Utility 1 quantity. | 
+**utility2Slot** | **String** | Utility 2 slot. | 
+**utility2SlotQuantity** | **int** | Utility 2 quantity. | 
 **task** | **String** | Task in progress. | 
 **taskType** | **String** | Task type. | 
 **taskProgress** | **int** | Task progression. | 

@@ -9,30 +9,34 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getAllGeItemsGeGet**](GrandExchangeApi.md#getallgeitemsgeget) | **GET** /ge | Get All Ge Items
-[**getGeItemGeCodeGet**](GrandExchangeApi.md#getgeitemgecodeget) | **GET** /ge/{code} | Get Ge Item
+[**getGeSellHistoryGrandexchangeHistoryCodeGet**](GrandExchangeApi.md#getgesellhistorygrandexchangehistorycodeget) | **GET** /grandexchange/history/{code} | Get Ge Sell History
+[**getGeSellOrderGrandexchangeOrdersIdGet**](GrandExchangeApi.md#getgesellordergrandexchangeordersidget) | **GET** /grandexchange/orders/{id} | Get Ge Sell Order
+[**getGeSellOrdersGrandexchangeOrdersGet**](GrandExchangeApi.md#getgesellordersgrandexchangeordersget) | **GET** /grandexchange/orders | Get Ge Sell Orders
 
 
-# **getAllGeItemsGeGet**
-> DataPageGEItemSchema getAllGeItemsGeGet(page, size)
+# **getGeSellHistoryGrandexchangeHistoryCodeGet**
+> DataPageGeOrderHistorySchema getGeSellHistoryGrandexchangeHistoryCodeGet(code, seller, buyer, page, size)
 
-Get All Ge Items
+Get Ge Sell History
 
-Fetch Grand Exchange items details.
+Fetch the sales history of the item for the last 7 days.
 
 ### Example
 ```dart
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = GrandExchangeApi();
+final code = code_example; // String | The code of the item.
+final seller = seller_example; // String | The seller (account name) of the item.
+final buyer = buyer_example; // String | The buyer (account name) of the item.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getAllGeItemsGeGet(page, size);
+    final result = api_instance.getGeSellHistoryGrandexchangeHistoryCodeGet(code, seller, buyer, page, size);
     print(result);
 } catch (e) {
-    print('Exception when calling GrandExchangeApi->getAllGeItemsGeGet: $e\n');
+    print('Exception when calling GrandExchangeApi->getGeSellHistoryGrandexchangeHistoryCodeGet: $e\n');
 }
 ```
 
@@ -40,12 +44,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **code** | **String**| The code of the item. | 
+ **seller** | **String**| The seller (account name) of the item. | [optional] 
+ **buyer** | **String**| The buyer (account name) of the item. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
-[**DataPageGEItemSchema**](DataPageGEItemSchema.md)
+[**DataPageGeOrderHistorySchema**](DataPageGeOrderHistorySchema.md)
 
 ### Authorization
 
@@ -58,25 +65,25 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getGeItemGeCodeGet**
-> GEItemResponseSchema getGeItemGeCodeGet(code)
+# **getGeSellOrderGrandexchangeOrdersIdGet**
+> GEOrderReponseSchema getGeSellOrderGrandexchangeOrdersIdGet(id)
 
-Get Ge Item
+Get Ge Sell Order
 
-Retrieve the details of a Grand Exchange item.
+Retrieve the sell order of a item.
 
 ### Example
 ```dart
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = GrandExchangeApi();
-final code = code_example; // String | The code of the item.
+final id = id_example; // String | The id of the order.
 
 try {
-    final result = api_instance.getGeItemGeCodeGet(code);
+    final result = api_instance.getGeSellOrderGrandexchangeOrdersIdGet(id);
     print(result);
 } catch (e) {
-    print('Exception when calling GrandExchangeApi->getGeItemGeCodeGet: $e\n');
+    print('Exception when calling GrandExchangeApi->getGeSellOrderGrandexchangeOrdersIdGet: $e\n');
 }
 ```
 
@@ -84,11 +91,60 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| The code of the item. | 
+ **id** | **String**| The id of the order. | 
 
 ### Return type
 
-[**GEItemResponseSchema**](GEItemResponseSchema.md)
+[**GEOrderReponseSchema**](GEOrderReponseSchema.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGeSellOrdersGrandexchangeOrdersGet**
+> DataPageGEOrderSchema getGeSellOrdersGrandexchangeOrdersGet(code, seller, page, size)
+
+Get Ge Sell Orders
+
+Fetch all sell orders.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+
+final api_instance = GrandExchangeApi();
+final code = code_example; // String | The code of the item.
+final seller = seller_example; // String | The seller (account name) of the item.
+final page = 56; // int | Page number
+final size = 56; // int | Page size
+
+try {
+    final result = api_instance.getGeSellOrdersGrandexchangeOrdersGet(code, seller, page, size);
+    print(result);
+} catch (e) {
+    print('Exception when calling GrandExchangeApi->getGeSellOrdersGrandexchangeOrdersGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **String**| The code of the item. | [optional] 
+ **seller** | **String**| The seller (account name) of the item. | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
+
+### Return type
+
+[**DataPageGEOrderSchema**](DataPageGEOrderSchema.md)
 
 ### Authorization
 

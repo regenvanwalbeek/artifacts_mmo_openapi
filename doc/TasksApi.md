@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getAllTasksRewardsTasksRewardsGet**
-> DataPageTasksRewardFullSchema getAllTasksRewardsTasksRewardsGet(page, size)
+> DataPageDropRateSchema getAllTasksRewardsTasksRewardsGet(page, size)
 
 Get All Tasks Rewards
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageTasksRewardFullSchema**](DataPageTasksRewardFullSchema.md)
+[**DataPageDropRateSchema**](DataPageDropRateSchema.md)
 
 ### Authorization
 
@@ -74,8 +74,8 @@ import 'package:artifacts_mmo_openapi/api.dart';
 final api_instance = TasksApi();
 final minLevel = 56; // int | Minimum level.
 final maxLevel = 56; // int | Maximum level.
-final skill = skill_example; // String | The code of the skill.
-final type = type_example; // String | The type of tasks.
+final skill = ; // Skill | The code of the skill.
+final type = ; // TaskType | The type of tasks.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -93,8 +93,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **minLevel** | **int**| Minimum level. | [optional] 
  **maxLevel** | **int**| Maximum level. | [optional] 
- **skill** | **String**| The code of the skill. | [optional] 
- **type** | **String**| The type of tasks. | [optional] 
+ **skill** | [**Skill**](.md)| The code of the skill. | [optional] 
+ **type** | [**TaskType**](.md)| The type of tasks. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -157,7 +157,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getTasksRewardTasksRewardsCodeGet**
-> TasksRewardFullResponseSchema getTasksRewardTasksRewardsCodeGet(code)
+> TasksRewardResponseSchema getTasksRewardTasksRewardsCodeGet(code)
 
 Get Tasks Reward
 
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TasksRewardFullResponseSchema**](TasksRewardFullResponseSchema.md)
+[**TasksRewardResponseSchema**](TasksRewardResponseSchema.md)
 
 ### Authorization
 

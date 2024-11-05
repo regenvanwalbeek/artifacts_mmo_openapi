@@ -8,9 +8,10 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**position** | **int** | Position in the leaderboard. | 
 **name** | **String** | Character name. | 
+**account** | **String** | Account name. | 
 **skin** | **String** | Character skin code. | 
-**achievementsPoints** | **int** | Achievements points. | 
 **level** | **int** | Combat level. | 
 **totalXp** | **int** | Total XP of your character. | 
 **miningLevel** | **int** | Mining level. | 
@@ -27,7 +28,9 @@ Name | Type | Description | Notes
 **jewelrycraftingTotalXp** | **int** | Jewelrycrafting total xp. | 
 **cookingLevel** | **int** | Cooking level. | 
 **cookingTotalXp** | **int** | Cooking total xp. | 
-**gold** | **int** | The numbers of golds on this character. | 
+**alchemyLevel** | **int** | Alchemy level. | 
+**alchemyTotalXp** | **int** | Alchemy total xp. | 
+**gold** | **int** | The numbers of gold on this character. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

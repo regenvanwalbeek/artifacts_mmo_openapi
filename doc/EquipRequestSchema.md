@@ -8,8 +8,8 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**slot** | **String** | Item slot. | 
 **cooldown** | [**CooldownSchema**](CooldownSchema.md) | Cooldown details. | 
+**slot** | [**ItemSlot**](ItemSlot.md) | Item slot. | 
 **item** | [**ItemSchema**](ItemSchema.md) | Item details. | 
 **character** | [**CharacterSchema**](CharacterSchema.md) | Player details. | 
 

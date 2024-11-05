@@ -20,7 +20,13 @@ class CraftSchema {
   });
 
   /// Skill required to craft the item.
-  CraftSchemaSkillEnum? skill;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  CraftSkill? skill;
 
   /// The skill level required to craft the item.
   ///
@@ -106,7 +112,7 @@ class CraftSchema {
       }());
 
       return CraftSchema(
-        skill: CraftSchemaSkillEnum.fromJson(json[r'skill']),
+        skill: CraftSkill.fromJson(json[r'skill']),
         level: mapValueOfType<int>(json, r'level'),
         items: SimpleItemSchema.listFromJson(json[r'items']),
         quantity: mapValueOfType<int>(json, r'quantity'),
@@ -166,100 +172,4 @@ class CraftSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{};
-}
-
-/// Skill required to craft the item.
-class CraftSchemaSkillEnum {
-  /// Instantiate a new enum with the provided [value].
-  const CraftSchemaSkillEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const weaponcrafting = CraftSchemaSkillEnum._(r'weaponcrafting');
-  static const gearcrafting = CraftSchemaSkillEnum._(r'gearcrafting');
-  static const jewelrycrafting = CraftSchemaSkillEnum._(r'jewelrycrafting');
-  static const cooking = CraftSchemaSkillEnum._(r'cooking');
-  static const woodcutting = CraftSchemaSkillEnum._(r'woodcutting');
-  static const mining = CraftSchemaSkillEnum._(r'mining');
-
-  /// List of all possible values in this [enum][CraftSchemaSkillEnum].
-  static const values = <CraftSchemaSkillEnum>[
-    weaponcrafting,
-    gearcrafting,
-    jewelrycrafting,
-    cooking,
-    woodcutting,
-    mining,
-  ];
-
-  static CraftSchemaSkillEnum? fromJson(dynamic value) =>
-      CraftSchemaSkillEnumTypeTransformer().decode(value);
-
-  static List<CraftSchemaSkillEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <CraftSchemaSkillEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = CraftSchemaSkillEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [CraftSchemaSkillEnum] to String,
-/// and [decode] dynamic data back to [CraftSchemaSkillEnum].
-class CraftSchemaSkillEnumTypeTransformer {
-  factory CraftSchemaSkillEnumTypeTransformer() =>
-      _instance ??= const CraftSchemaSkillEnumTypeTransformer._();
-
-  const CraftSchemaSkillEnumTypeTransformer._();
-
-  String encode(CraftSchemaSkillEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a CraftSchemaSkillEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  CraftSchemaSkillEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'weaponcrafting':
-          return CraftSchemaSkillEnum.weaponcrafting;
-        case r'gearcrafting':
-          return CraftSchemaSkillEnum.gearcrafting;
-        case r'jewelrycrafting':
-          return CraftSchemaSkillEnum.jewelrycrafting;
-        case r'cooking':
-          return CraftSchemaSkillEnum.cooking;
-        case r'woodcutting':
-          return CraftSchemaSkillEnum.woodcutting;
-        case r'mining':
-          return CraftSchemaSkillEnum.mining;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [CraftSchemaSkillEnumTypeTransformer] instance.
-  static CraftSchemaSkillEnumTypeTransformer? _instance;
 }

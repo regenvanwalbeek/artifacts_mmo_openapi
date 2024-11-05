@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **monsterBlockedHits** | [**BlockedHitsSchema**](BlockedHitsSchema.md) | The amount of blocked hits by the monster. | 
 **playerBlockedHits** | [**BlockedHitsSchema**](BlockedHitsSchema.md) | The amount of blocked hits by the player. | 
 **logs** | **List<String>** | The fight logs. | [default to const []]
-**result** | **String** | The result of the fight. | 
+**result** | [**FightResult**](FightResult.md) | The result of the fight. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

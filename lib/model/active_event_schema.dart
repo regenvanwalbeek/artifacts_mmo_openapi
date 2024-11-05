@@ -14,6 +14,7 @@ class ActiveEventSchema {
   /// Returns a new [ActiveEventSchema] instance.
   ActiveEventSchema({
     required this.name,
+    required this.code,
     required this.map,
     required this.previousSkin,
     required this.duration,
@@ -23,6 +24,9 @@ class ActiveEventSchema {
 
   /// Name of the event.
   String name;
+
+  /// Code of the event. This is the event's unique identifier (ID).
+  String code;
 
   /// Map of the event.
   MapSchema map;
@@ -44,6 +48,7 @@ class ActiveEventSchema {
       identical(this, other) ||
       other is ActiveEventSchema &&
           other.name == name &&
+          other.code == code &&
           other.map == map &&
           other.previousSkin == previousSkin &&
           other.duration == duration &&
@@ -54,6 +59,7 @@ class ActiveEventSchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (name.hashCode) +
+      (code.hashCode) +
       (map.hashCode) +
       (previousSkin.hashCode) +
       (duration.hashCode) +
@@ -62,11 +68,12 @@ class ActiveEventSchema {
 
   @override
   String toString() =>
-      'ActiveEventSchema[name=$name, map=$map, previousSkin=$previousSkin, duration=$duration, expiration=$expiration, createdAt=$createdAt]';
+      'ActiveEventSchema[name=$name, code=$code, map=$map, previousSkin=$previousSkin, duration=$duration, expiration=$expiration, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'name'] = this.name;
+    json[r'code'] = this.code;
     json[r'map'] = this.map;
     json[r'previous_skin'] = this.previousSkin;
     json[r'duration'] = this.duration;
@@ -97,6 +104,7 @@ class ActiveEventSchema {
 
       return ActiveEventSchema(
         name: mapValueOfType<String>(json, r'name')!,
+        code: mapValueOfType<String>(json, r'code')!,
         map: MapSchema.fromJson(json[r'map'])!,
         previousSkin: mapValueOfType<String>(json, r'previous_skin')!,
         duration: mapValueOfType<int>(json, r'duration')!,
@@ -159,6 +167,7 @@ class ActiveEventSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'name',
+    'code',
     'map',
     'previous_skin',
     'duration',

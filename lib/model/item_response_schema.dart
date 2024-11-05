@@ -16,7 +16,7 @@ class ItemResponseSchema {
     required this.data,
   });
 
-  SingleItemSchema data;
+  ItemSchema data;
 
   @override
   bool operator ==(Object other) =>
@@ -58,7 +58,7 @@ class ItemResponseSchema {
       }());
 
       return ItemResponseSchema(
-        data: SingleItemSchema.fromJson(json[r'data'])!,
+        data: ItemSchema.fromJson(json[r'data'])!,
       );
     }
     return null;

@@ -27,7 +27,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 final api_instance = MonstersApi();
 final minLevel = 56; // int | Monster minimum level.
 final maxLevel = 56; // int | Monster maximum level.
-final drop = green_slimeball; // String | Item code of the drop.
+final drop = drop_example; // String | Item code of the drop.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 

@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**getAccountDetailsMyDetailsGet**](MyAccountApi.md#getaccountdetailsmydetailsget) | **GET** /my/details | Get Account Details
 [**getBankDetailsMyBankGet**](MyAccountApi.md#getbankdetailsmybankget) | **GET** /my/bank | Get Bank Details
 [**getBankItemsMyBankItemsGet**](MyAccountApi.md#getbankitemsmybankitemsget) | **GET** /my/bank/items | Get Bank Items
+[**getGeSellHistoryMyGrandexchangeHistoryGet**](MyAccountApi.md#getgesellhistorymygrandexchangehistoryget) | **GET** /my/grandexchange/history | Get Ge Sell History
+[**getGeSellOrdersMyGrandexchangeOrdersGet**](MyAccountApi.md#getgesellordersmygrandexchangeordersget) | **GET** /my/grandexchange/orders | Get Ge Sell Orders
 
 
 # **changePasswordMyChangePasswordPost**
@@ -65,7 +67,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAccountDetailsMyDetailsGet**
-> AccountDetailsSchema getAccountDetailsMyDetailsGet()
+> MyAccountDetailsSchema getAccountDetailsMyDetailsGet()
 
 Get Account Details
 
@@ -96,7 +98,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**AccountDetailsSchema**](AccountDetailsSchema.md)
+[**MyAccountDetailsSchema**](MyAccountDetailsSchema.md)
 
 ### Authorization
 
@@ -195,6 +197,114 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataPageSimpleItemSchema**](DataPageSimpleItemSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGeSellHistoryMyGrandexchangeHistoryGet**
+> DataPageGeOrderHistorySchema getGeSellHistoryMyGrandexchangeHistoryGet(id, code, page, size)
+
+Get Ge Sell History
+
+Fetch your sales history of the last 7 days.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyAccountApi();
+final id = id_example; // String | Order ID to search in your history.
+final code = code_example; // String | Item to search in your history.
+final page = 56; // int | Page number
+final size = 56; // int | Page size
+
+try {
+    final result = api_instance.getGeSellHistoryMyGrandexchangeHistoryGet(id, code, page, size);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyAccountApi->getGeSellHistoryMyGrandexchangeHistoryGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Order ID to search in your history. | [optional] 
+ **code** | **String**| Item to search in your history. | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
+
+### Return type
+
+[**DataPageGeOrderHistorySchema**](DataPageGeOrderHistorySchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getGeSellOrdersMyGrandexchangeOrdersGet**
+> DataPageGEOrderSchema getGeSellOrdersMyGrandexchangeOrdersGet(code, page, size)
+
+Get Ge Sell Orders
+
+Fetch your sell orders details.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyAccountApi();
+final code = code_example; // String | The code of the item.
+final page = 56; // int | Page number
+final size = 56; // int | Page size
+
+try {
+    final result = api_instance.getGeSellOrdersMyGrandexchangeOrdersGet(code, page, size);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyAccountApi->getGeSellOrdersMyGrandexchangeOrdersGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **String**| The code of the item. | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
+
+### Return type
+
+[**DataPageGEOrderSchema**](DataPageGEOrderSchema.md)
 
 ### Authorization
 

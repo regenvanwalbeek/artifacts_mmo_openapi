@@ -13,11 +13,15 @@ part of openapi_generation;
 class GETransactionSchema {
   /// Returns a new [GETransactionSchema] instance.
   GETransactionSchema({
+    required this.id,
     required this.code,
     required this.quantity,
     required this.price,
     required this.totalPrice,
   });
+
+  /// Order id.
+  String id;
 
   /// Item code.
   String code;
@@ -35,6 +39,7 @@ class GETransactionSchema {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is GETransactionSchema &&
+          other.id == id &&
           other.code == code &&
           other.quantity == quantity &&
           other.price == price &&
@@ -43,6 +48,7 @@ class GETransactionSchema {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
+      (id.hashCode) +
       (code.hashCode) +
       (quantity.hashCode) +
       (price.hashCode) +
@@ -50,10 +56,11 @@ class GETransactionSchema {
 
   @override
   String toString() =>
-      'GETransactionSchema[code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice]';
+      'GETransactionSchema[id=$id, code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'id'] = this.id;
     json[r'code'] = this.code;
     json[r'quantity'] = this.quantity;
     json[r'price'] = this.price;
@@ -82,6 +89,7 @@ class GETransactionSchema {
       }());
 
       return GETransactionSchema(
+        id: mapValueOfType<String>(json, r'id')!,
         code: mapValueOfType<String>(json, r'code')!,
         quantity: mapValueOfType<int>(json, r'quantity')!,
         price: mapValueOfType<int>(json, r'price')!,
@@ -142,6 +150,7 @@ class GETransactionSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'id',
     'code',
     'quantity',
     'price',

@@ -14,7 +14,7 @@ class StatusSchema {
   /// Returns a new [StatusSchema] instance.
   StatusSchema({
     required this.status,
-    this.version,
+    required this.version,
     required this.maxLevel,
     required this.charactersOnline,
     required this.serverTime,
@@ -26,13 +26,8 @@ class StatusSchema {
   /// Server status
   String status;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? version;
+  /// Game version.
+  String version;
 
   /// Maximum level.
   int maxLevel;
@@ -69,7 +64,7 @@ class StatusSchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (status.hashCode) +
-      (version == null ? 0 : version!.hashCode) +
+      (version.hashCode) +
       (maxLevel.hashCode) +
       (charactersOnline.hashCode) +
       (serverTime.hashCode) +
@@ -84,11 +79,7 @@ class StatusSchema {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'status'] = this.status;
-    if (this.version != null) {
-      json[r'version'] = this.version;
-    } else {
-      json[r'version'] = null;
-    }
+    json[r'version'] = this.version;
     json[r'max_level'] = this.maxLevel;
     json[r'characters_online'] = this.charactersOnline;
     json[r'server_time'] = this.serverTime.toUtc().toIso8601String();
@@ -120,7 +111,7 @@ class StatusSchema {
 
       return StatusSchema(
         status: mapValueOfType<String>(json, r'status')!,
-        version: mapValueOfType<String>(json, r'version'),
+        version: mapValueOfType<String>(json, r'version')!,
         maxLevel: mapValueOfType<int>(json, r'max_level')!,
         charactersOnline: mapValueOfType<int>(json, r'characters_online')!,
         serverTime: mapDateTime(json, r'server_time', r'')!,
@@ -184,6 +175,7 @@ class StatusSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'status',
+    'version',
     'max_level',
     'characters_online',
     'server_time',

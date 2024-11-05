@@ -30,7 +30,7 @@ class ResourcesApi {
   /// * [int] maxLevel:
   ///   Skill maximum level.
   ///
-  /// * [String] skill:
+  /// * [GatheringSkill] skill:
   ///   The code of the skill.
   ///
   /// * [String] drop:
@@ -44,7 +44,7 @@ class ResourcesApi {
   Future<Response> getAllResourcesResourcesGetWithHttpInfo({
     int? minLevel,
     int? maxLevel,
-    String? skill,
+    GatheringSkill? skill,
     String? drop,
     int? page,
     int? size,
@@ -103,7 +103,7 @@ class ResourcesApi {
   /// * [int] maxLevel:
   ///   Skill maximum level.
   ///
-  /// * [String] skill:
+  /// * [GatheringSkill] skill:
   ///   The code of the skill.
   ///
   /// * [String] drop:
@@ -117,7 +117,7 @@ class ResourcesApi {
   Future<DataPageResourceSchema?> getAllResourcesResourcesGet({
     int? minLevel,
     int? maxLevel,
-    String? skill,
+    GatheringSkill? skill,
     String? drop,
     int? page,
     int? size,

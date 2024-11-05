@@ -33,7 +33,7 @@ class CooldownSchema {
   DateTime expiration;
 
   /// The reason of the cooldown.
-  CooldownSchemaReasonEnum reason;
+  ActionType reason;
 
   @override
   bool operator ==(Object other) =>
@@ -93,7 +93,7 @@ class CooldownSchema {
         remainingSeconds: mapValueOfType<int>(json, r'remaining_seconds')!,
         startedAt: mapDateTime(json, r'started_at', r'')!,
         expiration: mapDateTime(json, r'expiration', r'')!,
-        reason: CooldownSchemaReasonEnum.fromJson(json[r'reason'])!,
+        reason: ActionType.fromJson(json[r'reason'])!,
       );
     }
     return null;
@@ -156,128 +156,4 @@ class CooldownSchema {
     'expiration',
     'reason',
   };
-}
-
-/// The reason of the cooldown.
-class CooldownSchemaReasonEnum {
-  /// Instantiate a new enum with the provided [value].
-  const CooldownSchemaReasonEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const movement = CooldownSchemaReasonEnum._(r'movement');
-  static const fight = CooldownSchemaReasonEnum._(r'fight');
-  static const crafting = CooldownSchemaReasonEnum._(r'crafting');
-  static const gathering = CooldownSchemaReasonEnum._(r'gathering');
-  static const buyGe = CooldownSchemaReasonEnum._(r'buy_ge');
-  static const sellGe = CooldownSchemaReasonEnum._(r'sell_ge');
-  static const deleteItem = CooldownSchemaReasonEnum._(r'delete_item');
-  static const depositBank = CooldownSchemaReasonEnum._(r'deposit_bank');
-  static const withdrawBank = CooldownSchemaReasonEnum._(r'withdraw_bank');
-  static const equip = CooldownSchemaReasonEnum._(r'equip');
-  static const unequip = CooldownSchemaReasonEnum._(r'unequip');
-  static const task = CooldownSchemaReasonEnum._(r'task');
-  static const recycling = CooldownSchemaReasonEnum._(r'recycling');
-
-  /// List of all possible values in this [enum][CooldownSchemaReasonEnum].
-  static const values = <CooldownSchemaReasonEnum>[
-    movement,
-    fight,
-    crafting,
-    gathering,
-    buyGe,
-    sellGe,
-    deleteItem,
-    depositBank,
-    withdrawBank,
-    equip,
-    unequip,
-    task,
-    recycling,
-  ];
-
-  static CooldownSchemaReasonEnum? fromJson(dynamic value) =>
-      CooldownSchemaReasonEnumTypeTransformer().decode(value);
-
-  static List<CooldownSchemaReasonEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <CooldownSchemaReasonEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = CooldownSchemaReasonEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [CooldownSchemaReasonEnum] to String,
-/// and [decode] dynamic data back to [CooldownSchemaReasonEnum].
-class CooldownSchemaReasonEnumTypeTransformer {
-  factory CooldownSchemaReasonEnumTypeTransformer() =>
-      _instance ??= const CooldownSchemaReasonEnumTypeTransformer._();
-
-  const CooldownSchemaReasonEnumTypeTransformer._();
-
-  String encode(CooldownSchemaReasonEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a CooldownSchemaReasonEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  CooldownSchemaReasonEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'movement':
-          return CooldownSchemaReasonEnum.movement;
-        case r'fight':
-          return CooldownSchemaReasonEnum.fight;
-        case r'crafting':
-          return CooldownSchemaReasonEnum.crafting;
-        case r'gathering':
-          return CooldownSchemaReasonEnum.gathering;
-        case r'buy_ge':
-          return CooldownSchemaReasonEnum.buyGe;
-        case r'sell_ge':
-          return CooldownSchemaReasonEnum.sellGe;
-        case r'delete_item':
-          return CooldownSchemaReasonEnum.deleteItem;
-        case r'deposit_bank':
-          return CooldownSchemaReasonEnum.depositBank;
-        case r'withdraw_bank':
-          return CooldownSchemaReasonEnum.withdrawBank;
-        case r'equip':
-          return CooldownSchemaReasonEnum.equip;
-        case r'unequip':
-          return CooldownSchemaReasonEnum.unequip;
-        case r'task':
-          return CooldownSchemaReasonEnum.task;
-        case r'recycling':
-          return CooldownSchemaReasonEnum.recycling;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [CooldownSchemaReasonEnumTypeTransformer] instance.
-  static CooldownSchemaReasonEnumTypeTransformer? _instance;
 }

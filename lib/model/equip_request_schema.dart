@@ -13,17 +13,17 @@ part of openapi_generation;
 class EquipRequestSchema {
   /// Returns a new [EquipRequestSchema] instance.
   EquipRequestSchema({
-    required this.slot,
     required this.cooldown,
+    required this.slot,
     required this.item,
     required this.character,
   });
 
-  /// Item slot.
-  EquipRequestSchemaSlotEnum slot;
-
   /// Cooldown details.
   CooldownSchema cooldown;
+
+  /// Item slot.
+  ItemSlot slot;
 
   /// Item details.
   ItemSchema item;
@@ -35,27 +35,27 @@ class EquipRequestSchema {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is EquipRequestSchema &&
-          other.slot == slot &&
           other.cooldown == cooldown &&
+          other.slot == slot &&
           other.item == item &&
           other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (slot.hashCode) +
       (cooldown.hashCode) +
+      (slot.hashCode) +
       (item.hashCode) +
       (character.hashCode);
 
   @override
   String toString() =>
-      'EquipRequestSchema[slot=$slot, cooldown=$cooldown, item=$item, character=$character]';
+      'EquipRequestSchema[cooldown=$cooldown, slot=$slot, item=$item, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'slot'] = this.slot;
     json[r'cooldown'] = this.cooldown;
+    json[r'slot'] = this.slot;
     json[r'item'] = this.item;
     json[r'character'] = this.character;
     return json;
@@ -82,8 +82,8 @@ class EquipRequestSchema {
       }());
 
       return EquipRequestSchema(
-        slot: EquipRequestSchemaSlotEnum.fromJson(json[r'slot'])!,
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
+        slot: ItemSlot.fromJson(json[r'slot'])!,
         item: ItemSchema.fromJson(json[r'item'])!,
         character: CharacterSchema.fromJson(json[r'character'])!,
       );
@@ -142,137 +142,9 @@ class EquipRequestSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'slot',
     'cooldown',
+    'slot',
     'item',
     'character',
   };
-}
-
-/// Item slot.
-class EquipRequestSchemaSlotEnum {
-  /// Instantiate a new enum with the provided [value].
-  const EquipRequestSchemaSlotEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const weapon = EquipRequestSchemaSlotEnum._(r'weapon');
-  static const shield = EquipRequestSchemaSlotEnum._(r'shield');
-  static const helmet = EquipRequestSchemaSlotEnum._(r'helmet');
-  static const bodyArmor = EquipRequestSchemaSlotEnum._(r'body_armor');
-  static const legArmor = EquipRequestSchemaSlotEnum._(r'leg_armor');
-  static const boots = EquipRequestSchemaSlotEnum._(r'boots');
-  static const ring1 = EquipRequestSchemaSlotEnum._(r'ring1');
-  static const ring2 = EquipRequestSchemaSlotEnum._(r'ring2');
-  static const amulet = EquipRequestSchemaSlotEnum._(r'amulet');
-  static const artifact1 = EquipRequestSchemaSlotEnum._(r'artifact1');
-  static const artifact2 = EquipRequestSchemaSlotEnum._(r'artifact2');
-  static const artifact3 = EquipRequestSchemaSlotEnum._(r'artifact3');
-  static const consumable1 = EquipRequestSchemaSlotEnum._(r'consumable1');
-  static const consumable2 = EquipRequestSchemaSlotEnum._(r'consumable2');
-
-  /// List of all possible values in this [enum][EquipRequestSchemaSlotEnum].
-  static const values = <EquipRequestSchemaSlotEnum>[
-    weapon,
-    shield,
-    helmet,
-    bodyArmor,
-    legArmor,
-    boots,
-    ring1,
-    ring2,
-    amulet,
-    artifact1,
-    artifact2,
-    artifact3,
-    consumable1,
-    consumable2,
-  ];
-
-  static EquipRequestSchemaSlotEnum? fromJson(dynamic value) =>
-      EquipRequestSchemaSlotEnumTypeTransformer().decode(value);
-
-  static List<EquipRequestSchemaSlotEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <EquipRequestSchemaSlotEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = EquipRequestSchemaSlotEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [EquipRequestSchemaSlotEnum] to String,
-/// and [decode] dynamic data back to [EquipRequestSchemaSlotEnum].
-class EquipRequestSchemaSlotEnumTypeTransformer {
-  factory EquipRequestSchemaSlotEnumTypeTransformer() =>
-      _instance ??= const EquipRequestSchemaSlotEnumTypeTransformer._();
-
-  const EquipRequestSchemaSlotEnumTypeTransformer._();
-
-  String encode(EquipRequestSchemaSlotEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a EquipRequestSchemaSlotEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  EquipRequestSchemaSlotEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'weapon':
-          return EquipRequestSchemaSlotEnum.weapon;
-        case r'shield':
-          return EquipRequestSchemaSlotEnum.shield;
-        case r'helmet':
-          return EquipRequestSchemaSlotEnum.helmet;
-        case r'body_armor':
-          return EquipRequestSchemaSlotEnum.bodyArmor;
-        case r'leg_armor':
-          return EquipRequestSchemaSlotEnum.legArmor;
-        case r'boots':
-          return EquipRequestSchemaSlotEnum.boots;
-        case r'ring1':
-          return EquipRequestSchemaSlotEnum.ring1;
-        case r'ring2':
-          return EquipRequestSchemaSlotEnum.ring2;
-        case r'amulet':
-          return EquipRequestSchemaSlotEnum.amulet;
-        case r'artifact1':
-          return EquipRequestSchemaSlotEnum.artifact1;
-        case r'artifact2':
-          return EquipRequestSchemaSlotEnum.artifact2;
-        case r'artifact3':
-          return EquipRequestSchemaSlotEnum.artifact3;
-        case r'consumable1':
-          return EquipRequestSchemaSlotEnum.consumable1;
-        case r'consumable2':
-          return EquipRequestSchemaSlotEnum.consumable2;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [EquipRequestSchemaSlotEnumTypeTransformer] instance.
-  static EquipRequestSchemaSlotEnumTypeTransformer? _instance;
 }

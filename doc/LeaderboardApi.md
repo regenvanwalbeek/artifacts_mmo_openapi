@@ -9,13 +9,14 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getLeaderboardLeaderboardGet**](LeaderboardApi.md#getleaderboardleaderboardget) | **GET** /leaderboard | Get Leaderboard
+[**getAccountsLeaderboardLeaderboardAccountsGet**](LeaderboardApi.md#getaccountsleaderboardleaderboardaccountsget) | **GET** /leaderboard/accounts | Get Accounts Leaderboard
+[**getCharactersLeaderboardLeaderboardCharactersGet**](LeaderboardApi.md#getcharactersleaderboardleaderboardcharactersget) | **GET** /leaderboard/characters | Get Characters Leaderboard
 
 
-# **getLeaderboardLeaderboardGet**
-> DataPageCharacterLeaderboardSchema getLeaderboardLeaderboardGet(sort, page, size)
+# **getAccountsLeaderboardLeaderboardAccountsGet**
+> DataPageAccountLeaderboardSchema getAccountsLeaderboardLeaderboardAccountsGet(sort, page, size)
 
-Get Leaderboard
+Get Accounts Leaderboard
 
 Fetch leaderboard details.
 
@@ -24,15 +25,15 @@ Fetch leaderboard details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = LeaderboardApi();
-final sort = sort_example; // String | Default sort by combat total XP.
+final sort = ; // AccountLeaderboardType | Default sort by achievements points.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getLeaderboardLeaderboardGet(sort, page, size);
+    final result = api_instance.getAccountsLeaderboardLeaderboardAccountsGet(sort, page, size);
     print(result);
 } catch (e) {
-    print('Exception when calling LeaderboardApi->getLeaderboardLeaderboardGet: $e\n');
+    print('Exception when calling LeaderboardApi->getAccountsLeaderboardLeaderboardAccountsGet: $e\n');
 }
 ```
 
@@ -40,7 +41,54 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sort** | **String**| Default sort by combat total XP. | [optional] 
+ **sort** | [**AccountLeaderboardType**](.md)| Default sort by achievements points. | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
+
+### Return type
+
+[**DataPageAccountLeaderboardSchema**](DataPageAccountLeaderboardSchema.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getCharactersLeaderboardLeaderboardCharactersGet**
+> DataPageCharacterLeaderboardSchema getCharactersLeaderboardLeaderboardCharactersGet(sort, page, size)
+
+Get Characters Leaderboard
+
+Fetch leaderboard details.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+
+final api_instance = LeaderboardApi();
+final sort = ; // CharacterLeaderboardType | Default sort by combat total XP.
+final page = 56; // int | Page number
+final size = 56; // int | Page size
+
+try {
+    final result = api_instance.getCharactersLeaderboardLeaderboardCharactersGet(sort, page, size);
+    print(result);
+} catch (e) {
+    print('Exception when calling LeaderboardApi->getCharactersLeaderboardLeaderboardCharactersGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sort** | [**CharacterLeaderboardType**](.md)| Default sort by combat total XP. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | Item code. | 
-**rate** | **int** | Chance rate. | 
+**rate** | **int** | Chance rate. (1/rate) | 
 **minQuantity** | **int** | Minimum quantity. | 
 **maxQuantity** | **int** | Maximum quantity. | 
 

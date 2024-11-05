@@ -14,11 +14,11 @@ class CharacterSchema {
   /// Returns a new [CharacterSchema] instance.
   CharacterSchema({
     required this.name,
+    required this.account,
     required this.skin,
     required this.level,
     required this.xp,
     required this.maxXp,
-    required this.achievementsPoints,
     required this.gold,
     required this.speed,
     required this.miningLevel,
@@ -42,7 +42,11 @@ class CharacterSchema {
     required this.cookingLevel,
     required this.cookingXp,
     required this.cookingMaxXp,
+    required this.alchemyLevel,
+    required this.alchemyXp,
+    required this.alchemyMaxXp,
     required this.hp,
+    required this.maxHp,
     required this.haste,
     required this.criticalStrike,
     required this.stamina,
@@ -74,10 +78,10 @@ class CharacterSchema {
     required this.artifact1Slot,
     required this.artifact2Slot,
     required this.artifact3Slot,
-    required this.consumable1Slot,
-    required this.consumable1SlotQuantity,
-    required this.consumable2Slot,
-    required this.consumable2SlotQuantity,
+    required this.utility1Slot,
+    required this.utility1SlotQuantity,
+    required this.utility2Slot,
+    required this.utility2SlotQuantity,
     required this.task,
     required this.taskType,
     required this.taskProgress,
@@ -89,8 +93,11 @@ class CharacterSchema {
   /// Name of the character.
   String name;
 
+  /// Account name.
+  String account;
+
   /// Character skin code.
-  CharacterSchemaSkinEnum skin;
+  CharacterSkin skin;
 
   /// Combat level.
   int level;
@@ -101,10 +108,7 @@ class CharacterSchema {
   /// XP required to level up the character.
   int maxXp;
 
-  /// achievements points.
-  int achievementsPoints;
-
-  /// The numbers of golds on this character.
+  /// The numbers of gold on this character.
   int gold;
 
   /// *Not available, on the roadmap. Character movement speed.
@@ -173,8 +177,20 @@ class CharacterSchema {
   /// Cooking XP required to level up the skill.
   int cookingMaxXp;
 
-  /// Character HP.
+  /// Alchemy level.
+  int alchemyLevel;
+
+  /// Alchemy XP.
+  int alchemyXp;
+
+  /// Alchemy XP required to level up the skill.
+  int alchemyMaxXp;
+
+  /// Character actual HP.
   int hp;
+
+  /// Character max HP.
+  int maxHp;
 
   /// *Character Haste. Increase speed attack (reduce fight cooldown)
   int haste;
@@ -275,21 +291,21 @@ class CharacterSchema {
   /// Artifact 3 slot.
   String artifact3Slot;
 
-  /// Consumable 1 slot.
-  String consumable1Slot;
+  /// Utility 1 slot.
+  String utility1Slot;
 
-  /// Consumable 1 quantity.
+  /// Utility 1 quantity.
   ///
   /// Minimum value: 0
-  int consumable1SlotQuantity;
+  int utility1SlotQuantity;
 
-  /// Consumable 2 slot.
-  String consumable2Slot;
+  /// Utility 2 slot.
+  String utility2Slot;
 
-  /// Consumable 2 quantity.
+  /// Utility 2 quantity.
   ///
   /// Minimum value: 0
-  int consumable2SlotQuantity;
+  int utility2SlotQuantity;
 
   /// Task in progress.
   String task;
@@ -314,11 +330,11 @@ class CharacterSchema {
       identical(this, other) ||
       other is CharacterSchema &&
           other.name == name &&
+          other.account == account &&
           other.skin == skin &&
           other.level == level &&
           other.xp == xp &&
           other.maxXp == maxXp &&
-          other.achievementsPoints == achievementsPoints &&
           other.gold == gold &&
           other.speed == speed &&
           other.miningLevel == miningLevel &&
@@ -342,7 +358,11 @@ class CharacterSchema {
           other.cookingLevel == cookingLevel &&
           other.cookingXp == cookingXp &&
           other.cookingMaxXp == cookingMaxXp &&
+          other.alchemyLevel == alchemyLevel &&
+          other.alchemyXp == alchemyXp &&
+          other.alchemyMaxXp == alchemyMaxXp &&
           other.hp == hp &&
+          other.maxHp == maxHp &&
           other.haste == haste &&
           other.criticalStrike == criticalStrike &&
           other.stamina == stamina &&
@@ -374,10 +394,10 @@ class CharacterSchema {
           other.artifact1Slot == artifact1Slot &&
           other.artifact2Slot == artifact2Slot &&
           other.artifact3Slot == artifact3Slot &&
-          other.consumable1Slot == consumable1Slot &&
-          other.consumable1SlotQuantity == consumable1SlotQuantity &&
-          other.consumable2Slot == consumable2Slot &&
-          other.consumable2SlotQuantity == consumable2SlotQuantity &&
+          other.utility1Slot == utility1Slot &&
+          other.utility1SlotQuantity == utility1SlotQuantity &&
+          other.utility2Slot == utility2Slot &&
+          other.utility2SlotQuantity == utility2SlotQuantity &&
           other.task == task &&
           other.taskType == taskType &&
           other.taskProgress == taskProgress &&
@@ -389,11 +409,11 @@ class CharacterSchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (name.hashCode) +
+      (account.hashCode) +
       (skin.hashCode) +
       (level.hashCode) +
       (xp.hashCode) +
       (maxXp.hashCode) +
-      (achievementsPoints.hashCode) +
       (gold.hashCode) +
       (speed.hashCode) +
       (miningLevel.hashCode) +
@@ -417,7 +437,11 @@ class CharacterSchema {
       (cookingLevel.hashCode) +
       (cookingXp.hashCode) +
       (cookingMaxXp.hashCode) +
+      (alchemyLevel.hashCode) +
+      (alchemyXp.hashCode) +
+      (alchemyMaxXp.hashCode) +
       (hp.hashCode) +
+      (maxHp.hashCode) +
       (haste.hashCode) +
       (criticalStrike.hashCode) +
       (stamina.hashCode) +
@@ -449,10 +473,10 @@ class CharacterSchema {
       (artifact1Slot.hashCode) +
       (artifact2Slot.hashCode) +
       (artifact3Slot.hashCode) +
-      (consumable1Slot.hashCode) +
-      (consumable1SlotQuantity.hashCode) +
-      (consumable2Slot.hashCode) +
-      (consumable2SlotQuantity.hashCode) +
+      (utility1Slot.hashCode) +
+      (utility1SlotQuantity.hashCode) +
+      (utility2Slot.hashCode) +
+      (utility2SlotQuantity.hashCode) +
       (task.hashCode) +
       (taskType.hashCode) +
       (taskProgress.hashCode) +
@@ -462,16 +486,16 @@ class CharacterSchema {
 
   @override
   String toString() =>
-      'CharacterSchema[name=$name, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, achievementsPoints=$achievementsPoints, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, hp=$hp, haste=$haste, criticalStrike=$criticalStrike, stamina=$stamina, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, consumable1Slot=$consumable1Slot, consumable1SlotQuantity=$consumable1SlotQuantity, consumable2Slot=$consumable2Slot, consumable2SlotQuantity=$consumable2SlotQuantity, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
+      'CharacterSchema[name=$name, account=$account, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, alchemyLevel=$alchemyLevel, alchemyXp=$alchemyXp, alchemyMaxXp=$alchemyMaxXp, hp=$hp, maxHp=$maxHp, haste=$haste, criticalStrike=$criticalStrike, stamina=$stamina, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, utility1Slot=$utility1Slot, utility1SlotQuantity=$utility1SlotQuantity, utility2Slot=$utility2Slot, utility2SlotQuantity=$utility2SlotQuantity, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'name'] = this.name;
+    json[r'account'] = this.account;
     json[r'skin'] = this.skin;
     json[r'level'] = this.level;
     json[r'xp'] = this.xp;
     json[r'max_xp'] = this.maxXp;
-    json[r'achievements_points'] = this.achievementsPoints;
     json[r'gold'] = this.gold;
     json[r'speed'] = this.speed;
     json[r'mining_level'] = this.miningLevel;
@@ -495,7 +519,11 @@ class CharacterSchema {
     json[r'cooking_level'] = this.cookingLevel;
     json[r'cooking_xp'] = this.cookingXp;
     json[r'cooking_max_xp'] = this.cookingMaxXp;
+    json[r'alchemy_level'] = this.alchemyLevel;
+    json[r'alchemy_xp'] = this.alchemyXp;
+    json[r'alchemy_max_xp'] = this.alchemyMaxXp;
     json[r'hp'] = this.hp;
+    json[r'max_hp'] = this.maxHp;
     json[r'haste'] = this.haste;
     json[r'critical_strike'] = this.criticalStrike;
     json[r'stamina'] = this.stamina;
@@ -532,10 +560,10 @@ class CharacterSchema {
     json[r'artifact1_slot'] = this.artifact1Slot;
     json[r'artifact2_slot'] = this.artifact2Slot;
     json[r'artifact3_slot'] = this.artifact3Slot;
-    json[r'consumable1_slot'] = this.consumable1Slot;
-    json[r'consumable1_slot_quantity'] = this.consumable1SlotQuantity;
-    json[r'consumable2_slot'] = this.consumable2Slot;
-    json[r'consumable2_slot_quantity'] = this.consumable2SlotQuantity;
+    json[r'utility1_slot'] = this.utility1Slot;
+    json[r'utility1_slot_quantity'] = this.utility1SlotQuantity;
+    json[r'utility2_slot'] = this.utility2Slot;
+    json[r'utility2_slot_quantity'] = this.utility2SlotQuantity;
     json[r'task'] = this.task;
     json[r'task_type'] = this.taskType;
     json[r'task_progress'] = this.taskProgress;
@@ -567,11 +595,11 @@ class CharacterSchema {
 
       return CharacterSchema(
         name: mapValueOfType<String>(json, r'name')!,
-        skin: CharacterSchemaSkinEnum.fromJson(json[r'skin'])!,
+        account: mapValueOfType<String>(json, r'account')!,
+        skin: CharacterSkin.fromJson(json[r'skin'])!,
         level: mapValueOfType<int>(json, r'level')!,
         xp: mapValueOfType<int>(json, r'xp')!,
         maxXp: mapValueOfType<int>(json, r'max_xp')!,
-        achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         gold: mapValueOfType<int>(json, r'gold')!,
         speed: mapValueOfType<int>(json, r'speed')!,
         miningLevel: mapValueOfType<int>(json, r'mining_level')!,
@@ -599,7 +627,11 @@ class CharacterSchema {
         cookingLevel: mapValueOfType<int>(json, r'cooking_level')!,
         cookingXp: mapValueOfType<int>(json, r'cooking_xp')!,
         cookingMaxXp: mapValueOfType<int>(json, r'cooking_max_xp')!,
+        alchemyLevel: mapValueOfType<int>(json, r'alchemy_level')!,
+        alchemyXp: mapValueOfType<int>(json, r'alchemy_xp')!,
+        alchemyMaxXp: mapValueOfType<int>(json, r'alchemy_max_xp')!,
         hp: mapValueOfType<int>(json, r'hp')!,
+        maxHp: mapValueOfType<int>(json, r'max_hp')!,
         haste: mapValueOfType<int>(json, r'haste')!,
         criticalStrike: mapValueOfType<int>(json, r'critical_strike')!,
         stamina: mapValueOfType<int>(json, r'stamina')!,
@@ -631,12 +663,12 @@ class CharacterSchema {
         artifact1Slot: mapValueOfType<String>(json, r'artifact1_slot')!,
         artifact2Slot: mapValueOfType<String>(json, r'artifact2_slot')!,
         artifact3Slot: mapValueOfType<String>(json, r'artifact3_slot')!,
-        consumable1Slot: mapValueOfType<String>(json, r'consumable1_slot')!,
-        consumable1SlotQuantity:
-            mapValueOfType<int>(json, r'consumable1_slot_quantity')!,
-        consumable2Slot: mapValueOfType<String>(json, r'consumable2_slot')!,
-        consumable2SlotQuantity:
-            mapValueOfType<int>(json, r'consumable2_slot_quantity')!,
+        utility1Slot: mapValueOfType<String>(json, r'utility1_slot')!,
+        utility1SlotQuantity:
+            mapValueOfType<int>(json, r'utility1_slot_quantity')!,
+        utility2Slot: mapValueOfType<String>(json, r'utility2_slot')!,
+        utility2SlotQuantity:
+            mapValueOfType<int>(json, r'utility2_slot_quantity')!,
         task: mapValueOfType<String>(json, r'task')!,
         taskType: mapValueOfType<String>(json, r'task_type')!,
         taskProgress: mapValueOfType<int>(json, r'task_progress')!,
@@ -700,11 +732,11 @@ class CharacterSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'name',
+    'account',
     'skin',
     'level',
     'xp',
     'max_xp',
-    'achievements_points',
     'gold',
     'speed',
     'mining_level',
@@ -728,7 +760,11 @@ class CharacterSchema {
     'cooking_level',
     'cooking_xp',
     'cooking_max_xp',
+    'alchemy_level',
+    'alchemy_xp',
+    'alchemy_max_xp',
     'hp',
+    'max_hp',
     'haste',
     'critical_strike',
     'stamina',
@@ -759,110 +795,14 @@ class CharacterSchema {
     'artifact1_slot',
     'artifact2_slot',
     'artifact3_slot',
-    'consumable1_slot',
-    'consumable1_slot_quantity',
-    'consumable2_slot',
-    'consumable2_slot_quantity',
+    'utility1_slot',
+    'utility1_slot_quantity',
+    'utility2_slot',
+    'utility2_slot_quantity',
     'task',
     'task_type',
     'task_progress',
     'task_total',
     'inventory_max_items',
   };
-}
-
-/// Character skin code.
-class CharacterSchemaSkinEnum {
-  /// Instantiate a new enum with the provided [value].
-  const CharacterSchemaSkinEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const men1 = CharacterSchemaSkinEnum._(r'men1');
-  static const men2 = CharacterSchemaSkinEnum._(r'men2');
-  static const men3 = CharacterSchemaSkinEnum._(r'men3');
-  static const women1 = CharacterSchemaSkinEnum._(r'women1');
-  static const women2 = CharacterSchemaSkinEnum._(r'women2');
-  static const women3 = CharacterSchemaSkinEnum._(r'women3');
-
-  /// List of all possible values in this [enum][CharacterSchemaSkinEnum].
-  static const values = <CharacterSchemaSkinEnum>[
-    men1,
-    men2,
-    men3,
-    women1,
-    women2,
-    women3,
-  ];
-
-  static CharacterSchemaSkinEnum? fromJson(dynamic value) =>
-      CharacterSchemaSkinEnumTypeTransformer().decode(value);
-
-  static List<CharacterSchemaSkinEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <CharacterSchemaSkinEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = CharacterSchemaSkinEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [CharacterSchemaSkinEnum] to String,
-/// and [decode] dynamic data back to [CharacterSchemaSkinEnum].
-class CharacterSchemaSkinEnumTypeTransformer {
-  factory CharacterSchemaSkinEnumTypeTransformer() =>
-      _instance ??= const CharacterSchemaSkinEnumTypeTransformer._();
-
-  const CharacterSchemaSkinEnumTypeTransformer._();
-
-  String encode(CharacterSchemaSkinEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a CharacterSchemaSkinEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  CharacterSchemaSkinEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'men1':
-          return CharacterSchemaSkinEnum.men1;
-        case r'men2':
-          return CharacterSchemaSkinEnum.men2;
-        case r'men3':
-          return CharacterSchemaSkinEnum.men3;
-        case r'women1':
-          return CharacterSchemaSkinEnum.women1;
-        case r'women2':
-          return CharacterSchemaSkinEnum.women2;
-        case r'women3':
-          return CharacterSchemaSkinEnum.women3;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [CharacterSchemaSkinEnumTypeTransformer] instance.
-  static CharacterSchemaSkinEnumTypeTransformer? _instance;
 }

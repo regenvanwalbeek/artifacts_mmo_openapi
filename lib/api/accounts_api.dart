@@ -18,8 +18,6 @@ class AccountsApi {
 
   /// Create Account
   ///
-  /// Create an account.
-  ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
@@ -53,8 +51,6 @@ class AccountsApi {
 
   /// Create Account
   ///
-  /// Create an account.
-  ///
   /// Parameters:
   ///
   /// * [AddAccountSchema] addAccountSchema (required):
@@ -76,6 +72,191 @@ class AccountsApi {
         await _decodeBodyBytes(response),
         'ResponseSchema',
       ) as ResponseSchema;
+    }
+    return null;
+  }
+
+  /// Get Account
+  ///
+  /// Retrieve the details of a character.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] account (required):
+  ///   The account name.
+  Future<Response> getAccountAccountsAccountGetWithHttpInfo(
+    String account,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/accounts/{account}'.replaceAll('{account}', account);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Account
+  ///
+  /// Retrieve the details of a character.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] account (required):
+  ///   The account name.
+  Future<AccountDetailsSchema?> getAccountAccountsAccountGet(
+    String account,
+  ) async {
+    final response = await getAccountAccountsAccountGetWithHttpInfo(
+      account,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'AccountDetailsSchema',
+      ) as AccountDetailsSchema;
+    }
+    return null;
+  }
+
+  /// Get Account Achievements
+  ///
+  /// Retrieve the achievements of a account.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] account (required):
+  ///   The character name.
+  ///
+  /// * [AchievementType] type:
+  ///   Type of achievements.
+  ///
+  /// * [bool] completed:
+  ///   Filter by completed achievements.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response>
+      getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(
+    String account, {
+    AchievementType? type,
+    bool? completed,
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/accounts/{account}/achievements'.replaceAll('{account}', account);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (type != null) {
+      queryParams.addAll(_queryParams('', 'type', type));
+    }
+    if (completed != null) {
+      queryParams.addAll(_queryParams('', 'completed', completed));
+    }
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Account Achievements
+  ///
+  /// Retrieve the achievements of a account.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] account (required):
+  ///   The character name.
+  ///
+  /// * [AchievementType] type:
+  ///   Type of achievements.
+  ///
+  /// * [bool] completed:
+  ///   Filter by completed achievements.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageAccountAchievementSchema?>
+      getAccountAchievementsAccountsAccountAchievementsGet(
+    String account, {
+    AchievementType? type,
+    bool? completed,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(
+      account,
+      type: type,
+      completed: completed,
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageAccountAchievementSchema',
+      ) as DataPageAccountAchievementSchema;
     }
     return null;
   }

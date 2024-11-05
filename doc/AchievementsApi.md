@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAchievementAchievementsCodeGet**
-> BaseachievementResponseSchema getAchievementAchievementsCodeGet(code)
+> AchievementResponseSchema getAchievementAchievementsCodeGet(code)
 
 Get Achievement
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BaseachievementResponseSchema**](BaseachievementResponseSchema.md)
+[**AchievementResponseSchema**](AchievementResponseSchema.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllAchievementsAchievementsGet**
-> DataPageBaseAchievementSchema getAllAchievementsAchievementsGet(type, page, size)
+> DataPageAchievementSchema getAllAchievementsAchievementsGet(type, page, size)
 
 Get All Achievements
 
@@ -68,7 +68,7 @@ List of all achievements.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = AchievementsApi();
-final type = type_example; // String | Type of achievements.
+final type = ; // AchievementType | Type of achievements.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -84,13 +84,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | **String**| Type of achievements. | [optional] 
+ **type** | [**AchievementType**](.md)| Type of achievements. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
-[**DataPageBaseAchievementSchema**](DataPageBaseAchievementSchema.md)
+[**DataPageAchievementSchema**](DataPageAchievementSchema.md)
 
 ### Authorization
 

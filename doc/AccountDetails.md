@@ -9,12 +9,10 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **String** | Username. | 
-**email** | **String** | Email. | 
 **subscribed** | **bool** | Subscribed for the current season. | 
-**subscribedUntil** | **int** | Subscribed until (in season numbers). | [optional] 
-**founder** | **bool** | Founder. | 
+**status** | [**AccountStatus**](AccountStatus.md) | Member status. | 
 **badges** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
-**gems** | **int** | Gems. | [optional] 
+**achievementsPoints** | **int** | Achievement points. | 
 **banned** | **bool** | Banned. | 
 **banReason** | **String** | Ban reason. | [optional] 
 

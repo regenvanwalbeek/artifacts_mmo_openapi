@@ -16,7 +16,7 @@ class TasksRewardResponseSchema {
     required this.data,
   });
 
-  TasksRewardDataSchema data;
+  DropRateSchema data;
 
   @override
   bool operator ==(Object other) =>
@@ -58,7 +58,7 @@ class TasksRewardResponseSchema {
       }());
 
       return TasksRewardResponseSchema(
-        data: TasksRewardDataSchema.fromJson(json[r'data'])!,
+        data: DropRateSchema.fromJson(json[r'data'])!,
       );
     }
     return null;

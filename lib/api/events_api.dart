@@ -15,6 +15,88 @@ class EventsApi {
 
   final ApiClient apiClient;
 
+  /// Get All Active Events
+  ///
+  /// Fetch active events details.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response> getAllActiveEventsEventsActiveGetWithHttpInfo({
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/events/active';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get All Active Events
+  ///
+  /// Fetch active events details.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageActiveEventSchema?> getAllActiveEventsEventsActiveGet({
+    int? page,
+    int? size,
+  }) async {
+    final response = await getAllActiveEventsEventsActiveGetWithHttpInfo(
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageActiveEventSchema',
+      ) as DataPageActiveEventSchema;
+    }
+    return null;
+  }
+
   /// Get All Events
   ///
   /// Fetch events details.
@@ -73,7 +155,7 @@ class EventsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageActiveEventSchema?> getAllEventsEventsGet({
+  Future<DataPageEventSchema?> getAllEventsEventsGet({
     int? page,
     int? size,
   }) async {
@@ -91,8 +173,8 @@ class EventsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageActiveEventSchema',
-      ) as DataPageActiveEventSchema;
+        'DataPageEventSchema',
+      ) as DataPageEventSchema;
     }
     return null;
   }

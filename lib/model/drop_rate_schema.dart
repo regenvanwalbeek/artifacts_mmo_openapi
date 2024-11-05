@@ -22,7 +22,7 @@ class DropRateSchema {
   /// Item code.
   String code;
 
-  /// Chance rate.
+  /// Chance rate. (1/rate)
   ///
   /// Minimum value: 1
   int rate;

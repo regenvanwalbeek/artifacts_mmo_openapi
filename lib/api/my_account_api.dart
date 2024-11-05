@@ -112,7 +112,7 @@ class MyAccountApi {
   /// Get Account Details
   ///
   /// Fetch account details.
-  Future<AccountDetailsSchema?> getAccountDetailsMyDetailsGet() async {
+  Future<MyAccountDetailsSchema?> getAccountDetailsMyDetailsGet() async {
     final response = await getAccountDetailsMyDetailsGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -124,8 +124,8 @@ class MyAccountApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'AccountDetailsSchema',
-      ) as AccountDetailsSchema;
+        'MyAccountDetailsSchema',
+      ) as MyAccountDetailsSchema;
     }
     return null;
   }
@@ -270,6 +270,208 @@ class MyAccountApi {
         await _decodeBodyBytes(response),
         'DataPageSimpleItemSchema',
       ) as DataPageSimpleItemSchema;
+    }
+    return null;
+  }
+
+  /// Get Ge Sell History
+  ///
+  /// Fetch your sales history of the last 7 days.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id:
+  ///   Order ID to search in your history.
+  ///
+  /// * [String] code:
+  ///   Item to search in your history.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response> getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo({
+    String? id,
+    String? code,
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/grandexchange/history';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (id != null) {
+      queryParams.addAll(_queryParams('', 'id', id));
+    }
+    if (code != null) {
+      queryParams.addAll(_queryParams('', 'code', code));
+    }
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Ge Sell History
+  ///
+  /// Fetch your sales history of the last 7 days.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] id:
+  ///   Order ID to search in your history.
+  ///
+  /// * [String] code:
+  ///   Item to search in your history.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageGeOrderHistorySchema?>
+      getGeSellHistoryMyGrandexchangeHistoryGet({
+    String? id,
+    String? code,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo(
+      id: id,
+      code: code,
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageGeOrderHistorySchema',
+      ) as DataPageGeOrderHistorySchema;
+    }
+    return null;
+  }
+
+  /// Get Ge Sell Orders
+  ///
+  /// Fetch your sell orders details.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] code:
+  ///   The code of the item.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response> getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo({
+    String? code,
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/grandexchange/orders';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (code != null) {
+      queryParams.addAll(_queryParams('', 'code', code));
+    }
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Ge Sell Orders
+  ///
+  /// Fetch your sell orders details.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] code:
+  ///   The code of the item.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageGEOrderSchema?> getGeSellOrdersMyGrandexchangeOrdersGet({
+    String? code,
+    int? page,
+    int? size,
+  }) async {
+    final response = await getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo(
+      code: code,
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageGEOrderSchema',
+      ) as DataPageGEOrderSchema;
     }
     return null;
   }

@@ -14,27 +14,34 @@ class TaskRewardsSchema {
   /// Returns a new [TaskRewardsSchema] instance.
   TaskRewardsSchema({
     this.items = const [],
+    required this.gold,
   });
 
   /// Items rewards.
   List<SimpleItemSchema> items;
 
+  /// Gold rewards.
+  int gold;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TaskRewardsSchema && _deepEquality.equals(other.items, items);
+      other is TaskRewardsSchema &&
+          _deepEquality.equals(other.items, items) &&
+          other.gold == gold;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (items.hashCode);
+      (items.hashCode) + (gold.hashCode);
 
   @override
-  String toString() => 'TaskRewardsSchema[items=$items]';
+  String toString() => 'TaskRewardsSchema[items=$items, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'items'] = this.items;
+    json[r'gold'] = this.gold;
     return json;
   }
 
@@ -60,6 +67,7 @@ class TaskRewardsSchema {
 
       return TaskRewardsSchema(
         items: SimpleItemSchema.listFromJson(json[r'items']),
+        gold: mapValueOfType<int>(json, r'gold')!,
       );
     }
     return null;
@@ -117,5 +125,6 @@ class TaskRewardsSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'items',
+    'gold',
   };
 }

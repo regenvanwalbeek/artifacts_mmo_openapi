@@ -19,14 +19,17 @@ Method | HTTP request | Description
 [**actionEquipItemMyNameActionEquipPost**](MyCharactersApi.md#actionequipitemmynameactionequippost) | **POST** /my/{name}/action/equip | Action Equip Item
 [**actionFightMyNameActionFightPost**](MyCharactersApi.md#actionfightmynameactionfightpost) | **POST** /my/{name}/action/fight | Action Fight
 [**actionGatheringMyNameActionGatheringPost**](MyCharactersApi.md#actiongatheringmynameactiongatheringpost) | **POST** /my/{name}/action/gathering | Action Gathering
-[**actionGeBuyItemMyNameActionGeBuyPost**](MyCharactersApi.md#actiongebuyitemmynameactiongebuypost) | **POST** /my/{name}/action/ge/buy | Action Ge Buy Item
-[**actionGeSellItemMyNameActionGeSellPost**](MyCharactersApi.md#actiongesellitemmynameactiongesellpost) | **POST** /my/{name}/action/ge/sell | Action Ge Sell Item
+[**actionGeBuyItemMyNameActionGrandexchangeBuyPost**](MyCharactersApi.md#actiongebuyitemmynameactiongrandexchangebuypost) | **POST** /my/{name}/action/grandexchange/buy | Action Ge Buy Item
+[**actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost**](MyCharactersApi.md#actiongecancelsellordermynameactiongrandexchangecancelpost) | **POST** /my/{name}/action/grandexchange/cancel | Action Ge Cancel Sell Order
+[**actionGeCreateSellOrderMyNameActionGrandexchangeSellPost**](MyCharactersApi.md#actiongecreatesellordermynameactiongrandexchangesellpost) | **POST** /my/{name}/action/grandexchange/sell | Action Ge Create Sell Order
 [**actionMoveMyNameActionMovePost**](MyCharactersApi.md#actionmovemynameactionmovepost) | **POST** /my/{name}/action/move | Action Move
 [**actionRecyclingMyNameActionRecyclingPost**](MyCharactersApi.md#actionrecyclingmynameactionrecyclingpost) | **POST** /my/{name}/action/recycling | Action Recycling
+[**actionRestMyNameActionRestPost**](MyCharactersApi.md#actionrestmynameactionrestpost) | **POST** /my/{name}/action/rest | Action Rest
 [**actionTaskCancelMyNameActionTaskCancelPost**](MyCharactersApi.md#actiontaskcancelmynameactiontaskcancelpost) | **POST** /my/{name}/action/task/cancel | Action Task Cancel
 [**actionTaskExchangeMyNameActionTaskExchangePost**](MyCharactersApi.md#actiontaskexchangemynameactiontaskexchangepost) | **POST** /my/{name}/action/task/exchange | Action Task Exchange
 [**actionTaskTradeMyNameActionTaskTradePost**](MyCharactersApi.md#actiontasktrademynameactiontasktradepost) | **POST** /my/{name}/action/task/trade | Action Task Trade
 [**actionUnequipItemMyNameActionUnequipPost**](MyCharactersApi.md#actionunequipitemmynameactionunequippost) | **POST** /my/{name}/action/unequip | Action Unequip Item
+[**actionUseItemMyNameActionUsePost**](MyCharactersApi.md#actionuseitemmynameactionusepost) | **POST** /my/{name}/action/use | Action Use Item
 [**actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost**](MyCharactersApi.md#actionwithdrawbankgoldmynameactionbankwithdrawgoldpost) | **POST** /my/{name}/action/bank/withdraw/gold | Action Withdraw Bank Gold
 [**actionWithdrawBankMyNameActionBankWithdrawPost**](MyCharactersApi.md#actionwithdrawbankmynameactionbankwithdrawpost) | **POST** /my/{name}/action/bank/withdraw | Action Withdraw Bank
 [**getAllCharactersLogsMyLogsGet**](MyCharactersApi.md#getallcharacterslogsmylogsget) | **GET** /my/logs | Get All Characters Logs
@@ -132,7 +135,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionCompleteTaskMyNameActionTaskCompletePost**
-> TasksRewardResponseSchema actionCompleteTaskMyNameActionTaskCompletePost(name)
+> TasksRewardDataResponseSchema actionCompleteTaskMyNameActionTaskCompletePost(name)
 
 Action Complete Task
 
@@ -167,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TasksRewardResponseSchema**](TasksRewardResponseSchema.md)
+[**TasksRewardDataResponseSchema**](TasksRewardDataResponseSchema.md)
 
 ### Authorization
 
@@ -287,7 +290,7 @@ Name | Type | Description  | Notes
 
 Action Deposit Bank Gold
 
-Deposit golds in a bank on the character's map.
+Deposit gold in a bank on the character's map.
 
 ### Example
 ```dart
@@ -533,8 +536,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **actionGeBuyItemMyNameActionGeBuyPost**
-> GETransactionResponseSchema actionGeBuyItemMyNameActionGeBuyPost(name, gETransactionItemSchema)
+# **actionGeBuyItemMyNameActionGrandexchangeBuyPost**
+> GETransactionResponseSchema actionGeBuyItemMyNameActionGrandexchangeBuyPost(name, gEBuyOrderSchema)
 
 Action Ge Buy Item
 
@@ -552,13 +555,13 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final gETransactionItemSchema = GETransactionItemSchema(); // GETransactionItemSchema | 
+final gEBuyOrderSchema = GEBuyOrderSchema(); // GEBuyOrderSchema | 
 
 try {
-    final result = api_instance.actionGeBuyItemMyNameActionGeBuyPost(name, gETransactionItemSchema);
+    final result = api_instance.actionGeBuyItemMyNameActionGrandexchangeBuyPost(name, gEBuyOrderSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling MyCharactersApi->actionGeBuyItemMyNameActionGeBuyPost: $e\n');
+    print('Exception when calling MyCharactersApi->actionGeBuyItemMyNameActionGrandexchangeBuyPost: $e\n');
 }
 ```
 
@@ -567,7 +570,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **gETransactionItemSchema** | [**GETransactionItemSchema**](GETransactionItemSchema.md)|  | 
+ **gEBuyOrderSchema** | [**GEBuyOrderSchema**](GEBuyOrderSchema.md)|  | 
 
 ### Return type
 
@@ -584,12 +587,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **actionGeSellItemMyNameActionGeSellPost**
-> GETransactionResponseSchema actionGeSellItemMyNameActionGeSellPost(name, gETransactionItemSchema)
+# **actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost**
+> GETransactionResponseSchema actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(name, gECancelOrderSchema)
 
-Action Ge Sell Item
+Action Ge Cancel Sell Order
 
-Sell an item at the Grand Exchange on the character's map.
+Cancel a sell order at the Grand Exchange on the character's map.
 
 ### Example
 ```dart
@@ -603,13 +606,13 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final gETransactionItemSchema = GETransactionItemSchema(); // GETransactionItemSchema | 
+final gECancelOrderSchema = GECancelOrderSchema(); // GECancelOrderSchema | 
 
 try {
-    final result = api_instance.actionGeSellItemMyNameActionGeSellPost(name, gETransactionItemSchema);
+    final result = api_instance.actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(name, gECancelOrderSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling MyCharactersApi->actionGeSellItemMyNameActionGeSellPost: $e\n');
+    print('Exception when calling MyCharactersApi->actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost: $e\n');
 }
 ```
 
@@ -618,11 +621,62 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **gETransactionItemSchema** | [**GETransactionItemSchema**](GETransactionItemSchema.md)|  | 
+ **gECancelOrderSchema** | [**GECancelOrderSchema**](GECancelOrderSchema.md)|  | 
 
 ### Return type
 
 [**GETransactionResponseSchema**](GETransactionResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionGeCreateSellOrderMyNameActionGrandexchangeSellPost**
+> GECreateOrderTransactionResponseSchema actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(name, gEOrderCreationrSchema)
+
+Action Ge Create Sell Order
+
+Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final gEOrderCreationrSchema = GEOrderCreationrSchema(); // GEOrderCreationrSchema | 
+
+try {
+    final result = api_instance.actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(name, gEOrderCreationrSchema);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionGeCreateSellOrderMyNameActionGrandexchangeSellPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **gEOrderCreationrSchema** | [**GEOrderCreationrSchema**](GEOrderCreationrSchema.md)|  | 
+
+### Return type
+
+[**GECreateOrderTransactionResponseSchema**](GECreateOrderTransactionResponseSchema.md)
 
 ### Authorization
 
@@ -691,7 +745,7 @@ Name | Type | Description  | Notes
 
 Action Recycling
 
-Recyling an item. The character must be on a map with a workshop (only for equipments and weapons).
+Recycling an item. The character must be on a map with a workshop (only for equipments and weapons).
 
 ### Example
 ```dart
@@ -733,6 +787,55 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionRestMyNameActionRestPost**
+> CharacterRestResponseSchema actionRestMyNameActionRestPost(name)
+
+Action Rest
+
+Recovers hit points by resting. (1 second per 10 HP, minimum 3 seconds)
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+
+try {
+    final result = api_instance.actionRestMyNameActionRestPost(name);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionRestMyNameActionRestPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+
+### Return type
+
+[**CharacterRestResponseSchema**](CharacterRestResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -787,7 +890,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionTaskExchangeMyNameActionTaskExchangePost**
-> TasksRewardResponseSchema actionTaskExchangeMyNameActionTaskExchangePost(name)
+> TasksRewardDataResponseSchema actionTaskExchangeMyNameActionTaskExchangePost(name)
 
 Action Task Exchange
 
@@ -822,7 +925,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TasksRewardResponseSchema**](TasksRewardResponseSchema.md)
+[**TasksRewardDataResponseSchema**](TasksRewardDataResponseSchema.md)
 
 ### Authorization
 
@@ -925,6 +1028,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**EquipmentResponseSchema**](EquipmentResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionUseItemMyNameActionUsePost**
+> UseItemResponseSchema actionUseItemMyNameActionUsePost(name, simpleItemSchema)
+
+Action Use Item
+
+Use an item as a consumable.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final simpleItemSchema = SimpleItemSchema(); // SimpleItemSchema | 
+
+try {
+    final result = api_instance.actionUseItemMyNameActionUsePost(name, simpleItemSchema);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionUseItemMyNameActionUsePost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **simpleItemSchema** | [**SimpleItemSchema**](SimpleItemSchema.md)|  | 
+
+### Return type
+
+[**UseItemResponseSchema**](UseItemResponseSchema.md)
 
 ### Authorization
 

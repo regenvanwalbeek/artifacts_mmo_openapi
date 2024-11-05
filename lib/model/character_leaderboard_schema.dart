@@ -13,9 +13,10 @@ part of openapi_generation;
 class CharacterLeaderboardSchema {
   /// Returns a new [CharacterLeaderboardSchema] instance.
   CharacterLeaderboardSchema({
+    required this.position,
     required this.name,
+    required this.account,
     required this.skin,
-    required this.achievementsPoints,
     required this.level,
     required this.totalXp,
     required this.miningLevel,
@@ -32,17 +33,22 @@ class CharacterLeaderboardSchema {
     required this.jewelrycraftingTotalXp,
     required this.cookingLevel,
     required this.cookingTotalXp,
+    required this.alchemyLevel,
+    required this.alchemyTotalXp,
     required this.gold,
   });
+
+  /// Position in the leaderboard.
+  int position;
 
   /// Character name.
   String name;
 
+  /// Account name.
+  String account;
+
   /// Character skin code.
   String skin;
-
-  /// Achievements points.
-  int achievementsPoints;
 
   /// Combat level.
   int level;
@@ -92,16 +98,23 @@ class CharacterLeaderboardSchema {
   /// Cooking total xp.
   int cookingTotalXp;
 
-  /// The numbers of golds on this character.
+  /// Alchemy level.
+  int alchemyLevel;
+
+  /// Alchemy total xp.
+  int alchemyTotalXp;
+
+  /// The numbers of gold on this character.
   int gold;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is CharacterLeaderboardSchema &&
+          other.position == position &&
           other.name == name &&
+          other.account == account &&
           other.skin == skin &&
-          other.achievementsPoints == achievementsPoints &&
           other.level == level &&
           other.totalXp == totalXp &&
           other.miningLevel == miningLevel &&
@@ -118,14 +131,17 @@ class CharacterLeaderboardSchema {
           other.jewelrycraftingTotalXp == jewelrycraftingTotalXp &&
           other.cookingLevel == cookingLevel &&
           other.cookingTotalXp == cookingTotalXp &&
+          other.alchemyLevel == alchemyLevel &&
+          other.alchemyTotalXp == alchemyTotalXp &&
           other.gold == gold;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
+      (position.hashCode) +
       (name.hashCode) +
+      (account.hashCode) +
       (skin.hashCode) +
-      (achievementsPoints.hashCode) +
       (level.hashCode) +
       (totalXp.hashCode) +
       (miningLevel.hashCode) +
@@ -142,17 +158,20 @@ class CharacterLeaderboardSchema {
       (jewelrycraftingTotalXp.hashCode) +
       (cookingLevel.hashCode) +
       (cookingTotalXp.hashCode) +
+      (alchemyLevel.hashCode) +
+      (alchemyTotalXp.hashCode) +
       (gold.hashCode);
 
   @override
   String toString() =>
-      'CharacterLeaderboardSchema[name=$name, skin=$skin, achievementsPoints=$achievementsPoints, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, gold=$gold]';
+      'CharacterLeaderboardSchema[position=$position, name=$name, account=$account, skin=$skin, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, alchemyLevel=$alchemyLevel, alchemyTotalXp=$alchemyTotalXp, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'position'] = this.position;
     json[r'name'] = this.name;
+    json[r'account'] = this.account;
     json[r'skin'] = this.skin;
-    json[r'achievements_points'] = this.achievementsPoints;
     json[r'level'] = this.level;
     json[r'total_xp'] = this.totalXp;
     json[r'mining_level'] = this.miningLevel;
@@ -169,6 +188,8 @@ class CharacterLeaderboardSchema {
     json[r'jewelrycrafting_total_xp'] = this.jewelrycraftingTotalXp;
     json[r'cooking_level'] = this.cookingLevel;
     json[r'cooking_total_xp'] = this.cookingTotalXp;
+    json[r'alchemy_level'] = this.alchemyLevel;
+    json[r'alchemy_total_xp'] = this.alchemyTotalXp;
     json[r'gold'] = this.gold;
     return json;
   }
@@ -194,9 +215,10 @@ class CharacterLeaderboardSchema {
       }());
 
       return CharacterLeaderboardSchema(
+        position: mapValueOfType<int>(json, r'position')!,
         name: mapValueOfType<String>(json, r'name')!,
+        account: mapValueOfType<String>(json, r'account')!,
         skin: mapValueOfType<String>(json, r'skin')!,
-        achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         level: mapValueOfType<int>(json, r'level')!,
         totalXp: mapValueOfType<int>(json, r'total_xp')!,
         miningLevel: mapValueOfType<int>(json, r'mining_level')!,
@@ -218,6 +240,8 @@ class CharacterLeaderboardSchema {
             mapValueOfType<int>(json, r'jewelrycrafting_total_xp')!,
         cookingLevel: mapValueOfType<int>(json, r'cooking_level')!,
         cookingTotalXp: mapValueOfType<int>(json, r'cooking_total_xp')!,
+        alchemyLevel: mapValueOfType<int>(json, r'alchemy_level')!,
+        alchemyTotalXp: mapValueOfType<int>(json, r'alchemy_total_xp')!,
         gold: mapValueOfType<int>(json, r'gold')!,
       );
     }
@@ -275,9 +299,10 @@ class CharacterLeaderboardSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'position',
     'name',
+    'account',
     'skin',
-    'achievements_points',
     'level',
     'total_xp',
     'mining_level',
@@ -294,6 +319,8 @@ class CharacterLeaderboardSchema {
     'jewelrycrafting_total_xp',
     'cooking_level',
     'cooking_total_xp',
+    'alchemy_level',
+    'alchemy_total_xp',
     'gold',
   };
 }

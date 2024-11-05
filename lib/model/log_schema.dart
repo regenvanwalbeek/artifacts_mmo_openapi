@@ -30,7 +30,7 @@ class LogSchema {
   String account;
 
   /// Type of action.
-  String type;
+  LogType type;
 
   /// Description of action.
   String description;
@@ -119,7 +119,7 @@ class LogSchema {
       return LogSchema(
         character: mapValueOfType<String>(json, r'character')!,
         account: mapValueOfType<String>(json, r'account')!,
-        type: mapValueOfType<String>(json, r'type')!,
+        type: LogType.fromJson(json[r'type'])!,
         description: mapValueOfType<String>(json, r'description')!,
         content: mapValueOfType<Object>(json, r'content'),
         cooldown: mapValueOfType<int>(json, r'cooldown')!,

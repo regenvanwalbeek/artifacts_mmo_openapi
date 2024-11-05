@@ -18,9 +18,9 @@ class UnequipSchema {
   });
 
   /// Item slot.
-  UnequipSchemaSlotEnum slot;
+  ItemSlot slot;
 
-  /// Item quantity. Applicable to consumables only.
+  /// Item quantity. Applicable to utilitys only.
   ///
   /// Minimum value: 1
   /// Maximum value: 100
@@ -69,7 +69,7 @@ class UnequipSchema {
       }());
 
       return UnequipSchema(
-        slot: UnequipSchemaSlotEnum.fromJson(json[r'slot'])!,
+        slot: ItemSlot.fromJson(json[r'slot'])!,
         quantity: mapValueOfType<int>(json, r'quantity') ?? 1,
       );
     }
@@ -129,132 +129,4 @@ class UnequipSchema {
   static const requiredKeys = <String>{
     'slot',
   };
-}
-
-/// Item slot.
-class UnequipSchemaSlotEnum {
-  /// Instantiate a new enum with the provided [value].
-  const UnequipSchemaSlotEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const weapon = UnequipSchemaSlotEnum._(r'weapon');
-  static const shield = UnequipSchemaSlotEnum._(r'shield');
-  static const helmet = UnequipSchemaSlotEnum._(r'helmet');
-  static const bodyArmor = UnequipSchemaSlotEnum._(r'body_armor');
-  static const legArmor = UnequipSchemaSlotEnum._(r'leg_armor');
-  static const boots = UnequipSchemaSlotEnum._(r'boots');
-  static const ring1 = UnequipSchemaSlotEnum._(r'ring1');
-  static const ring2 = UnequipSchemaSlotEnum._(r'ring2');
-  static const amulet = UnequipSchemaSlotEnum._(r'amulet');
-  static const artifact1 = UnequipSchemaSlotEnum._(r'artifact1');
-  static const artifact2 = UnequipSchemaSlotEnum._(r'artifact2');
-  static const artifact3 = UnequipSchemaSlotEnum._(r'artifact3');
-  static const consumable1 = UnequipSchemaSlotEnum._(r'consumable1');
-  static const consumable2 = UnequipSchemaSlotEnum._(r'consumable2');
-
-  /// List of all possible values in this [enum][UnequipSchemaSlotEnum].
-  static const values = <UnequipSchemaSlotEnum>[
-    weapon,
-    shield,
-    helmet,
-    bodyArmor,
-    legArmor,
-    boots,
-    ring1,
-    ring2,
-    amulet,
-    artifact1,
-    artifact2,
-    artifact3,
-    consumable1,
-    consumable2,
-  ];
-
-  static UnequipSchemaSlotEnum? fromJson(dynamic value) =>
-      UnequipSchemaSlotEnumTypeTransformer().decode(value);
-
-  static List<UnequipSchemaSlotEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <UnequipSchemaSlotEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = UnequipSchemaSlotEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [UnequipSchemaSlotEnum] to String,
-/// and [decode] dynamic data back to [UnequipSchemaSlotEnum].
-class UnequipSchemaSlotEnumTypeTransformer {
-  factory UnequipSchemaSlotEnumTypeTransformer() =>
-      _instance ??= const UnequipSchemaSlotEnumTypeTransformer._();
-
-  const UnequipSchemaSlotEnumTypeTransformer._();
-
-  String encode(UnequipSchemaSlotEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a UnequipSchemaSlotEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  UnequipSchemaSlotEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'weapon':
-          return UnequipSchemaSlotEnum.weapon;
-        case r'shield':
-          return UnequipSchemaSlotEnum.shield;
-        case r'helmet':
-          return UnequipSchemaSlotEnum.helmet;
-        case r'body_armor':
-          return UnequipSchemaSlotEnum.bodyArmor;
-        case r'leg_armor':
-          return UnequipSchemaSlotEnum.legArmor;
-        case r'boots':
-          return UnequipSchemaSlotEnum.boots;
-        case r'ring1':
-          return UnequipSchemaSlotEnum.ring1;
-        case r'ring2':
-          return UnequipSchemaSlotEnum.ring2;
-        case r'amulet':
-          return UnequipSchemaSlotEnum.amulet;
-        case r'artifact1':
-          return UnequipSchemaSlotEnum.artifact1;
-        case r'artifact2':
-          return UnequipSchemaSlotEnum.artifact2;
-        case r'artifact3':
-          return UnequipSchemaSlotEnum.artifact3;
-        case r'consumable1':
-          return UnequipSchemaSlotEnum.consumable1;
-        case r'consumable2':
-          return UnequipSchemaSlotEnum.consumable2;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [UnequipSchemaSlotEnumTypeTransformer] instance.
-  static UnequipSchemaSlotEnumTypeTransformer? _instance;
 }

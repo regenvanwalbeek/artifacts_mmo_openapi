@@ -16,16 +16,20 @@ class TaskSchema {
     required this.code,
     required this.type,
     required this.total,
+    required this.rewards,
   });
 
   /// Task objective.
   String code;
 
   /// The type of task.
-  TaskSchemaTypeEnum type;
+  TaskType type;
 
   /// The total required to complete the task.
   int total;
+
+  /// Rewards for completing the task.
+  TaskRewardsSchema rewards;
 
   @override
   bool operator ==(Object other) =>
@@ -33,21 +37,24 @@ class TaskSchema {
       other is TaskSchema &&
           other.code == code &&
           other.type == type &&
-          other.total == total;
+          other.total == total &&
+          other.rewards == rewards;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code.hashCode) + (type.hashCode) + (total.hashCode);
+      (code.hashCode) + (type.hashCode) + (total.hashCode) + (rewards.hashCode);
 
   @override
-  String toString() => 'TaskSchema[code=$code, type=$type, total=$total]';
+  String toString() =>
+      'TaskSchema[code=$code, type=$type, total=$total, rewards=$rewards]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'type'] = this.type;
     json[r'total'] = this.total;
+    json[r'rewards'] = this.rewards;
     return json;
   }
 
@@ -73,8 +80,9 @@ class TaskSchema {
 
       return TaskSchema(
         code: mapValueOfType<String>(json, r'code')!,
-        type: TaskSchemaTypeEnum.fromJson(json[r'type'])!,
+        type: TaskType.fromJson(json[r'type'])!,
         total: mapValueOfType<int>(json, r'total')!,
+        rewards: TaskRewardsSchema.fromJson(json[r'rewards'])!,
       );
     }
     return null;
@@ -134,85 +142,6 @@ class TaskSchema {
     'code',
     'type',
     'total',
+    'rewards',
   };
-}
-
-/// The type of task.
-class TaskSchemaTypeEnum {
-  /// Instantiate a new enum with the provided [value].
-  const TaskSchemaTypeEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const monsters = TaskSchemaTypeEnum._(r'monsters');
-  static const items = TaskSchemaTypeEnum._(r'items');
-
-  /// List of all possible values in this [enum][TaskSchemaTypeEnum].
-  static const values = <TaskSchemaTypeEnum>[
-    monsters,
-    items,
-  ];
-
-  static TaskSchemaTypeEnum? fromJson(dynamic value) =>
-      TaskSchemaTypeEnumTypeTransformer().decode(value);
-
-  static List<TaskSchemaTypeEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <TaskSchemaTypeEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = TaskSchemaTypeEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [TaskSchemaTypeEnum] to String,
-/// and [decode] dynamic data back to [TaskSchemaTypeEnum].
-class TaskSchemaTypeEnumTypeTransformer {
-  factory TaskSchemaTypeEnumTypeTransformer() =>
-      _instance ??= const TaskSchemaTypeEnumTypeTransformer._();
-
-  const TaskSchemaTypeEnumTypeTransformer._();
-
-  String encode(TaskSchemaTypeEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a TaskSchemaTypeEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  TaskSchemaTypeEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'monsters':
-          return TaskSchemaTypeEnum.monsters;
-        case r'items':
-          return TaskSchemaTypeEnum.items;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [TaskSchemaTypeEnumTypeTransformer] instance.
-  static TaskSchemaTypeEnumTypeTransformer? _instance;
 }

@@ -229,12 +229,28 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'AccountAchievementSchema':
+          return AccountAchievementSchema.fromJson(value);
         case 'AccountDetails':
           return AccountDetails.fromJson(value);
         case 'AccountDetailsSchema':
           return AccountDetailsSchema.fromJson(value);
+        case 'AccountLeaderboardSchema':
+          return AccountLeaderboardSchema.fromJson(value);
+        case 'AccountLeaderboardType':
+          return AccountLeaderboardTypeTypeTransformer().decode(value);
+        case 'AccountStatus':
+          return AccountStatusTypeTransformer().decode(value);
+        case 'AchievementResponseSchema':
+          return AchievementResponseSchema.fromJson(value);
+        case 'AchievementRewardsSchema':
+          return AchievementRewardsSchema.fromJson(value);
         case 'AchievementSchema':
           return AchievementSchema.fromJson(value);
+        case 'AchievementType':
+          return AchievementTypeTypeTransformer().decode(value);
+        case 'ActionType':
+          return ActionTypeTypeTransformer().decode(value);
         case 'ActiveEventSchema':
           return ActiveEventSchema.fromJson(value);
         case 'AddAccountSchema':
@@ -261,10 +277,6 @@ class ApiClient {
           return BankResponseSchema.fromJson(value);
         case 'BankSchema':
           return BankSchema.fromJson(value);
-        case 'BaseAchievementSchema':
-          return BaseAchievementSchema.fromJson(value);
-        case 'BaseachievementResponseSchema':
-          return BaseachievementResponseSchema.fromJson(value);
         case 'BlockedHitsSchema':
           return BlockedHitsSchema.fromJson(value);
         case 'ChangePassword':
@@ -275,32 +287,48 @@ class ApiClient {
           return CharacterFightResponseSchema.fromJson(value);
         case 'CharacterLeaderboardSchema':
           return CharacterLeaderboardSchema.fromJson(value);
+        case 'CharacterLeaderboardType':
+          return CharacterLeaderboardTypeTypeTransformer().decode(value);
         case 'CharacterMovementDataSchema':
           return CharacterMovementDataSchema.fromJson(value);
         case 'CharacterMovementResponseSchema':
           return CharacterMovementResponseSchema.fromJson(value);
         case 'CharacterResponseSchema':
           return CharacterResponseSchema.fromJson(value);
+        case 'CharacterRestDataSchema':
+          return CharacterRestDataSchema.fromJson(value);
+        case 'CharacterRestResponseSchema':
+          return CharacterRestResponseSchema.fromJson(value);
         case 'CharacterSchema':
           return CharacterSchema.fromJson(value);
+        case 'CharacterSkin':
+          return CharacterSkinTypeTransformer().decode(value);
         case 'CooldownSchema':
           return CooldownSchema.fromJson(value);
         case 'CraftSchema':
           return CraftSchema.fromJson(value);
+        case 'CraftSkill':
+          return CraftSkillTypeTransformer().decode(value);
         case 'CraftingSchema':
           return CraftingSchema.fromJson(value);
+        case 'DataPageAccountAchievementSchema':
+          return DataPageAccountAchievementSchema.fromJson(value);
+        case 'DataPageAccountLeaderboardSchema':
+          return DataPageAccountLeaderboardSchema.fromJson(value);
         case 'DataPageAchievementSchema':
           return DataPageAchievementSchema.fromJson(value);
         case 'DataPageActiveEventSchema':
           return DataPageActiveEventSchema.fromJson(value);
-        case 'DataPageBaseAchievementSchema':
-          return DataPageBaseAchievementSchema.fromJson(value);
         case 'DataPageCharacterLeaderboardSchema':
           return DataPageCharacterLeaderboardSchema.fromJson(value);
-        case 'DataPageCharacterSchema':
-          return DataPageCharacterSchema.fromJson(value);
-        case 'DataPageGEItemSchema':
-          return DataPageGEItemSchema.fromJson(value);
+        case 'DataPageDropRateSchema':
+          return DataPageDropRateSchema.fromJson(value);
+        case 'DataPageEventSchema':
+          return DataPageEventSchema.fromJson(value);
+        case 'DataPageGEOrderSchema':
+          return DataPageGEOrderSchema.fromJson(value);
+        case 'DataPageGeOrderHistorySchema':
+          return DataPageGeOrderHistorySchema.fromJson(value);
         case 'DataPageItemSchema':
           return DataPageItemSchema.fromJson(value);
         case 'DataPageLogSchema':
@@ -315,8 +343,6 @@ class ApiClient {
           return DataPageSimpleItemSchema.fromJson(value);
         case 'DataPageTaskFullSchema':
           return DataPageTaskFullSchema.fromJson(value);
-        case 'DataPageTasksRewardFullSchema':
-          return DataPageTasksRewardFullSchema.fromJson(value);
         case 'DeleteCharacterSchema':
           return DeleteCharacterSchema.fromJson(value);
         case 'DeleteItemResponseSchema':
@@ -337,20 +363,42 @@ class ApiClient {
           return EquipSchema.fromJson(value);
         case 'EquipmentResponseSchema':
           return EquipmentResponseSchema.fromJson(value);
+        case 'EventContentSchema':
+          return EventContentSchema.fromJson(value);
+        case 'EventMapSchema':
+          return EventMapSchema.fromJson(value);
+        case 'EventSchema':
+          return EventSchema.fromJson(value);
+        case 'FightResult':
+          return FightResultTypeTransformer().decode(value);
         case 'FightSchema':
           return FightSchema.fromJson(value);
-        case 'GEItemResponseSchema':
-          return GEItemResponseSchema.fromJson(value);
-        case 'GEItemSchema':
-          return GEItemSchema.fromJson(value);
-        case 'GETransactionItemSchema':
-          return GETransactionItemSchema.fromJson(value);
+        case 'GEBuyOrderSchema':
+          return GEBuyOrderSchema.fromJson(value);
+        case 'GECancelOrderSchema':
+          return GECancelOrderSchema.fromJson(value);
+        case 'GECreateOrderTransactionResponseSchema':
+          return GECreateOrderTransactionResponseSchema.fromJson(value);
+        case 'GEOrderCreatedSchema':
+          return GEOrderCreatedSchema.fromJson(value);
+        case 'GEOrderCreationrSchema':
+          return GEOrderCreationrSchema.fromJson(value);
+        case 'GEOrderReponseSchema':
+          return GEOrderReponseSchema.fromJson(value);
+        case 'GEOrderSchema':
+          return GEOrderSchema.fromJson(value);
+        case 'GEOrderTransactionSchema':
+          return GEOrderTransactionSchema.fromJson(value);
         case 'GETransactionListSchema':
           return GETransactionListSchema.fromJson(value);
         case 'GETransactionResponseSchema':
           return GETransactionResponseSchema.fromJson(value);
         case 'GETransactionSchema':
           return GETransactionSchema.fromJson(value);
+        case 'GatheringSkill':
+          return GatheringSkillTypeTransformer().decode(value);
+        case 'GeOrderHistorySchema':
+          return GeOrderHistorySchema.fromJson(value);
         case 'GoldSchema':
           return GoldSchema.fromJson(value);
         case 'HTTPValidationError':
@@ -363,10 +411,16 @@ class ApiClient {
           return ItemResponseSchema.fromJson(value);
         case 'ItemSchema':
           return ItemSchema.fromJson(value);
+        case 'ItemSlot':
+          return ItemSlotTypeTransformer().decode(value);
         case 'LogSchema':
           return LogSchema.fromJson(value);
+        case 'LogType':
+          return LogTypeTypeTransformer().decode(value);
         case 'MapContentSchema':
           return MapContentSchema.fromJson(value);
+        case 'MapContentType':
+          return MapContentTypeTypeTransformer().decode(value);
         case 'MapResponseSchema':
           return MapResponseSchema.fromJson(value);
         case 'MapSchema':
@@ -375,6 +429,10 @@ class ApiClient {
           return MonsterResponseSchema.fromJson(value);
         case 'MonsterSchema':
           return MonsterSchema.fromJson(value);
+        case 'MyAccountDetails':
+          return MyAccountDetails.fromJson(value);
+        case 'MyAccountDetailsSchema':
+          return MyAccountDetailsSchema.fromJson(value);
         case 'MyCharactersListSchema':
           return MyCharactersListSchema.fromJson(value);
         case 'RecyclingDataSchema':
@@ -393,8 +451,8 @@ class ApiClient {
           return ResponseSchema.fromJson(value);
         case 'SimpleItemSchema':
           return SimpleItemSchema.fromJson(value);
-        case 'SingleItemSchema':
-          return SingleItemSchema.fromJson(value);
+        case 'Skill':
+          return SkillTypeTransformer().decode(value);
         case 'SkillDataSchema':
           return SkillDataSchema.fromJson(value);
         case 'SkillInfoSchema':
@@ -427,20 +485,22 @@ class ApiClient {
           return TaskTradeResponseSchema.fromJson(value);
         case 'TaskTradeSchema':
           return TaskTradeSchema.fromJson(value);
+        case 'TaskType':
+          return TaskTypeTypeTransformer().decode(value);
+        case 'TasksRewardDataResponseSchema':
+          return TasksRewardDataResponseSchema.fromJson(value);
         case 'TasksRewardDataSchema':
           return TasksRewardDataSchema.fromJson(value);
-        case 'TasksRewardFullResponseSchema':
-          return TasksRewardFullResponseSchema.fromJson(value);
-        case 'TasksRewardFullSchema':
-          return TasksRewardFullSchema.fromJson(value);
         case 'TasksRewardResponseSchema':
           return TasksRewardResponseSchema.fromJson(value);
-        case 'TasksRewardSchema':
-          return TasksRewardSchema.fromJson(value);
         case 'TokenResponseSchema':
           return TokenResponseSchema.fromJson(value);
         case 'UnequipSchema':
           return UnequipSchema.fromJson(value);
+        case 'UseItemResponseSchema':
+          return UseItemResponseSchema.fromJson(value);
+        case 'UseItemSchema':
+          return UseItemSchema.fromJson(value);
         case 'ValidationError':
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':

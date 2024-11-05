@@ -45,7 +45,7 @@ class FightSchema {
   List<String> logs;
 
   /// The result of the fight.
-  FightSchemaResultEnum result;
+  FightResult result;
 
   @override
   bool operator ==(Object other) =>
@@ -121,7 +121,7 @@ class FightSchema {
         logs: json[r'logs'] is Iterable
             ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        result: FightSchemaResultEnum.fromJson(json[r'result'])!,
+        result: FightResult.fromJson(json[r'result'])!,
       );
     }
     return null;
@@ -187,84 +187,4 @@ class FightSchema {
     'logs',
     'result',
   };
-}
-
-/// The result of the fight.
-class FightSchemaResultEnum {
-  /// Instantiate a new enum with the provided [value].
-  const FightSchemaResultEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const win = FightSchemaResultEnum._(r'win');
-  static const lose = FightSchemaResultEnum._(r'lose');
-
-  /// List of all possible values in this [enum][FightSchemaResultEnum].
-  static const values = <FightSchemaResultEnum>[
-    win,
-    lose,
-  ];
-
-  static FightSchemaResultEnum? fromJson(dynamic value) =>
-      FightSchemaResultEnumTypeTransformer().decode(value);
-
-  static List<FightSchemaResultEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <FightSchemaResultEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = FightSchemaResultEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [FightSchemaResultEnum] to String,
-/// and [decode] dynamic data back to [FightSchemaResultEnum].
-class FightSchemaResultEnumTypeTransformer {
-  factory FightSchemaResultEnumTypeTransformer() =>
-      _instance ??= const FightSchemaResultEnumTypeTransformer._();
-
-  const FightSchemaResultEnumTypeTransformer._();
-
-  String encode(FightSchemaResultEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a FightSchemaResultEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  FightSchemaResultEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'win':
-          return FightSchemaResultEnum.win;
-        case r'lose':
-          return FightSchemaResultEnum.lose;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [FightSchemaResultEnumTypeTransformer] instance.
-  static FightSchemaResultEnumTypeTransformer? _instance;
 }

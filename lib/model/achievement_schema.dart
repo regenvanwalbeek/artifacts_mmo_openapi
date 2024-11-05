@@ -20,8 +20,7 @@ class AchievementSchema {
     required this.type,
     required this.target,
     required this.total,
-    required this.current,
-    required this.completedAt,
+    required this.rewards,
   });
 
   /// Name of the achievement.
@@ -37,17 +36,15 @@ class AchievementSchema {
   int points;
 
   /// Type of achievement.
-  AchievementSchemaTypeEnum type;
+  AchievementType type;
 
   String? target;
 
   /// Total to do.
   int total;
 
-  /// Current progress.
-  int current;
-
-  DateTime? completedAt;
+  /// Rewards.
+  AchievementRewardsSchema rewards;
 
   @override
   bool operator ==(Object other) =>
@@ -60,8 +57,7 @@ class AchievementSchema {
           other.type == type &&
           other.target == target &&
           other.total == total &&
-          other.current == current &&
-          other.completedAt == completedAt;
+          other.rewards == rewards;
 
   @override
   int get hashCode =>
@@ -73,12 +69,11 @@ class AchievementSchema {
       (type.hashCode) +
       (target == null ? 0 : target!.hashCode) +
       (total.hashCode) +
-      (current.hashCode) +
-      (completedAt == null ? 0 : completedAt!.hashCode);
+      (rewards.hashCode);
 
   @override
   String toString() =>
-      'AchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, current=$current, completedAt=$completedAt]';
+      'AchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, rewards=$rewards]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -93,12 +88,7 @@ class AchievementSchema {
       json[r'target'] = null;
     }
     json[r'total'] = this.total;
-    json[r'current'] = this.current;
-    if (this.completedAt != null) {
-      json[r'completed_at'] = this.completedAt!.toUtc().toIso8601String();
-    } else {
-      json[r'completed_at'] = null;
-    }
+    json[r'rewards'] = this.rewards;
     return json;
   }
 
@@ -127,11 +117,10 @@ class AchievementSchema {
         code: mapValueOfType<String>(json, r'code')!,
         description: mapValueOfType<String>(json, r'description')!,
         points: mapValueOfType<int>(json, r'points')!,
-        type: AchievementSchemaTypeEnum.fromJson(json[r'type'])!,
+        type: AchievementType.fromJson(json[r'type'])!,
         target: mapValueOfType<String>(json, r'target'),
         total: mapValueOfType<int>(json, r'total')!,
-        current: mapValueOfType<int>(json, r'current')!,
-        completedAt: mapDateTime(json, r'completed_at', r''),
+        rewards: AchievementRewardsSchema.fromJson(json[r'rewards'])!,
       );
     }
     return null;
@@ -195,111 +184,6 @@ class AchievementSchema {
     'type',
     'target',
     'total',
-    'current',
-    'completed_at',
+    'rewards',
   };
-}
-
-/// Type of achievement.
-class AchievementSchemaTypeEnum {
-  /// Instantiate a new enum with the provided [value].
-  const AchievementSchemaTypeEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const combatKill = AchievementSchemaTypeEnum._(r'combat_kill');
-  static const combatDrop = AchievementSchemaTypeEnum._(r'combat_drop');
-  static const combatLevel = AchievementSchemaTypeEnum._(r'combat_level');
-  static const gathering = AchievementSchemaTypeEnum._(r'gathering');
-  static const crafting = AchievementSchemaTypeEnum._(r'crafting');
-  static const recycling = AchievementSchemaTypeEnum._(r'recycling');
-  static const task = AchievementSchemaTypeEnum._(r'task');
-  static const other = AchievementSchemaTypeEnum._(r'other');
-
-  /// List of all possible values in this [enum][AchievementSchemaTypeEnum].
-  static const values = <AchievementSchemaTypeEnum>[
-    combatKill,
-    combatDrop,
-    combatLevel,
-    gathering,
-    crafting,
-    recycling,
-    task,
-    other,
-  ];
-
-  static AchievementSchemaTypeEnum? fromJson(dynamic value) =>
-      AchievementSchemaTypeEnumTypeTransformer().decode(value);
-
-  static List<AchievementSchemaTypeEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <AchievementSchemaTypeEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = AchievementSchemaTypeEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [AchievementSchemaTypeEnum] to String,
-/// and [decode] dynamic data back to [AchievementSchemaTypeEnum].
-class AchievementSchemaTypeEnumTypeTransformer {
-  factory AchievementSchemaTypeEnumTypeTransformer() =>
-      _instance ??= const AchievementSchemaTypeEnumTypeTransformer._();
-
-  const AchievementSchemaTypeEnumTypeTransformer._();
-
-  String encode(AchievementSchemaTypeEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a AchievementSchemaTypeEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  AchievementSchemaTypeEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'combat_kill':
-          return AchievementSchemaTypeEnum.combatKill;
-        case r'combat_drop':
-          return AchievementSchemaTypeEnum.combatDrop;
-        case r'combat_level':
-          return AchievementSchemaTypeEnum.combatLevel;
-        case r'gathering':
-          return AchievementSchemaTypeEnum.gathering;
-        case r'crafting':
-          return AchievementSchemaTypeEnum.crafting;
-        case r'recycling':
-          return AchievementSchemaTypeEnum.recycling;
-        case r'task':
-          return AchievementSchemaTypeEnum.task;
-        case r'other':
-          return AchievementSchemaTypeEnum.other;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [AchievementSchemaTypeEnumTypeTransformer] instance.
-  static AchievementSchemaTypeEnumTypeTransformer? _instance;
 }

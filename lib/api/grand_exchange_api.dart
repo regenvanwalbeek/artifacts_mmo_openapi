@@ -16,25 +16,37 @@ class GrandExchangeApi {
 
   final ApiClient apiClient;
 
-  /// Get All Ge Items
+  /// Get Ge Sell History
   ///
-  /// Fetch Grand Exchange items details.
+  /// Fetch the sales history of the item for the last 7 days.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
+  ///
+  /// * [String] code (required):
+  ///   The code of the item.
+  ///
+  /// * [String] seller:
+  ///   The seller (account name) of the item.
+  ///
+  /// * [String] buyer:
+  ///   The buyer (account name) of the item.
   ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllGeItemsGeGetWithHttpInfo({
+  Future<Response> getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
+    String code, {
+    String? seller,
+    String? buyer,
     int? page,
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/ge';
+    final path = r'/grandexchange/history/{code}'.replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -43,6 +55,12 @@ class GrandExchangeApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
+    if (seller != null) {
+      queryParams.addAll(_queryParams('', 'seller', seller));
+    }
+    if (buyer != null) {
+      queryParams.addAll(_queryParams('', 'buyer', buyer));
+    }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
     }
@@ -63,22 +81,39 @@ class GrandExchangeApi {
     );
   }
 
-  /// Get All Ge Items
+  /// Get Ge Sell History
   ///
-  /// Fetch Grand Exchange items details.
+  /// Fetch the sales history of the item for the last 7 days.
   ///
   /// Parameters:
+  ///
+  /// * [String] code (required):
+  ///   The code of the item.
+  ///
+  /// * [String] seller:
+  ///   The seller (account name) of the item.
+  ///
+  /// * [String] buyer:
+  ///   The buyer (account name) of the item.
   ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGEItemSchema?> getAllGeItemsGeGet({
+  Future<DataPageGeOrderHistorySchema?>
+      getGeSellHistoryGrandexchangeHistoryCodeGet(
+    String code, {
+    String? seller,
+    String? buyer,
     int? page,
     int? size,
   }) async {
-    final response = await getAllGeItemsGeGetWithHttpInfo(
+    final response =
+        await getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
+      code,
+      seller: seller,
+      buyer: buyer,
       page: page,
       size: size,
     );
@@ -92,27 +127,27 @@ class GrandExchangeApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageGEItemSchema',
-      ) as DataPageGEItemSchema;
+        'DataPageGeOrderHistorySchema',
+      ) as DataPageGeOrderHistorySchema;
     }
     return null;
   }
 
-  /// Get Ge Item
+  /// Get Ge Sell Order
   ///
-  /// Retrieve the details of a Grand Exchange item.
+  /// Retrieve the sell order of a item.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [String] code (required):
-  ///   The code of the item.
-  Future<Response> getGeItemGeCodeGetWithHttpInfo(
-    String code,
+  /// * [String] id (required):
+  ///   The id of the order.
+  Future<Response> getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
+    String id,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/ge/{code}'.replaceAll('{code}', code);
+    final path = r'/grandexchange/orders/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -134,19 +169,19 @@ class GrandExchangeApi {
     );
   }
 
-  /// Get Ge Item
+  /// Get Ge Sell Order
   ///
-  /// Retrieve the details of a Grand Exchange item.
+  /// Retrieve the sell order of a item.
   ///
   /// Parameters:
   ///
-  /// * [String] code (required):
-  ///   The code of the item.
-  Future<GEItemResponseSchema?> getGeItemGeCodeGet(
-    String code,
+  /// * [String] id (required):
+  ///   The id of the order.
+  Future<GEOrderReponseSchema?> getGeSellOrderGrandexchangeOrdersIdGet(
+    String id,
   ) async {
-    final response = await getGeItemGeCodeGetWithHttpInfo(
-      code,
+    final response = await getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
+      id,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -158,8 +193,114 @@ class GrandExchangeApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'GEItemResponseSchema',
-      ) as GEItemResponseSchema;
+        'GEOrderReponseSchema',
+      ) as GEOrderReponseSchema;
+    }
+    return null;
+  }
+
+  /// Get Ge Sell Orders
+  ///
+  /// Fetch all sell orders.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] code:
+  ///   The code of the item.
+  ///
+  /// * [String] seller:
+  ///   The seller (account name) of the item.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response> getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo({
+    String? code,
+    String? seller,
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/grandexchange/orders';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (code != null) {
+      queryParams.addAll(_queryParams('', 'code', code));
+    }
+    if (seller != null) {
+      queryParams.addAll(_queryParams('', 'seller', seller));
+    }
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Ge Sell Orders
+  ///
+  /// Fetch all sell orders.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] code:
+  ///   The code of the item.
+  ///
+  /// * [String] seller:
+  ///   The seller (account name) of the item.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageGEOrderSchema?> getGeSellOrdersGrandexchangeOrdersGet({
+    String? code,
+    String? seller,
+    int? page,
+    int? size,
+  }) async {
+    final response = await getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo(
+      code: code,
+      seller: seller,
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageGEOrderSchema',
+      ) as DataPageGEOrderSchema;
     }
     return null;
   }

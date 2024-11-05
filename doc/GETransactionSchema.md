@@ -8,6 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** | Order id. | 
 **code** | **String** | Item code. | 
 **quantity** | **int** | Item quantity. | 
 **price** | **int** | Item price. | 

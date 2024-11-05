@@ -23,7 +23,7 @@ class MapsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
+  /// * [MapContentType] contentType:
   ///   Type of content on the map.
   ///
   /// * [String] contentCode:
@@ -35,7 +35,7 @@ class MapsApi {
   /// * [int] size:
   ///   Page size
   Future<Response> getAllMapsMapsGetWithHttpInfo({
-    String? contentType,
+    MapContentType? contentType,
     String? contentCode,
     int? page,
     int? size,
@@ -82,7 +82,7 @@ class MapsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] contentType:
+  /// * [MapContentType] contentType:
   ///   Type of content on the map.
   ///
   /// * [String] contentCode:
@@ -94,7 +94,7 @@ class MapsApi {
   /// * [int] size:
   ///   Page size
   Future<DataPageMapSchema?> getAllMapsMapsGet({
-    String? contentType,
+    MapContentType? contentType,
     String? contentCode,
     int? page,
     int? size,

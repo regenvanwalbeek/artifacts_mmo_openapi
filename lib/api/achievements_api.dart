@@ -60,7 +60,7 @@ class AchievementsApi {
   ///
   /// * [String] code (required):
   ///   The code of the achievement.
-  Future<BaseachievementResponseSchema?> getAchievementAchievementsCodeGet(
+  Future<AchievementResponseSchema?> getAchievementAchievementsCodeGet(
     String code,
   ) async {
     final response = await getAchievementAchievementsCodeGetWithHttpInfo(
@@ -76,8 +76,8 @@ class AchievementsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'BaseachievementResponseSchema',
-      ) as BaseachievementResponseSchema;
+        'AchievementResponseSchema',
+      ) as AchievementResponseSchema;
     }
     return null;
   }
@@ -90,7 +90,7 @@ class AchievementsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] type:
+  /// * [AchievementType] type:
   ///   Type of achievements.
   ///
   /// * [int] page:
@@ -99,7 +99,7 @@ class AchievementsApi {
   /// * [int] size:
   ///   Page size
   Future<Response> getAllAchievementsAchievementsGetWithHttpInfo({
-    String? type,
+    AchievementType? type,
     int? page,
     int? size,
   }) async {
@@ -142,7 +142,7 @@ class AchievementsApi {
   ///
   /// Parameters:
   ///
-  /// * [String] type:
+  /// * [AchievementType] type:
   ///   Type of achievements.
   ///
   /// * [int] page:
@@ -150,8 +150,8 @@ class AchievementsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageBaseAchievementSchema?> getAllAchievementsAchievementsGet({
-    String? type,
+  Future<DataPageAchievementSchema?> getAllAchievementsAchievementsGet({
+    AchievementType? type,
     int? page,
     int? size,
   }) async {
@@ -170,8 +170,8 @@ class AchievementsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageBaseAchievementSchema',
-      ) as DataPageBaseAchievementSchema;
+        'DataPageAchievementSchema',
+      ) as DataPageAchievementSchema;
     }
     return null;
   }

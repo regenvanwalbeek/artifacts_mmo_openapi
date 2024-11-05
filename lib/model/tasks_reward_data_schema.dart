@@ -14,7 +14,7 @@ class TasksRewardDataSchema {
   /// Returns a new [TasksRewardDataSchema] instance.
   TasksRewardDataSchema({
     required this.cooldown,
-    required this.reward,
+    required this.rewards,
     required this.character,
   });
 
@@ -22,7 +22,7 @@ class TasksRewardDataSchema {
   CooldownSchema cooldown;
 
   /// Reward details.
-  TasksRewardSchema reward;
+  TaskRewardsSchema rewards;
 
   /// Player details.
   CharacterSchema character;
@@ -32,22 +32,22 @@ class TasksRewardDataSchema {
       identical(this, other) ||
       other is TasksRewardDataSchema &&
           other.cooldown == cooldown &&
-          other.reward == reward &&
+          other.rewards == rewards &&
           other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (reward.hashCode) + (character.hashCode);
+      (cooldown.hashCode) + (rewards.hashCode) + (character.hashCode);
 
   @override
   String toString() =>
-      'TasksRewardDataSchema[cooldown=$cooldown, reward=$reward, character=$character]';
+      'TasksRewardDataSchema[cooldown=$cooldown, rewards=$rewards, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'cooldown'] = this.cooldown;
-    json[r'reward'] = this.reward;
+    json[r'rewards'] = this.rewards;
     json[r'character'] = this.character;
     return json;
   }
@@ -74,7 +74,7 @@ class TasksRewardDataSchema {
 
       return TasksRewardDataSchema(
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
-        reward: TasksRewardSchema.fromJson(json[r'reward'])!,
+        rewards: TaskRewardsSchema.fromJson(json[r'rewards'])!,
         character: CharacterSchema.fromJson(json[r'character'])!,
       );
     }
@@ -133,7 +133,7 @@ class TasksRewardDataSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'cooldown',
-    'reward',
+    'rewards',
     'character',
   };
 }

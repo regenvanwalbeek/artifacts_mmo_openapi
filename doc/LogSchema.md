@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **character** | **String** | Character name. | 
 **account** | **String** | Account character. | 
-**type** | **String** | Type of action. | 
+**type** | [**LogType**](LogType.md) | Type of action. | 
 **description** | **String** | Description of action. | 
 **content** | [**Object**](.md) |  | 
 **cooldown** | **int** | Cooldown in seconds. | 

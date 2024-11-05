@@ -16,7 +16,7 @@ class LeaderboardApi {
 
   final ApiClient apiClient;
 
-  /// Get Leaderboard
+  /// Get Accounts Leaderboard
   ///
   /// Fetch leaderboard details.
   ///
@@ -24,21 +24,21 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [String] sort:
-  ///   Default sort by combat total XP.
+  /// * [AccountLeaderboardType] sort:
+  ///   Default sort by achievements points.
   ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getLeaderboardLeaderboardGetWithHttpInfo({
-    String? sort,
+  Future<Response> getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo({
+    AccountLeaderboardType? sort,
     int? page,
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/leaderboard';
+    final path = r'/leaderboard/accounts';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -70,13 +70,57 @@ class LeaderboardApi {
     );
   }
 
-  /// Get Leaderboard
+  /// Get Accounts Leaderboard
   ///
   /// Fetch leaderboard details.
   ///
   /// Parameters:
   ///
-  /// * [String] sort:
+  /// * [AccountLeaderboardType] sort:
+  ///   Default sort by achievements points.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageAccountLeaderboardSchema?>
+      getAccountsLeaderboardLeaderboardAccountsGet({
+    AccountLeaderboardType? sort,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo(
+      sort: sort,
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageAccountLeaderboardSchema',
+      ) as DataPageAccountLeaderboardSchema;
+    }
+    return null;
+  }
+
+  /// Get Characters Leaderboard
+  ///
+  /// Fetch leaderboard details.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [CharacterLeaderboardType] sort:
   ///   Default sort by combat total XP.
   ///
   /// * [int] page:
@@ -84,12 +128,67 @@ class LeaderboardApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageCharacterLeaderboardSchema?> getLeaderboardLeaderboardGet({
-    String? sort,
+  Future<Response>
+      getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo({
+    CharacterLeaderboardType? sort,
     int? page,
     int? size,
   }) async {
-    final response = await getLeaderboardLeaderboardGetWithHttpInfo(
+    // ignore: prefer_const_declarations
+    final path = r'/leaderboard/characters';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (sort != null) {
+      queryParams.addAll(_queryParams('', 'sort', sort));
+    }
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Characters Leaderboard
+  ///
+  /// Fetch leaderboard details.
+  ///
+  /// Parameters:
+  ///
+  /// * [CharacterLeaderboardType] sort:
+  ///   Default sort by combat total XP.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageCharacterLeaderboardSchema?>
+      getCharactersLeaderboardLeaderboardCharactersGet({
+    CharacterLeaderboardType? sort,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo(
       sort: sort,
       page: page,
       size: size,

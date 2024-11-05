@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **String** | Server status | 
-**version** | **String** |  | [optional] 
+**version** | **String** | Game version. | 
 **maxLevel** | **int** | Maximum level. | 
 **charactersOnline** | **int** | Characters online. | 
 **serverTime** | [**DateTime**](DateTime.md) | Server time. | 

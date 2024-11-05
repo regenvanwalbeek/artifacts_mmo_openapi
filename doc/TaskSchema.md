@@ -9,8 +9,9 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | Task objective. | 
-**type** | **String** | The type of task. | 
+**type** | [**TaskType**](TaskType.md) | The type of task. | 
 **total** | **int** | The total required to complete the task. | 
+**rewards** | [**TaskRewardsSchema**](TaskRewardsSchema.md) | Rewards for completing the task. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

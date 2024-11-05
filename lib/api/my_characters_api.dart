@@ -197,7 +197,7 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<TasksRewardResponseSchema?>
+  Future<TasksRewardDataResponseSchema?>
       actionCompleteTaskMyNameActionTaskCompletePost(
     String name,
   ) async {
@@ -215,8 +215,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TasksRewardResponseSchema',
-      ) as TasksRewardResponseSchema;
+        'TasksRewardDataResponseSchema',
+      ) as TasksRewardDataResponseSchema;
     }
     return null;
   }
@@ -369,7 +369,7 @@ class MyCharactersApi {
 
   /// Action Deposit Bank Gold
   ///
-  /// Deposit golds in a bank on the character's map.
+  /// Deposit gold in a bank on the character's map.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -410,7 +410,7 @@ class MyCharactersApi {
 
   /// Action Deposit Bank Gold
   ///
-  /// Deposit golds in a bank on the character's map.
+  /// Deposit gold in a bank on the character's map.
   ///
   /// Parameters:
   ///
@@ -735,16 +735,17 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GETransactionItemSchema] gETransactionItemSchema (required):
-  Future<Response> actionGeBuyItemMyNameActionGeBuyPostWithHttpInfo(
+  /// * [GEBuyOrderSchema] gEBuyOrderSchema (required):
+  Future<Response> actionGeBuyItemMyNameActionGrandexchangeBuyPostWithHttpInfo(
     String name,
-    GETransactionItemSchema gETransactionItemSchema,
+    GEBuyOrderSchema gEBuyOrderSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/ge/buy'.replaceAll('{name}', name);
+    final path =
+        r'/my/{name}/action/grandexchange/buy'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
-    Object? postBody = gETransactionItemSchema;
+    Object? postBody = gEBuyOrderSchema;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -772,14 +773,16 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GETransactionItemSchema] gETransactionItemSchema (required):
-  Future<GETransactionResponseSchema?> actionGeBuyItemMyNameActionGeBuyPost(
+  /// * [GEBuyOrderSchema] gEBuyOrderSchema (required):
+  Future<GETransactionResponseSchema?>
+      actionGeBuyItemMyNameActionGrandexchangeBuyPost(
     String name,
-    GETransactionItemSchema gETransactionItemSchema,
+    GEBuyOrderSchema gEBuyOrderSchema,
   ) async {
-    final response = await actionGeBuyItemMyNameActionGeBuyPostWithHttpInfo(
+    final response =
+        await actionGeBuyItemMyNameActionGrandexchangeBuyPostWithHttpInfo(
       name,
-      gETransactionItemSchema,
+      gEBuyOrderSchema,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -797,9 +800,9 @@ class MyCharactersApi {
     return null;
   }
 
-  /// Action Ge Sell Item
+  /// Action Ge Cancel Sell Order
   ///
-  /// Sell an item at the Grand Exchange on the character's map.
+  /// Cancel a sell order at the Grand Exchange on the character's map.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -808,16 +811,18 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GETransactionItemSchema] gETransactionItemSchema (required):
-  Future<Response> actionGeSellItemMyNameActionGeSellPostWithHttpInfo(
+  /// * [GECancelOrderSchema] gECancelOrderSchema (required):
+  Future<Response>
+      actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
     String name,
-    GETransactionItemSchema gETransactionItemSchema,
+    GECancelOrderSchema gECancelOrderSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/ge/sell'.replaceAll('{name}', name);
+    final path =
+        r'/my/{name}/action/grandexchange/cancel'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
-    Object? postBody = gETransactionItemSchema;
+    Object? postBody = gECancelOrderSchema;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -836,23 +841,25 @@ class MyCharactersApi {
     );
   }
 
-  /// Action Ge Sell Item
+  /// Action Ge Cancel Sell Order
   ///
-  /// Sell an item at the Grand Exchange on the character's map.
+  /// Cancel a sell order at the Grand Exchange on the character's map.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GETransactionItemSchema] gETransactionItemSchema (required):
-  Future<GETransactionResponseSchema?> actionGeSellItemMyNameActionGeSellPost(
+  /// * [GECancelOrderSchema] gECancelOrderSchema (required):
+  Future<GETransactionResponseSchema?>
+      actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(
     String name,
-    GETransactionItemSchema gETransactionItemSchema,
+    GECancelOrderSchema gECancelOrderSchema,
   ) async {
-    final response = await actionGeSellItemMyNameActionGeSellPostWithHttpInfo(
+    final response =
+        await actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
       name,
-      gETransactionItemSchema,
+      gECancelOrderSchema,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -866,6 +873,83 @@ class MyCharactersApi {
         await _decodeBodyBytes(response),
         'GETransactionResponseSchema',
       ) as GETransactionResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Ge Create Sell Order
+  ///
+  /// Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
+  Future<Response>
+      actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
+    String name,
+    GEOrderCreationrSchema gEOrderCreationrSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/my/{name}/action/grandexchange/sell'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = gEOrderCreationrSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Ge Create Sell Order
+  ///
+  /// Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
+  Future<GECreateOrderTransactionResponseSchema?>
+      actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(
+    String name,
+    GEOrderCreationrSchema gEOrderCreationrSchema,
+  ) async {
+    final response =
+        await actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
+      name,
+      gEOrderCreationrSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GECreateOrderTransactionResponseSchema',
+      ) as GECreateOrderTransactionResponseSchema;
     }
     return null;
   }
@@ -945,7 +1029,7 @@ class MyCharactersApi {
 
   /// Action Recycling
   ///
-  /// Recyling an item. The character must be on a map with a workshop (only for equipments and weapons).
+  /// Recycling an item. The character must be on a map with a workshop (only for equipments and weapons).
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -984,7 +1068,7 @@ class MyCharactersApi {
 
   /// Action Recycling
   ///
-  /// Recyling an item. The character must be on a map with a workshop (only for equipments and weapons).
+  /// Recycling an item. The character must be on a map with a workshop (only for equipments and weapons).
   ///
   /// Parameters:
   ///
@@ -1012,6 +1096,72 @@ class MyCharactersApi {
         await _decodeBodyBytes(response),
         'RecyclingResponseSchema',
       ) as RecyclingResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Rest
+  ///
+  /// Recovers hit points by resting. (1 second per 10 HP, minimum 3 seconds)
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<Response> actionRestMyNameActionRestPostWithHttpInfo(
+    String name,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/rest'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Rest
+  ///
+  /// Recovers hit points by resting. (1 second per 10 HP, minimum 3 seconds)
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<CharacterRestResponseSchema?> actionRestMyNameActionRestPost(
+    String name,
+  ) async {
+    final response = await actionRestMyNameActionRestPostWithHttpInfo(
+      name,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CharacterRestResponseSchema',
+      ) as CharacterRestResponseSchema;
     }
     return null;
   }
@@ -1128,7 +1278,7 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<TasksRewardResponseSchema?>
+  Future<TasksRewardDataResponseSchema?>
       actionTaskExchangeMyNameActionTaskExchangePost(
     String name,
   ) async {
@@ -1146,8 +1296,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TasksRewardResponseSchema',
-      ) as TasksRewardResponseSchema;
+        'TasksRewardDataResponseSchema',
+      ) as TasksRewardDataResponseSchema;
     }
     return null;
   }
@@ -1294,6 +1444,79 @@ class MyCharactersApi {
         await _decodeBodyBytes(response),
         'EquipmentResponseSchema',
       ) as EquipmentResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Use Item
+  ///
+  /// Use an item as a consumable.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [SimpleItemSchema] simpleItemSchema (required):
+  Future<Response> actionUseItemMyNameActionUsePostWithHttpInfo(
+    String name,
+    SimpleItemSchema simpleItemSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/use'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = simpleItemSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Use Item
+  ///
+  /// Use an item as a consumable.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [SimpleItemSchema] simpleItemSchema (required):
+  Future<UseItemResponseSchema?> actionUseItemMyNameActionUsePost(
+    String name,
+    SimpleItemSchema simpleItemSchema,
+  ) async {
+    final response = await actionUseItemMyNameActionUsePostWithHttpInfo(
+      name,
+      simpleItemSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'UseItemResponseSchema',
+      ) as UseItemResponseSchema;
     }
     return null;
   }

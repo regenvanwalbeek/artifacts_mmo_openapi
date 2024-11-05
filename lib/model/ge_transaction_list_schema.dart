@@ -14,7 +14,7 @@ class GETransactionListSchema {
   /// Returns a new [GETransactionListSchema] instance.
   GETransactionListSchema({
     required this.cooldown,
-    required this.transaction,
+    required this.order,
     required this.character,
   });
 
@@ -22,7 +22,7 @@ class GETransactionListSchema {
   CooldownSchema cooldown;
 
   /// Transaction details.
-  GETransactionSchema transaction;
+  GETransactionSchema order;
 
   /// Character details.
   CharacterSchema character;
@@ -32,22 +32,22 @@ class GETransactionListSchema {
       identical(this, other) ||
       other is GETransactionListSchema &&
           other.cooldown == cooldown &&
-          other.transaction == transaction &&
+          other.order == order &&
           other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (transaction.hashCode) + (character.hashCode);
+      (cooldown.hashCode) + (order.hashCode) + (character.hashCode);
 
   @override
   String toString() =>
-      'GETransactionListSchema[cooldown=$cooldown, transaction=$transaction, character=$character]';
+      'GETransactionListSchema[cooldown=$cooldown, order=$order, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'cooldown'] = this.cooldown;
-    json[r'transaction'] = this.transaction;
+    json[r'order'] = this.order;
     json[r'character'] = this.character;
     return json;
   }
@@ -74,7 +74,7 @@ class GETransactionListSchema {
 
       return GETransactionListSchema(
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
-        transaction: GETransactionSchema.fromJson(json[r'transaction'])!,
+        order: GETransactionSchema.fromJson(json[r'order'])!,
         character: CharacterSchema.fromJson(json[r'character'])!,
       );
     }
@@ -133,7 +133,7 @@ class GETransactionListSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'cooldown',
-    'transaction',
+    'order',
     'character',
   };
 }

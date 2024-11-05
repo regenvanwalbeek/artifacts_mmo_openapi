@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | Task objective. | 
 **level** | **int** | Task level. | 
-**type** | **String** | The type of task. | 
+**type** | [**TaskType**](TaskType.md) | The type of task. | 
 **minQuantity** | **int** | Minimum amount of task. | 
 **maxQuantity** | **int** | Maximum amount of task. | 
 **skill** | **String** |  | 

@@ -21,7 +21,7 @@ class AddCharacterSchema {
   String name;
 
   /// Your desired skin.
-  AddCharacterSchemaSkinEnum skin;
+  CharacterSkin skin;
 
   @override
   bool operator ==(Object other) =>
@@ -65,7 +65,7 @@ class AddCharacterSchema {
 
       return AddCharacterSchema(
         name: mapValueOfType<String>(json, r'name')!,
-        skin: AddCharacterSchemaSkinEnum.fromJson(json[r'skin'])!,
+        skin: CharacterSkin.fromJson(json[r'skin'])!,
       );
     }
     return null;
@@ -125,100 +125,4 @@ class AddCharacterSchema {
     'name',
     'skin',
   };
-}
-
-/// Your desired skin.
-class AddCharacterSchemaSkinEnum {
-  /// Instantiate a new enum with the provided [value].
-  const AddCharacterSchemaSkinEnum._(this.value);
-
-  /// The underlying value of this enum member.
-  final String value;
-
-  @override
-  String toString() => value;
-
-  String toJson() => value;
-
-  static const men1 = AddCharacterSchemaSkinEnum._(r'men1');
-  static const men2 = AddCharacterSchemaSkinEnum._(r'men2');
-  static const men3 = AddCharacterSchemaSkinEnum._(r'men3');
-  static const women1 = AddCharacterSchemaSkinEnum._(r'women1');
-  static const women2 = AddCharacterSchemaSkinEnum._(r'women2');
-  static const women3 = AddCharacterSchemaSkinEnum._(r'women3');
-
-  /// List of all possible values in this [enum][AddCharacterSchemaSkinEnum].
-  static const values = <AddCharacterSchemaSkinEnum>[
-    men1,
-    men2,
-    men3,
-    women1,
-    women2,
-    women3,
-  ];
-
-  static AddCharacterSchemaSkinEnum? fromJson(dynamic value) =>
-      AddCharacterSchemaSkinEnumTypeTransformer().decode(value);
-
-  static List<AddCharacterSchemaSkinEnum> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
-    final result = <AddCharacterSchemaSkinEnum>[];
-    if (json is List && json.isNotEmpty) {
-      for (final row in json) {
-        final value = AddCharacterSchemaSkinEnum.fromJson(row);
-        if (value != null) {
-          result.add(value);
-        }
-      }
-    }
-    return result.toList(growable: growable);
-  }
-}
-
-/// Transformation class that can [encode] an instance of [AddCharacterSchemaSkinEnum] to String,
-/// and [decode] dynamic data back to [AddCharacterSchemaSkinEnum].
-class AddCharacterSchemaSkinEnumTypeTransformer {
-  factory AddCharacterSchemaSkinEnumTypeTransformer() =>
-      _instance ??= const AddCharacterSchemaSkinEnumTypeTransformer._();
-
-  const AddCharacterSchemaSkinEnumTypeTransformer._();
-
-  String encode(AddCharacterSchemaSkinEnum data) => data.value;
-
-  /// Decodes a [dynamic value][data] to a AddCharacterSchemaSkinEnum.
-  ///
-  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
-  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
-  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
-  ///
-  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
-  /// and users are still using an old app with the old code.
-  AddCharacterSchemaSkinEnum? decode(dynamic data, {bool allowNull = true}) {
-    if (data != null) {
-      switch (data) {
-        case r'men1':
-          return AddCharacterSchemaSkinEnum.men1;
-        case r'men2':
-          return AddCharacterSchemaSkinEnum.men2;
-        case r'men3':
-          return AddCharacterSchemaSkinEnum.men3;
-        case r'women1':
-          return AddCharacterSchemaSkinEnum.women1;
-        case r'women2':
-          return AddCharacterSchemaSkinEnum.women2;
-        case r'women3':
-          return AddCharacterSchemaSkinEnum.women3;
-        default:
-          if (!allowNull) {
-            throw ArgumentError('Unknown enum value to decode: $data');
-          }
-      }
-    }
-    return null;
-  }
-
-  /// Singleton [AddCharacterSchemaSkinEnumTypeTransformer] instance.
-  static AddCharacterSchemaSkinEnumTypeTransformer? _instance;
 }

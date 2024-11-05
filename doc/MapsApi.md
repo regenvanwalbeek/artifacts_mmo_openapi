@@ -25,7 +25,7 @@ Fetch maps details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MapsApi();
-final contentType = contentType_example; // String | Type of content on the map.
+final contentType = ; // MapContentType | Type of content on the map.
 final contentCode = contentCode_example; // String | Content code on the map.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contentType** | **String**| Type of content on the map. | [optional] 
+ **contentType** | [**MapContentType**](.md)| Type of content on the map. | [optional] 
  **contentCode** | **String**| Content code on the map. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]

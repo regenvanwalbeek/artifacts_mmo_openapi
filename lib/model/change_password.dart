@@ -17,7 +17,7 @@ class ChangePassword {
     required this.newPassword,
   });
 
-  /// Current password.
+  /// Your password.
   String currentPassword;
 
   /// New password.

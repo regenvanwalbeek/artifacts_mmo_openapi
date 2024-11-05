@@ -73,7 +73,7 @@ class TasksApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageTasksRewardFullSchema?> getAllTasksRewardsTasksRewardsGet({
+  Future<DataPageDropRateSchema?> getAllTasksRewardsTasksRewardsGet({
     int? page,
     int? size,
   }) async {
@@ -91,8 +91,8 @@ class TasksApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageTasksRewardFullSchema',
-      ) as DataPageTasksRewardFullSchema;
+        'DataPageDropRateSchema',
+      ) as DataPageDropRateSchema;
     }
     return null;
   }
@@ -111,10 +111,10 @@ class TasksApi {
   /// * [int] maxLevel:
   ///   Maximum level.
   ///
-  /// * [String] skill:
+  /// * [Skill] skill:
   ///   The code of the skill.
   ///
-  /// * [String] type:
+  /// * [TaskType] type:
   ///   The type of tasks.
   ///
   /// * [int] page:
@@ -125,8 +125,8 @@ class TasksApi {
   Future<Response> getAllTasksTasksListGetWithHttpInfo({
     int? minLevel,
     int? maxLevel,
-    String? skill,
-    String? type,
+    Skill? skill,
+    TaskType? type,
     int? page,
     int? size,
   }) async {
@@ -184,10 +184,10 @@ class TasksApi {
   /// * [int] maxLevel:
   ///   Maximum level.
   ///
-  /// * [String] skill:
+  /// * [Skill] skill:
   ///   The code of the skill.
   ///
-  /// * [String] type:
+  /// * [TaskType] type:
   ///   The type of tasks.
   ///
   /// * [int] page:
@@ -198,8 +198,8 @@ class TasksApi {
   Future<DataPageTaskFullSchema?> getAllTasksTasksListGet({
     int? minLevel,
     int? maxLevel,
-    String? skill,
-    String? type,
+    Skill? skill,
+    TaskType? type,
     int? page,
     int? size,
   }) async {
@@ -337,7 +337,7 @@ class TasksApi {
   ///
   /// * [String] code (required):
   ///   The code of the tasks reward.
-  Future<TasksRewardFullResponseSchema?> getTasksRewardTasksRewardsCodeGet(
+  Future<TasksRewardResponseSchema?> getTasksRewardTasksRewardsCodeGet(
     String code,
   ) async {
     final response = await getTasksRewardTasksRewardsCodeGetWithHttpInfo(
@@ -353,8 +353,8 @@ class TasksApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TasksRewardFullResponseSchema',
-      ) as TasksRewardFullResponseSchema;
+        'TasksRewardResponseSchema',
+      ) as TasksRewardResponseSchema;
     }
     return null;
   }
