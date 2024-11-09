@@ -317,4 +317,5 @@ lib/model/unequip_schema.dart
 lib/model/use_item_response_schema.dart
 lib/model/use_item_schema.dart
 lib/model/validation_error.dart
+lib/model/validation_error_loc_inner.dart
 pubspec.yaml
