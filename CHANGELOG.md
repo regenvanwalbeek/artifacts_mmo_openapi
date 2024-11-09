@@ -1,3 +1,7 @@
+## 3.1.0
+
+- Season 3 updates
+
 ## 3.0.0
 
 - Season 3 Generation
