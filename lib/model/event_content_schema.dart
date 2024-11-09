@@ -24,22 +24,23 @@ class EventContentSchema {
   String code;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is EventContentSchema && other.type == type && other.code == code;
+  bool operator ==(Object other) => identical(this, other) || other is EventContentSchema &&
+    other.type == type &&
+    other.code == code;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (type.hashCode) + (code.hashCode);
+    // ignore: unnecessary_parenthesis
+    (type.hashCode) +
+    (code.hashCode);
 
   @override
   String toString() => 'EventContentSchema[type=$type, code=$code]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'type'] = this.type;
-    json[r'code'] = this.code;
+      json[r'type'] = this.type;
+      json[r'code'] = this.code;
     return json;
   }
 
@@ -55,10 +56,8 @@ class EventContentSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "EventContentSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "EventContentSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "EventContentSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "EventContentSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -71,10 +70,7 @@ class EventContentSchema {
     return null;
   }
 
-  static List<EventContentSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<EventContentSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <EventContentSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,19 +98,13 @@ class EventContentSchema {
   }
 
   // maps a json object with a list of EventContentSchema-objects as value to a dart map
-  static Map<String, List<EventContentSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<EventContentSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<EventContentSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EventContentSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = EventContentSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -126,3 +116,4 @@ class EventContentSchema {
     'code',
   };
 }
+

@@ -19,21 +19,20 @@ class ItemResponseSchema {
   ItemSchema data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ItemResponseSchema && other.data == data;
+  bool operator ==(Object other) => identical(this, other) || other is ItemResponseSchema &&
+    other.data == data;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode);
 
   @override
   String toString() => 'ItemResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     return json;
   }
 
@@ -49,10 +48,8 @@ class ItemResponseSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ItemResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ItemResponseSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ItemResponseSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ItemResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,10 +61,7 @@ class ItemResponseSchema {
     return null;
   }
 
-  static List<ItemResponseSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<ItemResponseSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ItemResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -95,19 +89,13 @@ class ItemResponseSchema {
   }
 
   // maps a json object with a list of ItemResponseSchema-objects as value to a dart map
-  static Map<String, List<ItemResponseSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<ItemResponseSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ItemResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ItemResponseSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = ItemResponseSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -118,3 +106,4 @@ class ItemResponseSchema {
     'data',
   };
 }
+

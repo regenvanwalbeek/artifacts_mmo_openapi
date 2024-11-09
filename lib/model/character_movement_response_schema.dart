@@ -19,21 +19,20 @@ class CharacterMovementResponseSchema {
   CharacterMovementDataSchema data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CharacterMovementResponseSchema && other.data == data;
+  bool operator ==(Object other) => identical(this, other) || other is CharacterMovementResponseSchema &&
+    other.data == data;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode);
 
   @override
   String toString() => 'CharacterMovementResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     return json;
   }
 
@@ -49,10 +48,8 @@ class CharacterMovementResponseSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterMovementResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterMovementResponseSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CharacterMovementResponseSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CharacterMovementResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,10 +61,7 @@ class CharacterMovementResponseSchema {
     return null;
   }
 
-  static List<CharacterMovementResponseSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterMovementResponseSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterMovementResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -80,8 +74,7 @@ class CharacterMovementResponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, CharacterMovementResponseSchema> mapFromJson(
-      dynamic json) {
+  static Map<String, CharacterMovementResponseSchema> mapFromJson(dynamic json) {
     final map = <String, CharacterMovementResponseSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
@@ -96,19 +89,13 @@ class CharacterMovementResponseSchema {
   }
 
   // maps a json object with a list of CharacterMovementResponseSchema-objects as value to a dart map
-  static Map<String, List<CharacterMovementResponseSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CharacterMovementResponseSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CharacterMovementResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CharacterMovementResponseSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CharacterMovementResponseSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -119,3 +106,4 @@ class CharacterMovementResponseSchema {
     'data',
   };
 }
+

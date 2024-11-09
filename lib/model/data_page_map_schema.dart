@@ -35,31 +35,28 @@ class DataPageMapSchema {
   int? pages;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DataPageMapSchema &&
-          _deepEquality.equals(other.data, data) &&
-          other.total == total &&
-          other.page == page &&
-          other.size == size &&
-          other.pages == pages;
+  bool operator ==(Object other) => identical(this, other) || other is DataPageMapSchema &&
+    _deepEquality.equals(other.data, data) &&
+    other.total == total &&
+    other.page == page &&
+    other.size == size &&
+    other.pages == pages;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode) +
-      (total == null ? 0 : total!.hashCode) +
-      (page == null ? 0 : page!.hashCode) +
-      (size == null ? 0 : size!.hashCode) +
-      (pages == null ? 0 : pages!.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode) +
+    (total == null ? 0 : total!.hashCode) +
+    (page == null ? 0 : page!.hashCode) +
+    (size == null ? 0 : size!.hashCode) +
+    (pages == null ? 0 : pages!.hashCode);
 
   @override
-  String toString() =>
-      'DataPageMapSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+  String toString() => 'DataPageMapSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     if (this.total != null) {
       json[r'total'] = this.total;
     } else {
@@ -95,10 +92,8 @@ class DataPageMapSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DataPageMapSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DataPageMapSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DataPageMapSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DataPageMapSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -114,10 +109,7 @@ class DataPageMapSchema {
     return null;
   }
 
-  static List<DataPageMapSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<DataPageMapSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DataPageMapSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -145,19 +137,13 @@ class DataPageMapSchema {
   }
 
   // maps a json object with a list of DataPageMapSchema-objects as value to a dart map
-  static Map<String, List<DataPageMapSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<DataPageMapSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DataPageMapSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageMapSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = DataPageMapSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -171,3 +157,4 @@ class DataPageMapSchema {
     'size',
   };
 }
+

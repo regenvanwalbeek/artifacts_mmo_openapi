@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
+
 class AccountsApi {
-  AccountsApi([ApiClient? apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  AccountsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -23,9 +23,7 @@ class AccountsApi {
   /// Parameters:
   ///
   /// * [AddAccountSchema] addAccountSchema (required):
-  Future<Response> createAccountAccountsCreatePostWithHttpInfo(
-    AddAccountSchema addAccountSchema,
-  ) async {
+  Future<Response> createAccountAccountsCreatePostWithHttpInfo(AddAccountSchema addAccountSchema,) async {
     // ignore: prefer_const_declarations
     final path = r'/accounts/create';
 
@@ -37,6 +35,7 @@ class AccountsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
+
 
     return apiClient.invokeAPI(
       path,
@@ -54,24 +53,17 @@ class AccountsApi {
   /// Parameters:
   ///
   /// * [AddAccountSchema] addAccountSchema (required):
-  Future<ResponseSchema?> createAccountAccountsCreatePost(
-    AddAccountSchema addAccountSchema,
-  ) async {
-    final response = await createAccountAccountsCreatePostWithHttpInfo(
-      addAccountSchema,
-    );
+  Future<ResponseSchema?> createAccountAccountsCreatePost(AddAccountSchema addAccountSchema,) async {
+    final response = await createAccountAccountsCreatePostWithHttpInfo(addAccountSchema,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'ResponseSchema',
-      ) as ResponseSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseSchema',) as ResponseSchema;
+    
     }
     return null;
   }
@@ -86,11 +78,10 @@ class AccountsApi {
   ///
   /// * [String] account (required):
   ///   The account name.
-  Future<Response> getAccountAccountsAccountGetWithHttpInfo(
-    String account,
-  ) async {
+  Future<Response> getAccountAccountsAccountGetWithHttpInfo(String account,) async {
     // ignore: prefer_const_declarations
-    final path = r'/accounts/{account}'.replaceAll('{account}', account);
+    final path = r'/accounts/{account}'
+      .replaceAll('{account}', account);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -100,6 +91,7 @@ class AccountsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -120,24 +112,17 @@ class AccountsApi {
   ///
   /// * [String] account (required):
   ///   The account name.
-  Future<AccountDetailsSchema?> getAccountAccountsAccountGet(
-    String account,
-  ) async {
-    final response = await getAccountAccountsAccountGetWithHttpInfo(
-      account,
-    );
+  Future<AccountDetailsSchema?> getAccountAccountsAccountGet(String account,) async {
+    final response = await getAccountAccountsAccountGetWithHttpInfo(account,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'AccountDetailsSchema',
-      ) as AccountDetailsSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AccountDetailsSchema',) as AccountDetailsSchema;
+    
     }
     return null;
   }
@@ -164,17 +149,10 @@ class AccountsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response>
-      getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(
-    String account, {
-    AchievementType? type,
-    bool? completed,
-    int? page,
-    int? size,
-  }) async {
+  Future<Response> getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(String account, { AchievementType? type, bool? completed, int? page, int? size, }) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/accounts/{account}/achievements'.replaceAll('{account}', account);
+    final path = r'/accounts/{account}/achievements'
+      .replaceAll('{account}', account);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -198,6 +176,7 @@ class AccountsApi {
 
     const contentTypes = <String>[];
 
+
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -229,34 +208,17 @@ class AccountsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageAccountAchievementSchema?>
-      getAccountAchievementsAccountsAccountAchievementsGet(
-    String account, {
-    AchievementType? type,
-    bool? completed,
-    int? page,
-    int? size,
-  }) async {
-    final response =
-        await getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(
-      account,
-      type: type,
-      completed: completed,
-      page: page,
-      size: size,
-    );
+  Future<DataPageAccountAchievementSchema?> getAccountAchievementsAccountsAccountAchievementsGet(String account, { AchievementType? type, bool? completed, int? page, int? size, }) async {
+    final response = await getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(account,  type: type, completed: completed, page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'DataPageAccountAchievementSchema',
-      ) as DataPageAccountAchievementSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageAccountAchievementSchema',) as DataPageAccountAchievementSchema;
+    
     }
     return null;
   }

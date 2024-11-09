@@ -38,32 +38,29 @@ class DropRateSchema {
   int maxQuantity;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DropRateSchema &&
-          other.code == code &&
-          other.rate == rate &&
-          other.minQuantity == minQuantity &&
-          other.maxQuantity == maxQuantity;
+  bool operator ==(Object other) => identical(this, other) || other is DropRateSchema &&
+    other.code == code &&
+    other.rate == rate &&
+    other.minQuantity == minQuantity &&
+    other.maxQuantity == maxQuantity;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (code.hashCode) +
-      (rate.hashCode) +
-      (minQuantity.hashCode) +
-      (maxQuantity.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (rate.hashCode) +
+    (minQuantity.hashCode) +
+    (maxQuantity.hashCode);
 
   @override
-  String toString() =>
-      'DropRateSchema[code=$code, rate=$rate, minQuantity=$minQuantity, maxQuantity=$maxQuantity]';
+  String toString() => 'DropRateSchema[code=$code, rate=$rate, minQuantity=$minQuantity, maxQuantity=$maxQuantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'rate'] = this.rate;
-    json[r'min_quantity'] = this.minQuantity;
-    json[r'max_quantity'] = this.maxQuantity;
+      json[r'code'] = this.code;
+      json[r'rate'] = this.rate;
+      json[r'min_quantity'] = this.minQuantity;
+      json[r'max_quantity'] = this.maxQuantity;
     return json;
   }
 
@@ -79,10 +76,8 @@ class DropRateSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DropRateSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DropRateSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DropRateSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DropRateSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -97,10 +92,7 @@ class DropRateSchema {
     return null;
   }
 
-  static List<DropRateSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<DropRateSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DropRateSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -128,19 +120,13 @@ class DropRateSchema {
   }
 
   // maps a json object with a list of DropRateSchema-objects as value to a dart map
-  static Map<String, List<DropRateSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<DropRateSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DropRateSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DropRateSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = DropRateSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -154,3 +140,4 @@ class DropRateSchema {
     'max_quantity',
   };
 }
+

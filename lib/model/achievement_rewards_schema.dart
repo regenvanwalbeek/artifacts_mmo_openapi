@@ -20,21 +20,20 @@ class AchievementRewardsSchema {
   int gold;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is AchievementRewardsSchema && other.gold == gold;
+  bool operator ==(Object other) => identical(this, other) || other is AchievementRewardsSchema &&
+    other.gold == gold;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (gold.hashCode);
+    // ignore: unnecessary_parenthesis
+    (gold.hashCode);
 
   @override
   String toString() => 'AchievementRewardsSchema[gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'gold'] = this.gold;
+      json[r'gold'] = this.gold;
     return json;
   }
 
@@ -50,10 +49,8 @@ class AchievementRewardsSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "AchievementRewardsSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "AchievementRewardsSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "AchievementRewardsSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "AchievementRewardsSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -65,10 +62,7 @@ class AchievementRewardsSchema {
     return null;
   }
 
-  static List<AchievementRewardsSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<AchievementRewardsSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <AchievementRewardsSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -96,19 +90,13 @@ class AchievementRewardsSchema {
   }
 
   // maps a json object with a list of AchievementRewardsSchema-objects as value to a dart map
-  static Map<String, List<AchievementRewardsSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<AchievementRewardsSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<AchievementRewardsSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AchievementRewardsSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = AchievementRewardsSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -119,3 +107,4 @@ class AchievementRewardsSchema {
     'gold',
   };
 }
+

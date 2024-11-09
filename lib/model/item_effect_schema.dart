@@ -24,22 +24,23 @@ class ItemEffectSchema {
   int value;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ItemEffectSchema && other.name == name && other.value == value;
+  bool operator ==(Object other) => identical(this, other) || other is ItemEffectSchema &&
+    other.name == name &&
+    other.value == value;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (name.hashCode) + (value.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name.hashCode) +
+    (value.hashCode);
 
   @override
   String toString() => 'ItemEffectSchema[name=$name, value=$value]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'name'] = this.name;
-    json[r'value'] = this.value;
+      json[r'name'] = this.name;
+      json[r'value'] = this.value;
     return json;
   }
 
@@ -55,10 +56,8 @@ class ItemEffectSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ItemEffectSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ItemEffectSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ItemEffectSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ItemEffectSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -71,10 +70,7 @@ class ItemEffectSchema {
     return null;
   }
 
-  static List<ItemEffectSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<ItemEffectSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ItemEffectSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,19 +98,13 @@ class ItemEffectSchema {
   }
 
   // maps a json object with a list of ItemEffectSchema-objects as value to a dart map
-  static Map<String, List<ItemEffectSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<ItemEffectSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ItemEffectSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ItemEffectSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = ItemEffectSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -126,3 +116,4 @@ class ItemEffectSchema {
     'value',
   };
 }
+

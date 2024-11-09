@@ -10,6 +10,7 @@
 
 part of openapi_generation;
 
+
 class AccountStatus {
   /// Instantiate a new enum with the provided [value].
   const AccountStatus._(this.value);
@@ -35,13 +36,9 @@ class AccountStatus {
     vipFounder,
   ];
 
-  static AccountStatus? fromJson(dynamic value) =>
-      AccountStatusTypeTransformer().decode(value);
+  static AccountStatus? fromJson(dynamic value) => AccountStatusTypeTransformer().decode(value);
 
-  static List<AccountStatus> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<AccountStatus> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <AccountStatus>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -58,8 +55,7 @@ class AccountStatus {
 /// Transformation class that can [encode] an instance of [AccountStatus] to String,
 /// and [decode] dynamic data back to [AccountStatus].
 class AccountStatusTypeTransformer {
-  factory AccountStatusTypeTransformer() =>
-      _instance ??= const AccountStatusTypeTransformer._();
+  factory AccountStatusTypeTransformer() => _instance ??= const AccountStatusTypeTransformer._();
 
   const AccountStatusTypeTransformer._();
 
@@ -76,14 +72,10 @@ class AccountStatusTypeTransformer {
   AccountStatus? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'standard':
-          return AccountStatus.standard;
-        case r'founder':
-          return AccountStatus.founder;
-        case r'gold_founder':
-          return AccountStatus.goldFounder;
-        case r'vip_founder':
-          return AccountStatus.vipFounder;
+        case r'standard': return AccountStatus.standard;
+        case r'founder': return AccountStatus.founder;
+        case r'gold_founder': return AccountStatus.goldFounder;
+        case r'vip_founder': return AccountStatus.vipFounder;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -96,3 +88,4 @@ class AccountStatusTypeTransformer {
   /// Singleton [AccountStatusTypeTransformer] instance.
   static AccountStatusTypeTransformer? _instance;
 }
+

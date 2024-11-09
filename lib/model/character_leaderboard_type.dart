@@ -10,6 +10,7 @@
 
 part of openapi_generation;
 
+
 class CharacterLeaderboardType {
   /// Instantiate a new enum with the provided [value].
   const CharacterLeaderboardType._(this.value);
@@ -47,13 +48,9 @@ class CharacterLeaderboardType {
     gold,
   ];
 
-  static CharacterLeaderboardType? fromJson(dynamic value) =>
-      CharacterLeaderboardTypeTypeTransformer().decode(value);
+  static CharacterLeaderboardType? fromJson(dynamic value) => CharacterLeaderboardTypeTypeTransformer().decode(value);
 
-  static List<CharacterLeaderboardType> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterLeaderboardType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterLeaderboardType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -70,8 +67,7 @@ class CharacterLeaderboardType {
 /// Transformation class that can [encode] an instance of [CharacterLeaderboardType] to String,
 /// and [decode] dynamic data back to [CharacterLeaderboardType].
 class CharacterLeaderboardTypeTypeTransformer {
-  factory CharacterLeaderboardTypeTypeTransformer() =>
-      _instance ??= const CharacterLeaderboardTypeTypeTransformer._();
+  factory CharacterLeaderboardTypeTypeTransformer() => _instance ??= const CharacterLeaderboardTypeTypeTransformer._();
 
   const CharacterLeaderboardTypeTypeTransformer._();
 
@@ -88,26 +84,16 @@ class CharacterLeaderboardTypeTypeTransformer {
   CharacterLeaderboardType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'combat':
-          return CharacterLeaderboardType.combat;
-        case r'woodcutting':
-          return CharacterLeaderboardType.woodcutting;
-        case r'mining':
-          return CharacterLeaderboardType.mining;
-        case r'fishing':
-          return CharacterLeaderboardType.fishing;
-        case r'weaponcrafting':
-          return CharacterLeaderboardType.weaponcrafting;
-        case r'gearcrafting':
-          return CharacterLeaderboardType.gearcrafting;
-        case r'jewelrycrafting':
-          return CharacterLeaderboardType.jewelrycrafting;
-        case r'cooking':
-          return CharacterLeaderboardType.cooking;
-        case r'alchemy':
-          return CharacterLeaderboardType.alchemy;
-        case r'gold':
-          return CharacterLeaderboardType.gold;
+        case r'combat': return CharacterLeaderboardType.combat;
+        case r'woodcutting': return CharacterLeaderboardType.woodcutting;
+        case r'mining': return CharacterLeaderboardType.mining;
+        case r'fishing': return CharacterLeaderboardType.fishing;
+        case r'weaponcrafting': return CharacterLeaderboardType.weaponcrafting;
+        case r'gearcrafting': return CharacterLeaderboardType.gearcrafting;
+        case r'jewelrycrafting': return CharacterLeaderboardType.jewelrycrafting;
+        case r'cooking': return CharacterLeaderboardType.cooking;
+        case r'alchemy': return CharacterLeaderboardType.alchemy;
+        case r'gold': return CharacterLeaderboardType.gold;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -120,3 +106,4 @@ class CharacterLeaderboardTypeTypeTransformer {
   /// Singleton [CharacterLeaderboardTypeTypeTransformer] instance.
   static CharacterLeaderboardTypeTypeTransformer? _instance;
 }
+

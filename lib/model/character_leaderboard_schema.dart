@@ -108,89 +108,86 @@ class CharacterLeaderboardSchema {
   int gold;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CharacterLeaderboardSchema &&
-          other.position == position &&
-          other.name == name &&
-          other.account == account &&
-          other.skin == skin &&
-          other.level == level &&
-          other.totalXp == totalXp &&
-          other.miningLevel == miningLevel &&
-          other.miningTotalXp == miningTotalXp &&
-          other.woodcuttingLevel == woodcuttingLevel &&
-          other.woodcuttingTotalXp == woodcuttingTotalXp &&
-          other.fishingLevel == fishingLevel &&
-          other.fishingTotalXp == fishingTotalXp &&
-          other.weaponcraftingLevel == weaponcraftingLevel &&
-          other.weaponcraftingTotalXp == weaponcraftingTotalXp &&
-          other.gearcraftingLevel == gearcraftingLevel &&
-          other.gearcraftingTotalXp == gearcraftingTotalXp &&
-          other.jewelrycraftingLevel == jewelrycraftingLevel &&
-          other.jewelrycraftingTotalXp == jewelrycraftingTotalXp &&
-          other.cookingLevel == cookingLevel &&
-          other.cookingTotalXp == cookingTotalXp &&
-          other.alchemyLevel == alchemyLevel &&
-          other.alchemyTotalXp == alchemyTotalXp &&
-          other.gold == gold;
+  bool operator ==(Object other) => identical(this, other) || other is CharacterLeaderboardSchema &&
+    other.position == position &&
+    other.name == name &&
+    other.account == account &&
+    other.skin == skin &&
+    other.level == level &&
+    other.totalXp == totalXp &&
+    other.miningLevel == miningLevel &&
+    other.miningTotalXp == miningTotalXp &&
+    other.woodcuttingLevel == woodcuttingLevel &&
+    other.woodcuttingTotalXp == woodcuttingTotalXp &&
+    other.fishingLevel == fishingLevel &&
+    other.fishingTotalXp == fishingTotalXp &&
+    other.weaponcraftingLevel == weaponcraftingLevel &&
+    other.weaponcraftingTotalXp == weaponcraftingTotalXp &&
+    other.gearcraftingLevel == gearcraftingLevel &&
+    other.gearcraftingTotalXp == gearcraftingTotalXp &&
+    other.jewelrycraftingLevel == jewelrycraftingLevel &&
+    other.jewelrycraftingTotalXp == jewelrycraftingTotalXp &&
+    other.cookingLevel == cookingLevel &&
+    other.cookingTotalXp == cookingTotalXp &&
+    other.alchemyLevel == alchemyLevel &&
+    other.alchemyTotalXp == alchemyTotalXp &&
+    other.gold == gold;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (position.hashCode) +
-      (name.hashCode) +
-      (account.hashCode) +
-      (skin.hashCode) +
-      (level.hashCode) +
-      (totalXp.hashCode) +
-      (miningLevel.hashCode) +
-      (miningTotalXp.hashCode) +
-      (woodcuttingLevel.hashCode) +
-      (woodcuttingTotalXp.hashCode) +
-      (fishingLevel.hashCode) +
-      (fishingTotalXp.hashCode) +
-      (weaponcraftingLevel.hashCode) +
-      (weaponcraftingTotalXp.hashCode) +
-      (gearcraftingLevel.hashCode) +
-      (gearcraftingTotalXp.hashCode) +
-      (jewelrycraftingLevel.hashCode) +
-      (jewelrycraftingTotalXp.hashCode) +
-      (cookingLevel.hashCode) +
-      (cookingTotalXp.hashCode) +
-      (alchemyLevel.hashCode) +
-      (alchemyTotalXp.hashCode) +
-      (gold.hashCode);
+    // ignore: unnecessary_parenthesis
+    (position.hashCode) +
+    (name.hashCode) +
+    (account.hashCode) +
+    (skin.hashCode) +
+    (level.hashCode) +
+    (totalXp.hashCode) +
+    (miningLevel.hashCode) +
+    (miningTotalXp.hashCode) +
+    (woodcuttingLevel.hashCode) +
+    (woodcuttingTotalXp.hashCode) +
+    (fishingLevel.hashCode) +
+    (fishingTotalXp.hashCode) +
+    (weaponcraftingLevel.hashCode) +
+    (weaponcraftingTotalXp.hashCode) +
+    (gearcraftingLevel.hashCode) +
+    (gearcraftingTotalXp.hashCode) +
+    (jewelrycraftingLevel.hashCode) +
+    (jewelrycraftingTotalXp.hashCode) +
+    (cookingLevel.hashCode) +
+    (cookingTotalXp.hashCode) +
+    (alchemyLevel.hashCode) +
+    (alchemyTotalXp.hashCode) +
+    (gold.hashCode);
 
   @override
-  String toString() =>
-      'CharacterLeaderboardSchema[position=$position, name=$name, account=$account, skin=$skin, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, alchemyLevel=$alchemyLevel, alchemyTotalXp=$alchemyTotalXp, gold=$gold]';
+  String toString() => 'CharacterLeaderboardSchema[position=$position, name=$name, account=$account, skin=$skin, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, alchemyLevel=$alchemyLevel, alchemyTotalXp=$alchemyTotalXp, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'position'] = this.position;
-    json[r'name'] = this.name;
-    json[r'account'] = this.account;
-    json[r'skin'] = this.skin;
-    json[r'level'] = this.level;
-    json[r'total_xp'] = this.totalXp;
-    json[r'mining_level'] = this.miningLevel;
-    json[r'mining_total_xp'] = this.miningTotalXp;
-    json[r'woodcutting_level'] = this.woodcuttingLevel;
-    json[r'woodcutting_total_xp'] = this.woodcuttingTotalXp;
-    json[r'fishing_level'] = this.fishingLevel;
-    json[r'fishing_total_xp'] = this.fishingTotalXp;
-    json[r'weaponcrafting_level'] = this.weaponcraftingLevel;
-    json[r'weaponcrafting_total_xp'] = this.weaponcraftingTotalXp;
-    json[r'gearcrafting_level'] = this.gearcraftingLevel;
-    json[r'gearcrafting_total_xp'] = this.gearcraftingTotalXp;
-    json[r'jewelrycrafting_level'] = this.jewelrycraftingLevel;
-    json[r'jewelrycrafting_total_xp'] = this.jewelrycraftingTotalXp;
-    json[r'cooking_level'] = this.cookingLevel;
-    json[r'cooking_total_xp'] = this.cookingTotalXp;
-    json[r'alchemy_level'] = this.alchemyLevel;
-    json[r'alchemy_total_xp'] = this.alchemyTotalXp;
-    json[r'gold'] = this.gold;
+      json[r'position'] = this.position;
+      json[r'name'] = this.name;
+      json[r'account'] = this.account;
+      json[r'skin'] = this.skin;
+      json[r'level'] = this.level;
+      json[r'total_xp'] = this.totalXp;
+      json[r'mining_level'] = this.miningLevel;
+      json[r'mining_total_xp'] = this.miningTotalXp;
+      json[r'woodcutting_level'] = this.woodcuttingLevel;
+      json[r'woodcutting_total_xp'] = this.woodcuttingTotalXp;
+      json[r'fishing_level'] = this.fishingLevel;
+      json[r'fishing_total_xp'] = this.fishingTotalXp;
+      json[r'weaponcrafting_level'] = this.weaponcraftingLevel;
+      json[r'weaponcrafting_total_xp'] = this.weaponcraftingTotalXp;
+      json[r'gearcrafting_level'] = this.gearcraftingLevel;
+      json[r'gearcrafting_total_xp'] = this.gearcraftingTotalXp;
+      json[r'jewelrycrafting_level'] = this.jewelrycraftingLevel;
+      json[r'jewelrycrafting_total_xp'] = this.jewelrycraftingTotalXp;
+      json[r'cooking_level'] = this.cookingLevel;
+      json[r'cooking_total_xp'] = this.cookingTotalXp;
+      json[r'alchemy_level'] = this.alchemyLevel;
+      json[r'alchemy_total_xp'] = this.alchemyTotalXp;
+      json[r'gold'] = this.gold;
     return json;
   }
 
@@ -206,10 +203,8 @@ class CharacterLeaderboardSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterLeaderboardSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterLeaderboardSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CharacterLeaderboardSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CharacterLeaderboardSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -227,17 +222,12 @@ class CharacterLeaderboardSchema {
         woodcuttingTotalXp: mapValueOfType<int>(json, r'woodcutting_total_xp')!,
         fishingLevel: mapValueOfType<int>(json, r'fishing_level')!,
         fishingTotalXp: mapValueOfType<int>(json, r'fishing_total_xp')!,
-        weaponcraftingLevel:
-            mapValueOfType<int>(json, r'weaponcrafting_level')!,
-        weaponcraftingTotalXp:
-            mapValueOfType<int>(json, r'weaponcrafting_total_xp')!,
+        weaponcraftingLevel: mapValueOfType<int>(json, r'weaponcrafting_level')!,
+        weaponcraftingTotalXp: mapValueOfType<int>(json, r'weaponcrafting_total_xp')!,
         gearcraftingLevel: mapValueOfType<int>(json, r'gearcrafting_level')!,
-        gearcraftingTotalXp:
-            mapValueOfType<int>(json, r'gearcrafting_total_xp')!,
-        jewelrycraftingLevel:
-            mapValueOfType<int>(json, r'jewelrycrafting_level')!,
-        jewelrycraftingTotalXp:
-            mapValueOfType<int>(json, r'jewelrycrafting_total_xp')!,
+        gearcraftingTotalXp: mapValueOfType<int>(json, r'gearcrafting_total_xp')!,
+        jewelrycraftingLevel: mapValueOfType<int>(json, r'jewelrycrafting_level')!,
+        jewelrycraftingTotalXp: mapValueOfType<int>(json, r'jewelrycrafting_total_xp')!,
         cookingLevel: mapValueOfType<int>(json, r'cooking_level')!,
         cookingTotalXp: mapValueOfType<int>(json, r'cooking_total_xp')!,
         alchemyLevel: mapValueOfType<int>(json, r'alchemy_level')!,
@@ -248,10 +238,7 @@ class CharacterLeaderboardSchema {
     return null;
   }
 
-  static List<CharacterLeaderboardSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterLeaderboardSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterLeaderboardSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -279,19 +266,13 @@ class CharacterLeaderboardSchema {
   }
 
   // maps a json object with a list of CharacterLeaderboardSchema-objects as value to a dart map
-  static Map<String, List<CharacterLeaderboardSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CharacterLeaderboardSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CharacterLeaderboardSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CharacterLeaderboardSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CharacterLeaderboardSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -324,3 +305,4 @@ class CharacterLeaderboardSchema {
     'gold',
   };
 }
+

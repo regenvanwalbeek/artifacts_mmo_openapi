@@ -19,21 +19,20 @@ class TaskTradeResponseSchema {
   TaskTradeDataSchema data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is TaskTradeResponseSchema && other.data == data;
+  bool operator ==(Object other) => identical(this, other) || other is TaskTradeResponseSchema &&
+    other.data == data;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode);
 
   @override
   String toString() => 'TaskTradeResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     return json;
   }
 
@@ -49,10 +48,8 @@ class TaskTradeResponseSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "TaskTradeResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "TaskTradeResponseSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "TaskTradeResponseSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "TaskTradeResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,10 +61,7 @@ class TaskTradeResponseSchema {
     return null;
   }
 
-  static List<TaskTradeResponseSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<TaskTradeResponseSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <TaskTradeResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -95,19 +89,13 @@ class TaskTradeResponseSchema {
   }
 
   // maps a json object with a list of TaskTradeResponseSchema-objects as value to a dart map
-  static Map<String, List<TaskTradeResponseSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<TaskTradeResponseSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<TaskTradeResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskTradeResponseSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = TaskTradeResponseSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -118,3 +106,4 @@ class TaskTradeResponseSchema {
     'data',
   };
 }
+

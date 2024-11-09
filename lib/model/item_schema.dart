@@ -21,6 +21,7 @@ class ItemSchema {
     required this.description,
     this.effects = const [],
     this.craft,
+    required this.tradeable,
   });
 
   /// Item name.
@@ -48,49 +49,52 @@ class ItemSchema {
 
   CraftSchema? craft;
 
+  /// Item tradeable status. A non-tradeable item cannot be exchanged or sold.
+  bool tradeable;
+
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ItemSchema &&
-          other.name == name &&
-          other.code == code &&
-          other.level == level &&
-          other.type == type &&
-          other.subtype == subtype &&
-          other.description == description &&
-          _deepEquality.equals(other.effects, effects) &&
-          other.craft == craft;
+  bool operator ==(Object other) => identical(this, other) || other is ItemSchema &&
+    other.name == name &&
+    other.code == code &&
+    other.level == level &&
+    other.type == type &&
+    other.subtype == subtype &&
+    other.description == description &&
+    _deepEquality.equals(other.effects, effects) &&
+    other.craft == craft &&
+    other.tradeable == tradeable;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (name.hashCode) +
-      (code.hashCode) +
-      (level.hashCode) +
-      (type.hashCode) +
-      (subtype.hashCode) +
-      (description.hashCode) +
-      (effects.hashCode) +
-      (craft == null ? 0 : craft!.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name.hashCode) +
+    (code.hashCode) +
+    (level.hashCode) +
+    (type.hashCode) +
+    (subtype.hashCode) +
+    (description.hashCode) +
+    (effects.hashCode) +
+    (craft == null ? 0 : craft!.hashCode) +
+    (tradeable.hashCode);
 
   @override
-  String toString() =>
-      'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, effects=$effects, craft=$craft]';
+  String toString() => 'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, effects=$effects, craft=$craft, tradeable=$tradeable]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'name'] = this.name;
-    json[r'code'] = this.code;
-    json[r'level'] = this.level;
-    json[r'type'] = this.type;
-    json[r'subtype'] = this.subtype;
-    json[r'description'] = this.description;
-    json[r'effects'] = this.effects;
+      json[r'name'] = this.name;
+      json[r'code'] = this.code;
+      json[r'level'] = this.level;
+      json[r'type'] = this.type;
+      json[r'subtype'] = this.subtype;
+      json[r'description'] = this.description;
+      json[r'effects'] = this.effects;
     if (this.craft != null) {
       json[r'craft'] = this.craft;
     } else {
       json[r'craft'] = null;
     }
+      json[r'tradeable'] = this.tradeable;
     return json;
   }
 
@@ -106,10 +110,8 @@ class ItemSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ItemSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ItemSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ItemSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -123,15 +125,13 @@ class ItemSchema {
         description: mapValueOfType<String>(json, r'description')!,
         effects: ItemEffectSchema.listFromJson(json[r'effects']),
         craft: CraftSchema.fromJson(json[r'craft']),
+        tradeable: mapValueOfType<bool>(json, r'tradeable')!,
       );
     }
     return null;
   }
 
-  static List<ItemSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<ItemSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ItemSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -159,19 +159,13 @@ class ItemSchema {
   }
 
   // maps a json object with a list of ItemSchema-objects as value to a dart map
-  static Map<String, List<ItemSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<ItemSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ItemSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ItemSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = ItemSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -185,5 +179,7 @@ class ItemSchema {
     'type',
     'subtype',
     'description',
+    'tradeable',
   };
 }
+

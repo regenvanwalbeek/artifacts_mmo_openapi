@@ -49,41 +49,38 @@ class GeOrderHistorySchema {
   DateTime soldAt;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GeOrderHistorySchema &&
-          other.orderId == orderId &&
-          other.seller == seller &&
-          other.buyer == buyer &&
-          other.code == code &&
-          other.quantity == quantity &&
-          other.price == price &&
-          other.soldAt == soldAt;
+  bool operator ==(Object other) => identical(this, other) || other is GeOrderHistorySchema &&
+    other.orderId == orderId &&
+    other.seller == seller &&
+    other.buyer == buyer &&
+    other.code == code &&
+    other.quantity == quantity &&
+    other.price == price &&
+    other.soldAt == soldAt;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (orderId.hashCode) +
-      (seller.hashCode) +
-      (buyer.hashCode) +
-      (code.hashCode) +
-      (quantity.hashCode) +
-      (price.hashCode) +
-      (soldAt.hashCode);
+    // ignore: unnecessary_parenthesis
+    (orderId.hashCode) +
+    (seller.hashCode) +
+    (buyer.hashCode) +
+    (code.hashCode) +
+    (quantity.hashCode) +
+    (price.hashCode) +
+    (soldAt.hashCode);
 
   @override
-  String toString() =>
-      'GeOrderHistorySchema[orderId=$orderId, seller=$seller, buyer=$buyer, code=$code, quantity=$quantity, price=$price, soldAt=$soldAt]';
+  String toString() => 'GeOrderHistorySchema[orderId=$orderId, seller=$seller, buyer=$buyer, code=$code, quantity=$quantity, price=$price, soldAt=$soldAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'order_id'] = this.orderId;
-    json[r'seller'] = this.seller;
-    json[r'buyer'] = this.buyer;
-    json[r'code'] = this.code;
-    json[r'quantity'] = this.quantity;
-    json[r'price'] = this.price;
-    json[r'sold_at'] = this.soldAt.toUtc().toIso8601String();
+      json[r'order_id'] = this.orderId;
+      json[r'seller'] = this.seller;
+      json[r'buyer'] = this.buyer;
+      json[r'code'] = this.code;
+      json[r'quantity'] = this.quantity;
+      json[r'price'] = this.price;
+      json[r'sold_at'] = this.soldAt.toUtc().toIso8601String();
     return json;
   }
 
@@ -99,10 +96,8 @@ class GeOrderHistorySchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GeOrderHistorySchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GeOrderHistorySchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GeOrderHistorySchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GeOrderHistorySchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -120,10 +115,7 @@ class GeOrderHistorySchema {
     return null;
   }
 
-  static List<GeOrderHistorySchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GeOrderHistorySchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GeOrderHistorySchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -151,19 +143,13 @@ class GeOrderHistorySchema {
   }
 
   // maps a json object with a list of GeOrderHistorySchema-objects as value to a dart map
-  static Map<String, List<GeOrderHistorySchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GeOrderHistorySchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GeOrderHistorySchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GeOrderHistorySchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = GeOrderHistorySchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -180,3 +166,4 @@ class GeOrderHistorySchema {
     'sold_at',
   };
 }
+

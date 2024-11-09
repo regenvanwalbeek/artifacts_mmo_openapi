@@ -796,7 +796,7 @@ Name | Type | Description  | Notes
 
 Action Rest
 
-Recovers hit points by resting. (1 second per 10 HP, minimum 3 seconds)
+Recovers hit points by resting. (1 second per 5 HP, minimum 3 seconds)
 
 ### Example
 ```dart

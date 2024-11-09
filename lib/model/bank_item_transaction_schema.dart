@@ -32,32 +32,29 @@ class BankItemTransactionSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is BankItemTransactionSchema &&
-          other.cooldown == cooldown &&
-          other.item == item &&
-          _deepEquality.equals(other.bank, bank) &&
-          other.character == character;
+  bool operator ==(Object other) => identical(this, other) || other is BankItemTransactionSchema &&
+    other.cooldown == cooldown &&
+    other.item == item &&
+    _deepEquality.equals(other.bank, bank) &&
+    other.character == character;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) +
-      (item.hashCode) +
-      (bank.hashCode) +
-      (character.hashCode);
+    // ignore: unnecessary_parenthesis
+    (cooldown.hashCode) +
+    (item.hashCode) +
+    (bank.hashCode) +
+    (character.hashCode);
 
   @override
-  String toString() =>
-      'BankItemTransactionSchema[cooldown=$cooldown, item=$item, bank=$bank, character=$character]';
+  String toString() => 'BankItemTransactionSchema[cooldown=$cooldown, item=$item, bank=$bank, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'cooldown'] = this.cooldown;
-    json[r'item'] = this.item;
-    json[r'bank'] = this.bank;
-    json[r'character'] = this.character;
+      json[r'cooldown'] = this.cooldown;
+      json[r'item'] = this.item;
+      json[r'bank'] = this.bank;
+      json[r'character'] = this.character;
     return json;
   }
 
@@ -73,10 +70,8 @@ class BankItemTransactionSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "BankItemTransactionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "BankItemTransactionSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "BankItemTransactionSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "BankItemTransactionSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -91,10 +86,7 @@ class BankItemTransactionSchema {
     return null;
   }
 
-  static List<BankItemTransactionSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<BankItemTransactionSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <BankItemTransactionSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -122,19 +114,13 @@ class BankItemTransactionSchema {
   }
 
   // maps a json object with a list of BankItemTransactionSchema-objects as value to a dart map
-  static Map<String, List<BankItemTransactionSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<BankItemTransactionSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<BankItemTransactionSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = BankItemTransactionSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = BankItemTransactionSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -148,3 +134,4 @@ class BankItemTransactionSchema {
     'character',
   };
 }
+

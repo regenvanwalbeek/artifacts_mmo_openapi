@@ -326,250 +326,246 @@ class CharacterSchema {
   List<InventorySlot> inventory;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CharacterSchema &&
-          other.name == name &&
-          other.account == account &&
-          other.skin == skin &&
-          other.level == level &&
-          other.xp == xp &&
-          other.maxXp == maxXp &&
-          other.gold == gold &&
-          other.speed == speed &&
-          other.miningLevel == miningLevel &&
-          other.miningXp == miningXp &&
-          other.miningMaxXp == miningMaxXp &&
-          other.woodcuttingLevel == woodcuttingLevel &&
-          other.woodcuttingXp == woodcuttingXp &&
-          other.woodcuttingMaxXp == woodcuttingMaxXp &&
-          other.fishingLevel == fishingLevel &&
-          other.fishingXp == fishingXp &&
-          other.fishingMaxXp == fishingMaxXp &&
-          other.weaponcraftingLevel == weaponcraftingLevel &&
-          other.weaponcraftingXp == weaponcraftingXp &&
-          other.weaponcraftingMaxXp == weaponcraftingMaxXp &&
-          other.gearcraftingLevel == gearcraftingLevel &&
-          other.gearcraftingXp == gearcraftingXp &&
-          other.gearcraftingMaxXp == gearcraftingMaxXp &&
-          other.jewelrycraftingLevel == jewelrycraftingLevel &&
-          other.jewelrycraftingXp == jewelrycraftingXp &&
-          other.jewelrycraftingMaxXp == jewelrycraftingMaxXp &&
-          other.cookingLevel == cookingLevel &&
-          other.cookingXp == cookingXp &&
-          other.cookingMaxXp == cookingMaxXp &&
-          other.alchemyLevel == alchemyLevel &&
-          other.alchemyXp == alchemyXp &&
-          other.alchemyMaxXp == alchemyMaxXp &&
-          other.hp == hp &&
-          other.maxHp == maxHp &&
-          other.haste == haste &&
-          other.criticalStrike == criticalStrike &&
-          other.stamina == stamina &&
-          other.attackFire == attackFire &&
-          other.attackEarth == attackEarth &&
-          other.attackWater == attackWater &&
-          other.attackAir == attackAir &&
-          other.dmgFire == dmgFire &&
-          other.dmgEarth == dmgEarth &&
-          other.dmgWater == dmgWater &&
-          other.dmgAir == dmgAir &&
-          other.resFire == resFire &&
-          other.resEarth == resEarth &&
-          other.resWater == resWater &&
-          other.resAir == resAir &&
-          other.x == x &&
-          other.y == y &&
-          other.cooldown == cooldown &&
-          other.cooldownExpiration == cooldownExpiration &&
-          other.weaponSlot == weaponSlot &&
-          other.shieldSlot == shieldSlot &&
-          other.helmetSlot == helmetSlot &&
-          other.bodyArmorSlot == bodyArmorSlot &&
-          other.legArmorSlot == legArmorSlot &&
-          other.bootsSlot == bootsSlot &&
-          other.ring1Slot == ring1Slot &&
-          other.ring2Slot == ring2Slot &&
-          other.amuletSlot == amuletSlot &&
-          other.artifact1Slot == artifact1Slot &&
-          other.artifact2Slot == artifact2Slot &&
-          other.artifact3Slot == artifact3Slot &&
-          other.utility1Slot == utility1Slot &&
-          other.utility1SlotQuantity == utility1SlotQuantity &&
-          other.utility2Slot == utility2Slot &&
-          other.utility2SlotQuantity == utility2SlotQuantity &&
-          other.task == task &&
-          other.taskType == taskType &&
-          other.taskProgress == taskProgress &&
-          other.taskTotal == taskTotal &&
-          other.inventoryMaxItems == inventoryMaxItems &&
-          _deepEquality.equals(other.inventory, inventory);
+  bool operator ==(Object other) => identical(this, other) || other is CharacterSchema &&
+    other.name == name &&
+    other.account == account &&
+    other.skin == skin &&
+    other.level == level &&
+    other.xp == xp &&
+    other.maxXp == maxXp &&
+    other.gold == gold &&
+    other.speed == speed &&
+    other.miningLevel == miningLevel &&
+    other.miningXp == miningXp &&
+    other.miningMaxXp == miningMaxXp &&
+    other.woodcuttingLevel == woodcuttingLevel &&
+    other.woodcuttingXp == woodcuttingXp &&
+    other.woodcuttingMaxXp == woodcuttingMaxXp &&
+    other.fishingLevel == fishingLevel &&
+    other.fishingXp == fishingXp &&
+    other.fishingMaxXp == fishingMaxXp &&
+    other.weaponcraftingLevel == weaponcraftingLevel &&
+    other.weaponcraftingXp == weaponcraftingXp &&
+    other.weaponcraftingMaxXp == weaponcraftingMaxXp &&
+    other.gearcraftingLevel == gearcraftingLevel &&
+    other.gearcraftingXp == gearcraftingXp &&
+    other.gearcraftingMaxXp == gearcraftingMaxXp &&
+    other.jewelrycraftingLevel == jewelrycraftingLevel &&
+    other.jewelrycraftingXp == jewelrycraftingXp &&
+    other.jewelrycraftingMaxXp == jewelrycraftingMaxXp &&
+    other.cookingLevel == cookingLevel &&
+    other.cookingXp == cookingXp &&
+    other.cookingMaxXp == cookingMaxXp &&
+    other.alchemyLevel == alchemyLevel &&
+    other.alchemyXp == alchemyXp &&
+    other.alchemyMaxXp == alchemyMaxXp &&
+    other.hp == hp &&
+    other.maxHp == maxHp &&
+    other.haste == haste &&
+    other.criticalStrike == criticalStrike &&
+    other.stamina == stamina &&
+    other.attackFire == attackFire &&
+    other.attackEarth == attackEarth &&
+    other.attackWater == attackWater &&
+    other.attackAir == attackAir &&
+    other.dmgFire == dmgFire &&
+    other.dmgEarth == dmgEarth &&
+    other.dmgWater == dmgWater &&
+    other.dmgAir == dmgAir &&
+    other.resFire == resFire &&
+    other.resEarth == resEarth &&
+    other.resWater == resWater &&
+    other.resAir == resAir &&
+    other.x == x &&
+    other.y == y &&
+    other.cooldown == cooldown &&
+    other.cooldownExpiration == cooldownExpiration &&
+    other.weaponSlot == weaponSlot &&
+    other.shieldSlot == shieldSlot &&
+    other.helmetSlot == helmetSlot &&
+    other.bodyArmorSlot == bodyArmorSlot &&
+    other.legArmorSlot == legArmorSlot &&
+    other.bootsSlot == bootsSlot &&
+    other.ring1Slot == ring1Slot &&
+    other.ring2Slot == ring2Slot &&
+    other.amuletSlot == amuletSlot &&
+    other.artifact1Slot == artifact1Slot &&
+    other.artifact2Slot == artifact2Slot &&
+    other.artifact3Slot == artifact3Slot &&
+    other.utility1Slot == utility1Slot &&
+    other.utility1SlotQuantity == utility1SlotQuantity &&
+    other.utility2Slot == utility2Slot &&
+    other.utility2SlotQuantity == utility2SlotQuantity &&
+    other.task == task &&
+    other.taskType == taskType &&
+    other.taskProgress == taskProgress &&
+    other.taskTotal == taskTotal &&
+    other.inventoryMaxItems == inventoryMaxItems &&
+    _deepEquality.equals(other.inventory, inventory);
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (name.hashCode) +
-      (account.hashCode) +
-      (skin.hashCode) +
-      (level.hashCode) +
-      (xp.hashCode) +
-      (maxXp.hashCode) +
-      (gold.hashCode) +
-      (speed.hashCode) +
-      (miningLevel.hashCode) +
-      (miningXp.hashCode) +
-      (miningMaxXp.hashCode) +
-      (woodcuttingLevel.hashCode) +
-      (woodcuttingXp.hashCode) +
-      (woodcuttingMaxXp.hashCode) +
-      (fishingLevel.hashCode) +
-      (fishingXp.hashCode) +
-      (fishingMaxXp.hashCode) +
-      (weaponcraftingLevel.hashCode) +
-      (weaponcraftingXp.hashCode) +
-      (weaponcraftingMaxXp.hashCode) +
-      (gearcraftingLevel.hashCode) +
-      (gearcraftingXp.hashCode) +
-      (gearcraftingMaxXp.hashCode) +
-      (jewelrycraftingLevel.hashCode) +
-      (jewelrycraftingXp.hashCode) +
-      (jewelrycraftingMaxXp.hashCode) +
-      (cookingLevel.hashCode) +
-      (cookingXp.hashCode) +
-      (cookingMaxXp.hashCode) +
-      (alchemyLevel.hashCode) +
-      (alchemyXp.hashCode) +
-      (alchemyMaxXp.hashCode) +
-      (hp.hashCode) +
-      (maxHp.hashCode) +
-      (haste.hashCode) +
-      (criticalStrike.hashCode) +
-      (stamina.hashCode) +
-      (attackFire.hashCode) +
-      (attackEarth.hashCode) +
-      (attackWater.hashCode) +
-      (attackAir.hashCode) +
-      (dmgFire.hashCode) +
-      (dmgEarth.hashCode) +
-      (dmgWater.hashCode) +
-      (dmgAir.hashCode) +
-      (resFire.hashCode) +
-      (resEarth.hashCode) +
-      (resWater.hashCode) +
-      (resAir.hashCode) +
-      (x.hashCode) +
-      (y.hashCode) +
-      (cooldown.hashCode) +
-      (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode) +
-      (weaponSlot.hashCode) +
-      (shieldSlot.hashCode) +
-      (helmetSlot.hashCode) +
-      (bodyArmorSlot.hashCode) +
-      (legArmorSlot.hashCode) +
-      (bootsSlot.hashCode) +
-      (ring1Slot.hashCode) +
-      (ring2Slot.hashCode) +
-      (amuletSlot.hashCode) +
-      (artifact1Slot.hashCode) +
-      (artifact2Slot.hashCode) +
-      (artifact3Slot.hashCode) +
-      (utility1Slot.hashCode) +
-      (utility1SlotQuantity.hashCode) +
-      (utility2Slot.hashCode) +
-      (utility2SlotQuantity.hashCode) +
-      (task.hashCode) +
-      (taskType.hashCode) +
-      (taskProgress.hashCode) +
-      (taskTotal.hashCode) +
-      (inventoryMaxItems.hashCode) +
-      (inventory.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name.hashCode) +
+    (account.hashCode) +
+    (skin.hashCode) +
+    (level.hashCode) +
+    (xp.hashCode) +
+    (maxXp.hashCode) +
+    (gold.hashCode) +
+    (speed.hashCode) +
+    (miningLevel.hashCode) +
+    (miningXp.hashCode) +
+    (miningMaxXp.hashCode) +
+    (woodcuttingLevel.hashCode) +
+    (woodcuttingXp.hashCode) +
+    (woodcuttingMaxXp.hashCode) +
+    (fishingLevel.hashCode) +
+    (fishingXp.hashCode) +
+    (fishingMaxXp.hashCode) +
+    (weaponcraftingLevel.hashCode) +
+    (weaponcraftingXp.hashCode) +
+    (weaponcraftingMaxXp.hashCode) +
+    (gearcraftingLevel.hashCode) +
+    (gearcraftingXp.hashCode) +
+    (gearcraftingMaxXp.hashCode) +
+    (jewelrycraftingLevel.hashCode) +
+    (jewelrycraftingXp.hashCode) +
+    (jewelrycraftingMaxXp.hashCode) +
+    (cookingLevel.hashCode) +
+    (cookingXp.hashCode) +
+    (cookingMaxXp.hashCode) +
+    (alchemyLevel.hashCode) +
+    (alchemyXp.hashCode) +
+    (alchemyMaxXp.hashCode) +
+    (hp.hashCode) +
+    (maxHp.hashCode) +
+    (haste.hashCode) +
+    (criticalStrike.hashCode) +
+    (stamina.hashCode) +
+    (attackFire.hashCode) +
+    (attackEarth.hashCode) +
+    (attackWater.hashCode) +
+    (attackAir.hashCode) +
+    (dmgFire.hashCode) +
+    (dmgEarth.hashCode) +
+    (dmgWater.hashCode) +
+    (dmgAir.hashCode) +
+    (resFire.hashCode) +
+    (resEarth.hashCode) +
+    (resWater.hashCode) +
+    (resAir.hashCode) +
+    (x.hashCode) +
+    (y.hashCode) +
+    (cooldown.hashCode) +
+    (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode) +
+    (weaponSlot.hashCode) +
+    (shieldSlot.hashCode) +
+    (helmetSlot.hashCode) +
+    (bodyArmorSlot.hashCode) +
+    (legArmorSlot.hashCode) +
+    (bootsSlot.hashCode) +
+    (ring1Slot.hashCode) +
+    (ring2Slot.hashCode) +
+    (amuletSlot.hashCode) +
+    (artifact1Slot.hashCode) +
+    (artifact2Slot.hashCode) +
+    (artifact3Slot.hashCode) +
+    (utility1Slot.hashCode) +
+    (utility1SlotQuantity.hashCode) +
+    (utility2Slot.hashCode) +
+    (utility2SlotQuantity.hashCode) +
+    (task.hashCode) +
+    (taskType.hashCode) +
+    (taskProgress.hashCode) +
+    (taskTotal.hashCode) +
+    (inventoryMaxItems.hashCode) +
+    (inventory.hashCode);
 
   @override
-  String toString() =>
-      'CharacterSchema[name=$name, account=$account, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, alchemyLevel=$alchemyLevel, alchemyXp=$alchemyXp, alchemyMaxXp=$alchemyMaxXp, hp=$hp, maxHp=$maxHp, haste=$haste, criticalStrike=$criticalStrike, stamina=$stamina, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, utility1Slot=$utility1Slot, utility1SlotQuantity=$utility1SlotQuantity, utility2Slot=$utility2Slot, utility2SlotQuantity=$utility2SlotQuantity, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
+  String toString() => 'CharacterSchema[name=$name, account=$account, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, alchemyLevel=$alchemyLevel, alchemyXp=$alchemyXp, alchemyMaxXp=$alchemyMaxXp, hp=$hp, maxHp=$maxHp, haste=$haste, criticalStrike=$criticalStrike, stamina=$stamina, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, utility1Slot=$utility1Slot, utility1SlotQuantity=$utility1SlotQuantity, utility2Slot=$utility2Slot, utility2SlotQuantity=$utility2SlotQuantity, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'name'] = this.name;
-    json[r'account'] = this.account;
-    json[r'skin'] = this.skin;
-    json[r'level'] = this.level;
-    json[r'xp'] = this.xp;
-    json[r'max_xp'] = this.maxXp;
-    json[r'gold'] = this.gold;
-    json[r'speed'] = this.speed;
-    json[r'mining_level'] = this.miningLevel;
-    json[r'mining_xp'] = this.miningXp;
-    json[r'mining_max_xp'] = this.miningMaxXp;
-    json[r'woodcutting_level'] = this.woodcuttingLevel;
-    json[r'woodcutting_xp'] = this.woodcuttingXp;
-    json[r'woodcutting_max_xp'] = this.woodcuttingMaxXp;
-    json[r'fishing_level'] = this.fishingLevel;
-    json[r'fishing_xp'] = this.fishingXp;
-    json[r'fishing_max_xp'] = this.fishingMaxXp;
-    json[r'weaponcrafting_level'] = this.weaponcraftingLevel;
-    json[r'weaponcrafting_xp'] = this.weaponcraftingXp;
-    json[r'weaponcrafting_max_xp'] = this.weaponcraftingMaxXp;
-    json[r'gearcrafting_level'] = this.gearcraftingLevel;
-    json[r'gearcrafting_xp'] = this.gearcraftingXp;
-    json[r'gearcrafting_max_xp'] = this.gearcraftingMaxXp;
-    json[r'jewelrycrafting_level'] = this.jewelrycraftingLevel;
-    json[r'jewelrycrafting_xp'] = this.jewelrycraftingXp;
-    json[r'jewelrycrafting_max_xp'] = this.jewelrycraftingMaxXp;
-    json[r'cooking_level'] = this.cookingLevel;
-    json[r'cooking_xp'] = this.cookingXp;
-    json[r'cooking_max_xp'] = this.cookingMaxXp;
-    json[r'alchemy_level'] = this.alchemyLevel;
-    json[r'alchemy_xp'] = this.alchemyXp;
-    json[r'alchemy_max_xp'] = this.alchemyMaxXp;
-    json[r'hp'] = this.hp;
-    json[r'max_hp'] = this.maxHp;
-    json[r'haste'] = this.haste;
-    json[r'critical_strike'] = this.criticalStrike;
-    json[r'stamina'] = this.stamina;
-    json[r'attack_fire'] = this.attackFire;
-    json[r'attack_earth'] = this.attackEarth;
-    json[r'attack_water'] = this.attackWater;
-    json[r'attack_air'] = this.attackAir;
-    json[r'dmg_fire'] = this.dmgFire;
-    json[r'dmg_earth'] = this.dmgEarth;
-    json[r'dmg_water'] = this.dmgWater;
-    json[r'dmg_air'] = this.dmgAir;
-    json[r'res_fire'] = this.resFire;
-    json[r'res_earth'] = this.resEarth;
-    json[r'res_water'] = this.resWater;
-    json[r'res_air'] = this.resAir;
-    json[r'x'] = this.x;
-    json[r'y'] = this.y;
-    json[r'cooldown'] = this.cooldown;
+      json[r'name'] = this.name;
+      json[r'account'] = this.account;
+      json[r'skin'] = this.skin;
+      json[r'level'] = this.level;
+      json[r'xp'] = this.xp;
+      json[r'max_xp'] = this.maxXp;
+      json[r'gold'] = this.gold;
+      json[r'speed'] = this.speed;
+      json[r'mining_level'] = this.miningLevel;
+      json[r'mining_xp'] = this.miningXp;
+      json[r'mining_max_xp'] = this.miningMaxXp;
+      json[r'woodcutting_level'] = this.woodcuttingLevel;
+      json[r'woodcutting_xp'] = this.woodcuttingXp;
+      json[r'woodcutting_max_xp'] = this.woodcuttingMaxXp;
+      json[r'fishing_level'] = this.fishingLevel;
+      json[r'fishing_xp'] = this.fishingXp;
+      json[r'fishing_max_xp'] = this.fishingMaxXp;
+      json[r'weaponcrafting_level'] = this.weaponcraftingLevel;
+      json[r'weaponcrafting_xp'] = this.weaponcraftingXp;
+      json[r'weaponcrafting_max_xp'] = this.weaponcraftingMaxXp;
+      json[r'gearcrafting_level'] = this.gearcraftingLevel;
+      json[r'gearcrafting_xp'] = this.gearcraftingXp;
+      json[r'gearcrafting_max_xp'] = this.gearcraftingMaxXp;
+      json[r'jewelrycrafting_level'] = this.jewelrycraftingLevel;
+      json[r'jewelrycrafting_xp'] = this.jewelrycraftingXp;
+      json[r'jewelrycrafting_max_xp'] = this.jewelrycraftingMaxXp;
+      json[r'cooking_level'] = this.cookingLevel;
+      json[r'cooking_xp'] = this.cookingXp;
+      json[r'cooking_max_xp'] = this.cookingMaxXp;
+      json[r'alchemy_level'] = this.alchemyLevel;
+      json[r'alchemy_xp'] = this.alchemyXp;
+      json[r'alchemy_max_xp'] = this.alchemyMaxXp;
+      json[r'hp'] = this.hp;
+      json[r'max_hp'] = this.maxHp;
+      json[r'haste'] = this.haste;
+      json[r'critical_strike'] = this.criticalStrike;
+      json[r'stamina'] = this.stamina;
+      json[r'attack_fire'] = this.attackFire;
+      json[r'attack_earth'] = this.attackEarth;
+      json[r'attack_water'] = this.attackWater;
+      json[r'attack_air'] = this.attackAir;
+      json[r'dmg_fire'] = this.dmgFire;
+      json[r'dmg_earth'] = this.dmgEarth;
+      json[r'dmg_water'] = this.dmgWater;
+      json[r'dmg_air'] = this.dmgAir;
+      json[r'res_fire'] = this.resFire;
+      json[r'res_earth'] = this.resEarth;
+      json[r'res_water'] = this.resWater;
+      json[r'res_air'] = this.resAir;
+      json[r'x'] = this.x;
+      json[r'y'] = this.y;
+      json[r'cooldown'] = this.cooldown;
     if (this.cooldownExpiration != null) {
-      json[r'cooldown_expiration'] =
-          this.cooldownExpiration!.toUtc().toIso8601String();
+      json[r'cooldown_expiration'] = this.cooldownExpiration!.toUtc().toIso8601String();
     } else {
       json[r'cooldown_expiration'] = null;
     }
-    json[r'weapon_slot'] = this.weaponSlot;
-    json[r'shield_slot'] = this.shieldSlot;
-    json[r'helmet_slot'] = this.helmetSlot;
-    json[r'body_armor_slot'] = this.bodyArmorSlot;
-    json[r'leg_armor_slot'] = this.legArmorSlot;
-    json[r'boots_slot'] = this.bootsSlot;
-    json[r'ring1_slot'] = this.ring1Slot;
-    json[r'ring2_slot'] = this.ring2Slot;
-    json[r'amulet_slot'] = this.amuletSlot;
-    json[r'artifact1_slot'] = this.artifact1Slot;
-    json[r'artifact2_slot'] = this.artifact2Slot;
-    json[r'artifact3_slot'] = this.artifact3Slot;
-    json[r'utility1_slot'] = this.utility1Slot;
-    json[r'utility1_slot_quantity'] = this.utility1SlotQuantity;
-    json[r'utility2_slot'] = this.utility2Slot;
-    json[r'utility2_slot_quantity'] = this.utility2SlotQuantity;
-    json[r'task'] = this.task;
-    json[r'task_type'] = this.taskType;
-    json[r'task_progress'] = this.taskProgress;
-    json[r'task_total'] = this.taskTotal;
-    json[r'inventory_max_items'] = this.inventoryMaxItems;
-    json[r'inventory'] = this.inventory;
+      json[r'weapon_slot'] = this.weaponSlot;
+      json[r'shield_slot'] = this.shieldSlot;
+      json[r'helmet_slot'] = this.helmetSlot;
+      json[r'body_armor_slot'] = this.bodyArmorSlot;
+      json[r'leg_armor_slot'] = this.legArmorSlot;
+      json[r'boots_slot'] = this.bootsSlot;
+      json[r'ring1_slot'] = this.ring1Slot;
+      json[r'ring2_slot'] = this.ring2Slot;
+      json[r'amulet_slot'] = this.amuletSlot;
+      json[r'artifact1_slot'] = this.artifact1Slot;
+      json[r'artifact2_slot'] = this.artifact2Slot;
+      json[r'artifact3_slot'] = this.artifact3Slot;
+      json[r'utility1_slot'] = this.utility1Slot;
+      json[r'utility1_slot_quantity'] = this.utility1SlotQuantity;
+      json[r'utility2_slot'] = this.utility2Slot;
+      json[r'utility2_slot_quantity'] = this.utility2SlotQuantity;
+      json[r'task'] = this.task;
+      json[r'task_type'] = this.taskType;
+      json[r'task_progress'] = this.taskProgress;
+      json[r'task_total'] = this.taskTotal;
+      json[r'inventory_max_items'] = this.inventoryMaxItems;
+      json[r'inventory'] = this.inventory;
     return json;
   }
 
@@ -585,10 +581,8 @@ class CharacterSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CharacterSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CharacterSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -611,19 +605,15 @@ class CharacterSchema {
         fishingLevel: mapValueOfType<int>(json, r'fishing_level')!,
         fishingXp: mapValueOfType<int>(json, r'fishing_xp')!,
         fishingMaxXp: mapValueOfType<int>(json, r'fishing_max_xp')!,
-        weaponcraftingLevel:
-            mapValueOfType<int>(json, r'weaponcrafting_level')!,
+        weaponcraftingLevel: mapValueOfType<int>(json, r'weaponcrafting_level')!,
         weaponcraftingXp: mapValueOfType<int>(json, r'weaponcrafting_xp')!,
-        weaponcraftingMaxXp:
-            mapValueOfType<int>(json, r'weaponcrafting_max_xp')!,
+        weaponcraftingMaxXp: mapValueOfType<int>(json, r'weaponcrafting_max_xp')!,
         gearcraftingLevel: mapValueOfType<int>(json, r'gearcrafting_level')!,
         gearcraftingXp: mapValueOfType<int>(json, r'gearcrafting_xp')!,
         gearcraftingMaxXp: mapValueOfType<int>(json, r'gearcrafting_max_xp')!,
-        jewelrycraftingLevel:
-            mapValueOfType<int>(json, r'jewelrycrafting_level')!,
+        jewelrycraftingLevel: mapValueOfType<int>(json, r'jewelrycrafting_level')!,
         jewelrycraftingXp: mapValueOfType<int>(json, r'jewelrycrafting_xp')!,
-        jewelrycraftingMaxXp:
-            mapValueOfType<int>(json, r'jewelrycrafting_max_xp')!,
+        jewelrycraftingMaxXp: mapValueOfType<int>(json, r'jewelrycrafting_max_xp')!,
         cookingLevel: mapValueOfType<int>(json, r'cooking_level')!,
         cookingXp: mapValueOfType<int>(json, r'cooking_xp')!,
         cookingMaxXp: mapValueOfType<int>(json, r'cooking_max_xp')!,
@@ -664,11 +654,9 @@ class CharacterSchema {
         artifact2Slot: mapValueOfType<String>(json, r'artifact2_slot')!,
         artifact3Slot: mapValueOfType<String>(json, r'artifact3_slot')!,
         utility1Slot: mapValueOfType<String>(json, r'utility1_slot')!,
-        utility1SlotQuantity:
-            mapValueOfType<int>(json, r'utility1_slot_quantity')!,
+        utility1SlotQuantity: mapValueOfType<int>(json, r'utility1_slot_quantity')!,
         utility2Slot: mapValueOfType<String>(json, r'utility2_slot')!,
-        utility2SlotQuantity:
-            mapValueOfType<int>(json, r'utility2_slot_quantity')!,
+        utility2SlotQuantity: mapValueOfType<int>(json, r'utility2_slot_quantity')!,
         task: mapValueOfType<String>(json, r'task')!,
         taskType: mapValueOfType<String>(json, r'task_type')!,
         taskProgress: mapValueOfType<int>(json, r'task_progress')!,
@@ -680,10 +668,7 @@ class CharacterSchema {
     return null;
   }
 
-  static List<CharacterSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -711,19 +696,13 @@ class CharacterSchema {
   }
 
   // maps a json object with a list of CharacterSchema-objects as value to a dart map
-  static Map<String, List<CharacterSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CharacterSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CharacterSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CharacterSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CharacterSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -806,3 +785,4 @@ class CharacterSchema {
     'inventory_max_items',
   };
 }
+

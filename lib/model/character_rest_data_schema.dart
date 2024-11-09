@@ -28,27 +28,26 @@ class CharacterRestDataSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CharacterRestDataSchema &&
-          other.cooldown == cooldown &&
-          other.hpRestored == hpRestored &&
-          other.character == character;
+  bool operator ==(Object other) => identical(this, other) || other is CharacterRestDataSchema &&
+    other.cooldown == cooldown &&
+    other.hpRestored == hpRestored &&
+    other.character == character;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (hpRestored.hashCode) + (character.hashCode);
+    // ignore: unnecessary_parenthesis
+    (cooldown.hashCode) +
+    (hpRestored.hashCode) +
+    (character.hashCode);
 
   @override
-  String toString() =>
-      'CharacterRestDataSchema[cooldown=$cooldown, hpRestored=$hpRestored, character=$character]';
+  String toString() => 'CharacterRestDataSchema[cooldown=$cooldown, hpRestored=$hpRestored, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'cooldown'] = this.cooldown;
-    json[r'hp_restored'] = this.hpRestored;
-    json[r'character'] = this.character;
+      json[r'cooldown'] = this.cooldown;
+      json[r'hp_restored'] = this.hpRestored;
+      json[r'character'] = this.character;
     return json;
   }
 
@@ -64,10 +63,8 @@ class CharacterRestDataSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterRestDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterRestDataSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CharacterRestDataSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CharacterRestDataSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -81,10 +78,7 @@ class CharacterRestDataSchema {
     return null;
   }
 
-  static List<CharacterRestDataSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterRestDataSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterRestDataSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,19 +106,13 @@ class CharacterRestDataSchema {
   }
 
   // maps a json object with a list of CharacterRestDataSchema-objects as value to a dart map
-  static Map<String, List<CharacterRestDataSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CharacterRestDataSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CharacterRestDataSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CharacterRestDataSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CharacterRestDataSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -137,3 +125,4 @@ class CharacterRestDataSchema {
     'character',
   };
 }
+

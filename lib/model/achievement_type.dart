@@ -10,6 +10,7 @@
 
 part of openapi_generation;
 
+
 class AchievementType {
   /// Instantiate a new enum with the provided [value].
   const AchievementType._(this.value);
@@ -43,13 +44,9 @@ class AchievementType {
     other,
   ];
 
-  static AchievementType? fromJson(dynamic value) =>
-      AchievementTypeTypeTransformer().decode(value);
+  static AchievementType? fromJson(dynamic value) => AchievementTypeTypeTransformer().decode(value);
 
-  static List<AchievementType> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<AchievementType> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <AchievementType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -66,8 +63,7 @@ class AchievementType {
 /// Transformation class that can [encode] an instance of [AchievementType] to String,
 /// and [decode] dynamic data back to [AchievementType].
 class AchievementTypeTypeTransformer {
-  factory AchievementTypeTypeTransformer() =>
-      _instance ??= const AchievementTypeTypeTransformer._();
+  factory AchievementTypeTypeTransformer() => _instance ??= const AchievementTypeTypeTransformer._();
 
   const AchievementTypeTypeTransformer._();
 
@@ -84,22 +80,14 @@ class AchievementTypeTypeTransformer {
   AchievementType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'combat_kill':
-          return AchievementType.combatKill;
-        case r'combat_drop':
-          return AchievementType.combatDrop;
-        case r'combat_level':
-          return AchievementType.combatLevel;
-        case r'gathering':
-          return AchievementType.gathering;
-        case r'crafting':
-          return AchievementType.crafting;
-        case r'recycling':
-          return AchievementType.recycling;
-        case r'task':
-          return AchievementType.task;
-        case r'other':
-          return AchievementType.other;
+        case r'combat_kill': return AchievementType.combatKill;
+        case r'combat_drop': return AchievementType.combatDrop;
+        case r'combat_level': return AchievementType.combatLevel;
+        case r'gathering': return AchievementType.gathering;
+        case r'crafting': return AchievementType.crafting;
+        case r'recycling': return AchievementType.recycling;
+        case r'task': return AchievementType.task;
+        case r'other': return AchievementType.other;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -112,3 +100,4 @@ class AchievementTypeTypeTransformer {
   /// Singleton [AchievementTypeTypeTransformer] instance.
   static AchievementTypeTypeTransformer? _instance;
 }
+

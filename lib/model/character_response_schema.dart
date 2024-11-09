@@ -19,21 +19,20 @@ class CharacterResponseSchema {
   CharacterSchema data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CharacterResponseSchema && other.data == data;
+  bool operator ==(Object other) => identical(this, other) || other is CharacterResponseSchema &&
+    other.data == data;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode);
 
   @override
   String toString() => 'CharacterResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     return json;
   }
 
@@ -49,10 +48,8 @@ class CharacterResponseSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterResponseSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CharacterResponseSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CharacterResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,10 +61,7 @@ class CharacterResponseSchema {
     return null;
   }
 
-  static List<CharacterResponseSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterResponseSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -95,19 +89,13 @@ class CharacterResponseSchema {
   }
 
   // maps a json object with a list of CharacterResponseSchema-objects as value to a dart map
-  static Map<String, List<CharacterResponseSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CharacterResponseSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CharacterResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CharacterResponseSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CharacterResponseSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -118,3 +106,4 @@ class CharacterResponseSchema {
     'data',
   };
 }
+

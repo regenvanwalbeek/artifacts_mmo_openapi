@@ -36,35 +36,32 @@ class ResourceSchema {
   List<DropRateSchema> drops;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ResourceSchema &&
-          other.name == name &&
-          other.code == code &&
-          other.skill == skill &&
-          other.level == level &&
-          _deepEquality.equals(other.drops, drops);
+  bool operator ==(Object other) => identical(this, other) || other is ResourceSchema &&
+    other.name == name &&
+    other.code == code &&
+    other.skill == skill &&
+    other.level == level &&
+    _deepEquality.equals(other.drops, drops);
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (name.hashCode) +
-      (code.hashCode) +
-      (skill.hashCode) +
-      (level.hashCode) +
-      (drops.hashCode);
+    // ignore: unnecessary_parenthesis
+    (name.hashCode) +
+    (code.hashCode) +
+    (skill.hashCode) +
+    (level.hashCode) +
+    (drops.hashCode);
 
   @override
-  String toString() =>
-      'ResourceSchema[name=$name, code=$code, skill=$skill, level=$level, drops=$drops]';
+  String toString() => 'ResourceSchema[name=$name, code=$code, skill=$skill, level=$level, drops=$drops]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'name'] = this.name;
-    json[r'code'] = this.code;
-    json[r'skill'] = this.skill;
-    json[r'level'] = this.level;
-    json[r'drops'] = this.drops;
+      json[r'name'] = this.name;
+      json[r'code'] = this.code;
+      json[r'skill'] = this.skill;
+      json[r'level'] = this.level;
+      json[r'drops'] = this.drops;
     return json;
   }
 
@@ -80,10 +77,8 @@ class ResourceSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ResourceSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ResourceSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ResourceSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ResourceSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -99,10 +94,7 @@ class ResourceSchema {
     return null;
   }
 
-  static List<ResourceSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<ResourceSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ResourceSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -130,19 +122,13 @@ class ResourceSchema {
   }
 
   // maps a json object with a list of ResourceSchema-objects as value to a dart map
-  static Map<String, List<ResourceSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<ResourceSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ResourceSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ResourceSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = ResourceSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -157,3 +143,4 @@ class ResourceSchema {
     'drops',
   };
 }
+

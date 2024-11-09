@@ -24,22 +24,23 @@ class DestinationSchema {
   int y;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is DestinationSchema && other.x == x && other.y == y;
+  bool operator ==(Object other) => identical(this, other) || other is DestinationSchema &&
+    other.x == x &&
+    other.y == y;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (x.hashCode) + (y.hashCode);
+    // ignore: unnecessary_parenthesis
+    (x.hashCode) +
+    (y.hashCode);
 
   @override
   String toString() => 'DestinationSchema[x=$x, y=$y]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'x'] = this.x;
-    json[r'y'] = this.y;
+      json[r'x'] = this.x;
+      json[r'y'] = this.y;
     return json;
   }
 
@@ -55,10 +56,8 @@ class DestinationSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DestinationSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DestinationSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "DestinationSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "DestinationSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -71,10 +70,7 @@ class DestinationSchema {
     return null;
   }
 
-  static List<DestinationSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<DestinationSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <DestinationSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,19 +98,13 @@ class DestinationSchema {
   }
 
   // maps a json object with a list of DestinationSchema-objects as value to a dart map
-  static Map<String, List<DestinationSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<DestinationSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<DestinationSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DestinationSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = DestinationSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -126,3 +116,4 @@ class DestinationSchema {
     'y',
   };
 }
+

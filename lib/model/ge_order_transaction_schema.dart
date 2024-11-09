@@ -28,27 +28,26 @@ class GEOrderTransactionSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GEOrderTransactionSchema &&
-          other.cooldown == cooldown &&
-          other.order == order &&
-          other.character == character;
+  bool operator ==(Object other) => identical(this, other) || other is GEOrderTransactionSchema &&
+    other.cooldown == cooldown &&
+    other.order == order &&
+    other.character == character;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (order.hashCode) + (character.hashCode);
+    // ignore: unnecessary_parenthesis
+    (cooldown.hashCode) +
+    (order.hashCode) +
+    (character.hashCode);
 
   @override
-  String toString() =>
-      'GEOrderTransactionSchema[cooldown=$cooldown, order=$order, character=$character]';
+  String toString() => 'GEOrderTransactionSchema[cooldown=$cooldown, order=$order, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'cooldown'] = this.cooldown;
-    json[r'order'] = this.order;
-    json[r'character'] = this.character;
+      json[r'cooldown'] = this.cooldown;
+      json[r'order'] = this.order;
+      json[r'character'] = this.character;
     return json;
   }
 
@@ -64,10 +63,8 @@ class GEOrderTransactionSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEOrderTransactionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEOrderTransactionSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GEOrderTransactionSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GEOrderTransactionSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -81,10 +78,7 @@ class GEOrderTransactionSchema {
     return null;
   }
 
-  static List<GEOrderTransactionSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GEOrderTransactionSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GEOrderTransactionSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,19 +106,13 @@ class GEOrderTransactionSchema {
   }
 
   // maps a json object with a list of GEOrderTransactionSchema-objects as value to a dart map
-  static Map<String, List<GEOrderTransactionSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GEOrderTransactionSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GEOrderTransactionSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEOrderTransactionSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = GEOrderTransactionSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -137,3 +125,4 @@ class GEOrderTransactionSchema {
     'character',
   };
 }
+

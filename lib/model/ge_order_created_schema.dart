@@ -53,41 +53,38 @@ class GEOrderCreatedSchema {
   int tax;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GEOrderCreatedSchema &&
-          other.id == id &&
-          other.createdAt == createdAt &&
-          other.code == code &&
-          other.quantity == quantity &&
-          other.price == price &&
-          other.totalPrice == totalPrice &&
-          other.tax == tax;
+  bool operator ==(Object other) => identical(this, other) || other is GEOrderCreatedSchema &&
+    other.id == id &&
+    other.createdAt == createdAt &&
+    other.code == code &&
+    other.quantity == quantity &&
+    other.price == price &&
+    other.totalPrice == totalPrice &&
+    other.tax == tax;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (id.hashCode) +
-      (createdAt.hashCode) +
-      (code.hashCode) +
-      (quantity.hashCode) +
-      (price.hashCode) +
-      (totalPrice.hashCode) +
-      (tax.hashCode);
+    // ignore: unnecessary_parenthesis
+    (id.hashCode) +
+    (createdAt.hashCode) +
+    (code.hashCode) +
+    (quantity.hashCode) +
+    (price.hashCode) +
+    (totalPrice.hashCode) +
+    (tax.hashCode);
 
   @override
-  String toString() =>
-      'GEOrderCreatedSchema[id=$id, createdAt=$createdAt, code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice, tax=$tax]';
+  String toString() => 'GEOrderCreatedSchema[id=$id, createdAt=$createdAt, code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice, tax=$tax]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'id'] = this.id;
-    json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
-    json[r'code'] = this.code;
-    json[r'quantity'] = this.quantity;
-    json[r'price'] = this.price;
-    json[r'total_price'] = this.totalPrice;
-    json[r'tax'] = this.tax;
+      json[r'id'] = this.id;
+      json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
+      json[r'code'] = this.code;
+      json[r'quantity'] = this.quantity;
+      json[r'price'] = this.price;
+      json[r'total_price'] = this.totalPrice;
+      json[r'tax'] = this.tax;
     return json;
   }
 
@@ -103,10 +100,8 @@ class GEOrderCreatedSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEOrderCreatedSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEOrderCreatedSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GEOrderCreatedSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GEOrderCreatedSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -124,10 +119,7 @@ class GEOrderCreatedSchema {
     return null;
   }
 
-  static List<GEOrderCreatedSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GEOrderCreatedSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GEOrderCreatedSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -155,19 +147,13 @@ class GEOrderCreatedSchema {
   }
 
   // maps a json object with a list of GEOrderCreatedSchema-objects as value to a dart map
-  static Map<String, List<GEOrderCreatedSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GEOrderCreatedSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GEOrderCreatedSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEOrderCreatedSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = GEOrderCreatedSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -184,3 +170,4 @@ class GEOrderCreatedSchema {
     'tax',
   };
 }
+

@@ -10,6 +10,7 @@
 
 part of openapi_generation;
 
+
 class CharacterSkin {
   /// Instantiate a new enum with the provided [value].
   const CharacterSkin._(this.value);
@@ -39,13 +40,9 @@ class CharacterSkin {
     women3,
   ];
 
-  static CharacterSkin? fromJson(dynamic value) =>
-      CharacterSkinTypeTransformer().decode(value);
+  static CharacterSkin? fromJson(dynamic value) => CharacterSkinTypeTransformer().decode(value);
 
-  static List<CharacterSkin> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterSkin> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterSkin>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -62,8 +59,7 @@ class CharacterSkin {
 /// Transformation class that can [encode] an instance of [CharacterSkin] to String,
 /// and [decode] dynamic data back to [CharacterSkin].
 class CharacterSkinTypeTransformer {
-  factory CharacterSkinTypeTransformer() =>
-      _instance ??= const CharacterSkinTypeTransformer._();
+  factory CharacterSkinTypeTransformer() => _instance ??= const CharacterSkinTypeTransformer._();
 
   const CharacterSkinTypeTransformer._();
 
@@ -80,18 +76,12 @@ class CharacterSkinTypeTransformer {
   CharacterSkin? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'men1':
-          return CharacterSkin.men1;
-        case r'men2':
-          return CharacterSkin.men2;
-        case r'men3':
-          return CharacterSkin.men3;
-        case r'women1':
-          return CharacterSkin.women1;
-        case r'women2':
-          return CharacterSkin.women2;
-        case r'women3':
-          return CharacterSkin.women3;
+        case r'men1': return CharacterSkin.men1;
+        case r'men2': return CharacterSkin.men2;
+        case r'men3': return CharacterSkin.men3;
+        case r'women1': return CharacterSkin.women1;
+        case r'women2': return CharacterSkin.women2;
+        case r'women3': return CharacterSkin.women3;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -104,3 +94,4 @@ class CharacterSkinTypeTransformer {
   /// Singleton [CharacterSkinTypeTransformer] instance.
   static CharacterSkinTypeTransformer? _instance;
 }
+

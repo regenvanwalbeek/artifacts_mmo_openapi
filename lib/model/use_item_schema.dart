@@ -28,27 +28,26 @@ class UseItemSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UseItemSchema &&
-          other.cooldown == cooldown &&
-          other.item == item &&
-          other.character == character;
+  bool operator ==(Object other) => identical(this, other) || other is UseItemSchema &&
+    other.cooldown == cooldown &&
+    other.item == item &&
+    other.character == character;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (item.hashCode) + (character.hashCode);
+    // ignore: unnecessary_parenthesis
+    (cooldown.hashCode) +
+    (item.hashCode) +
+    (character.hashCode);
 
   @override
-  String toString() =>
-      'UseItemSchema[cooldown=$cooldown, item=$item, character=$character]';
+  String toString() => 'UseItemSchema[cooldown=$cooldown, item=$item, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'cooldown'] = this.cooldown;
-    json[r'item'] = this.item;
-    json[r'character'] = this.character;
+      json[r'cooldown'] = this.cooldown;
+      json[r'item'] = this.item;
+      json[r'character'] = this.character;
     return json;
   }
 
@@ -64,10 +63,8 @@ class UseItemSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "UseItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "UseItemSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "UseItemSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "UseItemSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -81,10 +78,7 @@ class UseItemSchema {
     return null;
   }
 
-  static List<UseItemSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<UseItemSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <UseItemSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,19 +106,13 @@ class UseItemSchema {
   }
 
   // maps a json object with a list of UseItemSchema-objects as value to a dart map
-  static Map<String, List<UseItemSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<UseItemSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<UseItemSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = UseItemSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = UseItemSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -137,3 +125,4 @@ class UseItemSchema {
     'character',
   };
 }
+

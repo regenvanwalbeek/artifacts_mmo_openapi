@@ -34,27 +34,26 @@ class GEOrderCreationrSchema {
   int price;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GEOrderCreationrSchema &&
-          other.code == code &&
-          other.quantity == quantity &&
-          other.price == price;
+  bool operator ==(Object other) => identical(this, other) || other is GEOrderCreationrSchema &&
+    other.code == code &&
+    other.quantity == quantity &&
+    other.price == price;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (code.hashCode) + (quantity.hashCode) + (price.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (quantity.hashCode) +
+    (price.hashCode);
 
   @override
-  String toString() =>
-      'GEOrderCreationrSchema[code=$code, quantity=$quantity, price=$price]';
+  String toString() => 'GEOrderCreationrSchema[code=$code, quantity=$quantity, price=$price]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'quantity'] = this.quantity;
-    json[r'price'] = this.price;
+      json[r'code'] = this.code;
+      json[r'quantity'] = this.quantity;
+      json[r'price'] = this.price;
     return json;
   }
 
@@ -70,10 +69,8 @@ class GEOrderCreationrSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEOrderCreationrSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEOrderCreationrSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GEOrderCreationrSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GEOrderCreationrSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -87,10 +84,7 @@ class GEOrderCreationrSchema {
     return null;
   }
 
-  static List<GEOrderCreationrSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GEOrderCreationrSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GEOrderCreationrSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -118,19 +112,13 @@ class GEOrderCreationrSchema {
   }
 
   // maps a json object with a list of GEOrderCreationrSchema-objects as value to a dart map
-  static Map<String, List<GEOrderCreationrSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GEOrderCreationrSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GEOrderCreationrSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEOrderCreationrSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = GEOrderCreationrSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -143,3 +131,4 @@ class GEOrderCreationrSchema {
     'price',
   };
 }
+

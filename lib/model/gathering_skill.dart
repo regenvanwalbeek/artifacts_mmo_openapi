@@ -10,6 +10,7 @@
 
 part of openapi_generation;
 
+
 class GatheringSkill {
   /// Instantiate a new enum with the provided [value].
   const GatheringSkill._(this.value);
@@ -35,13 +36,9 @@ class GatheringSkill {
     alchemy,
   ];
 
-  static GatheringSkill? fromJson(dynamic value) =>
-      GatheringSkillTypeTransformer().decode(value);
+  static GatheringSkill? fromJson(dynamic value) => GatheringSkillTypeTransformer().decode(value);
 
-  static List<GatheringSkill> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GatheringSkill> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GatheringSkill>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -58,8 +55,7 @@ class GatheringSkill {
 /// Transformation class that can [encode] an instance of [GatheringSkill] to String,
 /// and [decode] dynamic data back to [GatheringSkill].
 class GatheringSkillTypeTransformer {
-  factory GatheringSkillTypeTransformer() =>
-      _instance ??= const GatheringSkillTypeTransformer._();
+  factory GatheringSkillTypeTransformer() => _instance ??= const GatheringSkillTypeTransformer._();
 
   const GatheringSkillTypeTransformer._();
 
@@ -76,14 +72,10 @@ class GatheringSkillTypeTransformer {
   GatheringSkill? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'mining':
-          return GatheringSkill.mining;
-        case r'woodcutting':
-          return GatheringSkill.woodcutting;
-        case r'fishing':
-          return GatheringSkill.fishing;
-        case r'alchemy':
-          return GatheringSkill.alchemy;
+        case r'mining': return GatheringSkill.mining;
+        case r'woodcutting': return GatheringSkill.woodcutting;
+        case r'fishing': return GatheringSkill.fishing;
+        case r'alchemy': return GatheringSkill.alchemy;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -96,3 +88,4 @@ class GatheringSkillTypeTransformer {
   /// Singleton [GatheringSkillTypeTransformer] instance.
   static GatheringSkillTypeTransformer? _instance;
 }
+

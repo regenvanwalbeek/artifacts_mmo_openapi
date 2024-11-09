@@ -10,6 +10,7 @@
 
 part of openapi_generation;
 
+
 class TasksApi {
   TasksApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
@@ -28,10 +29,7 @@ class TasksApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllTasksRewardsTasksRewardsGetWithHttpInfo({
-    int? page,
-    int? size,
-  }) async {
+  Future<Response> getAllTasksRewardsTasksRewardsGetWithHttpInfo({ int? page, int? size, }) async {
     // ignore: prefer_const_declarations
     final path = r'/tasks/rewards';
 
@@ -50,6 +48,7 @@ class TasksApi {
     }
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -73,26 +72,17 @@ class TasksApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageDropRateSchema?> getAllTasksRewardsTasksRewardsGet({
-    int? page,
-    int? size,
-  }) async {
-    final response = await getAllTasksRewardsTasksRewardsGetWithHttpInfo(
-      page: page,
-      size: size,
-    );
+  Future<DataPageDropRateSchema?> getAllTasksRewardsTasksRewardsGet({ int? page, int? size, }) async {
+    final response = await getAllTasksRewardsTasksRewardsGetWithHttpInfo( page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'DataPageDropRateSchema',
-      ) as DataPageDropRateSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageDropRateSchema',) as DataPageDropRateSchema;
+    
     }
     return null;
   }
@@ -122,14 +112,7 @@ class TasksApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllTasksTasksListGetWithHttpInfo({
-    int? minLevel,
-    int? maxLevel,
-    Skill? skill,
-    TaskType? type,
-    int? page,
-    int? size,
-  }) async {
+  Future<Response> getAllTasksTasksListGetWithHttpInfo({ int? minLevel, int? maxLevel, Skill? skill, TaskType? type, int? page, int? size, }) async {
     // ignore: prefer_const_declarations
     final path = r'/tasks/list';
 
@@ -161,6 +144,7 @@ class TasksApi {
 
     const contentTypes = <String>[];
 
+
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -195,34 +179,17 @@ class TasksApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageTaskFullSchema?> getAllTasksTasksListGet({
-    int? minLevel,
-    int? maxLevel,
-    Skill? skill,
-    TaskType? type,
-    int? page,
-    int? size,
-  }) async {
-    final response = await getAllTasksTasksListGetWithHttpInfo(
-      minLevel: minLevel,
-      maxLevel: maxLevel,
-      skill: skill,
-      type: type,
-      page: page,
-      size: size,
-    );
+  Future<DataPageTaskFullSchema?> getAllTasksTasksListGet({ int? minLevel, int? maxLevel, Skill? skill, TaskType? type, int? page, int? size, }) async {
+    final response = await getAllTasksTasksListGetWithHttpInfo( minLevel: minLevel, maxLevel: maxLevel, skill: skill, type: type, page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'DataPageTaskFullSchema',
-      ) as DataPageTaskFullSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageTaskFullSchema',) as DataPageTaskFullSchema;
+    
     }
     return null;
   }
@@ -237,11 +204,10 @@ class TasksApi {
   ///
   /// * [String] code (required):
   ///   The code of the task.
-  Future<Response> getTaskTasksListCodeGetWithHttpInfo(
-    String code,
-  ) async {
+  Future<Response> getTaskTasksListCodeGetWithHttpInfo(String code,) async {
     // ignore: prefer_const_declarations
-    final path = r'/tasks/list/{code}'.replaceAll('{code}', code);
+    final path = r'/tasks/list/{code}'
+      .replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -251,6 +217,7 @@ class TasksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -271,24 +238,17 @@ class TasksApi {
   ///
   /// * [String] code (required):
   ///   The code of the task.
-  Future<TaskFullResponseSchema?> getTaskTasksListCodeGet(
-    String code,
-  ) async {
-    final response = await getTaskTasksListCodeGetWithHttpInfo(
-      code,
-    );
+  Future<TaskFullResponseSchema?> getTaskTasksListCodeGet(String code,) async {
+    final response = await getTaskTasksListCodeGetWithHttpInfo(code,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'TaskFullResponseSchema',
-      ) as TaskFullResponseSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TaskFullResponseSchema',) as TaskFullResponseSchema;
+    
     }
     return null;
   }
@@ -303,11 +263,10 @@ class TasksApi {
   ///
   /// * [String] code (required):
   ///   The code of the tasks reward.
-  Future<Response> getTasksRewardTasksRewardsCodeGetWithHttpInfo(
-    String code,
-  ) async {
+  Future<Response> getTasksRewardTasksRewardsCodeGetWithHttpInfo(String code,) async {
     // ignore: prefer_const_declarations
-    final path = r'/tasks/rewards/{code}'.replaceAll('{code}', code);
+    final path = r'/tasks/rewards/{code}'
+      .replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -317,6 +276,7 @@ class TasksApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -337,24 +297,17 @@ class TasksApi {
   ///
   /// * [String] code (required):
   ///   The code of the tasks reward.
-  Future<TasksRewardResponseSchema?> getTasksRewardTasksRewardsCodeGet(
-    String code,
-  ) async {
-    final response = await getTasksRewardTasksRewardsCodeGetWithHttpInfo(
-      code,
-    );
+  Future<TasksRewardResponseSchema?> getTasksRewardTasksRewardsCodeGet(String code,) async {
+    final response = await getTasksRewardTasksRewardsCodeGetWithHttpInfo(code,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'TasksRewardResponseSchema',
-      ) as TasksRewardResponseSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'TasksRewardResponseSchema',) as TasksRewardResponseSchema;
+    
     }
     return null;
   }

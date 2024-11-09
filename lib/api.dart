@@ -68,6 +68,7 @@ part 'model/bank_item_transaction_response_schema.dart';
 part 'model/bank_item_transaction_schema.dart';
 part 'model/bank_response_schema.dart';
 part 'model/bank_schema.dart';
+part 'model/base_achievement_schema.dart';
 part 'model/blocked_hits_schema.dart';
 part 'model/change_password.dart';
 part 'model/character_fight_data_schema.dart';
@@ -195,5 +196,4 @@ final _regList = RegExp(r'^List<(.*)>$');
 final _regSet = RegExp(r'^Set<(.*)>$');
 final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-bool _isEpochMarker(String? pattern) =>
-    pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';
+bool _isEpochMarker(String? pattern) => pattern == _dateEpochMarker || pattern == '/$_dateEpochMarker/';

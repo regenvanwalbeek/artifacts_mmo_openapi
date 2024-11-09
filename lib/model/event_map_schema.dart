@@ -24,22 +24,23 @@ class EventMapSchema {
   int y;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is EventMapSchema && other.x == x && other.y == y;
+  bool operator ==(Object other) => identical(this, other) || other is EventMapSchema &&
+    other.x == x &&
+    other.y == y;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (x.hashCode) + (y.hashCode);
+    // ignore: unnecessary_parenthesis
+    (x.hashCode) +
+    (y.hashCode);
 
   @override
   String toString() => 'EventMapSchema[x=$x, y=$y]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'x'] = this.x;
-    json[r'y'] = this.y;
+      json[r'x'] = this.x;
+      json[r'y'] = this.y;
     return json;
   }
 
@@ -55,10 +56,8 @@ class EventMapSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "EventMapSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "EventMapSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "EventMapSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "EventMapSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -71,10 +70,7 @@ class EventMapSchema {
     return null;
   }
 
-  static List<EventMapSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<EventMapSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <EventMapSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -102,19 +98,13 @@ class EventMapSchema {
   }
 
   // maps a json object with a list of EventMapSchema-objects as value to a dart map
-  static Map<String, List<EventMapSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<EventMapSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<EventMapSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EventMapSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = EventMapSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -126,3 +116,4 @@ class EventMapSchema {
     'y',
   };
 }
+

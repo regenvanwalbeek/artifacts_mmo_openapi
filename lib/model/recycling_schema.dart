@@ -26,24 +26,23 @@ class RecyclingSchema {
   int quantity;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is RecyclingSchema &&
-          other.code == code &&
-          other.quantity == quantity;
+  bool operator ==(Object other) => identical(this, other) || other is RecyclingSchema &&
+    other.code == code &&
+    other.quantity == quantity;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (code.hashCode) + (quantity.hashCode);
+    // ignore: unnecessary_parenthesis
+    (code.hashCode) +
+    (quantity.hashCode);
 
   @override
   String toString() => 'RecyclingSchema[code=$code, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'quantity'] = this.quantity;
+      json[r'code'] = this.code;
+      json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -59,10 +58,8 @@ class RecyclingSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "RecyclingSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "RecyclingSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "RecyclingSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "RecyclingSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -75,10 +72,7 @@ class RecyclingSchema {
     return null;
   }
 
-  static List<RecyclingSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<RecyclingSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <RecyclingSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,19 +100,13 @@ class RecyclingSchema {
   }
 
   // maps a json object with a list of RecyclingSchema-objects as value to a dart map
-  static Map<String, List<RecyclingSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<RecyclingSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<RecyclingSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = RecyclingSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = RecyclingSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -129,3 +117,4 @@ class RecyclingSchema {
     'code',
   };
 }
+

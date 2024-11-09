@@ -19,21 +19,20 @@ class GECreateOrderTransactionResponseSchema {
   GEOrderTransactionSchema data;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GECreateOrderTransactionResponseSchema && other.data == data;
+  bool operator ==(Object other) => identical(this, other) || other is GECreateOrderTransactionResponseSchema &&
+    other.data == data;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (data.hashCode);
+    // ignore: unnecessary_parenthesis
+    (data.hashCode);
 
   @override
   String toString() => 'GECreateOrderTransactionResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+      json[r'data'] = this.data;
     return json;
   }
 
@@ -49,10 +48,8 @@ class GECreateOrderTransactionResponseSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GECreateOrderTransactionResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GECreateOrderTransactionResponseSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "GECreateOrderTransactionResponseSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "GECreateOrderTransactionResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -64,10 +61,7 @@ class GECreateOrderTransactionResponseSchema {
     return null;
   }
 
-  static List<GECreateOrderTransactionResponseSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<GECreateOrderTransactionResponseSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <GECreateOrderTransactionResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -80,14 +74,12 @@ class GECreateOrderTransactionResponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GECreateOrderTransactionResponseSchema> mapFromJson(
-      dynamic json) {
+  static Map<String, GECreateOrderTransactionResponseSchema> mapFromJson(dynamic json) {
     final map = <String, GECreateOrderTransactionResponseSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value =
-            GECreateOrderTransactionResponseSchema.fromJson(entry.value);
+        final value = GECreateOrderTransactionResponseSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -97,20 +89,13 @@ class GECreateOrderTransactionResponseSchema {
   }
 
   // maps a json object with a list of GECreateOrderTransactionResponseSchema-objects as value to a dart map
-  static Map<String, List<GECreateOrderTransactionResponseSchema>>
-      mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<GECreateOrderTransactionResponseSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<GECreateOrderTransactionResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GECreateOrderTransactionResponseSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = GECreateOrderTransactionResponseSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -121,3 +106,4 @@ class GECreateOrderTransactionResponseSchema {
     'data',
   };
 }
+

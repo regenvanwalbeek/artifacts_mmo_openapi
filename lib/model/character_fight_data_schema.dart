@@ -28,27 +28,26 @@ class CharacterFightDataSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CharacterFightDataSchema &&
-          other.cooldown == cooldown &&
-          other.fight == fight &&
-          other.character == character;
+  bool operator ==(Object other) => identical(this, other) || other is CharacterFightDataSchema &&
+    other.cooldown == cooldown &&
+    other.fight == fight &&
+    other.character == character;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (fight.hashCode) + (character.hashCode);
+    // ignore: unnecessary_parenthesis
+    (cooldown.hashCode) +
+    (fight.hashCode) +
+    (character.hashCode);
 
   @override
-  String toString() =>
-      'CharacterFightDataSchema[cooldown=$cooldown, fight=$fight, character=$character]';
+  String toString() => 'CharacterFightDataSchema[cooldown=$cooldown, fight=$fight, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'cooldown'] = this.cooldown;
-    json[r'fight'] = this.fight;
-    json[r'character'] = this.character;
+      json[r'cooldown'] = this.cooldown;
+      json[r'fight'] = this.fight;
+      json[r'character'] = this.character;
     return json;
   }
 
@@ -64,10 +63,8 @@ class CharacterFightDataSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterFightDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterFightDataSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CharacterFightDataSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CharacterFightDataSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -81,10 +78,7 @@ class CharacterFightDataSchema {
     return null;
   }
 
-  static List<CharacterFightDataSchema> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<CharacterFightDataSchema> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <CharacterFightDataSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -112,19 +106,13 @@ class CharacterFightDataSchema {
   }
 
   // maps a json object with a list of CharacterFightDataSchema-objects as value to a dart map
-  static Map<String, List<CharacterFightDataSchema>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<CharacterFightDataSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<CharacterFightDataSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CharacterFightDataSchema.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = CharacterFightDataSchema.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -137,3 +125,4 @@ class CharacterFightDataSchema {
     'character',
   };
 }
+

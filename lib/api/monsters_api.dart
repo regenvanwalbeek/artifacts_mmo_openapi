@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
+
 class MonstersApi {
-  MonstersApi([ApiClient? apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  MonstersApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -38,13 +38,7 @@ class MonstersApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllMonstersMonstersGetWithHttpInfo({
-    int? minLevel,
-    int? maxLevel,
-    String? drop,
-    int? page,
-    int? size,
-  }) async {
+  Future<Response> getAllMonstersMonstersGetWithHttpInfo({ int? minLevel, int? maxLevel, String? drop, int? page, int? size, }) async {
     // ignore: prefer_const_declarations
     final path = r'/monsters';
 
@@ -73,6 +67,7 @@ class MonstersApi {
 
     const contentTypes = <String>[];
 
+
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -104,32 +99,17 @@ class MonstersApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageMonsterSchema?> getAllMonstersMonstersGet({
-    int? minLevel,
-    int? maxLevel,
-    String? drop,
-    int? page,
-    int? size,
-  }) async {
-    final response = await getAllMonstersMonstersGetWithHttpInfo(
-      minLevel: minLevel,
-      maxLevel: maxLevel,
-      drop: drop,
-      page: page,
-      size: size,
-    );
+  Future<DataPageMonsterSchema?> getAllMonstersMonstersGet({ int? minLevel, int? maxLevel, String? drop, int? page, int? size, }) async {
+    final response = await getAllMonstersMonstersGetWithHttpInfo( minLevel: minLevel, maxLevel: maxLevel, drop: drop, page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'DataPageMonsterSchema',
-      ) as DataPageMonsterSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageMonsterSchema',) as DataPageMonsterSchema;
+    
     }
     return null;
   }
@@ -144,11 +124,10 @@ class MonstersApi {
   ///
   /// * [String] code (required):
   ///   The code of the monster.
-  Future<Response> getMonsterMonstersCodeGetWithHttpInfo(
-    String code,
-  ) async {
+  Future<Response> getMonsterMonstersCodeGetWithHttpInfo(String code,) async {
     // ignore: prefer_const_declarations
-    final path = r'/monsters/{code}'.replaceAll('{code}', code);
+    final path = r'/monsters/{code}'
+      .replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -158,6 +137,7 @@ class MonstersApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
+
 
     return apiClient.invokeAPI(
       path,
@@ -178,24 +158,17 @@ class MonstersApi {
   ///
   /// * [String] code (required):
   ///   The code of the monster.
-  Future<MonsterResponseSchema?> getMonsterMonstersCodeGet(
-    String code,
-  ) async {
-    final response = await getMonsterMonstersCodeGetWithHttpInfo(
-      code,
-    );
+  Future<MonsterResponseSchema?> getMonsterMonstersCodeGet(String code,) async {
+    final response = await getMonsterMonstersCodeGetWithHttpInfo(code,);
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'MonsterResponseSchema',
-      ) as MonsterResponseSchema;
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MonsterResponseSchema',) as MonsterResponseSchema;
+    
     }
     return null;
   }

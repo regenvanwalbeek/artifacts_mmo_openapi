@@ -24,25 +24,23 @@ class ChangePassword {
   String newPassword;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ChangePassword &&
-          other.currentPassword == currentPassword &&
-          other.newPassword == newPassword;
+  bool operator ==(Object other) => identical(this, other) || other is ChangePassword &&
+    other.currentPassword == currentPassword &&
+    other.newPassword == newPassword;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (currentPassword.hashCode) + (newPassword.hashCode);
+    // ignore: unnecessary_parenthesis
+    (currentPassword.hashCode) +
+    (newPassword.hashCode);
 
   @override
-  String toString() =>
-      'ChangePassword[currentPassword=$currentPassword, newPassword=$newPassword]';
+  String toString() => 'ChangePassword[currentPassword=$currentPassword, newPassword=$newPassword]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'current_password'] = this.currentPassword;
-    json[r'new_password'] = this.newPassword;
+      json[r'current_password'] = this.currentPassword;
+      json[r'new_password'] = this.newPassword;
     return json;
   }
 
@@ -58,10 +56,8 @@ class ChangePassword {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ChangePassword[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ChangePassword[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ChangePassword[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ChangePassword[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -74,10 +70,7 @@ class ChangePassword {
     return null;
   }
 
-  static List<ChangePassword> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<ChangePassword> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ChangePassword>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -105,19 +98,13 @@ class ChangePassword {
   }
 
   // maps a json object with a list of ChangePassword-objects as value to a dart map
-  static Map<String, List<ChangePassword>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<ChangePassword>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ChangePassword>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ChangePassword.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = ChangePassword.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -129,3 +116,4 @@ class ChangePassword {
     'new_password',
   };
 }
+

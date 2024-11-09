@@ -25,26 +25,26 @@ class ValidationError {
   String type;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ValidationError &&
-          _deepEquality.equals(other.loc, loc) &&
-          other.msg == msg &&
-          other.type == type;
+  bool operator ==(Object other) => identical(this, other) || other is ValidationError &&
+    _deepEquality.equals(other.loc, loc) &&
+    other.msg == msg &&
+    other.type == type;
 
   @override
   int get hashCode =>
-      // ignore: unnecessary_parenthesis
-      (loc.hashCode) + (msg.hashCode) + (type.hashCode);
+    // ignore: unnecessary_parenthesis
+    (loc.hashCode) +
+    (msg.hashCode) +
+    (type.hashCode);
 
   @override
   String toString() => 'ValidationError[loc=$loc, msg=$msg, type=$type]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'loc'] = this.loc;
-    json[r'msg'] = this.msg;
-    json[r'type'] = this.type;
+      json[r'loc'] = this.loc;
+      json[r'msg'] = this.msg;
+      json[r'type'] = this.type;
     return json;
   }
 
@@ -60,10 +60,8 @@ class ValidationError {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ValidationError[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ValidationError[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ValidationError[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ValidationError[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -77,10 +75,7 @@ class ValidationError {
     return null;
   }
 
-  static List<ValidationError> listFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static List<ValidationError> listFromJson(dynamic json, {bool growable = false,}) {
     final result = <ValidationError>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -108,19 +103,13 @@ class ValidationError {
   }
 
   // maps a json object with a list of ValidationError-objects as value to a dart map
-  static Map<String, List<ValidationError>> mapListFromJson(
-    dynamic json, {
-    bool growable = false,
-  }) {
+  static Map<String, List<ValidationError>> mapListFromJson(dynamic json, {bool growable = false,}) {
     final map = <String, List<ValidationError>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ValidationError.listFromJson(
-          entry.value,
-          growable: growable,
-        );
+        map[entry.key] = ValidationError.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -133,3 +122,4 @@ class ValidationError {
     'type',
   };
 }
+
