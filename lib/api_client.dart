@@ -366,6 +366,8 @@ class ApiClient {
           return ItemSchema.fromJson(value);
         case 'ItemSlot':
           return ItemSlotTypeTransformer().decode(value);
+        case 'ItemType':
+          return ItemTypeTypeTransformer().decode(value);
         case 'LogSchema':
           return LogSchema.fromJson(value);
         case 'LogType':

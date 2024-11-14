@@ -1,3 +1,7 @@
+## 3.2.0 
+
+- Season 3 updates
+
 ## 3.1.0
 
 - Season 3 updates

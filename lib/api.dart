@@ -68,7 +68,6 @@ part 'model/bank_item_transaction_response_schema.dart';
 part 'model/bank_item_transaction_schema.dart';
 part 'model/bank_response_schema.dart';
 part 'model/bank_schema.dart';
-part 'model/base_achievement_schema.dart';
 part 'model/blocked_hits_schema.dart';
 part 'model/change_password.dart';
 part 'model/character_fight_data_schema.dart';
@@ -137,6 +136,7 @@ part 'model/item_effect_schema.dart';
 part 'model/item_response_schema.dart';
 part 'model/item_schema.dart';
 part 'model/item_slot.dart';
+part 'model/item_type.dart';
 part 'model/log_schema.dart';
 part 'model/log_type.dart';
 part 'model/map_content_schema.dart';
@@ -183,6 +183,7 @@ part 'model/use_item_response_schema.dart';
 part 'model/use_item_schema.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
+
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.

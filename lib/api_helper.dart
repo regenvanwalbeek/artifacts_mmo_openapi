@@ -85,6 +85,9 @@ String parameterToString(dynamic value) {
   if (value is ItemSlot) {
     return ItemSlotTypeTransformer().encode(value).toString();
   }
+  if (value is ItemType) {
+    return ItemTypeTypeTransformer().encode(value).toString();
+  }
   if (value is LogType) {
     return LogTypeTypeTransformer().encode(value).toString();
   }

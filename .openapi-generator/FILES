@@ -100,6 +100,7 @@ doc/ItemEffectSchema.md
 doc/ItemResponseSchema.md
 doc/ItemSchema.md
 doc/ItemSlot.md
+doc/ItemType.md
 doc/ItemsApi.md
 doc/LeaderboardApi.md
 doc/LogSchema.md
@@ -272,6 +273,7 @@ lib/model/item_effect_schema.dart
 lib/model/item_response_schema.dart
 lib/model/item_schema.dart
 lib/model/item_slot.dart
+lib/model/item_type.dart
 lib/model/log_schema.dart
 lib/model/log_type.dart
 lib/model/map_content_schema.dart

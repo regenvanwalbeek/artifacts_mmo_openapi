@@ -28,7 +28,7 @@ final api_instance = ResourcesApi();
 final minLevel = 56; // int | Skill minimum level.
 final maxLevel = 56; // int | Skill maximum level.
 final skill = ; // GatheringSkill | The code of the skill.
-final drop = copper_ore; // String | Item code of the drop.
+final drop = drop_example; // String | Item code of the drop.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 

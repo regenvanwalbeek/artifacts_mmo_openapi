@@ -33,10 +33,10 @@ class ItemsApi {
   /// * [String] name:
   ///   Name of the item.
   ///
-  /// * [String] type:
+  /// * [ItemType] type:
   ///   Type of items.
   ///
-  /// * [String] craftSkill:
+  /// * [CraftSkill] craftSkill:
   ///   Skill to craft items.
   ///
   /// * [String] craftMaterial:
@@ -47,7 +47,7 @@ class ItemsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllItemsItemsGetWithHttpInfo({ int? minLevel, int? maxLevel, String? name, String? type, String? craftSkill, String? craftMaterial, int? page, int? size, }) async {
+  Future<Response> getAllItemsItemsGetWithHttpInfo({ int? minLevel, int? maxLevel, String? name, ItemType? type, CraftSkill? craftSkill, String? craftMaterial, int? page, int? size, }) async {
     // ignore: prefer_const_declarations
     final path = r'/items';
 
@@ -112,10 +112,10 @@ class ItemsApi {
   /// * [String] name:
   ///   Name of the item.
   ///
-  /// * [String] type:
+  /// * [ItemType] type:
   ///   Type of items.
   ///
-  /// * [String] craftSkill:
+  /// * [CraftSkill] craftSkill:
   ///   Skill to craft items.
   ///
   /// * [String] craftMaterial:
@@ -126,7 +126,7 @@ class ItemsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageItemSchema?> getAllItemsItemsGet({ int? minLevel, int? maxLevel, String? name, String? type, String? craftSkill, String? craftMaterial, int? page, int? size, }) async {
+  Future<DataPageItemSchema?> getAllItemsItemsGet({ int? minLevel, int? maxLevel, String? name, ItemType? type, CraftSkill? craftSkill, String? craftMaterial, int? page, int? size, }) async {
     final response = await getAllItemsItemsGetWithHttpInfo( minLevel: minLevel, maxLevel: maxLevel, name: name, type: type, craftSkill: craftSkill, craftMaterial: craftMaterial, page: page, size: size, );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
