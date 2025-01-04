@@ -40,7 +40,7 @@ class TaskFullSchema {
   String? skill;
 
   /// Rewards.
-  TaskRewardsSchema rewards;
+  RewardsSchema rewards;
 
   @override
   bool operator ==(Object other) =>
@@ -112,7 +112,7 @@ class TaskFullSchema {
         minQuantity: mapValueOfType<int>(json, r'min_quantity')!,
         maxQuantity: mapValueOfType<int>(json, r'max_quantity')!,
         skill: mapValueOfType<String>(json, r'skill'),
-        rewards: TaskRewardsSchema.fromJson(json[r'rewards'])!,
+        rewards: RewardsSchema.fromJson(json[r'rewards'])!,
       );
     }
     return null;

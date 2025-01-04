@@ -15,7 +15,7 @@ class AddAccountSchema {
   AddAccountSchema({
     required this.username,
     required this.password,
-    required this.email,
+    this.email,
   });
 
   /// Your desired username.
@@ -24,8 +24,13 @@ class AddAccountSchema {
   /// Your password.
   String password;
 
-  /// Your email.
-  String email;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? email;
 
   @override
   bool operator ==(Object other) =>
@@ -38,7 +43,9 @@ class AddAccountSchema {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (username.hashCode) + (password.hashCode) + (email.hashCode);
+      (username.hashCode) +
+      (password.hashCode) +
+      (email == null ? 0 : email!.hashCode);
 
   @override
   String toString() =>
@@ -48,7 +55,11 @@ class AddAccountSchema {
     final json = <String, dynamic>{};
     json[r'username'] = this.username;
     json[r'password'] = this.password;
-    json[r'email'] = this.email;
+    if (this.email != null) {
+      json[r'email'] = this.email;
+    } else {
+      json[r'email'] = null;
+    }
     return json;
   }
 
@@ -75,7 +86,7 @@ class AddAccountSchema {
       return AddAccountSchema(
         username: mapValueOfType<String>(json, r'username')!,
         password: mapValueOfType<String>(json, r'password')!,
-        email: mapValueOfType<String>(json, r'email')!,
+        email: mapValueOfType<String>(json, r'email'),
       );
     }
     return null;
@@ -134,6 +145,5 @@ class AddAccountSchema {
   static const requiredKeys = <String>{
     'username',
     'password',
-    'email',
   };
 }

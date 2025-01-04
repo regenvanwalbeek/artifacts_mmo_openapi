@@ -10,18 +10,18 @@
 
 part of openapi_generation;
 
-class TasksRewardResponseSchema {
-  /// Returns a new [TasksRewardResponseSchema] instance.
-  TasksRewardResponseSchema({
+class BadgeResponseSchema {
+  /// Returns a new [BadgeResponseSchema] instance.
+  BadgeResponseSchema({
     required this.data,
   });
 
-  DropRateSchema data;
+  BadgeSchema data;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TasksRewardResponseSchema && other.data == data;
+      other is BadgeResponseSchema && other.data == data;
 
   @override
   int get hashCode =>
@@ -29,7 +29,7 @@ class TasksRewardResponseSchema {
       (data.hashCode);
 
   @override
-  String toString() => 'TasksRewardResponseSchema[data=$data]';
+  String toString() => 'BadgeResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -37,10 +37,10 @@ class TasksRewardResponseSchema {
     return json;
   }
 
-  /// Returns a new [TasksRewardResponseSchema] instance and imports its values from
+  /// Returns a new [BadgeResponseSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TasksRewardResponseSchema? fromJson(dynamic value) {
+  static BadgeResponseSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -50,28 +50,28 @@ class TasksRewardResponseSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "TasksRewardResponseSchema[$key]" is missing from JSON.');
+              'Required key "BadgeResponseSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "TasksRewardResponseSchema[$key]" has a null value in JSON.');
+              'Required key "BadgeResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return TasksRewardResponseSchema(
-        data: DropRateSchema.fromJson(json[r'data'])!,
+      return BadgeResponseSchema(
+        data: BadgeSchema.fromJson(json[r'data'])!,
       );
     }
     return null;
   }
 
-  static List<TasksRewardResponseSchema> listFromJson(
+  static List<BadgeResponseSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <TasksRewardResponseSchema>[];
+    final result = <BadgeResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = TasksRewardResponseSchema.fromJson(row);
+        final value = BadgeResponseSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -80,12 +80,12 @@ class TasksRewardResponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, TasksRewardResponseSchema> mapFromJson(dynamic json) {
-    final map = <String, TasksRewardResponseSchema>{};
+  static Map<String, BadgeResponseSchema> mapFromJson(dynamic json) {
+    final map = <String, BadgeResponseSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TasksRewardResponseSchema.fromJson(entry.value);
+        final value = BadgeResponseSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -94,17 +94,17 @@ class TasksRewardResponseSchema {
     return map;
   }
 
-  // maps a json object with a list of TasksRewardResponseSchema-objects as value to a dart map
-  static Map<String, List<TasksRewardResponseSchema>> mapListFromJson(
+  // maps a json object with a list of BadgeResponseSchema-objects as value to a dart map
+  static Map<String, List<BadgeResponseSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<TasksRewardResponseSchema>>{};
+    final map = <String, List<BadgeResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TasksRewardResponseSchema.listFromJson(
+        map[entry.key] = BadgeResponseSchema.listFromJson(
           entry.value,
           growable: growable,
         );

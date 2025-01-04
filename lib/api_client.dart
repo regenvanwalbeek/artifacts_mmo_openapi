@@ -259,6 +259,12 @@ class ApiClient {
           return AddCharacterSchema.fromJson(value);
         case 'AnnouncementSchema':
           return AnnouncementSchema.fromJson(value);
+        case 'BadgeConditionSchema':
+          return BadgeConditionSchema.fromJson(value);
+        case 'BadgeResponseSchema':
+          return BadgeResponseSchema.fromJson(value);
+        case 'BadgeSchema':
+          return BadgeSchema.fromJson(value);
         case 'BankExtensionSchema':
           return BankExtensionSchema.fromJson(value);
         case 'BankExtensionTransactionResponseSchema':
@@ -319,6 +325,8 @@ class ApiClient {
           return DataPageAchievementSchema.fromJson(value);
         case 'DataPageActiveEventSchema':
           return DataPageActiveEventSchema.fromJson(value);
+        case 'DataPageBadgeSchema':
+          return DataPageBadgeSchema.fromJson(value);
         case 'DataPageCharacterLeaderboardSchema':
           return DataPageCharacterLeaderboardSchema.fromJson(value);
         case 'DataPageDropRateSchema':
@@ -413,6 +421,8 @@ class ApiClient {
           return ItemSchema.fromJson(value);
         case 'ItemSlot':
           return ItemSlotTypeTransformer().decode(value);
+        case 'ItemType':
+          return ItemTypeTypeTransformer().decode(value);
         case 'LogSchema':
           return LogSchema.fromJson(value);
         case 'LogType':
@@ -449,6 +459,14 @@ class ApiClient {
           return ResourceSchema.fromJson(value);
         case 'ResponseSchema':
           return ResponseSchema.fromJson(value);
+        case 'RewardDataResponseSchema':
+          return RewardDataResponseSchema.fromJson(value);
+        case 'RewardDataSchema':
+          return RewardDataSchema.fromJson(value);
+        case 'RewardResponseSchema':
+          return RewardResponseSchema.fromJson(value);
+        case 'RewardsSchema':
+          return RewardsSchema.fromJson(value);
         case 'SimpleItemSchema':
           return SimpleItemSchema.fromJson(value);
         case 'Skill':
@@ -475,8 +493,6 @@ class ApiClient {
           return TaskFullSchema.fromJson(value);
         case 'TaskResponseSchema':
           return TaskResponseSchema.fromJson(value);
-        case 'TaskRewardsSchema':
-          return TaskRewardsSchema.fromJson(value);
         case 'TaskSchema':
           return TaskSchema.fromJson(value);
         case 'TaskTradeDataSchema':
@@ -487,12 +503,6 @@ class ApiClient {
           return TaskTradeSchema.fromJson(value);
         case 'TaskType':
           return TaskTypeTypeTransformer().decode(value);
-        case 'TasksRewardDataResponseSchema':
-          return TasksRewardDataResponseSchema.fromJson(value);
-        case 'TasksRewardDataSchema':
-          return TasksRewardDataSchema.fromJson(value);
-        case 'TasksRewardResponseSchema':
-          return TasksRewardResponseSchema.fromJson(value);
         case 'TokenResponseSchema':
           return TokenResponseSchema.fromJson(value);
         case 'UnequipSchema':

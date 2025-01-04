@@ -153,6 +153,76 @@ class MyCharactersApi {
     return null;
   }
 
+  /// Action Christmas Exchange
+  ///
+  /// Exchange 1 gift for a random reward.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<Response>
+      actionChristmasExchangeMyNameActionChristmasExchangePostWithHttpInfo(
+    String name,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/my/{name}/action/christmas/exchange'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Christmas Exchange
+  ///
+  /// Exchange 1 gift for a random reward.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<RewardDataResponseSchema?>
+      actionChristmasExchangeMyNameActionChristmasExchangePost(
+    String name,
+  ) async {
+    final response =
+        await actionChristmasExchangeMyNameActionChristmasExchangePostWithHttpInfo(
+      name,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'RewardDataResponseSchema',
+      ) as RewardDataResponseSchema;
+    }
+    return null;
+  }
+
   /// Action Complete Task
   ///
   /// Complete a task.
@@ -197,7 +267,7 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<TasksRewardDataResponseSchema?>
+  Future<RewardDataResponseSchema?>
       actionCompleteTaskMyNameActionTaskCompletePost(
     String name,
   ) async {
@@ -215,8 +285,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TasksRewardDataResponseSchema',
-      ) as TasksRewardDataResponseSchema;
+        'RewardDataResponseSchema',
+      ) as RewardDataResponseSchema;
     }
     return null;
   }
@@ -1278,7 +1348,7 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<TasksRewardDataResponseSchema?>
+  Future<RewardDataResponseSchema?>
       actionTaskExchangeMyNameActionTaskExchangePost(
     String name,
   ) async {
@@ -1296,8 +1366,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TasksRewardDataResponseSchema',
-      ) as TasksRewardDataResponseSchema;
+        'RewardDataResponseSchema',
+      ) as RewardDataResponseSchema;
     }
     return null;
   }

@@ -36,7 +36,8 @@ class MyAccountDetails {
   /// Member status.
   AccountStatus status;
 
-  List<Object>? badges;
+  /// Account badges.
+  List<Object> badges;
 
   /// Gems.
   int gems;
@@ -77,7 +78,7 @@ class MyAccountDetails {
       (email.hashCode) +
       (subscribed.hashCode) +
       (status.hashCode) +
-      (badges == null ? 0 : badges!.hashCode) +
+      (badges.hashCode) +
       (gems.hashCode) +
       (achievementsPoints.hashCode) +
       (banned.hashCode) +
@@ -93,11 +94,7 @@ class MyAccountDetails {
     json[r'email'] = this.email;
     json[r'subscribed'] = this.subscribed;
     json[r'status'] = this.status;
-    if (this.badges != null) {
-      json[r'badges'] = this.badges;
-    } else {
-      json[r'badges'] = null;
-    }
+    json[r'badges'] = this.badges;
     json[r'gems'] = this.gems;
     json[r'achievements_points'] = this.achievementsPoints;
     json[r'banned'] = this.banned;

@@ -42,6 +42,7 @@ class LogType {
   static const taskCancelled = LogType._(r'task_cancelled');
   static const taskCompleted = LogType._(r'task_completed');
   static const taskTrade = LogType._(r'task_trade');
+  static const christmasExchange = LogType._(r'christmas_exchange');
   static const recycling = LogType._(r'recycling');
   static const rest = LogType._(r'rest');
   static const use = LogType._(r'use');
@@ -70,6 +71,7 @@ class LogType {
     taskCancelled,
     taskCompleted,
     taskTrade,
+    christmasExchange,
     recycling,
     rest,
     use,
@@ -158,6 +160,8 @@ class LogTypeTypeTransformer {
           return LogType.taskCompleted;
         case r'task_trade':
           return LogType.taskTrade;
+        case r'christmas_exchange':
+          return LogType.christmasExchange;
         case r'recycling':
           return LogType.recycling;
         case r'rest':

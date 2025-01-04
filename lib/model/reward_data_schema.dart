@@ -10,58 +10,52 @@
 
 part of openapi_generation;
 
-class TaskSchema {
-  /// Returns a new [TaskSchema] instance.
-  TaskSchema({
-    required this.code,
-    required this.type,
-    required this.total,
+class RewardDataSchema {
+  /// Returns a new [RewardDataSchema] instance.
+  RewardDataSchema({
+    required this.cooldown,
     required this.rewards,
+    required this.character,
   });
 
-  /// Task objective.
-  String code;
+  /// Cooldown details.
+  CooldownSchema cooldown;
 
-  /// The type of task.
-  TaskType type;
-
-  /// The total required to complete the task.
-  int total;
-
-  /// Rewards for completing the task.
+  /// Reward details.
   RewardsSchema rewards;
+
+  /// Player details.
+  CharacterSchema character;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TaskSchema &&
-          other.code == code &&
-          other.type == type &&
-          other.total == total &&
-          other.rewards == rewards;
+      other is RewardDataSchema &&
+          other.cooldown == cooldown &&
+          other.rewards == rewards &&
+          other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code.hashCode) + (type.hashCode) + (total.hashCode) + (rewards.hashCode);
+      (cooldown.hashCode) + (rewards.hashCode) + (character.hashCode);
 
   @override
   String toString() =>
-      'TaskSchema[code=$code, type=$type, total=$total, rewards=$rewards]';
+      'RewardDataSchema[cooldown=$cooldown, rewards=$rewards, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'type'] = this.type;
-    json[r'total'] = this.total;
+    json[r'cooldown'] = this.cooldown;
     json[r'rewards'] = this.rewards;
+    json[r'character'] = this.character;
     return json;
   }
 
-  /// Returns a new [TaskSchema] instance and imports its values from
+  /// Returns a new [RewardDataSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TaskSchema? fromJson(dynamic value) {
+  static RewardDataSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -71,31 +65,30 @@ class TaskSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "TaskSchema[$key]" is missing from JSON.');
+              'Required key "RewardDataSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "TaskSchema[$key]" has a null value in JSON.');
+              'Required key "RewardDataSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return TaskSchema(
-        code: mapValueOfType<String>(json, r'code')!,
-        type: TaskType.fromJson(json[r'type'])!,
-        total: mapValueOfType<int>(json, r'total')!,
+      return RewardDataSchema(
+        cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
         rewards: RewardsSchema.fromJson(json[r'rewards'])!,
+        character: CharacterSchema.fromJson(json[r'character'])!,
       );
     }
     return null;
   }
 
-  static List<TaskSchema> listFromJson(
+  static List<RewardDataSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <TaskSchema>[];
+    final result = <RewardDataSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = TaskSchema.fromJson(row);
+        final value = RewardDataSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -104,12 +97,12 @@ class TaskSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, TaskSchema> mapFromJson(dynamic json) {
-    final map = <String, TaskSchema>{};
+  static Map<String, RewardDataSchema> mapFromJson(dynamic json) {
+    final map = <String, RewardDataSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TaskSchema.fromJson(entry.value);
+        final value = RewardDataSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -118,17 +111,17 @@ class TaskSchema {
     return map;
   }
 
-  // maps a json object with a list of TaskSchema-objects as value to a dart map
-  static Map<String, List<TaskSchema>> mapListFromJson(
+  // maps a json object with a list of RewardDataSchema-objects as value to a dart map
+  static Map<String, List<RewardDataSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<TaskSchema>>{};
+    final map = <String, List<RewardDataSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskSchema.listFromJson(
+        map[entry.key] = RewardDataSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -139,9 +132,8 @@ class TaskSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'code',
-    'type',
-    'total',
+    'cooldown',
     'rewards',
+    'character',
   };
 }

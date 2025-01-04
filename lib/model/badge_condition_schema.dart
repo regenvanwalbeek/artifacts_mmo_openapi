@@ -10,58 +10,48 @@
 
 part of openapi_generation;
 
-class TaskSchema {
-  /// Returns a new [TaskSchema] instance.
-  TaskSchema({
+class BadgeConditionSchema {
+  /// Returns a new [BadgeConditionSchema] instance.
+  BadgeConditionSchema({
     required this.code,
-    required this.type,
-    required this.total,
-    required this.rewards,
+    required this.quantity,
   });
 
-  /// Task objective.
+  /// Code of the condition.
   String code;
 
-  /// The type of task.
-  TaskType type;
-
-  /// The total required to complete the task.
-  int total;
-
-  /// Rewards for completing the task.
-  RewardsSchema rewards;
+  int? quantity;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TaskSchema &&
+      other is BadgeConditionSchema &&
           other.code == code &&
-          other.type == type &&
-          other.total == total &&
-          other.rewards == rewards;
+          other.quantity == quantity;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code.hashCode) + (type.hashCode) + (total.hashCode) + (rewards.hashCode);
+      (code.hashCode) + (quantity == null ? 0 : quantity!.hashCode);
 
   @override
-  String toString() =>
-      'TaskSchema[code=$code, type=$type, total=$total, rewards=$rewards]';
+  String toString() => 'BadgeConditionSchema[code=$code, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
-    json[r'type'] = this.type;
-    json[r'total'] = this.total;
-    json[r'rewards'] = this.rewards;
+    if (this.quantity != null) {
+      json[r'quantity'] = this.quantity;
+    } else {
+      json[r'quantity'] = null;
+    }
     return json;
   }
 
-  /// Returns a new [TaskSchema] instance and imports its values from
+  /// Returns a new [BadgeConditionSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static TaskSchema? fromJson(dynamic value) {
+  static BadgeConditionSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -71,31 +61,29 @@ class TaskSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "TaskSchema[$key]" is missing from JSON.');
+              'Required key "BadgeConditionSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "TaskSchema[$key]" has a null value in JSON.');
+              'Required key "BadgeConditionSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return TaskSchema(
+      return BadgeConditionSchema(
         code: mapValueOfType<String>(json, r'code')!,
-        type: TaskType.fromJson(json[r'type'])!,
-        total: mapValueOfType<int>(json, r'total')!,
-        rewards: RewardsSchema.fromJson(json[r'rewards'])!,
+        quantity: mapValueOfType<int>(json, r'quantity'),
       );
     }
     return null;
   }
 
-  static List<TaskSchema> listFromJson(
+  static List<BadgeConditionSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <TaskSchema>[];
+    final result = <BadgeConditionSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = TaskSchema.fromJson(row);
+        final value = BadgeConditionSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -104,12 +92,12 @@ class TaskSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, TaskSchema> mapFromJson(dynamic json) {
-    final map = <String, TaskSchema>{};
+  static Map<String, BadgeConditionSchema> mapFromJson(dynamic json) {
+    final map = <String, BadgeConditionSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = TaskSchema.fromJson(entry.value);
+        final value = BadgeConditionSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -118,17 +106,17 @@ class TaskSchema {
     return map;
   }
 
-  // maps a json object with a list of TaskSchema-objects as value to a dart map
-  static Map<String, List<TaskSchema>> mapListFromJson(
+  // maps a json object with a list of BadgeConditionSchema-objects as value to a dart map
+  static Map<String, List<BadgeConditionSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<TaskSchema>>{};
+    final map = <String, List<BadgeConditionSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskSchema.listFromJson(
+        map[entry.key] = BadgeConditionSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -140,8 +128,6 @@ class TaskSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'code',
-    'type',
-    'total',
-    'rewards',
+    'quantity',
   };
 }

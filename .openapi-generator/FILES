@@ -19,6 +19,10 @@ doc/ActiveEventSchema.md
 doc/AddAccountSchema.md
 doc/AddCharacterSchema.md
 doc/AnnouncementSchema.md
+doc/BadgeConditionSchema.md
+doc/BadgeResponseSchema.md
+doc/BadgeSchema.md
+doc/BadgesApi.md
 doc/BankExtensionSchema.md
 doc/BankExtensionTransactionResponseSchema.md
 doc/BankExtensionTransactionSchema.md
@@ -50,6 +54,7 @@ doc/DataPageAccountAchievementSchema.md
 doc/DataPageAccountLeaderboardSchema.md
 doc/DataPageAchievementSchema.md
 doc/DataPageActiveEventSchema.md
+doc/DataPageBadgeSchema.md
 doc/DataPageCharacterLeaderboardSchema.md
 doc/DataPageDropRateSchema.md
 doc/DataPageEventSchema.md
@@ -100,6 +105,7 @@ doc/ItemEffectSchema.md
 doc/ItemResponseSchema.md
 doc/ItemSchema.md
 doc/ItemSlot.md
+doc/ItemType.md
 doc/ItemsApi.md
 doc/LeaderboardApi.md
 doc/LogSchema.md
@@ -125,6 +131,10 @@ doc/ResourceResponseSchema.md
 doc/ResourceSchema.md
 doc/ResourcesApi.md
 doc/ResponseSchema.md
+doc/RewardDataResponseSchema.md
+doc/RewardDataSchema.md
+doc/RewardResponseSchema.md
+doc/RewardsSchema.md
 doc/SimpleItemSchema.md
 doc/Skill.md
 doc/SkillDataSchema.md
@@ -138,16 +148,12 @@ doc/TaskDataSchema.md
 doc/TaskFullResponseSchema.md
 doc/TaskFullSchema.md
 doc/TaskResponseSchema.md
-doc/TaskRewardsSchema.md
 doc/TaskSchema.md
 doc/TaskTradeDataSchema.md
 doc/TaskTradeResponseSchema.md
 doc/TaskTradeSchema.md
 doc/TaskType.md
 doc/TasksApi.md
-doc/TasksRewardDataResponseSchema.md
-doc/TasksRewardDataSchema.md
-doc/TasksRewardResponseSchema.md
 doc/TokenApi.md
 doc/TokenResponseSchema.md
 doc/UnequipSchema.md
@@ -159,6 +165,7 @@ git_push.sh
 lib/api.dart
 lib/api/accounts_api.dart
 lib/api/achievements_api.dart
+lib/api/badges_api.dart
 lib/api/characters_api.dart
 lib/api/default_api.dart
 lib/api/events_api.dart
@@ -195,6 +202,9 @@ lib/model/active_event_schema.dart
 lib/model/add_account_schema.dart
 lib/model/add_character_schema.dart
 lib/model/announcement_schema.dart
+lib/model/badge_condition_schema.dart
+lib/model/badge_response_schema.dart
+lib/model/badge_schema.dart
 lib/model/bank_extension_schema.dart
 lib/model/bank_extension_transaction_response_schema.dart
 lib/model/bank_extension_transaction_schema.dart
@@ -225,6 +235,7 @@ lib/model/data_page_account_achievement_schema.dart
 lib/model/data_page_account_leaderboard_schema.dart
 lib/model/data_page_achievement_schema.dart
 lib/model/data_page_active_event_schema.dart
+lib/model/data_page_badge_schema.dart
 lib/model/data_page_character_leaderboard_schema.dart
 lib/model/data_page_drop_rate_schema.dart
 lib/model/data_page_event_schema.dart
@@ -272,6 +283,7 @@ lib/model/item_effect_schema.dart
 lib/model/item_response_schema.dart
 lib/model/item_schema.dart
 lib/model/item_slot.dart
+lib/model/item_type.dart
 lib/model/log_schema.dart
 lib/model/log_type.dart
 lib/model/map_content_schema.dart
@@ -290,6 +302,10 @@ lib/model/recycling_schema.dart
 lib/model/resource_response_schema.dart
 lib/model/resource_schema.dart
 lib/model/response_schema.dart
+lib/model/reward_data_response_schema.dart
+lib/model/reward_data_schema.dart
+lib/model/reward_response_schema.dart
+lib/model/rewards_schema.dart
 lib/model/simple_item_schema.dart
 lib/model/skill.dart
 lib/model/skill_data_schema.dart
@@ -303,15 +319,11 @@ lib/model/task_data_schema.dart
 lib/model/task_full_response_schema.dart
 lib/model/task_full_schema.dart
 lib/model/task_response_schema.dart
-lib/model/task_rewards_schema.dart
 lib/model/task_schema.dart
 lib/model/task_trade_data_schema.dart
 lib/model/task_trade_response_schema.dart
 lib/model/task_trade_schema.dart
 lib/model/task_type.dart
-lib/model/tasks_reward_data_response_schema.dart
-lib/model/tasks_reward_data_schema.dart
-lib/model/tasks_reward_response_schema.dart
 lib/model/token_response_schema.dart
 lib/model/unequip_schema.dart
 lib/model/use_item_response_schema.dart

@@ -37,6 +37,7 @@ class ActionType {
   static const equip = ActionType._(r'equip');
   static const unequip = ActionType._(r'unequip');
   static const task = ActionType._(r'task');
+  static const christmasExchange = ActionType._(r'christmas_exchange');
   static const recycling = ActionType._(r'recycling');
   static const rest = ActionType._(r'rest');
   static const use = ActionType._(r'use');
@@ -59,6 +60,7 @@ class ActionType {
     equip,
     unequip,
     task,
+    christmasExchange,
     recycling,
     rest,
     use,
@@ -136,6 +138,8 @@ class ActionTypeTypeTransformer {
           return ActionType.unequip;
         case r'task':
           return ActionType.task;
+        case r'christmas_exchange':
+          return ActionType.christmasExchange;
         case r'recycling':
           return ActionType.recycling;
         case r'rest':

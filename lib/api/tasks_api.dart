@@ -337,7 +337,7 @@ class TasksApi {
   ///
   /// * [String] code (required):
   ///   The code of the tasks reward.
-  Future<TasksRewardResponseSchema?> getTasksRewardTasksRewardsCodeGet(
+  Future<RewardResponseSchema?> getTasksRewardTasksRewardsCodeGet(
     String code,
   ) async {
     final response = await getTasksRewardTasksRewardsCodeGetWithHttpInfo(
@@ -353,8 +353,8 @@ class TasksApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'TasksRewardResponseSchema',
-      ) as TasksRewardResponseSchema;
+        'RewardResponseSchema',
+      ) as RewardResponseSchema;
     }
     return null;
   }

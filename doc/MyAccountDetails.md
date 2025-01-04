@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **email** | **String** | Email. | 
 **subscribed** | **bool** | Subscribed for the current season. | 
 **status** | [**AccountStatus**](AccountStatus.md) | Member status. | 
-**badges** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**badges** | [**List<Object>**](Object.md) | Account badges. | [optional] [default to const []]
 **gems** | **int** | Gems. | 
 **achievementsPoints** | **int** | Achievement points. | 
 **banned** | **bool** | Banned. | 

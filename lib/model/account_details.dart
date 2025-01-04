@@ -31,7 +31,8 @@ class AccountDetails {
   /// Member status.
   AccountStatus status;
 
-  List<Object>? badges;
+  /// Account badges.
+  List<Object> badges;
 
   /// Achievement points.
   int achievementsPoints;
@@ -66,7 +67,7 @@ class AccountDetails {
       (username.hashCode) +
       (subscribed.hashCode) +
       (status.hashCode) +
-      (badges == null ? 0 : badges!.hashCode) +
+      (badges.hashCode) +
       (achievementsPoints.hashCode) +
       (banned.hashCode) +
       (banReason == null ? 0 : banReason!.hashCode);
@@ -80,11 +81,7 @@ class AccountDetails {
     json[r'username'] = this.username;
     json[r'subscribed'] = this.subscribed;
     json[r'status'] = this.status;
-    if (this.badges != null) {
-      json[r'badges'] = this.badges;
-    } else {
-      json[r'badges'] = null;
-    }
+    json[r'badges'] = this.badges;
     json[r'achievements_points'] = this.achievementsPoints;
     json[r'banned'] = this.banned;
     if (this.banReason != null) {

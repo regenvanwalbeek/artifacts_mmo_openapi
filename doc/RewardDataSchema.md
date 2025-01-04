@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.AddAccountSchema
+# artifacts_mmo_openapi.model.RewardDataSchema
 
 ## Load the model package
 ```dart
@@ -8,9 +8,9 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **String** | Your desired username. | 
-**password** | **String** | Your password. | 
-**email** | **String** |  | [optional] 
+**cooldown** | [**CooldownSchema**](CooldownSchema.md) | Cooldown details. | 
+**rewards** | [**RewardsSchema**](RewardsSchema.md) | Reward details. | 
+**character** | [**CharacterSchema**](CharacterSchema.md) | Player details. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

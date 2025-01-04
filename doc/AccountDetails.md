@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **username** | **String** | Username. | 
 **subscribed** | **bool** | Subscribed for the current season. | 
 **status** | [**AccountStatus**](AccountStatus.md) | Member status. | 
-**badges** | [**List<Object>**](Object.md) |  | [optional] [default to const []]
+**badges** | [**List<Object>**](Object.md) | Account badges. | [optional] [default to const []]
 **achievementsPoints** | **int** | Achievement points. | 
 **banned** | **bool** | Banned. | 
 **banReason** | **String** | Ban reason. | [optional] 
