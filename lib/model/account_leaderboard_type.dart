@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class AccountLeaderboardType {
   /// Instantiate a new enum with the provided [value].
   const AccountLeaderboardType._(this.value);
@@ -23,16 +22,21 @@ class AccountLeaderboardType {
 
   String toJson() => value;
 
-  static const achievementsPoints = AccountLeaderboardType._(r'achievements_points');
+  static const achievementsPoints =
+      AccountLeaderboardType._(r'achievements_points');
 
   /// List of all possible values in this [enum][AccountLeaderboardType].
   static const values = <AccountLeaderboardType>[
     achievementsPoints,
   ];
 
-  static AccountLeaderboardType? fromJson(dynamic value) => AccountLeaderboardTypeTypeTransformer().decode(value);
+  static AccountLeaderboardType? fromJson(dynamic value) =>
+      AccountLeaderboardTypeTypeTransformer().decode(value);
 
-  static List<AccountLeaderboardType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AccountLeaderboardType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AccountLeaderboardType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -49,7 +53,8 @@ class AccountLeaderboardType {
 /// Transformation class that can [encode] an instance of [AccountLeaderboardType] to String,
 /// and [decode] dynamic data back to [AccountLeaderboardType].
 class AccountLeaderboardTypeTypeTransformer {
-  factory AccountLeaderboardTypeTypeTransformer() => _instance ??= const AccountLeaderboardTypeTypeTransformer._();
+  factory AccountLeaderboardTypeTypeTransformer() =>
+      _instance ??= const AccountLeaderboardTypeTypeTransformer._();
 
   const AccountLeaderboardTypeTypeTransformer._();
 
@@ -66,7 +71,8 @@ class AccountLeaderboardTypeTypeTransformer {
   AccountLeaderboardType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'achievements_points': return AccountLeaderboardType.achievementsPoints;
+        case r'achievements_points':
+          return AccountLeaderboardType.achievementsPoints;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -79,4 +85,3 @@ class AccountLeaderboardTypeTypeTransformer {
   /// Singleton [AccountLeaderboardTypeTypeTransformer] instance.
   static AccountLeaderboardTypeTypeTransformer? _instance;
 }
-

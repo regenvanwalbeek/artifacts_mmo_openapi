@@ -28,7 +28,7 @@ class AccountAchievementSchema {
   /// Name of the achievement.
   String name;
 
-  /// Code of the achievement. 
+  /// Code of the achievement.
   String code;
 
   /// Description of the achievement.
@@ -54,50 +54,53 @@ class AccountAchievementSchema {
   DateTime? completedAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AccountAchievementSchema &&
-    other.name == name &&
-    other.code == code &&
-    other.description == description &&
-    other.points == points &&
-    other.type == type &&
-    other.target == target &&
-    other.total == total &&
-    other.rewards == rewards &&
-    other.current == current &&
-    other.completedAt == completedAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AccountAchievementSchema &&
+          other.name == name &&
+          other.code == code &&
+          other.description == description &&
+          other.points == points &&
+          other.type == type &&
+          other.target == target &&
+          other.total == total &&
+          other.rewards == rewards &&
+          other.current == current &&
+          other.completedAt == completedAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (name.hashCode) +
-    (code.hashCode) +
-    (description.hashCode) +
-    (points.hashCode) +
-    (type.hashCode) +
-    (target == null ? 0 : target!.hashCode) +
-    (total.hashCode) +
-    (rewards.hashCode) +
-    (current.hashCode) +
-    (completedAt == null ? 0 : completedAt!.hashCode);
+      // ignore: unnecessary_parenthesis
+      (name.hashCode) +
+      (code.hashCode) +
+      (description.hashCode) +
+      (points.hashCode) +
+      (type.hashCode) +
+      (target == null ? 0 : target!.hashCode) +
+      (total.hashCode) +
+      (rewards.hashCode) +
+      (current.hashCode) +
+      (completedAt == null ? 0 : completedAt!.hashCode);
 
   @override
-  String toString() => 'AccountAchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, rewards=$rewards, current=$current, completedAt=$completedAt]';
+  String toString() =>
+      'AccountAchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, rewards=$rewards, current=$current, completedAt=$completedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'name'] = this.name;
-      json[r'code'] = this.code;
-      json[r'description'] = this.description;
-      json[r'points'] = this.points;
-      json[r'type'] = this.type;
+    json[r'name'] = this.name;
+    json[r'code'] = this.code;
+    json[r'description'] = this.description;
+    json[r'points'] = this.points;
+    json[r'type'] = this.type;
     if (this.target != null) {
       json[r'target'] = this.target;
     } else {
       json[r'target'] = null;
     }
-      json[r'total'] = this.total;
-      json[r'rewards'] = this.rewards;
-      json[r'current'] = this.current;
+    json[r'total'] = this.total;
+    json[r'rewards'] = this.rewards;
+    json[r'current'] = this.current;
     if (this.completedAt != null) {
       json[r'completed_at'] = this.completedAt!.toUtc().toIso8601String();
     } else {
@@ -118,8 +121,10 @@ class AccountAchievementSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AccountAchievementSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AccountAchievementSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AccountAchievementSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AccountAchievementSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -140,7 +145,10 @@ class AccountAchievementSchema {
     return null;
   }
 
-  static List<AccountAchievementSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AccountAchievementSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AccountAchievementSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -168,13 +176,19 @@ class AccountAchievementSchema {
   }
 
   // maps a json object with a list of AccountAchievementSchema-objects as value to a dart map
-  static Map<String, List<AccountAchievementSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AccountAchievementSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AccountAchievementSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AccountAchievementSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AccountAchievementSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -194,4 +208,3 @@ class AccountAchievementSchema {
     'completed_at',
   };
 }
-

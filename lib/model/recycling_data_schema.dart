@@ -28,26 +28,27 @@ class RecyclingDataSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RecyclingDataSchema &&
-    other.cooldown == cooldown &&
-    other.details == details &&
-    other.character == character;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RecyclingDataSchema &&
+          other.cooldown == cooldown &&
+          other.details == details &&
+          other.character == character;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (cooldown.hashCode) +
-    (details.hashCode) +
-    (character.hashCode);
+      // ignore: unnecessary_parenthesis
+      (cooldown.hashCode) + (details.hashCode) + (character.hashCode);
 
   @override
-  String toString() => 'RecyclingDataSchema[cooldown=$cooldown, details=$details, character=$character]';
+  String toString() =>
+      'RecyclingDataSchema[cooldown=$cooldown, details=$details, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'cooldown'] = this.cooldown;
-      json[r'details'] = this.details;
-      json[r'character'] = this.character;
+    json[r'cooldown'] = this.cooldown;
+    json[r'details'] = this.details;
+    json[r'character'] = this.character;
     return json;
   }
 
@@ -63,8 +64,10 @@ class RecyclingDataSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "RecyclingDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "RecyclingDataSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "RecyclingDataSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "RecyclingDataSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -78,7 +81,10 @@ class RecyclingDataSchema {
     return null;
   }
 
-  static List<RecyclingDataSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<RecyclingDataSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <RecyclingDataSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,13 +112,19 @@ class RecyclingDataSchema {
   }
 
   // maps a json object with a list of RecyclingDataSchema-objects as value to a dart map
-  static Map<String, List<RecyclingDataSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<RecyclingDataSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<RecyclingDataSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = RecyclingDataSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = RecyclingDataSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -125,4 +137,3 @@ class RecyclingDataSchema {
     'character',
   };
 }
-

@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-
 class CharactersApi {
-  CharactersApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  CharactersApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -25,7 +25,9 @@ class CharactersApi {
   /// Parameters:
   ///
   /// * [AddCharacterSchema] addCharacterSchema (required):
-  Future<Response> createCharacterCharactersCreatePostWithHttpInfo(AddCharacterSchema addCharacterSchema,) async {
+  Future<Response> createCharacterCharactersCreatePostWithHttpInfo(
+    AddCharacterSchema addCharacterSchema,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/characters/create';
 
@@ -37,7 +39,6 @@ class CharactersApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -57,17 +58,24 @@ class CharactersApi {
   /// Parameters:
   ///
   /// * [AddCharacterSchema] addCharacterSchema (required):
-  Future<CharacterResponseSchema?> createCharacterCharactersCreatePost(AddCharacterSchema addCharacterSchema,) async {
-    final response = await createCharacterCharactersCreatePostWithHttpInfo(addCharacterSchema,);
+  Future<CharacterResponseSchema?> createCharacterCharactersCreatePost(
+    AddCharacterSchema addCharacterSchema,
+  ) async {
+    final response = await createCharacterCharactersCreatePostWithHttpInfo(
+      addCharacterSchema,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CharacterResponseSchema',) as CharacterResponseSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CharacterResponseSchema',
+      ) as CharacterResponseSchema;
     }
     return null;
   }
@@ -81,7 +89,9 @@ class CharactersApi {
   /// Parameters:
   ///
   /// * [DeleteCharacterSchema] deleteCharacterSchema (required):
-  Future<Response> deleteCharacterCharactersDeletePostWithHttpInfo(DeleteCharacterSchema deleteCharacterSchema,) async {
+  Future<Response> deleteCharacterCharactersDeletePostWithHttpInfo(
+    DeleteCharacterSchema deleteCharacterSchema,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/characters/delete';
 
@@ -93,7 +103,6 @@ class CharactersApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -113,17 +122,24 @@ class CharactersApi {
   /// Parameters:
   ///
   /// * [DeleteCharacterSchema] deleteCharacterSchema (required):
-  Future<CharacterResponseSchema?> deleteCharacterCharactersDeletePost(DeleteCharacterSchema deleteCharacterSchema,) async {
-    final response = await deleteCharacterCharactersDeletePostWithHttpInfo(deleteCharacterSchema,);
+  Future<CharacterResponseSchema?> deleteCharacterCharactersDeletePost(
+    DeleteCharacterSchema deleteCharacterSchema,
+  ) async {
+    final response = await deleteCharacterCharactersDeletePostWithHttpInfo(
+      deleteCharacterSchema,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CharacterResponseSchema',) as CharacterResponseSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CharacterResponseSchema',
+      ) as CharacterResponseSchema;
     }
     return null;
   }
@@ -138,10 +154,11 @@ class CharactersApi {
   ///
   /// * [String] name (required):
   ///   The character name.
-  Future<Response> getCharacterCharactersNameGetWithHttpInfo(String name,) async {
+  Future<Response> getCharacterCharactersNameGetWithHttpInfo(
+    String name,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/characters/{name}'
-      .replaceAll('{name}', name);
+    final path = r'/characters/{name}'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -151,7 +168,6 @@ class CharactersApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -172,17 +188,24 @@ class CharactersApi {
   ///
   /// * [String] name (required):
   ///   The character name.
-  Future<CharacterResponseSchema?> getCharacterCharactersNameGet(String name,) async {
-    final response = await getCharacterCharactersNameGetWithHttpInfo(name,);
+  Future<CharacterResponseSchema?> getCharacterCharactersNameGet(
+    String name,
+  ) async {
+    final response = await getCharacterCharactersNameGetWithHttpInfo(
+      name,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'CharacterResponseSchema',) as CharacterResponseSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CharacterResponseSchema',
+      ) as CharacterResponseSchema;
     }
     return null;
   }

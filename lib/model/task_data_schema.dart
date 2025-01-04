@@ -28,26 +28,27 @@ class TaskDataSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is TaskDataSchema &&
-    other.cooldown == cooldown &&
-    other.task == task &&
-    other.character == character;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is TaskDataSchema &&
+          other.cooldown == cooldown &&
+          other.task == task &&
+          other.character == character;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (cooldown.hashCode) +
-    (task.hashCode) +
-    (character.hashCode);
+      // ignore: unnecessary_parenthesis
+      (cooldown.hashCode) + (task.hashCode) + (character.hashCode);
 
   @override
-  String toString() => 'TaskDataSchema[cooldown=$cooldown, task=$task, character=$character]';
+  String toString() =>
+      'TaskDataSchema[cooldown=$cooldown, task=$task, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'cooldown'] = this.cooldown;
-      json[r'task'] = this.task;
-      json[r'character'] = this.character;
+    json[r'cooldown'] = this.cooldown;
+    json[r'task'] = this.task;
+    json[r'character'] = this.character;
     return json;
   }
 
@@ -63,8 +64,10 @@ class TaskDataSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "TaskDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "TaskDataSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "TaskDataSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "TaskDataSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -78,7 +81,10 @@ class TaskDataSchema {
     return null;
   }
 
-  static List<TaskDataSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TaskDataSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TaskDataSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -106,13 +112,19 @@ class TaskDataSchema {
   }
 
   // maps a json object with a list of TaskDataSchema-objects as value to a dart map
-  static Map<String, List<TaskDataSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<TaskDataSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<TaskDataSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = TaskDataSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TaskDataSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -125,4 +137,3 @@ class TaskDataSchema {
     'character',
   };
 }
-

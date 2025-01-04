@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class ItemSlot {
   /// Instantiate a new enum with the provided [value].
   const ItemSlot._(this.value);
@@ -56,9 +55,13 @@ class ItemSlot {
     utility2,
   ];
 
-  static ItemSlot? fromJson(dynamic value) => ItemSlotTypeTransformer().decode(value);
+  static ItemSlot? fromJson(dynamic value) =>
+      ItemSlotTypeTransformer().decode(value);
 
-  static List<ItemSlot> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ItemSlot> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ItemSlot>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -75,7 +78,8 @@ class ItemSlot {
 /// Transformation class that can [encode] an instance of [ItemSlot] to String,
 /// and [decode] dynamic data back to [ItemSlot].
 class ItemSlotTypeTransformer {
-  factory ItemSlotTypeTransformer() => _instance ??= const ItemSlotTypeTransformer._();
+  factory ItemSlotTypeTransformer() =>
+      _instance ??= const ItemSlotTypeTransformer._();
 
   const ItemSlotTypeTransformer._();
 
@@ -92,20 +96,34 @@ class ItemSlotTypeTransformer {
   ItemSlot? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'weapon': return ItemSlot.weapon;
-        case r'shield': return ItemSlot.shield;
-        case r'helmet': return ItemSlot.helmet;
-        case r'body_armor': return ItemSlot.bodyArmor;
-        case r'leg_armor': return ItemSlot.legArmor;
-        case r'boots': return ItemSlot.boots;
-        case r'ring1': return ItemSlot.ring1;
-        case r'ring2': return ItemSlot.ring2;
-        case r'amulet': return ItemSlot.amulet;
-        case r'artifact1': return ItemSlot.artifact1;
-        case r'artifact2': return ItemSlot.artifact2;
-        case r'artifact3': return ItemSlot.artifact3;
-        case r'utility1': return ItemSlot.utility1;
-        case r'utility2': return ItemSlot.utility2;
+        case r'weapon':
+          return ItemSlot.weapon;
+        case r'shield':
+          return ItemSlot.shield;
+        case r'helmet':
+          return ItemSlot.helmet;
+        case r'body_armor':
+          return ItemSlot.bodyArmor;
+        case r'leg_armor':
+          return ItemSlot.legArmor;
+        case r'boots':
+          return ItemSlot.boots;
+        case r'ring1':
+          return ItemSlot.ring1;
+        case r'ring2':
+          return ItemSlot.ring2;
+        case r'amulet':
+          return ItemSlot.amulet;
+        case r'artifact1':
+          return ItemSlot.artifact1;
+        case r'artifact2':
+          return ItemSlot.artifact2;
+        case r'artifact3':
+          return ItemSlot.artifact3;
+        case r'utility1':
+          return ItemSlot.utility1;
+        case r'utility2':
+          return ItemSlot.utility2;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -118,4 +136,3 @@ class ItemSlotTypeTransformer {
   /// Singleton [ItemSlotTypeTransformer] instance.
   static ItemSlotTypeTransformer? _instance;
 }
-

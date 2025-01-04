@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class Skill {
   /// Instantiate a new enum with the provided [value].
   const Skill._(this.value);
@@ -46,7 +45,10 @@ class Skill {
 
   static Skill? fromJson(dynamic value) => SkillTypeTransformer().decode(value);
 
-  static List<Skill> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<Skill> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <Skill>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -63,7 +65,8 @@ class Skill {
 /// Transformation class that can [encode] an instance of [Skill] to String,
 /// and [decode] dynamic data back to [Skill].
 class SkillTypeTransformer {
-  factory SkillTypeTransformer() => _instance ??= const SkillTypeTransformer._();
+  factory SkillTypeTransformer() =>
+      _instance ??= const SkillTypeTransformer._();
 
   const SkillTypeTransformer._();
 
@@ -80,14 +83,22 @@ class SkillTypeTransformer {
   Skill? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'weaponcrafting': return Skill.weaponcrafting;
-        case r'gearcrafting': return Skill.gearcrafting;
-        case r'jewelrycrafting': return Skill.jewelrycrafting;
-        case r'cooking': return Skill.cooking;
-        case r'woodcutting': return Skill.woodcutting;
-        case r'mining': return Skill.mining;
-        case r'alchemy': return Skill.alchemy;
-        case r'fishing': return Skill.fishing;
+        case r'weaponcrafting':
+          return Skill.weaponcrafting;
+        case r'gearcrafting':
+          return Skill.gearcrafting;
+        case r'jewelrycrafting':
+          return Skill.jewelrycrafting;
+        case r'cooking':
+          return Skill.cooking;
+        case r'woodcutting':
+          return Skill.woodcutting;
+        case r'mining':
+          return Skill.mining;
+        case r'alchemy':
+          return Skill.alchemy;
+        case r'fishing':
+          return Skill.fishing;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -100,4 +111,3 @@ class SkillTypeTransformer {
   /// Singleton [SkillTypeTransformer] instance.
   static SkillTypeTransformer? _instance;
 }
-

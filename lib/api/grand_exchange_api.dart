@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-
 class GrandExchangeApi {
-  GrandExchangeApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  GrandExchangeApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -38,10 +38,15 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(String code, { String? seller, String? buyer, int? page, int? size, }) async {
+  Future<Response> getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
+    String code, {
+    String? seller,
+    String? buyer,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/grandexchange/history/{code}'
-      .replaceAll('{code}', code);
+    final path = r'/grandexchange/history/{code}'.replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -64,7 +69,6 @@ class GrandExchangeApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -97,17 +101,34 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?> getGeSellHistoryGrandexchangeHistoryCodeGet(String code, { String? seller, String? buyer, int? page, int? size, }) async {
-    final response = await getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(code,  seller: seller, buyer: buyer, page: page, size: size, );
+  Future<DataPageGeOrderHistorySchema?>
+      getGeSellHistoryGrandexchangeHistoryCodeGet(
+    String code, {
+    String? seller,
+    String? buyer,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
+      code,
+      seller: seller,
+      buyer: buyer,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageGeOrderHistorySchema',) as DataPageGeOrderHistorySchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageGeOrderHistorySchema',
+      ) as DataPageGeOrderHistorySchema;
     }
     return null;
   }
@@ -122,10 +143,11 @@ class GrandExchangeApi {
   ///
   /// * [String] id (required):
   ///   The id of the order.
-  Future<Response> getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(String id,) async {
+  Future<Response> getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
+    String id,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/grandexchange/orders/{id}'
-      .replaceAll('{id}', id);
+    final path = r'/grandexchange/orders/{id}'.replaceAll('{id}', id);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -135,7 +157,6 @@ class GrandExchangeApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -156,17 +177,24 @@ class GrandExchangeApi {
   ///
   /// * [String] id (required):
   ///   The id of the order.
-  Future<GEOrderReponseSchema?> getGeSellOrderGrandexchangeOrdersIdGet(String id,) async {
-    final response = await getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(id,);
+  Future<GEOrderReponseSchema?> getGeSellOrderGrandexchangeOrdersIdGet(
+    String id,
+  ) async {
+    final response = await getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
+      id,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'GEOrderReponseSchema',) as GEOrderReponseSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GEOrderReponseSchema',
+      ) as GEOrderReponseSchema;
     }
     return null;
   }
@@ -190,7 +218,12 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo({ String? code, String? seller, int? page, int? size, }) async {
+  Future<Response> getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo({
+    String? code,
+    String? seller,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/grandexchange/orders';
 
@@ -216,7 +249,6 @@ class GrandExchangeApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -245,17 +277,30 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGEOrderSchema?> getGeSellOrdersGrandexchangeOrdersGet({ String? code, String? seller, int? page, int? size, }) async {
-    final response = await getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo( code: code, seller: seller, page: page, size: size, );
+  Future<DataPageGEOrderSchema?> getGeSellOrdersGrandexchangeOrdersGet({
+    String? code,
+    String? seller,
+    int? page,
+    int? size,
+  }) async {
+    final response = await getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo(
+      code: code,
+      seller: seller,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageGEOrderSchema',) as DataPageGEOrderSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageGEOrderSchema',
+      ) as DataPageGEOrderSchema;
     }
     return null;
   }

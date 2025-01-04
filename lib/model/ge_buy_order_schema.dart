@@ -27,23 +27,22 @@ class GEBuyOrderSchema {
   int quantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GEBuyOrderSchema &&
-    other.id == id &&
-    other.quantity == quantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GEBuyOrderSchema && other.id == id && other.quantity == quantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (quantity.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) + (quantity.hashCode);
 
   @override
   String toString() => 'GEBuyOrderSchema[id=$id, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = this.id;
-      json[r'quantity'] = this.quantity;
+    json[r'id'] = this.id;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -59,8 +58,10 @@ class GEBuyOrderSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GEBuyOrderSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GEBuyOrderSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GEBuyOrderSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GEBuyOrderSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -73,7 +74,10 @@ class GEBuyOrderSchema {
     return null;
   }
 
-  static List<GEBuyOrderSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GEBuyOrderSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GEBuyOrderSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -101,13 +105,19 @@ class GEBuyOrderSchema {
   }
 
   // maps a json object with a list of GEBuyOrderSchema-objects as value to a dart map
-  static Map<String, List<GEBuyOrderSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GEBuyOrderSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GEBuyOrderSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEBuyOrderSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GEBuyOrderSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -119,4 +129,3 @@ class GEBuyOrderSchema {
     'quantity',
   };
 }
-

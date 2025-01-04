@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class LogType {
   /// Instantiate a new enum with the provided [value].
   const LogType._(this.value);
@@ -78,9 +77,13 @@ class LogType {
     achievement,
   ];
 
-  static LogType? fromJson(dynamic value) => LogTypeTypeTransformer().decode(value);
+  static LogType? fromJson(dynamic value) =>
+      LogTypeTypeTransformer().decode(value);
 
-  static List<LogType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<LogType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <LogType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -97,7 +100,8 @@ class LogType {
 /// Transformation class that can [encode] an instance of [LogType] to String,
 /// and [decode] dynamic data back to [LogType].
 class LogTypeTypeTransformer {
-  factory LogTypeTypeTransformer() => _instance ??= const LogTypeTypeTransformer._();
+  factory LogTypeTypeTransformer() =>
+      _instance ??= const LogTypeTypeTransformer._();
 
   const LogTypeTypeTransformer._();
 
@@ -114,31 +118,56 @@ class LogTypeTypeTransformer {
   LogType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'spawn': return LogType.spawn;
-        case r'movement': return LogType.movement;
-        case r'fight': return LogType.fight;
-        case r'crafting': return LogType.crafting;
-        case r'gathering': return LogType.gathering;
-        case r'buy_ge': return LogType.buyGe;
-        case r'sell_ge': return LogType.sellGe;
-        case r'cancel_ge': return LogType.cancelGe;
-        case r'delete_item': return LogType.deleteItem;
-        case r'deposit': return LogType.deposit;
-        case r'withdraw': return LogType.withdraw;
-        case r'deposit_gold': return LogType.depositGold;
-        case r'withdraw_gold': return LogType.withdrawGold;
-        case r'equip': return LogType.equip;
-        case r'unequip': return LogType.unequip;
-        case r'new_task': return LogType.newTask;
-        case r'task_exchange': return LogType.taskExchange;
-        case r'task_cancelled': return LogType.taskCancelled;
-        case r'task_completed': return LogType.taskCompleted;
-        case r'task_trade': return LogType.taskTrade;
-        case r'recycling': return LogType.recycling;
-        case r'rest': return LogType.rest;
-        case r'use': return LogType.use;
-        case r'buy_bank_expansion': return LogType.buyBankExpansion;
-        case r'achievement': return LogType.achievement;
+        case r'spawn':
+          return LogType.spawn;
+        case r'movement':
+          return LogType.movement;
+        case r'fight':
+          return LogType.fight;
+        case r'crafting':
+          return LogType.crafting;
+        case r'gathering':
+          return LogType.gathering;
+        case r'buy_ge':
+          return LogType.buyGe;
+        case r'sell_ge':
+          return LogType.sellGe;
+        case r'cancel_ge':
+          return LogType.cancelGe;
+        case r'delete_item':
+          return LogType.deleteItem;
+        case r'deposit':
+          return LogType.deposit;
+        case r'withdraw':
+          return LogType.withdraw;
+        case r'deposit_gold':
+          return LogType.depositGold;
+        case r'withdraw_gold':
+          return LogType.withdrawGold;
+        case r'equip':
+          return LogType.equip;
+        case r'unequip':
+          return LogType.unequip;
+        case r'new_task':
+          return LogType.newTask;
+        case r'task_exchange':
+          return LogType.taskExchange;
+        case r'task_cancelled':
+          return LogType.taskCancelled;
+        case r'task_completed':
+          return LogType.taskCompleted;
+        case r'task_trade':
+          return LogType.taskTrade;
+        case r'recycling':
+          return LogType.recycling;
+        case r'rest':
+          return LogType.rest;
+        case r'use':
+          return LogType.use;
+        case r'buy_bank_expansion':
+          return LogType.buyBankExpansion;
+        case r'achievement':
+          return LogType.achievement;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -151,4 +180,3 @@ class LogTypeTypeTransformer {
   /// Singleton [LogTypeTypeTransformer] instance.
   static LogTypeTypeTransformer? _instance;
 }
-

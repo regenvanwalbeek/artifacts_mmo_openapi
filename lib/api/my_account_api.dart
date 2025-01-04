@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-
 class MyAccountApi {
-  MyAccountApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  MyAccountApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -25,7 +25,9 @@ class MyAccountApi {
   /// Parameters:
   ///
   /// * [ChangePassword] changePassword (required):
-  Future<Response> changePasswordMyChangePasswordPostWithHttpInfo(ChangePassword changePassword,) async {
+  Future<Response> changePasswordMyChangePasswordPostWithHttpInfo(
+    ChangePassword changePassword,
+  ) async {
     // ignore: prefer_const_declarations
     final path = r'/my/change_password';
 
@@ -37,7 +39,6 @@ class MyAccountApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>['application/json'];
-
 
     return apiClient.invokeAPI(
       path,
@@ -57,17 +58,24 @@ class MyAccountApi {
   /// Parameters:
   ///
   /// * [ChangePassword] changePassword (required):
-  Future<ResponseSchema?> changePasswordMyChangePasswordPost(ChangePassword changePassword,) async {
-    final response = await changePasswordMyChangePasswordPostWithHttpInfo(changePassword,);
+  Future<ResponseSchema?> changePasswordMyChangePasswordPost(
+    ChangePassword changePassword,
+  ) async {
+    final response = await changePasswordMyChangePasswordPostWithHttpInfo(
+      changePassword,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseSchema',) as ResponseSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ResponseSchema',
+      ) as ResponseSchema;
     }
     return null;
   }
@@ -89,7 +97,6 @@ class MyAccountApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -113,9 +120,12 @@ class MyAccountApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'MyAccountDetailsSchema',) as MyAccountDetailsSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MyAccountDetailsSchema',
+      ) as MyAccountDetailsSchema;
     }
     return null;
   }
@@ -137,7 +147,6 @@ class MyAccountApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -161,9 +170,12 @@ class MyAccountApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'BankResponseSchema',) as BankResponseSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'BankResponseSchema',
+      ) as BankResponseSchema;
     }
     return null;
   }
@@ -184,7 +196,11 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getBankItemsMyBankItemsGetWithHttpInfo({ String? itemCode, int? page, int? size, }) async {
+  Future<Response> getBankItemsMyBankItemsGetWithHttpInfo({
+    String? itemCode,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/bank/items';
 
@@ -206,7 +222,6 @@ class MyAccountApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -233,17 +248,28 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageSimpleItemSchema?> getBankItemsMyBankItemsGet({ String? itemCode, int? page, int? size, }) async {
-    final response = await getBankItemsMyBankItemsGetWithHttpInfo( itemCode: itemCode, page: page, size: size, );
+  Future<DataPageSimpleItemSchema?> getBankItemsMyBankItemsGet({
+    String? itemCode,
+    int? page,
+    int? size,
+  }) async {
+    final response = await getBankItemsMyBankItemsGetWithHttpInfo(
+      itemCode: itemCode,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageSimpleItemSchema',) as DataPageSimpleItemSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageSimpleItemSchema',
+      ) as DataPageSimpleItemSchema;
     }
     return null;
   }
@@ -267,7 +293,12 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo({ String? id, String? code, int? page, int? size, }) async {
+  Future<Response> getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo({
+    String? id,
+    String? code,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/grandexchange/history';
 
@@ -293,7 +324,6 @@ class MyAccountApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -322,17 +352,32 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?> getGeSellHistoryMyGrandexchangeHistoryGet({ String? id, String? code, int? page, int? size, }) async {
-    final response = await getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo( id: id, code: code, page: page, size: size, );
+  Future<DataPageGeOrderHistorySchema?>
+      getGeSellHistoryMyGrandexchangeHistoryGet({
+    String? id,
+    String? code,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo(
+      id: id,
+      code: code,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageGeOrderHistorySchema',) as DataPageGeOrderHistorySchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageGeOrderHistorySchema',
+      ) as DataPageGeOrderHistorySchema;
     }
     return null;
   }
@@ -353,7 +398,11 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo({ String? code, int? page, int? size, }) async {
+  Future<Response> getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo({
+    String? code,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/grandexchange/orders';
 
@@ -375,7 +424,6 @@ class MyAccountApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -402,17 +450,28 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGEOrderSchema?> getGeSellOrdersMyGrandexchangeOrdersGet({ String? code, int? page, int? size, }) async {
-    final response = await getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo( code: code, page: page, size: size, );
+  Future<DataPageGEOrderSchema?> getGeSellOrdersMyGrandexchangeOrdersGet({
+    String? code,
+    int? page,
+    int? size,
+  }) async {
+    final response = await getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo(
+      code: code,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageGEOrderSchema',) as DataPageGEOrderSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageGEOrderSchema',
+      ) as DataPageGEOrderSchema;
     }
     return null;
   }

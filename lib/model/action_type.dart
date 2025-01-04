@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class ActionType {
   /// Instantiate a new enum with the provided [value].
   const ActionType._(this.value);
@@ -66,9 +65,13 @@ class ActionType {
     buyBankExpansion,
   ];
 
-  static ActionType? fromJson(dynamic value) => ActionTypeTypeTransformer().decode(value);
+  static ActionType? fromJson(dynamic value) =>
+      ActionTypeTypeTransformer().decode(value);
 
-  static List<ActionType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<ActionType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <ActionType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -85,7 +88,8 @@ class ActionType {
 /// Transformation class that can [encode] an instance of [ActionType] to String,
 /// and [decode] dynamic data back to [ActionType].
 class ActionTypeTypeTransformer {
-  factory ActionTypeTypeTransformer() => _instance ??= const ActionTypeTypeTransformer._();
+  factory ActionTypeTypeTransformer() =>
+      _instance ??= const ActionTypeTypeTransformer._();
 
   const ActionTypeTypeTransformer._();
 
@@ -102,25 +106,44 @@ class ActionTypeTypeTransformer {
   ActionType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'movement': return ActionType.movement;
-        case r'fight': return ActionType.fight;
-        case r'crafting': return ActionType.crafting;
-        case r'gathering': return ActionType.gathering;
-        case r'buy_ge': return ActionType.buyGe;
-        case r'sell_ge': return ActionType.sellGe;
-        case r'cancel_ge': return ActionType.cancelGe;
-        case r'delete_item': return ActionType.deleteItem;
-        case r'deposit': return ActionType.deposit;
-        case r'withdraw': return ActionType.withdraw;
-        case r'deposit_gold': return ActionType.depositGold;
-        case r'withdraw_gold': return ActionType.withdrawGold;
-        case r'equip': return ActionType.equip;
-        case r'unequip': return ActionType.unequip;
-        case r'task': return ActionType.task;
-        case r'recycling': return ActionType.recycling;
-        case r'rest': return ActionType.rest;
-        case r'use': return ActionType.use;
-        case r'buy_bank_expansion': return ActionType.buyBankExpansion;
+        case r'movement':
+          return ActionType.movement;
+        case r'fight':
+          return ActionType.fight;
+        case r'crafting':
+          return ActionType.crafting;
+        case r'gathering':
+          return ActionType.gathering;
+        case r'buy_ge':
+          return ActionType.buyGe;
+        case r'sell_ge':
+          return ActionType.sellGe;
+        case r'cancel_ge':
+          return ActionType.cancelGe;
+        case r'delete_item':
+          return ActionType.deleteItem;
+        case r'deposit':
+          return ActionType.deposit;
+        case r'withdraw':
+          return ActionType.withdraw;
+        case r'deposit_gold':
+          return ActionType.depositGold;
+        case r'withdraw_gold':
+          return ActionType.withdrawGold;
+        case r'equip':
+          return ActionType.equip;
+        case r'unequip':
+          return ActionType.unequip;
+        case r'task':
+          return ActionType.task;
+        case r'recycling':
+          return ActionType.recycling;
+        case r'rest':
+          return ActionType.rest;
+        case r'use':
+          return ActionType.use;
+        case r'buy_bank_expansion':
+          return ActionType.buyBankExpansion;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -133,4 +156,3 @@ class ActionTypeTypeTransformer {
   /// Singleton [ActionTypeTypeTransformer] instance.
   static ActionTypeTypeTransformer? _instance;
 }
-

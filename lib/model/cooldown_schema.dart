@@ -36,32 +36,35 @@ class CooldownSchema {
   ActionType reason;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CooldownSchema &&
-    other.totalSeconds == totalSeconds &&
-    other.remainingSeconds == remainingSeconds &&
-    other.startedAt == startedAt &&
-    other.expiration == expiration &&
-    other.reason == reason;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CooldownSchema &&
+          other.totalSeconds == totalSeconds &&
+          other.remainingSeconds == remainingSeconds &&
+          other.startedAt == startedAt &&
+          other.expiration == expiration &&
+          other.reason == reason;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (totalSeconds.hashCode) +
-    (remainingSeconds.hashCode) +
-    (startedAt.hashCode) +
-    (expiration.hashCode) +
-    (reason.hashCode);
+      // ignore: unnecessary_parenthesis
+      (totalSeconds.hashCode) +
+      (remainingSeconds.hashCode) +
+      (startedAt.hashCode) +
+      (expiration.hashCode) +
+      (reason.hashCode);
 
   @override
-  String toString() => 'CooldownSchema[totalSeconds=$totalSeconds, remainingSeconds=$remainingSeconds, startedAt=$startedAt, expiration=$expiration, reason=$reason]';
+  String toString() =>
+      'CooldownSchema[totalSeconds=$totalSeconds, remainingSeconds=$remainingSeconds, startedAt=$startedAt, expiration=$expiration, reason=$reason]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'total_seconds'] = this.totalSeconds;
-      json[r'remaining_seconds'] = this.remainingSeconds;
-      json[r'started_at'] = this.startedAt.toUtc().toIso8601String();
-      json[r'expiration'] = this.expiration.toUtc().toIso8601String();
-      json[r'reason'] = this.reason;
+    json[r'total_seconds'] = this.totalSeconds;
+    json[r'remaining_seconds'] = this.remainingSeconds;
+    json[r'started_at'] = this.startedAt.toUtc().toIso8601String();
+    json[r'expiration'] = this.expiration.toUtc().toIso8601String();
+    json[r'reason'] = this.reason;
     return json;
   }
 
@@ -77,8 +80,10 @@ class CooldownSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "CooldownSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "CooldownSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "CooldownSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "CooldownSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -94,7 +99,10 @@ class CooldownSchema {
     return null;
   }
 
-  static List<CooldownSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CooldownSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CooldownSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -122,13 +130,19 @@ class CooldownSchema {
   }
 
   // maps a json object with a list of CooldownSchema-objects as value to a dart map
-  static Map<String, List<CooldownSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<CooldownSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<CooldownSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CooldownSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = CooldownSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -143,4 +157,3 @@ class CooldownSchema {
     'reason',
   };
 }
-

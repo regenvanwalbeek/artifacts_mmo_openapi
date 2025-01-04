@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class CraftSkill {
   /// Instantiate a new enum with the provided [value].
   const CraftSkill._(this.value);
@@ -42,9 +41,13 @@ class CraftSkill {
     alchemy,
   ];
 
-  static CraftSkill? fromJson(dynamic value) => CraftSkillTypeTransformer().decode(value);
+  static CraftSkill? fromJson(dynamic value) =>
+      CraftSkillTypeTransformer().decode(value);
 
-  static List<CraftSkill> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<CraftSkill> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <CraftSkill>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -61,7 +64,8 @@ class CraftSkill {
 /// Transformation class that can [encode] an instance of [CraftSkill] to String,
 /// and [decode] dynamic data back to [CraftSkill].
 class CraftSkillTypeTransformer {
-  factory CraftSkillTypeTransformer() => _instance ??= const CraftSkillTypeTransformer._();
+  factory CraftSkillTypeTransformer() =>
+      _instance ??= const CraftSkillTypeTransformer._();
 
   const CraftSkillTypeTransformer._();
 
@@ -78,13 +82,20 @@ class CraftSkillTypeTransformer {
   CraftSkill? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'weaponcrafting': return CraftSkill.weaponcrafting;
-        case r'gearcrafting': return CraftSkill.gearcrafting;
-        case r'jewelrycrafting': return CraftSkill.jewelrycrafting;
-        case r'cooking': return CraftSkill.cooking;
-        case r'woodcutting': return CraftSkill.woodcutting;
-        case r'mining': return CraftSkill.mining;
-        case r'alchemy': return CraftSkill.alchemy;
+        case r'weaponcrafting':
+          return CraftSkill.weaponcrafting;
+        case r'gearcrafting':
+          return CraftSkill.gearcrafting;
+        case r'jewelrycrafting':
+          return CraftSkill.jewelrycrafting;
+        case r'cooking':
+          return CraftSkill.cooking;
+        case r'woodcutting':
+          return CraftSkill.woodcutting;
+        case r'mining':
+          return CraftSkill.mining;
+        case r'alchemy':
+          return CraftSkill.alchemy;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -97,4 +108,3 @@ class CraftSkillTypeTransformer {
   /// Singleton [CraftSkillTypeTransformer] instance.
   static CraftSkillTypeTransformer? _instance;
 }
-

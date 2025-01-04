@@ -32,29 +32,32 @@ class AccountLeaderboardSchema {
   int achievementsPoints;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AccountLeaderboardSchema &&
-    other.position == position &&
-    other.account == account &&
-    other.status == status &&
-    other.achievementsPoints == achievementsPoints;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AccountLeaderboardSchema &&
+          other.position == position &&
+          other.account == account &&
+          other.status == status &&
+          other.achievementsPoints == achievementsPoints;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (position.hashCode) +
-    (account.hashCode) +
-    (status.hashCode) +
-    (achievementsPoints.hashCode);
+      // ignore: unnecessary_parenthesis
+      (position.hashCode) +
+      (account.hashCode) +
+      (status.hashCode) +
+      (achievementsPoints.hashCode);
 
   @override
-  String toString() => 'AccountLeaderboardSchema[position=$position, account=$account, status=$status, achievementsPoints=$achievementsPoints]';
+  String toString() =>
+      'AccountLeaderboardSchema[position=$position, account=$account, status=$status, achievementsPoints=$achievementsPoints]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'position'] = this.position;
-      json[r'account'] = this.account;
-      json[r'status'] = this.status;
-      json[r'achievements_points'] = this.achievementsPoints;
+    json[r'position'] = this.position;
+    json[r'account'] = this.account;
+    json[r'status'] = this.status;
+    json[r'achievements_points'] = this.achievementsPoints;
     return json;
   }
 
@@ -70,8 +73,10 @@ class AccountLeaderboardSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AccountLeaderboardSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AccountLeaderboardSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "AccountLeaderboardSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "AccountLeaderboardSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -86,7 +91,10 @@ class AccountLeaderboardSchema {
     return null;
   }
 
-  static List<AccountLeaderboardSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<AccountLeaderboardSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <AccountLeaderboardSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,13 +122,19 @@ class AccountLeaderboardSchema {
   }
 
   // maps a json object with a list of AccountLeaderboardSchema-objects as value to a dart map
-  static Map<String, List<AccountLeaderboardSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<AccountLeaderboardSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<AccountLeaderboardSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AccountLeaderboardSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = AccountLeaderboardSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -134,4 +148,3 @@ class AccountLeaderboardSchema {
     'achievements_points',
   };
 }
-

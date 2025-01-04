@@ -36,32 +36,35 @@ class GETransactionSchema {
   int totalPrice;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GETransactionSchema &&
-    other.id == id &&
-    other.code == code &&
-    other.quantity == quantity &&
-    other.price == price &&
-    other.totalPrice == totalPrice;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GETransactionSchema &&
+          other.id == id &&
+          other.code == code &&
+          other.quantity == quantity &&
+          other.price == price &&
+          other.totalPrice == totalPrice;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (code.hashCode) +
-    (quantity.hashCode) +
-    (price.hashCode) +
-    (totalPrice.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (code.hashCode) +
+      (quantity.hashCode) +
+      (price.hashCode) +
+      (totalPrice.hashCode);
 
   @override
-  String toString() => 'GETransactionSchema[id=$id, code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice]';
+  String toString() =>
+      'GETransactionSchema[id=$id, code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = this.id;
-      json[r'code'] = this.code;
-      json[r'quantity'] = this.quantity;
-      json[r'price'] = this.price;
-      json[r'total_price'] = this.totalPrice;
+    json[r'id'] = this.id;
+    json[r'code'] = this.code;
+    json[r'quantity'] = this.quantity;
+    json[r'price'] = this.price;
+    json[r'total_price'] = this.totalPrice;
     return json;
   }
 
@@ -77,8 +80,10 @@ class GETransactionSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GETransactionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GETransactionSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GETransactionSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GETransactionSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -94,7 +99,10 @@ class GETransactionSchema {
     return null;
   }
 
-  static List<GETransactionSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GETransactionSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GETransactionSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -122,13 +130,19 @@ class GETransactionSchema {
   }
 
   // maps a json object with a list of GETransactionSchema-objects as value to a dart map
-  static Map<String, List<GETransactionSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GETransactionSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GETransactionSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GETransactionSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GETransactionSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -143,4 +157,3 @@ class GETransactionSchema {
     'total_price',
   };
 }
-

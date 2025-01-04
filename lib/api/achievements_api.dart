@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-
 class AchievementsApi {
-  AchievementsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  AchievementsApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -26,10 +26,11 @@ class AchievementsApi {
   ///
   /// * [String] code (required):
   ///   The code of the achievement.
-  Future<Response> getAchievementAchievementsCodeGetWithHttpInfo(String code,) async {
+  Future<Response> getAchievementAchievementsCodeGetWithHttpInfo(
+    String code,
+  ) async {
     // ignore: prefer_const_declarations
-    final path = r'/achievements/{code}'
-      .replaceAll('{code}', code);
+    final path = r'/achievements/{code}'.replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -39,7 +40,6 @@ class AchievementsApi {
     final formParams = <String, String>{};
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -60,17 +60,24 @@ class AchievementsApi {
   ///
   /// * [String] code (required):
   ///   The code of the achievement.
-  Future<AchievementResponseSchema?> getAchievementAchievementsCodeGet(String code,) async {
-    final response = await getAchievementAchievementsCodeGetWithHttpInfo(code,);
+  Future<AchievementResponseSchema?> getAchievementAchievementsCodeGet(
+    String code,
+  ) async {
+    final response = await getAchievementAchievementsCodeGetWithHttpInfo(
+      code,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AchievementResponseSchema',) as AchievementResponseSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'AchievementResponseSchema',
+      ) as AchievementResponseSchema;
     }
     return null;
   }
@@ -91,7 +98,11 @@ class AchievementsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllAchievementsAchievementsGetWithHttpInfo({ AchievementType? type, int? page, int? size, }) async {
+  Future<Response> getAllAchievementsAchievementsGetWithHttpInfo({
+    AchievementType? type,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/achievements';
 
@@ -114,7 +125,6 @@ class AchievementsApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -140,17 +150,28 @@ class AchievementsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageAchievementSchema?> getAllAchievementsAchievementsGet({ AchievementType? type, int? page, int? size, }) async {
-    final response = await getAllAchievementsAchievementsGetWithHttpInfo( type: type, page: page, size: size, );
+  Future<DataPageAchievementSchema?> getAllAchievementsAchievementsGet({
+    AchievementType? type,
+    int? page,
+    int? size,
+  }) async {
+    final response = await getAllAchievementsAchievementsGetWithHttpInfo(
+      type: type,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageAchievementSchema',) as DataPageAchievementSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageAchievementSchema',
+      ) as DataPageAchievementSchema;
     }
     return null;
   }

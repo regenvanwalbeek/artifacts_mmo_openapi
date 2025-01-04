@@ -97,8 +97,10 @@ class BaseAchievementSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "BaseAchievementSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "BaseAchievementSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "BaseAchievementSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "BaseAchievementSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());

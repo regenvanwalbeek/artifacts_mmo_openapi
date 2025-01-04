@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-
 class LeaderboardApi {
-  LeaderboardApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  LeaderboardApi([ApiClient? apiClient])
+      : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -32,7 +32,11 @@ class LeaderboardApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo({ AccountLeaderboardType? sort, int? page, int? size, }) async {
+  Future<Response> getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo({
+    AccountLeaderboardType? sort,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/leaderboard/accounts';
 
@@ -55,7 +59,6 @@ class LeaderboardApi {
 
     const contentTypes = <String>[];
 
-
     return apiClient.invokeAPI(
       path,
       'GET',
@@ -81,17 +84,30 @@ class LeaderboardApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageAccountLeaderboardSchema?> getAccountsLeaderboardLeaderboardAccountsGet({ AccountLeaderboardType? sort, int? page, int? size, }) async {
-    final response = await getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo( sort: sort, page: page, size: size, );
+  Future<DataPageAccountLeaderboardSchema?>
+      getAccountsLeaderboardLeaderboardAccountsGet({
+    AccountLeaderboardType? sort,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo(
+      sort: sort,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageAccountLeaderboardSchema',) as DataPageAccountLeaderboardSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageAccountLeaderboardSchema',
+      ) as DataPageAccountLeaderboardSchema;
     }
     return null;
   }
@@ -112,7 +128,12 @@ class LeaderboardApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo({ CharacterLeaderboardType? sort, int? page, int? size, }) async {
+  Future<Response>
+      getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo({
+    CharacterLeaderboardType? sort,
+    int? page,
+    int? size,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/leaderboard/characters';
 
@@ -134,7 +155,6 @@ class LeaderboardApi {
     }
 
     const contentTypes = <String>[];
-
 
     return apiClient.invokeAPI(
       path,
@@ -161,17 +181,30 @@ class LeaderboardApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageCharacterLeaderboardSchema?> getCharactersLeaderboardLeaderboardCharactersGet({ CharacterLeaderboardType? sort, int? page, int? size, }) async {
-    final response = await getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo( sort: sort, page: page, size: size, );
+  Future<DataPageCharacterLeaderboardSchema?>
+      getCharactersLeaderboardLeaderboardCharactersGet({
+    CharacterLeaderboardType? sort,
+    int? page,
+    int? size,
+  }) async {
+    final response =
+        await getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo(
+      sort: sort,
+      page: page,
+      size: size,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'DataPageCharacterLeaderboardSchema',) as DataPageCharacterLeaderboardSchema;
-    
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageCharacterLeaderboardSchema',
+      ) as DataPageCharacterLeaderboardSchema;
     }
     return null;
   }

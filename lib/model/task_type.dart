@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class TaskType {
   /// Instantiate a new enum with the provided [value].
   const TaskType._(this.value);
@@ -32,9 +31,13 @@ class TaskType {
     items,
   ];
 
-  static TaskType? fromJson(dynamic value) => TaskTypeTypeTransformer().decode(value);
+  static TaskType? fromJson(dynamic value) =>
+      TaskTypeTypeTransformer().decode(value);
 
-  static List<TaskType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<TaskType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <TaskType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -51,7 +54,8 @@ class TaskType {
 /// Transformation class that can [encode] an instance of [TaskType] to String,
 /// and [decode] dynamic data back to [TaskType].
 class TaskTypeTypeTransformer {
-  factory TaskTypeTypeTransformer() => _instance ??= const TaskTypeTypeTransformer._();
+  factory TaskTypeTypeTransformer() =>
+      _instance ??= const TaskTypeTypeTransformer._();
 
   const TaskTypeTypeTransformer._();
 
@@ -68,8 +72,10 @@ class TaskTypeTypeTransformer {
   TaskType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'monsters': return TaskType.monsters;
-        case r'items': return TaskType.items;
+        case r'monsters':
+          return TaskType.monsters;
+        case r'items':
+          return TaskType.items;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -82,4 +88,3 @@ class TaskTypeTypeTransformer {
   /// Singleton [TaskTypeTypeTransformer] instance.
   static TaskTypeTypeTransformer? _instance;
 }
-

@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class FightResult {
   /// Instantiate a new enum with the provided [value].
   const FightResult._(this.value);
@@ -32,9 +31,13 @@ class FightResult {
     loss,
   ];
 
-  static FightResult? fromJson(dynamic value) => FightResultTypeTransformer().decode(value);
+  static FightResult? fromJson(dynamic value) =>
+      FightResultTypeTransformer().decode(value);
 
-  static List<FightResult> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<FightResult> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <FightResult>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -51,7 +54,8 @@ class FightResult {
 /// Transformation class that can [encode] an instance of [FightResult] to String,
 /// and [decode] dynamic data back to [FightResult].
 class FightResultTypeTransformer {
-  factory FightResultTypeTransformer() => _instance ??= const FightResultTypeTransformer._();
+  factory FightResultTypeTransformer() =>
+      _instance ??= const FightResultTypeTransformer._();
 
   const FightResultTypeTransformer._();
 
@@ -68,8 +72,10 @@ class FightResultTypeTransformer {
   FightResult? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'win': return FightResult.win;
-        case r'loss': return FightResult.loss;
+        case r'win':
+          return FightResult.win;
+        case r'loss':
+          return FightResult.loss;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -82,4 +88,3 @@ class FightResultTypeTransformer {
   /// Singleton [FightResultTypeTransformer] instance.
   static FightResultTypeTransformer? _instance;
 }
-

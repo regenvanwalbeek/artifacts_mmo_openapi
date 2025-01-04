@@ -32,29 +32,32 @@ class EquipRequestSchema {
   CharacterSchema character;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EquipRequestSchema &&
-    other.cooldown == cooldown &&
-    other.slot == slot &&
-    other.item == item &&
-    other.character == character;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is EquipRequestSchema &&
+          other.cooldown == cooldown &&
+          other.slot == slot &&
+          other.item == item &&
+          other.character == character;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (cooldown.hashCode) +
-    (slot.hashCode) +
-    (item.hashCode) +
-    (character.hashCode);
+      // ignore: unnecessary_parenthesis
+      (cooldown.hashCode) +
+      (slot.hashCode) +
+      (item.hashCode) +
+      (character.hashCode);
 
   @override
-  String toString() => 'EquipRequestSchema[cooldown=$cooldown, slot=$slot, item=$item, character=$character]';
+  String toString() =>
+      'EquipRequestSchema[cooldown=$cooldown, slot=$slot, item=$item, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'cooldown'] = this.cooldown;
-      json[r'slot'] = this.slot;
-      json[r'item'] = this.item;
-      json[r'character'] = this.character;
+    json[r'cooldown'] = this.cooldown;
+    json[r'slot'] = this.slot;
+    json[r'item'] = this.item;
+    json[r'character'] = this.character;
     return json;
   }
 
@@ -70,8 +73,10 @@ class EquipRequestSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EquipRequestSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EquipRequestSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "EquipRequestSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "EquipRequestSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -86,7 +91,10 @@ class EquipRequestSchema {
     return null;
   }
 
-  static List<EquipRequestSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<EquipRequestSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <EquipRequestSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -114,13 +122,19 @@ class EquipRequestSchema {
   }
 
   // maps a json object with a list of EquipRequestSchema-objects as value to a dart map
-  static Map<String, List<EquipRequestSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<EquipRequestSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<EquipRequestSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EquipRequestSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = EquipRequestSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -134,4 +148,3 @@ class EquipRequestSchema {
     'character',
   };
 }
-

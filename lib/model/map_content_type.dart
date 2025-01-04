@@ -10,7 +10,6 @@
 
 part of openapi_generation;
 
-
 class MapContentType {
   /// Instantiate a new enum with the provided [value].
   const MapContentType._(this.value);
@@ -40,9 +39,13 @@ class MapContentType {
     tasksMaster,
   ];
 
-  static MapContentType? fromJson(dynamic value) => MapContentTypeTypeTransformer().decode(value);
+  static MapContentType? fromJson(dynamic value) =>
+      MapContentTypeTypeTransformer().decode(value);
 
-  static List<MapContentType> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<MapContentType> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <MapContentType>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -59,7 +62,8 @@ class MapContentType {
 /// Transformation class that can [encode] an instance of [MapContentType] to String,
 /// and [decode] dynamic data back to [MapContentType].
 class MapContentTypeTypeTransformer {
-  factory MapContentTypeTypeTransformer() => _instance ??= const MapContentTypeTypeTransformer._();
+  factory MapContentTypeTypeTransformer() =>
+      _instance ??= const MapContentTypeTypeTransformer._();
 
   const MapContentTypeTypeTransformer._();
 
@@ -76,12 +80,18 @@ class MapContentTypeTypeTransformer {
   MapContentType? decode(dynamic data, {bool allowNull = true}) {
     if (data != null) {
       switch (data) {
-        case r'monster': return MapContentType.monster;
-        case r'resource': return MapContentType.resource;
-        case r'workshop': return MapContentType.workshop;
-        case r'bank': return MapContentType.bank;
-        case r'grand_exchange': return MapContentType.grandExchange;
-        case r'tasks_master': return MapContentType.tasksMaster;
+        case r'monster':
+          return MapContentType.monster;
+        case r'resource':
+          return MapContentType.resource;
+        case r'workshop':
+          return MapContentType.workshop;
+        case r'bank':
+          return MapContentType.bank;
+        case r'grand_exchange':
+          return MapContentType.grandExchange;
+        case r'tasks_master':
+          return MapContentType.tasksMaster;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
@@ -94,4 +104,3 @@ class MapContentTypeTypeTransformer {
   /// Singleton [MapContentTypeTypeTransformer] instance.
   static MapContentTypeTypeTransformer? _instance;
 }
-

@@ -45,35 +45,38 @@ class GEOrderSchema {
   DateTime createdAt;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is GEOrderSchema &&
-    other.id == id &&
-    other.seller == seller &&
-    other.code == code &&
-    other.quantity == quantity &&
-    other.price == price &&
-    other.createdAt == createdAt;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is GEOrderSchema &&
+          other.id == id &&
+          other.seller == seller &&
+          other.code == code &&
+          other.quantity == quantity &&
+          other.price == price &&
+          other.createdAt == createdAt;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (id.hashCode) +
-    (seller.hashCode) +
-    (code.hashCode) +
-    (quantity.hashCode) +
-    (price.hashCode) +
-    (createdAt.hashCode);
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) +
+      (seller.hashCode) +
+      (code.hashCode) +
+      (quantity.hashCode) +
+      (price.hashCode) +
+      (createdAt.hashCode);
 
   @override
-  String toString() => 'GEOrderSchema[id=$id, seller=$seller, code=$code, quantity=$quantity, price=$price, createdAt=$createdAt]';
+  String toString() =>
+      'GEOrderSchema[id=$id, seller=$seller, code=$code, quantity=$quantity, price=$price, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'id'] = this.id;
-      json[r'seller'] = this.seller;
-      json[r'code'] = this.code;
-      json[r'quantity'] = this.quantity;
-      json[r'price'] = this.price;
-      json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
+    json[r'id'] = this.id;
+    json[r'seller'] = this.seller;
+    json[r'code'] = this.code;
+    json[r'quantity'] = this.quantity;
+    json[r'price'] = this.price;
+    json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
     return json;
   }
 
@@ -89,8 +92,10 @@ class GEOrderSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "GEOrderSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "GEOrderSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "GEOrderSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "GEOrderSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -107,7 +112,10 @@ class GEOrderSchema {
     return null;
   }
 
-  static List<GEOrderSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<GEOrderSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <GEOrderSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -135,13 +143,19 @@ class GEOrderSchema {
   }
 
   // maps a json object with a list of GEOrderSchema-objects as value to a dart map
-  static Map<String, List<GEOrderSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<GEOrderSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<GEOrderSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEOrderSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = GEOrderSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -157,4 +171,3 @@ class GEOrderSchema {
     'created_at',
   };
 }
-

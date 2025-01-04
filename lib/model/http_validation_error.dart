@@ -19,20 +19,22 @@ class HTTPValidationError {
   List<ValidationError> detail;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is HTTPValidationError &&
-    _deepEquality.equals(other.detail, detail);
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is HTTPValidationError &&
+          _deepEquality.equals(other.detail, detail);
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (detail.hashCode);
+      // ignore: unnecessary_parenthesis
+      (detail.hashCode);
 
   @override
   String toString() => 'HTTPValidationError[detail=$detail]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'detail'] = this.detail;
+    json[r'detail'] = this.detail;
     return json;
   }
 
@@ -48,8 +50,10 @@ class HTTPValidationError {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "HTTPValidationError[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "HTTPValidationError[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "HTTPValidationError[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "HTTPValidationError[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -61,7 +65,10 @@ class HTTPValidationError {
     return null;
   }
 
-  static List<HTTPValidationError> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<HTTPValidationError> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <HTTPValidationError>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -89,20 +96,24 @@ class HTTPValidationError {
   }
 
   // maps a json object with a list of HTTPValidationError-objects as value to a dart map
-  static Map<String, List<HTTPValidationError>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<HTTPValidationError>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<HTTPValidationError>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = HTTPValidationError.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = HTTPValidationError.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-  };
+  static const requiredKeys = <String>{};
 }
-

@@ -27,23 +27,24 @@ class UnequipSchema {
   int quantity;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UnequipSchema &&
-    other.slot == slot &&
-    other.quantity == quantity;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UnequipSchema &&
+          other.slot == slot &&
+          other.quantity == quantity;
 
   @override
   int get hashCode =>
-    // ignore: unnecessary_parenthesis
-    (slot.hashCode) +
-    (quantity.hashCode);
+      // ignore: unnecessary_parenthesis
+      (slot.hashCode) + (quantity.hashCode);
 
   @override
   String toString() => 'UnequipSchema[slot=$slot, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'slot'] = this.slot;
-      json[r'quantity'] = this.quantity;
+    json[r'slot'] = this.slot;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
@@ -59,8 +60,10 @@ class UnequipSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "UnequipSchema[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "UnequipSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key),
+              'Required key "UnequipSchema[$key]" is missing from JSON.');
+          assert(json[key] != null,
+              'Required key "UnequipSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -73,7 +76,10 @@ class UnequipSchema {
     return null;
   }
 
-  static List<UnequipSchema> listFromJson(dynamic json, {bool growable = false,}) {
+  static List<UnequipSchema> listFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final result = <UnequipSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
@@ -101,13 +107,19 @@ class UnequipSchema {
   }
 
   // maps a json object with a list of UnequipSchema-objects as value to a dart map
-  static Map<String, List<UnequipSchema>> mapListFromJson(dynamic json, {bool growable = false,}) {
+  static Map<String, List<UnequipSchema>> mapListFromJson(
+    dynamic json, {
+    bool growable = false,
+  }) {
     final map = <String, List<UnequipSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = UnequipSchema.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = UnequipSchema.listFromJson(
+          entry.value,
+          growable: growable,
+        );
       }
     }
     return map;
@@ -118,4 +130,3 @@ class UnequipSchema {
     'slot',
   };
 }
-
