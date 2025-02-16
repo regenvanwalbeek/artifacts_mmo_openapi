@@ -17,6 +17,7 @@ class AccountLeaderboardSchema {
     required this.account,
     required this.status,
     required this.achievementsPoints,
+    required this.gold,
   });
 
   /// Position in the leaderboard.
@@ -31,6 +32,9 @@ class AccountLeaderboardSchema {
   /// Achievements points.
   int achievementsPoints;
 
+  /// Gold in the account.
+  int gold;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -38,7 +42,8 @@ class AccountLeaderboardSchema {
           other.position == position &&
           other.account == account &&
           other.status == status &&
-          other.achievementsPoints == achievementsPoints;
+          other.achievementsPoints == achievementsPoints &&
+          other.gold == gold;
 
   @override
   int get hashCode =>
@@ -46,11 +51,12 @@ class AccountLeaderboardSchema {
       (position.hashCode) +
       (account.hashCode) +
       (status.hashCode) +
-      (achievementsPoints.hashCode);
+      (achievementsPoints.hashCode) +
+      (gold.hashCode);
 
   @override
   String toString() =>
-      'AccountLeaderboardSchema[position=$position, account=$account, status=$status, achievementsPoints=$achievementsPoints]';
+      'AccountLeaderboardSchema[position=$position, account=$account, status=$status, achievementsPoints=$achievementsPoints, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -58,6 +64,7 @@ class AccountLeaderboardSchema {
     json[r'account'] = this.account;
     json[r'status'] = this.status;
     json[r'achievements_points'] = this.achievementsPoints;
+    json[r'gold'] = this.gold;
     return json;
   }
 
@@ -86,6 +93,7 @@ class AccountLeaderboardSchema {
         account: mapValueOfType<String>(json, r'account')!,
         status: AccountStatus.fromJson(json[r'status'])!,
         achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
+        gold: mapValueOfType<int>(json, r'gold')!,
       );
     }
     return null;
@@ -146,5 +154,6 @@ class AccountLeaderboardSchema {
     'account',
     'status',
     'achievements_points',
+    'gold',
   };
 }

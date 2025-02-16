@@ -106,8 +106,8 @@ class AchievementSchema {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
               'Required key "AchievementSchema[$key]" is missing from JSON.');
-          // assert(json[key] != null,
-          //     'Required key "AchievementSchema[$key]" has a null value in JSON.');
+          assert(json[key] != null,
+              'Required key "AchievementSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());

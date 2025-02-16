@@ -42,26 +42,29 @@ Name | Type | Description | Notes
 **alchemyMaxXp** | **int** | Alchemy XP required to level up the skill. | 
 **hp** | **int** | Character actual HP. | 
 **maxHp** | **int** | Character max HP. | 
-**haste** | **int** | *Character Haste. Increase speed attack (reduce fight cooldown) | 
-**criticalStrike** | **int** | *Not available, on the roadmap. Character Critical   Strike. Critical strikes increase the attack's damage. | 
-**stamina** | **int** | *Not available, on the roadmap. Regenerates life at the start of each turn. | 
+**haste** | **int** | *Increase speed attack (reduce fight cooldown) | 
+**criticalStrike** | **int** | % Critical strike. Critical strikes increase the attack's damage by 30%. | 
+**wisdom** | **int** | Wisdom increases the amount of XP gained from fights. | 
+**prospecting** | **int** | Prospecting increases the chances of getting better loot. | 
 **attackFire** | **int** | Fire attack. | 
 **attackEarth** | **int** | Earth attack. | 
 **attackWater** | **int** | Water attack. | 
 **attackAir** | **int** | Air attack. | 
-**dmgFire** | **int** | % Fire damage. | 
-**dmgEarth** | **int** | % Earth damage. | 
-**dmgWater** | **int** | % Water damage. | 
-**dmgAir** | **int** | % Air damage. | 
-**resFire** | **int** | % Fire resistance. | 
-**resEarth** | **int** | % Earth resistance. | 
-**resWater** | **int** | % Water resistance. | 
-**resAir** | **int** | % Air resistance. | 
+**dmg** | **int** | % Damage. Damage increases your attack in all elements. | 
+**dmgFire** | **int** | % Fire damage. Damage increases your fire attack. | 
+**dmgEarth** | **int** | % Earth damage. Damage increases your earth attack. | 
+**dmgWater** | **int** | % Water damage. Damage increases your water attack. | 
+**dmgAir** | **int** | % Air damage. Damage increases your air attack. | 
+**resFire** | **int** | % Fire resistance. Reduces fire attack. | 
+**resEarth** | **int** | % Earth resistance. Reduces earth attack. | 
+**resWater** | **int** | % Water resistance. Reduces water attack. | 
+**resAir** | **int** | % Air resistance. Reduces air attack. | 
 **x** | **int** | Character x coordinate. | 
 **y** | **int** | Character y coordinate. | 
 **cooldown** | **int** | Cooldown in seconds. | 
 **cooldownExpiration** | [**DateTime**](DateTime.md) | Datetime Cooldown expiration. | [optional] 
 **weaponSlot** | **String** | Weapon slot. | 
+**runeSlot** | **String** | Rune slot. | 
 **shieldSlot** | **String** | Shield slot. | 
 **helmetSlot** | **String** | Helmet slot. | 
 **bodyArmorSlot** | **String** | Body armor slot. | 
@@ -77,6 +80,7 @@ Name | Type | Description | Notes
 **utility1SlotQuantity** | **int** | Utility 1 quantity. | 
 **utility2Slot** | **String** | Utility 2 slot. | 
 **utility2SlotQuantity** | **int** | Utility 2 quantity. | 
+**bagSlot** | **String** | Bag slot. | 
 **task** | **String** | Task in progress. | 
 **taskType** | **String** | Task type. | 
 **taskProgress** | **int** | Task progression. | 

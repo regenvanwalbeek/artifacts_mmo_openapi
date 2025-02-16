@@ -35,6 +35,8 @@ class ItemType {
   static const artifact = ItemType._(r'artifact');
   static const currency = ItemType._(r'currency');
   static const consumable = ItemType._(r'consumable');
+  static const rune = ItemType._(r'rune');
+  static const bag = ItemType._(r'bag');
 
   /// List of all possible values in this [enum][ItemType].
   static const values = <ItemType>[
@@ -51,6 +53,8 @@ class ItemType {
     artifact,
     currency,
     consumable,
+    rune,
+    bag,
   ];
 
   static ItemType? fromJson(dynamic value) =>
@@ -120,6 +124,10 @@ class ItemTypeTypeTransformer {
           return ItemType.currency;
         case r'consumable':
           return ItemType.consumable;
+        case r'rune':
+          return ItemType.rune;
+        case r'bag':
+          return ItemType.bag;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -11,7 +11,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**actionAcceptNewTaskMyNameActionTaskNewPost**](MyCharactersApi.md#actionacceptnewtaskmynameactiontasknewpost) | **POST** /my/{name}/action/task/new | Action Accept New Task
 [**actionBuyBankExpansionMyNameActionBankBuyExpansionPost**](MyCharactersApi.md#actionbuybankexpansionmynameactionbankbuyexpansionpost) | **POST** /my/{name}/action/bank/buy_expansion | Action Buy Bank Expansion
-[**actionChristmasExchangeMyNameActionChristmasExchangePost**](MyCharactersApi.md#actionchristmasexchangemynameactionchristmasexchangepost) | **POST** /my/{name}/action/christmas/exchange | Action Christmas Exchange
 [**actionCompleteTaskMyNameActionTaskCompletePost**](MyCharactersApi.md#actioncompletetaskmynameactiontaskcompletepost) | **POST** /my/{name}/action/task/complete | Action Complete Task
 [**actionCraftingMyNameActionCraftingPost**](MyCharactersApi.md#actioncraftingmynameactioncraftingpost) | **POST** /my/{name}/action/crafting | Action Crafting
 [**actionDeleteItemMyNameActionDeletePost**](MyCharactersApi.md#actiondeleteitemmynameactiondeletepost) | **POST** /my/{name}/action/delete | Action Delete Item
@@ -24,6 +23,8 @@ Method | HTTP request | Description
 [**actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost**](MyCharactersApi.md#actiongecancelsellordermynameactiongrandexchangecancelpost) | **POST** /my/{name}/action/grandexchange/cancel | Action Ge Cancel Sell Order
 [**actionGeCreateSellOrderMyNameActionGrandexchangeSellPost**](MyCharactersApi.md#actiongecreatesellordermynameactiongrandexchangesellpost) | **POST** /my/{name}/action/grandexchange/sell | Action Ge Create Sell Order
 [**actionMoveMyNameActionMovePost**](MyCharactersApi.md#actionmovemynameactionmovepost) | **POST** /my/{name}/action/move | Action Move
+[**actionNpcBuyItemMyNameActionNpcBuyPost**](MyCharactersApi.md#actionnpcbuyitemmynameactionnpcbuypost) | **POST** /my/{name}/action/npc/buy | Action Npc Buy Item
+[**actionNpcSellItemMyNameActionNpcSellPost**](MyCharactersApi.md#actionnpcsellitemmynameactionnpcsellpost) | **POST** /my/{name}/action/npc/sell | Action Npc Sell Item
 [**actionRecyclingMyNameActionRecyclingPost**](MyCharactersApi.md#actionrecyclingmynameactionrecyclingpost) | **POST** /my/{name}/action/recycling | Action Recycling
 [**actionRestMyNameActionRestPost**](MyCharactersApi.md#actionrestmynameactionrestpost) | **POST** /my/{name}/action/rest | Action Rest
 [**actionTaskCancelMyNameActionTaskCancelPost**](MyCharactersApi.md#actiontaskcancelmynameactiontaskcancelpost) | **POST** /my/{name}/action/task/cancel | Action Task Cancel
@@ -123,55 +124,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BankExtensionTransactionResponseSchema**](BankExtensionTransactionResponseSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **actionChristmasExchangeMyNameActionChristmasExchangePost**
-> RewardDataResponseSchema actionChristmasExchangeMyNameActionChristmasExchangePost(name)
-
-Action Christmas Exchange
-
-Exchange 1 gift for a random reward.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyCharactersApi();
-final name = name_example; // String | Name of your character.
-
-try {
-    final result = api_instance.actionChristmasExchangeMyNameActionChristmasExchangePost(name);
-    print(result);
-} catch (e) {
-    print('Exception when calling MyCharactersApi->actionChristmasExchangeMyNameActionChristmasExchangePost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of your character. | 
-
-### Return type
-
-[**RewardDataResponseSchema**](RewardDataResponseSchema.md)
 
 ### Authorization
 
@@ -778,6 +730,108 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CharacterMovementResponseSchema**](CharacterMovementResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionNpcBuyItemMyNameActionNpcBuyPost**
+> NpcMerchantTransactionResponseSchema actionNpcBuyItemMyNameActionNpcBuyPost(name, npcMerchantBuySchema)
+
+Action Npc Buy Item
+
+Buy an item from an NPC on the character's map.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final npcMerchantBuySchema = NpcMerchantBuySchema(); // NpcMerchantBuySchema | 
+
+try {
+    final result = api_instance.actionNpcBuyItemMyNameActionNpcBuyPost(name, npcMerchantBuySchema);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionNpcBuyItemMyNameActionNpcBuyPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **npcMerchantBuySchema** | [**NpcMerchantBuySchema**](NpcMerchantBuySchema.md)|  | 
+
+### Return type
+
+[**NpcMerchantTransactionResponseSchema**](NpcMerchantTransactionResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionNpcSellItemMyNameActionNpcSellPost**
+> NpcMerchantTransactionResponseSchema actionNpcSellItemMyNameActionNpcSellPost(name, npcMerchantBuySchema)
+
+Action Npc Sell Item
+
+Sell an item from an NPC on the character's map.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final npcMerchantBuySchema = NpcMerchantBuySchema(); // NpcMerchantBuySchema | 
+
+try {
+    final result = api_instance.actionNpcSellItemMyNameActionNpcSellPost(name, npcMerchantBuySchema);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionNpcSellItemMyNameActionNpcSellPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **npcMerchantBuySchema** | [**NpcMerchantBuySchema**](NpcMerchantBuySchema.md)|  | 
+
+### Return type
+
+[**NpcMerchantTransactionResponseSchema**](NpcMerchantTransactionResponseSchema.md)
 
 ### Authorization
 

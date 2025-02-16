@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the event. | 
-**code** | **String** | Code of the event. This is the event's unique identifier (ID). | 
+**code** | **String** | Code of the event. | 
 **maps** | [**List<EventMapSchema>**](EventMapSchema.md) | Map list of the event. | [default to const []]
 **skin** | **String** | Map skin of the event. | 
 **duration** | **int** | Duration in minutes. | 

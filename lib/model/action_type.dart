@@ -28,6 +28,8 @@ class ActionType {
   static const gathering = ActionType._(r'gathering');
   static const buyGe = ActionType._(r'buy_ge');
   static const sellGe = ActionType._(r'sell_ge');
+  static const buyNpc = ActionType._(r'buy_npc');
+  static const sellNpc = ActionType._(r'sell_npc');
   static const cancelGe = ActionType._(r'cancel_ge');
   static const deleteItem = ActionType._(r'delete_item');
   static const deposit = ActionType._(r'deposit');
@@ -51,6 +53,8 @@ class ActionType {
     gathering,
     buyGe,
     sellGe,
+    buyNpc,
+    sellNpc,
     cancelGe,
     deleteItem,
     deposit,
@@ -120,6 +124,10 @@ class ActionTypeTypeTransformer {
           return ActionType.buyGe;
         case r'sell_ge':
           return ActionType.sellGe;
+        case r'buy_npc':
+          return ActionType.buyNpc;
+        case r'sell_npc':
+          return ActionType.sellNpc;
         case r'cancel_ge':
           return ActionType.cancelGe;
         case r'delete_item':

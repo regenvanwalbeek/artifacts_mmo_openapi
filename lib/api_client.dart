@@ -331,6 +331,8 @@ class ApiClient {
           return DataPageCharacterLeaderboardSchema.fromJson(value);
         case 'DataPageDropRateSchema':
           return DataPageDropRateSchema.fromJson(value);
+        case 'DataPageEffectSchema':
+          return DataPageEffectSchema.fromJson(value);
         case 'DataPageEventSchema':
           return DataPageEventSchema.fromJson(value);
         case 'DataPageGEOrderSchema':
@@ -345,6 +347,10 @@ class ApiClient {
           return DataPageMapSchema.fromJson(value);
         case 'DataPageMonsterSchema':
           return DataPageMonsterSchema.fromJson(value);
+        case 'DataPageNPCItem':
+          return DataPageNPCItem.fromJson(value);
+        case 'DataPageNPCSchema':
+          return DataPageNPCSchema.fromJson(value);
         case 'DataPageResourceSchema':
           return DataPageResourceSchema.fromJson(value);
         case 'DataPageSimpleItemSchema':
@@ -365,6 +371,14 @@ class ApiClient {
           return DropRateSchema.fromJson(value);
         case 'DropSchema':
           return DropSchema.fromJson(value);
+        case 'EffectResponseSchema':
+          return EffectResponseSchema.fromJson(value);
+        case 'EffectSchema':
+          return EffectSchema.fromJson(value);
+        case 'EffectSubtype':
+          return EffectSubtypeTypeTransformer().decode(value);
+        case 'EffectType':
+          return EffectTypeTypeTransformer().decode(value);
         case 'EquipRequestSchema':
           return EquipRequestSchema.fromJson(value);
         case 'EquipSchema':
@@ -413,8 +427,6 @@ class ApiClient {
           return HTTPValidationError.fromJson(value);
         case 'InventorySlot':
           return InventorySlot.fromJson(value);
-        case 'ItemEffectSchema':
-          return ItemEffectSchema.fromJson(value);
         case 'ItemResponseSchema':
           return ItemResponseSchema.fromJson(value);
         case 'ItemSchema':
@@ -445,6 +457,22 @@ class ApiClient {
           return MyAccountDetailsSchema.fromJson(value);
         case 'MyCharactersListSchema':
           return MyCharactersListSchema.fromJson(value);
+        case 'NPCItem':
+          return NPCItem.fromJson(value);
+        case 'NPCResponseSchema':
+          return NPCResponseSchema.fromJson(value);
+        case 'NPCSchema':
+          return NPCSchema.fromJson(value);
+        case 'NPCType':
+          return NPCTypeTypeTransformer().decode(value);
+        case 'NpcItemTransactionSchema':
+          return NpcItemTransactionSchema.fromJson(value);
+        case 'NpcMerchantBuySchema':
+          return NpcMerchantBuySchema.fromJson(value);
+        case 'NpcMerchantTransactionResponseSchema':
+          return NpcMerchantTransactionResponseSchema.fromJson(value);
+        case 'NpcMerchantTransactionSchema':
+          return NpcMerchantTransactionSchema.fromJson(value);
         case 'RecyclingDataSchema':
           return RecyclingDataSchema.fromJson(value);
         case 'RecyclingItemsSchema':
@@ -467,6 +495,8 @@ class ApiClient {
           return RewardResponseSchema.fromJson(value);
         case 'RewardsSchema':
           return RewardsSchema.fromJson(value);
+        case 'SimpleEffectSchema':
+          return SimpleEffectSchema.fromJson(value);
         case 'SimpleItemSchema':
           return SimpleItemSchema.fromJson(value);
         case 'Skill':

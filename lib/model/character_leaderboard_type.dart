@@ -31,7 +31,6 @@ class CharacterLeaderboardType {
   static const jewelrycrafting = CharacterLeaderboardType._(r'jewelrycrafting');
   static const cooking = CharacterLeaderboardType._(r'cooking');
   static const alchemy = CharacterLeaderboardType._(r'alchemy');
-  static const gold = CharacterLeaderboardType._(r'gold');
 
   /// List of all possible values in this [enum][CharacterLeaderboardType].
   static const values = <CharacterLeaderboardType>[
@@ -44,7 +43,6 @@ class CharacterLeaderboardType {
     jewelrycrafting,
     cooking,
     alchemy,
-    gold,
   ];
 
   static CharacterLeaderboardType? fromJson(dynamic value) =>
@@ -106,8 +104,6 @@ class CharacterLeaderboardTypeTypeTransformer {
           return CharacterLeaderboardType.cooking;
         case r'alchemy':
           return CharacterLeaderboardType.alchemy;
-        case r'gold':
-          return CharacterLeaderboardType.gold;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

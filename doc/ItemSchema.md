@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **type** | **String** | Item type. | 
 **subtype** | **String** | Item subtype. | 
 **description** | **String** | Item description. | 
-**effects** | [**List<ItemEffectSchema>**](ItemEffectSchema.md) | List of object effects. For equipment, it will include item stats. | [optional] [default to const []]
+**effects** | [**List<SimpleEffectSchema>**](SimpleEffectSchema.md) | List of object effects. For equipment, it will include item stats. | [optional] [default to const []]
 **craft** | [**CraftSchema**](CraftSchema.md) |  | [optional] 
 **tradeable** | **bool** | Item tradeable status. A non-tradeable item cannot be exchanged or sold. | 
 

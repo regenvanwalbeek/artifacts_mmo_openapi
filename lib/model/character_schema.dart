@@ -49,11 +49,13 @@ class CharacterSchema {
     required this.maxHp,
     required this.haste,
     required this.criticalStrike,
-    required this.stamina,
+    required this.wisdom,
+    required this.prospecting,
     required this.attackFire,
     required this.attackEarth,
     required this.attackWater,
     required this.attackAir,
+    required this.dmg,
     required this.dmgFire,
     required this.dmgEarth,
     required this.dmgWater,
@@ -67,6 +69,7 @@ class CharacterSchema {
     required this.cooldown,
     this.cooldownExpiration,
     required this.weaponSlot,
+    required this.runeSlot,
     required this.shieldSlot,
     required this.helmetSlot,
     required this.bodyArmorSlot,
@@ -82,6 +85,7 @@ class CharacterSchema {
     required this.utility1SlotQuantity,
     required this.utility2Slot,
     required this.utility2SlotQuantity,
+    required this.bagSlot,
     required this.task,
     required this.taskType,
     required this.taskProgress,
@@ -192,14 +196,17 @@ class CharacterSchema {
   /// Character max HP.
   int maxHp;
 
-  /// *Character Haste. Increase speed attack (reduce fight cooldown)
+  /// *Increase speed attack (reduce fight cooldown)
   int haste;
 
-  /// *Not available, on the roadmap. Character Critical   Strike. Critical strikes increase the attack's damage.
+  /// % Critical strike. Critical strikes increase the attack's damage by 30%.
   int criticalStrike;
 
-  /// *Not available, on the roadmap. Regenerates life at the start of each turn.
-  int stamina;
+  /// Wisdom increases the amount of XP gained from fights.
+  int wisdom;
+
+  /// Prospecting increases the chances of getting better loot.
+  int prospecting;
 
   /// Fire attack.
   int attackFire;
@@ -213,28 +220,31 @@ class CharacterSchema {
   /// Air attack.
   int attackAir;
 
-  /// % Fire damage.
+  /// % Damage. Damage increases your attack in all elements.
+  int dmg;
+
+  /// % Fire damage. Damage increases your fire attack.
   int dmgFire;
 
-  /// % Earth damage.
+  /// % Earth damage. Damage increases your earth attack.
   int dmgEarth;
 
-  /// % Water damage.
+  /// % Water damage. Damage increases your water attack.
   int dmgWater;
 
-  /// % Air damage.
+  /// % Air damage. Damage increases your air attack.
   int dmgAir;
 
-  /// % Fire resistance.
+  /// % Fire resistance. Reduces fire attack.
   int resFire;
 
-  /// % Earth resistance.
+  /// % Earth resistance. Reduces earth attack.
   int resEarth;
 
-  /// % Water resistance.
+  /// % Water resistance. Reduces water attack.
   int resWater;
 
-  /// % Air resistance.
+  /// % Air resistance. Reduces air attack.
   int resAir;
 
   /// Character x coordinate.
@@ -257,6 +267,9 @@ class CharacterSchema {
 
   /// Weapon slot.
   String weaponSlot;
+
+  /// Rune slot.
+  String runeSlot;
 
   /// Shield slot.
   String shieldSlot;
@@ -306,6 +319,9 @@ class CharacterSchema {
   ///
   /// Minimum value: 0
   int utility2SlotQuantity;
+
+  /// Bag slot.
+  String bagSlot;
 
   /// Task in progress.
   String task;
@@ -365,11 +381,13 @@ class CharacterSchema {
           other.maxHp == maxHp &&
           other.haste == haste &&
           other.criticalStrike == criticalStrike &&
-          other.stamina == stamina &&
+          other.wisdom == wisdom &&
+          other.prospecting == prospecting &&
           other.attackFire == attackFire &&
           other.attackEarth == attackEarth &&
           other.attackWater == attackWater &&
           other.attackAir == attackAir &&
+          other.dmg == dmg &&
           other.dmgFire == dmgFire &&
           other.dmgEarth == dmgEarth &&
           other.dmgWater == dmgWater &&
@@ -383,6 +401,7 @@ class CharacterSchema {
           other.cooldown == cooldown &&
           other.cooldownExpiration == cooldownExpiration &&
           other.weaponSlot == weaponSlot &&
+          other.runeSlot == runeSlot &&
           other.shieldSlot == shieldSlot &&
           other.helmetSlot == helmetSlot &&
           other.bodyArmorSlot == bodyArmorSlot &&
@@ -398,6 +417,7 @@ class CharacterSchema {
           other.utility1SlotQuantity == utility1SlotQuantity &&
           other.utility2Slot == utility2Slot &&
           other.utility2SlotQuantity == utility2SlotQuantity &&
+          other.bagSlot == bagSlot &&
           other.task == task &&
           other.taskType == taskType &&
           other.taskProgress == taskProgress &&
@@ -444,11 +464,13 @@ class CharacterSchema {
       (maxHp.hashCode) +
       (haste.hashCode) +
       (criticalStrike.hashCode) +
-      (stamina.hashCode) +
+      (wisdom.hashCode) +
+      (prospecting.hashCode) +
       (attackFire.hashCode) +
       (attackEarth.hashCode) +
       (attackWater.hashCode) +
       (attackAir.hashCode) +
+      (dmg.hashCode) +
       (dmgFire.hashCode) +
       (dmgEarth.hashCode) +
       (dmgWater.hashCode) +
@@ -462,6 +484,7 @@ class CharacterSchema {
       (cooldown.hashCode) +
       (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode) +
       (weaponSlot.hashCode) +
+      (runeSlot.hashCode) +
       (shieldSlot.hashCode) +
       (helmetSlot.hashCode) +
       (bodyArmorSlot.hashCode) +
@@ -477,6 +500,7 @@ class CharacterSchema {
       (utility1SlotQuantity.hashCode) +
       (utility2Slot.hashCode) +
       (utility2SlotQuantity.hashCode) +
+      (bagSlot.hashCode) +
       (task.hashCode) +
       (taskType.hashCode) +
       (taskProgress.hashCode) +
@@ -486,7 +510,7 @@ class CharacterSchema {
 
   @override
   String toString() =>
-      'CharacterSchema[name=$name, account=$account, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, alchemyLevel=$alchemyLevel, alchemyXp=$alchemyXp, alchemyMaxXp=$alchemyMaxXp, hp=$hp, maxHp=$maxHp, haste=$haste, criticalStrike=$criticalStrike, stamina=$stamina, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, utility1Slot=$utility1Slot, utility1SlotQuantity=$utility1SlotQuantity, utility2Slot=$utility2Slot, utility2SlotQuantity=$utility2SlotQuantity, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
+      'CharacterSchema[name=$name, account=$account, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, alchemyLevel=$alchemyLevel, alchemyXp=$alchemyXp, alchemyMaxXp=$alchemyMaxXp, hp=$hp, maxHp=$maxHp, haste=$haste, criticalStrike=$criticalStrike, wisdom=$wisdom, prospecting=$prospecting, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmg=$dmg, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, runeSlot=$runeSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, utility1Slot=$utility1Slot, utility1SlotQuantity=$utility1SlotQuantity, utility2Slot=$utility2Slot, utility2SlotQuantity=$utility2SlotQuantity, bagSlot=$bagSlot, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -526,11 +550,13 @@ class CharacterSchema {
     json[r'max_hp'] = this.maxHp;
     json[r'haste'] = this.haste;
     json[r'critical_strike'] = this.criticalStrike;
-    json[r'stamina'] = this.stamina;
+    json[r'wisdom'] = this.wisdom;
+    json[r'prospecting'] = this.prospecting;
     json[r'attack_fire'] = this.attackFire;
     json[r'attack_earth'] = this.attackEarth;
     json[r'attack_water'] = this.attackWater;
     json[r'attack_air'] = this.attackAir;
+    json[r'dmg'] = this.dmg;
     json[r'dmg_fire'] = this.dmgFire;
     json[r'dmg_earth'] = this.dmgEarth;
     json[r'dmg_water'] = this.dmgWater;
@@ -549,6 +575,7 @@ class CharacterSchema {
       json[r'cooldown_expiration'] = null;
     }
     json[r'weapon_slot'] = this.weaponSlot;
+    json[r'rune_slot'] = this.runeSlot;
     json[r'shield_slot'] = this.shieldSlot;
     json[r'helmet_slot'] = this.helmetSlot;
     json[r'body_armor_slot'] = this.bodyArmorSlot;
@@ -564,6 +591,7 @@ class CharacterSchema {
     json[r'utility1_slot_quantity'] = this.utility1SlotQuantity;
     json[r'utility2_slot'] = this.utility2Slot;
     json[r'utility2_slot_quantity'] = this.utility2SlotQuantity;
+    json[r'bag_slot'] = this.bagSlot;
     json[r'task'] = this.task;
     json[r'task_type'] = this.taskType;
     json[r'task_progress'] = this.taskProgress;
@@ -634,11 +662,13 @@ class CharacterSchema {
         maxHp: mapValueOfType<int>(json, r'max_hp')!,
         haste: mapValueOfType<int>(json, r'haste')!,
         criticalStrike: mapValueOfType<int>(json, r'critical_strike')!,
-        stamina: mapValueOfType<int>(json, r'stamina')!,
+        wisdom: mapValueOfType<int>(json, r'wisdom')!,
+        prospecting: mapValueOfType<int>(json, r'prospecting')!,
         attackFire: mapValueOfType<int>(json, r'attack_fire')!,
         attackEarth: mapValueOfType<int>(json, r'attack_earth')!,
         attackWater: mapValueOfType<int>(json, r'attack_water')!,
         attackAir: mapValueOfType<int>(json, r'attack_air')!,
+        dmg: mapValueOfType<int>(json, r'dmg')!,
         dmgFire: mapValueOfType<int>(json, r'dmg_fire')!,
         dmgEarth: mapValueOfType<int>(json, r'dmg_earth')!,
         dmgWater: mapValueOfType<int>(json, r'dmg_water')!,
@@ -652,6 +682,7 @@ class CharacterSchema {
         cooldown: mapValueOfType<int>(json, r'cooldown')!,
         cooldownExpiration: mapDateTime(json, r'cooldown_expiration', r''),
         weaponSlot: mapValueOfType<String>(json, r'weapon_slot')!,
+        runeSlot: mapValueOfType<String>(json, r'rune_slot')!,
         shieldSlot: mapValueOfType<String>(json, r'shield_slot')!,
         helmetSlot: mapValueOfType<String>(json, r'helmet_slot')!,
         bodyArmorSlot: mapValueOfType<String>(json, r'body_armor_slot')!,
@@ -669,6 +700,7 @@ class CharacterSchema {
         utility2Slot: mapValueOfType<String>(json, r'utility2_slot')!,
         utility2SlotQuantity:
             mapValueOfType<int>(json, r'utility2_slot_quantity')!,
+        bagSlot: mapValueOfType<String>(json, r'bag_slot')!,
         task: mapValueOfType<String>(json, r'task')!,
         taskType: mapValueOfType<String>(json, r'task_type')!,
         taskProgress: mapValueOfType<int>(json, r'task_progress')!,
@@ -767,11 +799,13 @@ class CharacterSchema {
     'max_hp',
     'haste',
     'critical_strike',
-    'stamina',
+    'wisdom',
+    'prospecting',
     'attack_fire',
     'attack_earth',
     'attack_water',
     'attack_air',
+    'dmg',
     'dmg_fire',
     'dmg_earth',
     'dmg_water',
@@ -784,6 +818,7 @@ class CharacterSchema {
     'y',
     'cooldown',
     'weapon_slot',
+    'rune_slot',
     'shield_slot',
     'helmet_slot',
     'body_armor_slot',
@@ -799,6 +834,7 @@ class CharacterSchema {
     'utility1_slot_quantity',
     'utility2_slot',
     'utility2_slot_quantity',
+    'bag_slot',
     'task',
     'task_type',
     'task_progress',

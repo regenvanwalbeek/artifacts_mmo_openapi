@@ -45,7 +45,7 @@ class ItemSchema {
   String description;
 
   /// List of object effects. For equipment, it will include item stats.
-  List<ItemEffectSchema> effects;
+  List<SimpleEffectSchema> effects;
 
   CraftSchema? craft;
 
@@ -128,7 +128,7 @@ class ItemSchema {
         type: mapValueOfType<String>(json, r'type')!,
         subtype: mapValueOfType<String>(json, r'subtype')!,
         description: mapValueOfType<String>(json, r'description')!,
-        effects: ItemEffectSchema.listFromJson(json[r'effects']),
+        effects: SimpleEffectSchema.listFromJson(json[r'effects']),
         craft: CraftSchema.fromJson(json[r'craft']),
         tradeable: mapValueOfType<bool>(json, r'tradeable')!,
       );

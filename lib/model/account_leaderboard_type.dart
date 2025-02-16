@@ -24,10 +24,12 @@ class AccountLeaderboardType {
 
   static const achievementsPoints =
       AccountLeaderboardType._(r'achievements_points');
+  static const gold = AccountLeaderboardType._(r'gold');
 
   /// List of all possible values in this [enum][AccountLeaderboardType].
   static const values = <AccountLeaderboardType>[
     achievementsPoints,
+    gold,
   ];
 
   static AccountLeaderboardType? fromJson(dynamic value) =>
@@ -73,6 +75,8 @@ class AccountLeaderboardTypeTypeTransformer {
       switch (data) {
         case r'achievements_points':
           return AccountLeaderboardType.achievementsPoints;
+        case r'gold':
+          return AccountLeaderboardType.gold;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

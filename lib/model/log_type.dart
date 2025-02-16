@@ -29,6 +29,8 @@ class LogType {
   static const gathering = LogType._(r'gathering');
   static const buyGe = LogType._(r'buy_ge');
   static const sellGe = LogType._(r'sell_ge');
+  static const buyNpc = LogType._(r'buy_npc');
+  static const sellNpc = LogType._(r'sell_npc');
   static const cancelGe = LogType._(r'cancel_ge');
   static const deleteItem = LogType._(r'delete_item');
   static const deposit = LogType._(r'deposit');
@@ -58,6 +60,8 @@ class LogType {
     gathering,
     buyGe,
     sellGe,
+    buyNpc,
+    sellNpc,
     cancelGe,
     deleteItem,
     deposit,
@@ -134,6 +138,10 @@ class LogTypeTypeTransformer {
           return LogType.buyGe;
         case r'sell_ge':
           return LogType.sellGe;
+        case r'buy_npc':
+          return LogType.buyNpc;
+        case r'sell_npc':
+          return LogType.sellNpc;
         case r'cancel_ge':
           return LogType.cancelGe;
         case r'delete_item':

@@ -36,6 +36,8 @@ class ItemSlot {
   static const artifact3 = ItemSlot._(r'artifact3');
   static const utility1 = ItemSlot._(r'utility1');
   static const utility2 = ItemSlot._(r'utility2');
+  static const bag = ItemSlot._(r'bag');
+  static const rune = ItemSlot._(r'rune');
 
   /// List of all possible values in this [enum][ItemSlot].
   static const values = <ItemSlot>[
@@ -53,6 +55,8 @@ class ItemSlot {
     artifact3,
     utility1,
     utility2,
+    bag,
+    rune,
   ];
 
   static ItemSlot? fromJson(dynamic value) =>
@@ -124,6 +128,10 @@ class ItemSlotTypeTransformer {
           return ItemSlot.utility1;
         case r'utility2':
           return ItemSlot.utility2;
+        case r'bag':
+          return ItemSlot.bag;
+        case r'rune':
+          return ItemSlot.rune;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -153,76 +153,6 @@ class MyCharactersApi {
     return null;
   }
 
-  /// Action Christmas Exchange
-  ///
-  /// Exchange 1 gift for a random reward.
-  ///
-  /// Note: This method returns the HTTP [Response].
-  ///
-  /// Parameters:
-  ///
-  /// * [String] name (required):
-  ///   Name of your character.
-  Future<Response>
-      actionChristmasExchangeMyNameActionChristmasExchangePostWithHttpInfo(
-    String name,
-  ) async {
-    // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/christmas/exchange'.replaceAll('{name}', name);
-
-    // ignore: prefer_final_locals
-    Object? postBody;
-
-    final queryParams = <QueryParam>[];
-    final headerParams = <String, String>{};
-    final formParams = <String, String>{};
-
-    const contentTypes = <String>[];
-
-    return apiClient.invokeAPI(
-      path,
-      'POST',
-      queryParams,
-      postBody,
-      headerParams,
-      formParams,
-      contentTypes.isEmpty ? null : contentTypes.first,
-    );
-  }
-
-  /// Action Christmas Exchange
-  ///
-  /// Exchange 1 gift for a random reward.
-  ///
-  /// Parameters:
-  ///
-  /// * [String] name (required):
-  ///   Name of your character.
-  Future<RewardDataResponseSchema?>
-      actionChristmasExchangeMyNameActionChristmasExchangePost(
-    String name,
-  ) async {
-    final response =
-        await actionChristmasExchangeMyNameActionChristmasExchangePostWithHttpInfo(
-      name,
-    );
-    if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
-    }
-    // When a remote server returns no body with a status of 204, we shall not decode it.
-    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
-    // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(
-        await _decodeBodyBytes(response),
-        'RewardDataResponseSchema',
-      ) as RewardDataResponseSchema;
-    }
-    return null;
-  }
-
   /// Action Complete Task
   ///
   /// Complete a task.
@@ -1093,6 +1023,154 @@ class MyCharactersApi {
         await _decodeBodyBytes(response),
         'CharacterMovementResponseSchema',
       ) as CharacterMovementResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Npc Buy Item
+  ///
+  /// Buy an item from an NPC on the character's map.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
+  Future<Response> actionNpcBuyItemMyNameActionNpcBuyPostWithHttpInfo(
+    String name,
+    NpcMerchantBuySchema npcMerchantBuySchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/npc/buy'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = npcMerchantBuySchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Npc Buy Item
+  ///
+  /// Buy an item from an NPC on the character's map.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
+  Future<NpcMerchantTransactionResponseSchema?>
+      actionNpcBuyItemMyNameActionNpcBuyPost(
+    String name,
+    NpcMerchantBuySchema npcMerchantBuySchema,
+  ) async {
+    final response = await actionNpcBuyItemMyNameActionNpcBuyPostWithHttpInfo(
+      name,
+      npcMerchantBuySchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'NpcMerchantTransactionResponseSchema',
+      ) as NpcMerchantTransactionResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Npc Sell Item
+  ///
+  /// Sell an item from an NPC on the character's map.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
+  Future<Response> actionNpcSellItemMyNameActionNpcSellPostWithHttpInfo(
+    String name,
+    NpcMerchantBuySchema npcMerchantBuySchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/npc/sell'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = npcMerchantBuySchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Npc Sell Item
+  ///
+  /// Sell an item from an NPC on the character's map.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
+  Future<NpcMerchantTransactionResponseSchema?>
+      actionNpcSellItemMyNameActionNpcSellPost(
+    String name,
+    NpcMerchantBuySchema npcMerchantBuySchema,
+  ) async {
+    final response = await actionNpcSellItemMyNameActionNpcSellPostWithHttpInfo(
+      name,
+      npcMerchantBuySchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'NpcMerchantTransactionResponseSchema',
+      ) as NpcMerchantTransactionResponseSchema;
     }
     return null;
   }

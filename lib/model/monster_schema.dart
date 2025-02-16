@@ -25,6 +25,8 @@ class MonsterSchema {
     required this.resEarth,
     required this.resWater,
     required this.resAir,
+    required this.criticalStrike,
+    this.effects = const [],
     required this.minGold,
     required this.maxGold,
     this.drops = const [],
@@ -66,6 +68,12 @@ class MonsterSchema {
   /// Monster % air resistance.
   int resAir;
 
+  /// Monster % critical strike.
+  int criticalStrike;
+
+  /// List of effects.
+  List<SimpleEffectSchema> effects;
+
   /// Monster minimum gold drop.
   int minGold;
 
@@ -91,6 +99,8 @@ class MonsterSchema {
           other.resEarth == resEarth &&
           other.resWater == resWater &&
           other.resAir == resAir &&
+          other.criticalStrike == criticalStrike &&
+          _deepEquality.equals(other.effects, effects) &&
           other.minGold == minGold &&
           other.maxGold == maxGold &&
           _deepEquality.equals(other.drops, drops);
@@ -110,13 +120,15 @@ class MonsterSchema {
       (resEarth.hashCode) +
       (resWater.hashCode) +
       (resAir.hashCode) +
+      (criticalStrike.hashCode) +
+      (effects.hashCode) +
       (minGold.hashCode) +
       (maxGold.hashCode) +
       (drops.hashCode);
 
   @override
   String toString() =>
-      'MonsterSchema[name=$name, code=$code, level=$level, hp=$hp, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, minGold=$minGold, maxGold=$maxGold, drops=$drops]';
+      'MonsterSchema[name=$name, code=$code, level=$level, hp=$hp, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, criticalStrike=$criticalStrike, effects=$effects, minGold=$minGold, maxGold=$maxGold, drops=$drops]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -132,6 +144,8 @@ class MonsterSchema {
     json[r'res_earth'] = this.resEarth;
     json[r'res_water'] = this.resWater;
     json[r'res_air'] = this.resAir;
+    json[r'critical_strike'] = this.criticalStrike;
+    json[r'effects'] = this.effects;
     json[r'min_gold'] = this.minGold;
     json[r'max_gold'] = this.maxGold;
     json[r'drops'] = this.drops;
@@ -171,6 +185,8 @@ class MonsterSchema {
         resEarth: mapValueOfType<int>(json, r'res_earth')!,
         resWater: mapValueOfType<int>(json, r'res_water')!,
         resAir: mapValueOfType<int>(json, r'res_air')!,
+        criticalStrike: mapValueOfType<int>(json, r'critical_strike')!,
+        effects: SimpleEffectSchema.listFromJson(json[r'effects']),
         minGold: mapValueOfType<int>(json, r'min_gold')!,
         maxGold: mapValueOfType<int>(json, r'max_gold')!,
         drops: DropRateSchema.listFromJson(json[r'drops']),
@@ -242,6 +258,7 @@ class MonsterSchema {
     'res_earth',
     'res_water',
     'res_air',
+    'critical_strike',
     'min_gold',
     'max_gold',
     'drops',

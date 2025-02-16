@@ -25,7 +25,7 @@ class ActiveEventSchema {
   /// Name of the event.
   String name;
 
-  /// Code of the event. This is the event's unique identifier (ID).
+  /// Code of the event.
   String code;
 
   /// Map of the event.

@@ -86,6 +86,12 @@ String parameterToString(dynamic value) {
   if (value is CraftSkill) {
     return CraftSkillTypeTransformer().encode(value).toString();
   }
+  if (value is EffectSubtype) {
+    return EffectSubtypeTypeTransformer().encode(value).toString();
+  }
+  if (value is EffectType) {
+    return EffectTypeTypeTransformer().encode(value).toString();
+  }
   if (value is FightResult) {
     return FightResultTypeTransformer().encode(value).toString();
   }
@@ -103,6 +109,9 @@ String parameterToString(dynamic value) {
   }
   if (value is MapContentType) {
     return MapContentTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is NPCType) {
+    return NPCTypeTypeTransformer().encode(value).toString();
   }
   if (value is Skill) {
     return SkillTypeTransformer().encode(value).toString();
