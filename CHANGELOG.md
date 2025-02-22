@@ -1,3 +1,7 @@
+## 4.0.0-alpha.2
+
+- Documentation fix
+
 ## 4.0.0-alpha.1
 
 - Alpha Release: Support Season 4 updates
