@@ -1,3 +1,7 @@
+## 4.0.0-alpha.1
+
+- Alpha Release: Support Season 4 updates
+
 ## 3.1.0
 
 - Season 3 updates
