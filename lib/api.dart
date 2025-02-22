@@ -146,7 +146,6 @@ part 'model/ge_order_history_schema.dart';
 part 'model/gold_schema.dart';
 part 'model/http_validation_error.dart';
 part 'model/inventory_slot.dart';
-part 'model/item_effect_schema.dart';
 part 'model/item_response_schema.dart';
 part 'model/item_schema.dart';
 part 'model/item_slot.dart';

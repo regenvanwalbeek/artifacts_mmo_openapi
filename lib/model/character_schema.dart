@@ -199,13 +199,13 @@ class CharacterSchema {
   /// *Increase speed attack (reduce fight cooldown)
   int haste;
 
-  /// % Critical strike. Critical strikes increase the attack's damage by 30%.
+  /// % Critical strike. Critical strikes adds 50% extra damage to an attack (1.5x).
   int criticalStrike;
 
-  /// Wisdom increases the amount of XP gained from fights.
+  /// Wisdom increases the amount of XP gained from fights (1% extra per 10 wisdom).
   int wisdom;
 
-  /// Prospecting increases the chances of getting better loot.
+  /// Prospecting increases the chances of getting better loot (1% extra per 10 PP).
   int prospecting;
 
   /// Fire attack.

@@ -43,9 +43,9 @@ Name | Type | Description | Notes
 **hp** | **int** | Character actual HP. | 
 **maxHp** | **int** | Character max HP. | 
 **haste** | **int** | *Increase speed attack (reduce fight cooldown) | 
-**criticalStrike** | **int** | % Critical strike. Critical strikes increase the attack's damage by 30%. | 
-**wisdom** | **int** | Wisdom increases the amount of XP gained from fights. | 
-**prospecting** | **int** | Prospecting increases the chances of getting better loot. | 
+**criticalStrike** | **int** | % Critical strike. Critical strikes adds 50% extra damage to an attack (1.5x). | 
+**wisdom** | **int** | Wisdom increases the amount of XP gained from fights (1% extra per 10 wisdom). | 
+**prospecting** | **int** | Prospecting increases the chances of getting better loot (1% extra per 10 PP). | 
 **attackFire** | **int** | Fire attack. | 
 **attackEarth** | **int** | Earth attack. | 
 **attackWater** | **int** | Water attack. | 
