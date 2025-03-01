@@ -25,14 +25,12 @@ class EffectType {
   static const equipment = EffectType._(r'equipment');
   static const consumable = EffectType._(r'consumable');
   static const combat = EffectType._(r'combat');
-  static const item = EffectType._(r'item');
 
   /// List of all possible values in this [enum][EffectType].
   static const values = <EffectType>[
     equipment,
     consumable,
     combat,
-    item,
   ];
 
   static EffectType? fromJson(dynamic value) =>
@@ -82,8 +80,6 @@ class EffectTypeTypeTransformer {
           return EffectType.consumable;
         case r'combat':
           return EffectType.combat;
-        case r'item':
-          return EffectType.item;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

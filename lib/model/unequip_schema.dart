@@ -20,7 +20,7 @@ class UnequipSchema {
   /// Item slot.
   ItemSlot slot;
 
-  /// Item quantity. Applicable to utilitys only.
+  /// Item quantity. Applicable to utilities only.
   ///
   /// Minimum value: 1
   /// Maximum value: 100

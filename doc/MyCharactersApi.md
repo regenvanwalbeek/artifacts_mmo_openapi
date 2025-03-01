@@ -798,7 +798,7 @@ Name | Type | Description  | Notes
 
 Action Npc Sell Item
 
-Sell an item from an NPC on the character's map.
+Sell an item to an NPC on the character's map.
 
 ### Example
 ```dart

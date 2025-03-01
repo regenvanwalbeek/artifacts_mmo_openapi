@@ -23,13 +23,13 @@ class FightSchema {
     required this.result,
   });
 
-  /// The amount of xp gained by the fight.
+  /// The amount of xp gained from the fight.
   int xp;
 
-  /// The amount of gold gained by the fight.
+  /// The amount of gold gained from the fight.
   int gold;
 
-  /// The items dropped by the fight.
+  /// The items dropped from the fight.
   List<DropSchema> drops;
 
   /// Numbers of the turns of the combat.
