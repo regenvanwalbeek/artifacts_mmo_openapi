@@ -1,3 +1,7 @@
+## 4.0.0
+
+- Season 4 updates
+
 ## 4.0.0-alpha.2
 
 - Documentation fix
