@@ -260,4 +260,73 @@ class AccountsApi {
     }
     return null;
   }
+
+  /// Get Account Characters
+  ///
+  /// Account character lists.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] account (required):
+  ///   The character name.
+  Future<Response> getAccountCharactersAccountsAccountCharactersGetWithHttpInfo(
+    String account,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/accounts/{account}/characters'.replaceAll('{account}', account);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Account Characters
+  ///
+  /// Account character lists.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] account (required):
+  ///   The character name.
+  Future<CharactersListSchema?>
+      getAccountCharactersAccountsAccountCharactersGet(
+    String account,
+  ) async {
+    final response =
+        await getAccountCharactersAccountsAccountCharactersGetWithHttpInfo(
+      account,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CharactersListSchema',
+      ) as CharactersListSchema;
+    }
+    return null;
+  }
 }

@@ -18,7 +18,7 @@ class EventContentSchema {
   });
 
   /// Type of the event.
-  String type;
+  MapContentType type;
 
   /// Code content.
   String code;
@@ -64,7 +64,7 @@ class EventContentSchema {
       }());
 
       return EventContentSchema(
-        type: mapValueOfType<String>(json, r'type')!,
+        type: MapContentType.fromJson(json[r'type'])!,
         code: mapValueOfType<String>(json, r'code')!,
       );
     }

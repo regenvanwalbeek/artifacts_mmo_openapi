@@ -46,6 +46,7 @@ doc/CharacterRestResponseSchema.md
 doc/CharacterSchema.md
 doc/CharacterSkin.md
 doc/CharactersApi.md
+doc/CharactersListSchema.md
 doc/CooldownSchema.md
 doc/CraftSchema.md
 doc/CraftSkill.md
@@ -246,6 +247,7 @@ lib/model/character_rest_data_schema.dart
 lib/model/character_rest_response_schema.dart
 lib/model/character_schema.dart
 lib/model/character_skin.dart
+lib/model/characters_list_schema.dart
 lib/model/cooldown_schema.dart
 lib/model/craft_schema.dart
 lib/model/craft_skill.dart

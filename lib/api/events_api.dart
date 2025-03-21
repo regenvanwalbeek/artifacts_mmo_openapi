@@ -105,12 +105,16 @@ class EventsApi {
   ///
   /// Parameters:
   ///
+  /// * [MapContentType] type:
+  ///   Type of event.
+  ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
   Future<Response> getAllEventsEventsGetWithHttpInfo({
+    MapContentType? type,
     int? page,
     int? size,
   }) async {
@@ -124,6 +128,9 @@ class EventsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
+    if (type != null) {
+      queryParams.addAll(_queryParams('', 'type', type));
+    }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
     }
@@ -150,16 +157,21 @@ class EventsApi {
   ///
   /// Parameters:
   ///
+  /// * [MapContentType] type:
+  ///   Type of event.
+  ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
   Future<DataPageEventSchema?> getAllEventsEventsGet({
+    MapContentType? type,
     int? page,
     int? size,
   }) async {
     final response = await getAllEventsEventsGetWithHttpInfo(
+      type: type,
       page: page,
       size: size,
     );

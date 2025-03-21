@@ -10,43 +10,38 @@
 
 part of openapi_generation;
 
-class MapContentSchema {
-  /// Returns a new [MapContentSchema] instance.
-  MapContentSchema({
-    required this.type,
-    required this.code,
+class CharactersListSchema {
+  /// Returns a new [CharactersListSchema] instance.
+  CharactersListSchema({
+    this.data = const [],
   });
 
-  /// Type of the content.
-  MapContentType type;
-
-  /// Code of the content.
-  String code;
+  /// List of your characters.
+  List<CharacterSchema> data;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is MapContentSchema && other.type == type && other.code == code;
+      other is CharactersListSchema && _deepEquality.equals(other.data, data);
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (type.hashCode) + (code.hashCode);
+      (data.hashCode);
 
   @override
-  String toString() => 'MapContentSchema[type=$type, code=$code]';
+  String toString() => 'CharactersListSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'type'] = this.type;
-    json[r'code'] = this.code;
+    json[r'data'] = this.data;
     return json;
   }
 
-  /// Returns a new [MapContentSchema] instance and imports its values from
+  /// Returns a new [CharactersListSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MapContentSchema? fromJson(dynamic value) {
+  static CharactersListSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -56,29 +51,28 @@ class MapContentSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "MapContentSchema[$key]" is missing from JSON.');
+              'Required key "CharactersListSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "MapContentSchema[$key]" has a null value in JSON.');
+              'Required key "CharactersListSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return MapContentSchema(
-        type: MapContentType.fromJson(json[r'type'])!,
-        code: mapValueOfType<String>(json, r'code')!,
+      return CharactersListSchema(
+        data: CharacterSchema.listFromJson(json[r'data']),
       );
     }
     return null;
   }
 
-  static List<MapContentSchema> listFromJson(
+  static List<CharactersListSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <MapContentSchema>[];
+    final result = <CharactersListSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = MapContentSchema.fromJson(row);
+        final value = CharactersListSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -87,12 +81,12 @@ class MapContentSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, MapContentSchema> mapFromJson(dynamic json) {
-    final map = <String, MapContentSchema>{};
+  static Map<String, CharactersListSchema> mapFromJson(dynamic json) {
+    final map = <String, CharactersListSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = MapContentSchema.fromJson(entry.value);
+        final value = CharactersListSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -101,17 +95,17 @@ class MapContentSchema {
     return map;
   }
 
-  // maps a json object with a list of MapContentSchema-objects as value to a dart map
-  static Map<String, List<MapContentSchema>> mapListFromJson(
+  // maps a json object with a list of CharactersListSchema-objects as value to a dart map
+  static Map<String, List<CharactersListSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<MapContentSchema>>{};
+    final map = <String, List<CharactersListSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = MapContentSchema.listFromJson(
+        map[entry.key] = CharactersListSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -122,7 +116,6 @@ class MapContentSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'type',
-    'code',
+    'data',
   };
 }

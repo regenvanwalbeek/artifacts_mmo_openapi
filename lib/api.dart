@@ -87,6 +87,7 @@ part 'model/character_rest_data_schema.dart';
 part 'model/character_rest_response_schema.dart';
 part 'model/character_schema.dart';
 part 'model/character_skin.dart';
+part 'model/characters_list_schema.dart';
 part 'model/cooldown_schema.dart';
 part 'model/craft_schema.dart';
 part 'model/craft_skill.dart';

@@ -15,11 +15,11 @@ class EventSchema {
   EventSchema({
     required this.name,
     required this.code,
+    required this.content,
     this.maps = const [],
     required this.skin,
     required this.duration,
     required this.rate,
-    required this.content,
   });
 
   /// Name of the event.
@@ -27,6 +27,9 @@ class EventSchema {
 
   /// Code of the event.
   String code;
+
+  /// Content of the event.
+  EventContentSchema content;
 
   /// Map list of the event.
   List<EventMapSchema> maps;
@@ -40,45 +43,42 @@ class EventSchema {
   /// Rate spawn of the event. (1/rate every minute)
   int rate;
 
-  /// Content of the event.
-  EventContentSchema content;
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is EventSchema &&
           other.name == name &&
           other.code == code &&
+          other.content == content &&
           _deepEquality.equals(other.maps, maps) &&
           other.skin == skin &&
           other.duration == duration &&
-          other.rate == rate &&
-          other.content == content;
+          other.rate == rate;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (name.hashCode) +
       (code.hashCode) +
+      (content.hashCode) +
       (maps.hashCode) +
       (skin.hashCode) +
       (duration.hashCode) +
-      (rate.hashCode) +
-      (content.hashCode);
+      (rate.hashCode);
 
   @override
   String toString() =>
-      'EventSchema[name=$name, code=$code, maps=$maps, skin=$skin, duration=$duration, rate=$rate, content=$content]';
+      'EventSchema[name=$name, code=$code, content=$content, maps=$maps, skin=$skin, duration=$duration, rate=$rate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'name'] = this.name;
     json[r'code'] = this.code;
+    json[r'content'] = this.content;
     json[r'maps'] = this.maps;
     json[r'skin'] = this.skin;
     json[r'duration'] = this.duration;
     json[r'rate'] = this.rate;
-    json[r'content'] = this.content;
     return json;
   }
 
@@ -105,11 +105,11 @@ class EventSchema {
       return EventSchema(
         name: mapValueOfType<String>(json, r'name')!,
         code: mapValueOfType<String>(json, r'code')!,
+        content: EventContentSchema.fromJson(json[r'content'])!,
         maps: EventMapSchema.listFromJson(json[r'maps']),
         skin: mapValueOfType<String>(json, r'skin')!,
         duration: mapValueOfType<int>(json, r'duration')!,
         rate: mapValueOfType<int>(json, r'rate')!,
-        content: EventContentSchema.fromJson(json[r'content'])!,
       );
     }
     return null;
@@ -168,10 +168,10 @@ class EventSchema {
   static const requiredKeys = <String>{
     'name',
     'code',
+    'content',
     'maps',
     'skin',
     'duration',
     'rate',
-    'content',
   };
 }

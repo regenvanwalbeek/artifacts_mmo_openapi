@@ -27,6 +27,9 @@ class LeaderboardApi {
   /// * [AccountLeaderboardType] sort:
   ///   Default sort by achievements points.
   ///
+  /// * [String] name:
+  ///   Find a account by name.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -34,6 +37,7 @@ class LeaderboardApi {
   ///   Page size
   Future<Response> getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo({
     AccountLeaderboardType? sort,
+    String? name,
     int? page,
     int? size,
   }) async {
@@ -49,6 +53,9 @@ class LeaderboardApi {
 
     if (sort != null) {
       queryParams.addAll(_queryParams('', 'sort', sort));
+    }
+    if (name != null) {
+      queryParams.addAll(_queryParams('', 'name', name));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -79,6 +86,9 @@ class LeaderboardApi {
   /// * [AccountLeaderboardType] sort:
   ///   Default sort by achievements points.
   ///
+  /// * [String] name:
+  ///   Find a account by name.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -87,12 +97,14 @@ class LeaderboardApi {
   Future<DataPageAccountLeaderboardSchema?>
       getAccountsLeaderboardLeaderboardAccountsGet({
     AccountLeaderboardType? sort,
+    String? name,
     int? page,
     int? size,
   }) async {
     final response =
         await getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo(
       sort: sort,
+      name: name,
       page: page,
       size: size,
     );
@@ -123,6 +135,9 @@ class LeaderboardApi {
   /// * [CharacterLeaderboardType] sort:
   ///   Default sort by combat total XP.
   ///
+  /// * [String] name:
+  ///   Find a character by name.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -131,6 +146,7 @@ class LeaderboardApi {
   Future<Response>
       getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo({
     CharacterLeaderboardType? sort,
+    String? name,
     int? page,
     int? size,
   }) async {
@@ -146,6 +162,9 @@ class LeaderboardApi {
 
     if (sort != null) {
       queryParams.addAll(_queryParams('', 'sort', sort));
+    }
+    if (name != null) {
+      queryParams.addAll(_queryParams('', 'name', name));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -176,6 +195,9 @@ class LeaderboardApi {
   /// * [CharacterLeaderboardType] sort:
   ///   Default sort by combat total XP.
   ///
+  /// * [String] name:
+  ///   Find a character by name.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -184,12 +206,14 @@ class LeaderboardApi {
   Future<DataPageCharacterLeaderboardSchema?>
       getCharactersLeaderboardLeaderboardCharactersGet({
     CharacterLeaderboardType? sort,
+    String? name,
     int? page,
     int? size,
   }) async {
     final response =
         await getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo(
       sort: sort,
+      name: name,
       page: page,
       size: size,
     );

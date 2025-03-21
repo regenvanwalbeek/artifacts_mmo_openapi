@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllEventsEventsGet**
-> DataPageEventSchema getAllEventsEventsGet(page, size)
+> DataPageEventSchema getAllEventsEventsGet(type, page, size)
 
 Get All Events
 
@@ -70,11 +70,12 @@ Fetch events details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = EventsApi();
+final type = ; // MapContentType | Type of event.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getAllEventsEventsGet(page, size);
+    final result = api_instance.getAllEventsEventsGet(type, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling EventsApi->getAllEventsEventsGet: $e\n');
@@ -85,6 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **type** | [**MapContentType**](.md)| Type of event. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

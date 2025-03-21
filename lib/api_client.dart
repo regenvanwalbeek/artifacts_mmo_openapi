@@ -309,6 +309,8 @@ class ApiClient {
           return CharacterSchema.fromJson(value);
         case 'CharacterSkin':
           return CharacterSkinTypeTransformer().decode(value);
+        case 'CharactersListSchema':
+          return CharactersListSchema.fromJson(value);
         case 'CooldownSchema':
           return CooldownSchema.fromJson(value);
         case 'CraftSchema':

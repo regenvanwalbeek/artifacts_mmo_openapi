@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAccountsLeaderboardLeaderboardAccountsGet**
-> DataPageAccountLeaderboardSchema getAccountsLeaderboardLeaderboardAccountsGet(sort, page, size)
+> DataPageAccountLeaderboardSchema getAccountsLeaderboardLeaderboardAccountsGet(sort, name, page, size)
 
 Get Accounts Leaderboard
 
@@ -26,11 +26,12 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = LeaderboardApi();
 final sort = ; // AccountLeaderboardType | Default sort by achievements points.
+final name = name_example; // String | Find a account by name.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getAccountsLeaderboardLeaderboardAccountsGet(sort, page, size);
+    final result = api_instance.getAccountsLeaderboardLeaderboardAccountsGet(sort, name, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling LeaderboardApi->getAccountsLeaderboardLeaderboardAccountsGet: $e\n');
@@ -42,6 +43,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sort** | [**AccountLeaderboardType**](.md)| Default sort by achievements points. | [optional] 
+ **name** | **String**| Find a account by name. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -61,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getCharactersLeaderboardLeaderboardCharactersGet**
-> DataPageCharacterLeaderboardSchema getCharactersLeaderboardLeaderboardCharactersGet(sort, page, size)
+> DataPageCharacterLeaderboardSchema getCharactersLeaderboardLeaderboardCharactersGet(sort, name, page, size)
 
 Get Characters Leaderboard
 
@@ -73,11 +75,12 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = LeaderboardApi();
 final sort = ; // CharacterLeaderboardType | Default sort by combat total XP.
+final name = name_example; // String | Find a character by name.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getCharactersLeaderboardLeaderboardCharactersGet(sort, page, size);
+    final result = api_instance.getCharactersLeaderboardLeaderboardCharactersGet(sort, name, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling LeaderboardApi->getCharactersLeaderboardLeaderboardCharactersGet: $e\n');
@@ -89,6 +92,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **sort** | [**CharacterLeaderboardType**](.md)| Default sort by combat total XP. | [optional] 
+ **name** | **String**| Find a character by name. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
