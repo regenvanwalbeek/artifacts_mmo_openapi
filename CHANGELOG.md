@@ -1,6 +1,10 @@
-## 4.0.0
+## 4.1.0
 
 - Season 4 updates
+
+## 4.0.0
+
+- Season 4 Generation
 
 ## 4.0.0-alpha.2
 
