@@ -11,8 +11,7 @@
 part of openapi_generation;
 
 class MyCharactersApi {
-  MyCharactersApi([ApiClient? apiClient])
-      : apiClient = apiClient ?? defaultApiClient;
+  MyCharactersApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -63,8 +62,7 @@ class MyCharactersApi {
   Future<TaskResponseSchema?> actionAcceptNewTaskMyNameActionTaskNewPost(
     String name,
   ) async {
-    final response =
-        await actionAcceptNewTaskMyNameActionTaskNewPostWithHttpInfo(
+    final response = await actionAcceptNewTaskMyNameActionTaskNewPostWithHttpInfo(
       name,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -73,8 +71,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'TaskResponseSchema',
@@ -93,13 +90,11 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<Response>
-      actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
+  Future<Response> actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
     String name,
   ) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/bank/buy_expansion'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/bank/buy_expansion'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -129,12 +124,10 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<BankExtensionTransactionResponseSchema?>
-      actionBuyBankExpansionMyNameActionBankBuyExpansionPost(
+  Future<BankExtensionTransactionResponseSchema?> actionBuyBankExpansionMyNameActionBankBuyExpansionPost(
     String name,
   ) async {
-    final response =
-        await actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
+    final response = await actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
       name,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -143,8 +136,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'BankExtensionTransactionResponseSchema',
@@ -197,12 +189,10 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<RewardDataResponseSchema?>
-      actionCompleteTaskMyNameActionTaskCompletePost(
+  Future<RewardDataResponseSchema?> actionCompleteTaskMyNameActionTaskCompletePost(
     String name,
   ) async {
-    final response =
-        await actionCompleteTaskMyNameActionTaskCompletePostWithHttpInfo(
+    final response = await actionCompleteTaskMyNameActionTaskCompletePostWithHttpInfo(
       name,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -211,8 +201,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'RewardDataResponseSchema',
@@ -284,8 +273,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'SkillResponseSchema',
@@ -357,8 +345,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'DeleteItemResponseSchema',
@@ -379,14 +366,12 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [DepositWithdrawGoldSchema] depositWithdrawGoldSchema (required):
-  Future<Response>
-      actionDepositBankGoldMyNameActionBankDepositGoldPostWithHttpInfo(
+  Future<Response> actionDepositBankGoldMyNameActionBankDepositGoldPostWithHttpInfo(
     String name,
     DepositWithdrawGoldSchema depositWithdrawGoldSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/bank/deposit/gold'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/bank/deposit/gold'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = depositWithdrawGoldSchema;
@@ -418,13 +403,11 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [DepositWithdrawGoldSchema] depositWithdrawGoldSchema (required):
-  Future<BankGoldTransactionResponseSchema?>
-      actionDepositBankGoldMyNameActionBankDepositGoldPost(
+  Future<BankGoldTransactionResponseSchema?> actionDepositBankGoldMyNameActionBankDepositGoldPost(
     String name,
     DepositWithdrawGoldSchema depositWithdrawGoldSchema,
   ) async {
-    final response =
-        await actionDepositBankGoldMyNameActionBankDepositGoldPostWithHttpInfo(
+    final response = await actionDepositBankGoldMyNameActionBankDepositGoldPostWithHttpInfo(
       name,
       depositWithdrawGoldSchema,
     );
@@ -434,8 +417,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'BankGoldTransactionResponseSchema',
@@ -493,13 +475,11 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [SimpleItemSchema] simpleItemSchema (required):
-  Future<BankItemTransactionResponseSchema?>
-      actionDepositBankMyNameActionBankDepositPost(
+  Future<BankItemTransactionResponseSchema?> actionDepositBankMyNameActionBankDepositPost(
     String name,
     SimpleItemSchema simpleItemSchema,
   ) async {
-    final response =
-        await actionDepositBankMyNameActionBankDepositPostWithHttpInfo(
+    final response = await actionDepositBankMyNameActionBankDepositPostWithHttpInfo(
       name,
       simpleItemSchema,
     );
@@ -509,8 +489,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'BankItemTransactionResponseSchema',
@@ -582,8 +561,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'EquipmentResponseSchema',
@@ -648,8 +626,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'CharacterFightResponseSchema',
@@ -714,8 +691,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'SkillResponseSchema',
@@ -741,8 +717,7 @@ class MyCharactersApi {
     GEBuyOrderSchema gEBuyOrderSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/grandexchange/buy'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/grandexchange/buy'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = gEBuyOrderSchema;
@@ -774,13 +749,11 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [GEBuyOrderSchema] gEBuyOrderSchema (required):
-  Future<GETransactionResponseSchema?>
-      actionGeBuyItemMyNameActionGrandexchangeBuyPost(
+  Future<GETransactionResponseSchema?> actionGeBuyItemMyNameActionGrandexchangeBuyPost(
     String name,
     GEBuyOrderSchema gEBuyOrderSchema,
   ) async {
-    final response =
-        await actionGeBuyItemMyNameActionGrandexchangeBuyPostWithHttpInfo(
+    final response = await actionGeBuyItemMyNameActionGrandexchangeBuyPostWithHttpInfo(
       name,
       gEBuyOrderSchema,
     );
@@ -790,8 +763,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'GETransactionResponseSchema',
@@ -812,14 +784,12 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [GECancelOrderSchema] gECancelOrderSchema (required):
-  Future<Response>
-      actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
+  Future<Response> actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
     String name,
     GECancelOrderSchema gECancelOrderSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/grandexchange/cancel'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/grandexchange/cancel'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = gECancelOrderSchema;
@@ -851,13 +821,11 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [GECancelOrderSchema] gECancelOrderSchema (required):
-  Future<GETransactionResponseSchema?>
-      actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(
+  Future<GETransactionResponseSchema?> actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(
     String name,
     GECancelOrderSchema gECancelOrderSchema,
   ) async {
-    final response =
-        await actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
+    final response = await actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
       name,
       gECancelOrderSchema,
     );
@@ -867,8 +835,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'GETransactionResponseSchema',
@@ -889,14 +856,12 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
-  Future<Response>
-      actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
+  Future<Response> actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
     String name,
     GEOrderCreationrSchema gEOrderCreationrSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/grandexchange/sell'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/grandexchange/sell'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = gEOrderCreationrSchema;
@@ -928,13 +893,11 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
-  Future<GECreateOrderTransactionResponseSchema?>
-      actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(
+  Future<GECreateOrderTransactionResponseSchema?> actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(
     String name,
     GEOrderCreationrSchema gEOrderCreationrSchema,
   ) async {
-    final response =
-        await actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
+    final response = await actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
       name,
       gEOrderCreationrSchema,
     );
@@ -944,8 +907,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'GECreateOrderTransactionResponseSchema',
@@ -1017,8 +979,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'CharacterMovementResponseSchema',
@@ -1076,8 +1037,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
-  Future<NpcMerchantTransactionResponseSchema?>
-      actionNpcBuyItemMyNameActionNpcBuyPost(
+  Future<NpcMerchantTransactionResponseSchema?> actionNpcBuyItemMyNameActionNpcBuyPost(
     String name,
     NpcMerchantBuySchema npcMerchantBuySchema,
   ) async {
@@ -1091,8 +1051,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'NpcMerchantTransactionResponseSchema',
@@ -1150,8 +1109,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
-  Future<NpcMerchantTransactionResponseSchema?>
-      actionNpcSellItemMyNameActionNpcSellPost(
+  Future<NpcMerchantTransactionResponseSchema?> actionNpcSellItemMyNameActionNpcSellPost(
     String name,
     NpcMerchantBuySchema npcMerchantBuySchema,
   ) async {
@@ -1165,8 +1123,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'NpcMerchantTransactionResponseSchema',
@@ -1238,8 +1195,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'RecyclingResponseSchema',
@@ -1304,8 +1260,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'CharacterRestResponseSchema',
@@ -1358,12 +1313,10 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<TaskCancelledResponseSchema?>
-      actionTaskCancelMyNameActionTaskCancelPost(
+  Future<TaskCancelledResponseSchema?> actionTaskCancelMyNameActionTaskCancelPost(
     String name,
   ) async {
-    final response =
-        await actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo(
+    final response = await actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo(
       name,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1372,8 +1325,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'TaskCancelledResponseSchema',
@@ -1426,12 +1378,10 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
-  Future<RewardDataResponseSchema?>
-      actionTaskExchangeMyNameActionTaskExchangePost(
+  Future<RewardDataResponseSchema?> actionTaskExchangeMyNameActionTaskExchangePost(
     String name,
   ) async {
-    final response =
-        await actionTaskExchangeMyNameActionTaskExchangePostWithHttpInfo(
+    final response = await actionTaskExchangeMyNameActionTaskExchangePostWithHttpInfo(
       name,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1440,8 +1390,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'RewardDataResponseSchema',
@@ -1513,8 +1462,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'TaskTradeResponseSchema',
@@ -1586,8 +1534,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'EquipmentResponseSchema',
@@ -1659,8 +1606,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'UseItemResponseSchema',
@@ -1681,14 +1627,12 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [DepositWithdrawGoldSchema] depositWithdrawGoldSchema (required):
-  Future<Response>
-      actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithHttpInfo(
+  Future<Response> actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithHttpInfo(
     String name,
     DepositWithdrawGoldSchema depositWithdrawGoldSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/bank/withdraw/gold'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/bank/withdraw/gold'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = depositWithdrawGoldSchema;
@@ -1720,13 +1664,11 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [DepositWithdrawGoldSchema] depositWithdrawGoldSchema (required):
-  Future<BankGoldTransactionResponseSchema?>
-      actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(
+  Future<BankGoldTransactionResponseSchema?> actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(
     String name,
     DepositWithdrawGoldSchema depositWithdrawGoldSchema,
   ) async {
-    final response =
-        await actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithHttpInfo(
+    final response = await actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithHttpInfo(
       name,
       depositWithdrawGoldSchema,
     );
@@ -1736,8 +1678,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'BankGoldTransactionResponseSchema',
@@ -1795,13 +1736,11 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [SimpleItemSchema] simpleItemSchema (required):
-  Future<BankItemTransactionResponseSchema?>
-      actionWithdrawBankMyNameActionBankWithdrawPost(
+  Future<BankItemTransactionResponseSchema?> actionWithdrawBankMyNameActionBankWithdrawPost(
     String name,
     SimpleItemSchema simpleItemSchema,
   ) async {
-    final response =
-        await actionWithdrawBankMyNameActionBankWithdrawPostWithHttpInfo(
+    final response = await actionWithdrawBankMyNameActionBankWithdrawPostWithHttpInfo(
       name,
       simpleItemSchema,
     );
@@ -1811,8 +1750,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'BankItemTransactionResponseSchema',
@@ -1893,8 +1831,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'DataPageLogSchema',
@@ -1908,6 +1845,7 @@ class MyCharactersApi {
   /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
   ///
   /// Note: This method returns the HTTP [Response].
+  @Deprecated('Use accounts/{account}/characters')
   Future<Response> getMyCharactersMyCharactersGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/my/characters';
@@ -1935,6 +1873,7 @@ class MyCharactersApi {
   /// Get My Characters
   ///
   /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
+  @Deprecated('Use accounts/{account}/characters')
   Future<MyCharactersListSchema?> getMyCharactersMyCharactersGet() async {
     final response = await getMyCharactersMyCharactersGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -1943,8 +1882,7 @@ class MyCharactersApi {
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
-    if (response.body.isNotEmpty &&
-        response.statusCode != HttpStatus.noContent) {
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
         'MyCharactersListSchema',
