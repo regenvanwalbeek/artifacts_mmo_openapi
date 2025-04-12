@@ -879,7 +879,7 @@ class MyCharactersApi {
 
   /// Action Ge Create Sell Order
   ///
-  /// Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.
+  /// Create a sell order at the Grand Exchange on the character's map. Please note there is a 3% listing tax, charged at the time of posting, on the total price.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -920,7 +920,7 @@ class MyCharactersApi {
 
   /// Action Ge Create Sell Order
   ///
-  /// Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.
+  /// Create a sell order at the Grand Exchange on the character's map. Please note there is a 3% listing tax, charged at the time of posting, on the total price.
   ///
   /// Parameters:
   ///
@@ -1908,7 +1908,6 @@ class MyCharactersApi {
   /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
   ///
   /// Note: This method returns the HTTP [Response].
-  @Deprecated('Use accounts/{account}/characters')
   Future<Response> getMyCharactersMyCharactersGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/my/characters';
@@ -1936,7 +1935,6 @@ class MyCharactersApi {
   /// Get My Characters
   ///
   /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
-  @Deprecated('Use accounts/{account}/characters')
   Future<MyCharactersListSchema?> getMyCharactersMyCharactersGet() async {
     final response = await getMyCharactersMyCharactersGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {

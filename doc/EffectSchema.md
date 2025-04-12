@@ -8,7 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of the monster. | 
+**name** | **String** | Name of the effect. | 
 **code** | **String** | The code of the effect. This is the effect's unique identifier (ID). | 
 **description** | **String** | Description of the effect. This is a brief description of the effect. | 
 **type** | [**EffectType**](EffectType.md) | Type of the effect. | 

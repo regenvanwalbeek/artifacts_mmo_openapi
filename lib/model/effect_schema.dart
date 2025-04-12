@@ -20,7 +20,7 @@ class EffectSchema {
     required this.subtype,
   });
 
-  /// Name of the monster.
+  /// Name of the effect.
   String name;
 
   /// The code of the effect. This is the effect's unique identifier (ID).

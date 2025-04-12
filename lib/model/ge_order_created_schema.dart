@@ -47,7 +47,7 @@ class GEOrderCreatedSchema {
   /// Minimum value: 1
   int totalPrice;
 
-  /// Order creation tax (3%, minimum 1)
+  /// Listing tax (3%, minimum 1)
   ///
   /// Minimum value: 1
   int tax;

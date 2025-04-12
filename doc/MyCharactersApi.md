@@ -645,7 +645,7 @@ Name | Type | Description  | Notes
 
 Action Ge Create Sell Order
 
-Create a sell order at the Grand Exchange on the character's map. Please note that a 5% sales tax is charged.
+Create a sell order at the Grand Exchange on the character's map. Please note there is a 3% listing tax, charged at the time of posting, on the total price.
 
 ### Example
 ```dart
