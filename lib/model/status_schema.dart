@@ -13,79 +13,89 @@ part of openapi_generation;
 class StatusSchema {
   /// Returns a new [StatusSchema] instance.
   StatusSchema({
-    required this.status,
     required this.version,
-    required this.maxLevel,
-    required this.charactersOnline,
     required this.serverTime,
+    required this.maxLevel,
+    required this.maxSkillLevel,
+    required this.charactersOnline,
+    this.season,
     this.announcements = const [],
-    required this.lastWipe,
-    required this.nextWipe,
+    this.rateLimits = const [],
   });
-
-  /// Server status
-  String status;
 
   /// Game version.
   String version;
 
+  /// Server time.
+  DateTime serverTime;
+
   /// Maximum level.
   int maxLevel;
+
+  /// Maximum skill level.
+  int maxSkillLevel;
 
   /// Characters online.
   int charactersOnline;
 
-  /// Server time.
-  DateTime serverTime;
+  /// Current season details.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  SeasonSchema? season;
 
   /// Server announcements.
   List<AnnouncementSchema> announcements;
 
-  /// Last server wipe.
-  String lastWipe;
-
-  /// Next server wipe.
-  String nextWipe;
+  /// Rate limits.
+  List<RateLimitSchema> rateLimits;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is StatusSchema &&
-          other.status == status &&
           other.version == version &&
-          other.maxLevel == maxLevel &&
-          other.charactersOnline == charactersOnline &&
           other.serverTime == serverTime &&
+          other.maxLevel == maxLevel &&
+          other.maxSkillLevel == maxSkillLevel &&
+          other.charactersOnline == charactersOnline &&
+          other.season == season &&
           _deepEquality.equals(other.announcements, announcements) &&
-          other.lastWipe == lastWipe &&
-          other.nextWipe == nextWipe;
+          _deepEquality.equals(other.rateLimits, rateLimits);
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (status.hashCode) +
       (version.hashCode) +
-      (maxLevel.hashCode) +
-      (charactersOnline.hashCode) +
       (serverTime.hashCode) +
+      (maxLevel.hashCode) +
+      (maxSkillLevel.hashCode) +
+      (charactersOnline.hashCode) +
+      (season == null ? 0 : season!.hashCode) +
       (announcements.hashCode) +
-      (lastWipe.hashCode) +
-      (nextWipe.hashCode);
+      (rateLimits.hashCode);
 
   @override
   String toString() =>
-      'StatusSchema[status=$status, version=$version, maxLevel=$maxLevel, charactersOnline=$charactersOnline, serverTime=$serverTime, announcements=$announcements, lastWipe=$lastWipe, nextWipe=$nextWipe]';
+      'StatusSchema[version=$version, serverTime=$serverTime, maxLevel=$maxLevel, maxSkillLevel=$maxSkillLevel, charactersOnline=$charactersOnline, season=$season, announcements=$announcements, rateLimits=$rateLimits]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'status'] = this.status;
     json[r'version'] = this.version;
-    json[r'max_level'] = this.maxLevel;
-    json[r'characters_online'] = this.charactersOnline;
     json[r'server_time'] = this.serverTime.toUtc().toIso8601String();
+    json[r'max_level'] = this.maxLevel;
+    json[r'max_skill_level'] = this.maxSkillLevel;
+    json[r'characters_online'] = this.charactersOnline;
+    if (this.season != null) {
+      json[r'season'] = this.season;
+    } else {
+      json[r'season'] = null;
+    }
     json[r'announcements'] = this.announcements;
-    json[r'last_wipe'] = this.lastWipe;
-    json[r'next_wipe'] = this.nextWipe;
+    json[r'rate_limits'] = this.rateLimits;
     return json;
   }
 
@@ -110,14 +120,14 @@ class StatusSchema {
       }());
 
       return StatusSchema(
-        status: mapValueOfType<String>(json, r'status')!,
         version: mapValueOfType<String>(json, r'version')!,
-        maxLevel: mapValueOfType<int>(json, r'max_level')!,
-        charactersOnline: mapValueOfType<int>(json, r'characters_online')!,
         serverTime: mapDateTime(json, r'server_time', r'')!,
+        maxLevel: mapValueOfType<int>(json, r'max_level')!,
+        maxSkillLevel: mapValueOfType<int>(json, r'max_skill_level')!,
+        charactersOnline: mapValueOfType<int>(json, r'characters_online')!,
+        season: SeasonSchema.fromJson(json[r'season']),
         announcements: AnnouncementSchema.listFromJson(json[r'announcements']),
-        lastWipe: mapValueOfType<String>(json, r'last_wipe')!,
-        nextWipe: mapValueOfType<String>(json, r'next_wipe')!,
+        rateLimits: RateLimitSchema.listFromJson(json[r'rate_limits']),
       );
     }
     return null;
@@ -174,13 +184,12 @@ class StatusSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'status',
     'version',
-    'max_level',
-    'characters_online',
     'server_time',
+    'max_level',
+    'max_skill_level',
+    'characters_online',
     'announcements',
-    'last_wipe',
-    'next_wipe',
+    'rate_limits',
   };
 }

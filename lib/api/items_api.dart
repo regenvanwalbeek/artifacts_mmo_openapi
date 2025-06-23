@@ -23,14 +23,14 @@ class ItemsApi {
   ///
   /// Parameters:
   ///
+  /// * [String] name:
+  ///   Name of the item.
+  ///
   /// * [int] minLevel:
   ///   Minimum level items.
   ///
   /// * [int] maxLevel:
   ///   Maximum level items.
-  ///
-  /// * [String] name:
-  ///   Name of the item.
   ///
   /// * [ItemType] type:
   ///   Type of items.
@@ -47,9 +47,9 @@ class ItemsApi {
   /// * [int] size:
   ///   Page size
   Future<Response> getAllItemsItemsGetWithHttpInfo({
+    String? name,
     int? minLevel,
     int? maxLevel,
-    String? name,
     ItemType? type,
     CraftSkill? craftSkill,
     String? craftMaterial,
@@ -66,14 +66,14 @@ class ItemsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
+    if (name != null) {
+      queryParams.addAll(_queryParams('', 'name', name));
+    }
     if (minLevel != null) {
       queryParams.addAll(_queryParams('', 'min_level', minLevel));
     }
     if (maxLevel != null) {
       queryParams.addAll(_queryParams('', 'max_level', maxLevel));
-    }
-    if (name != null) {
-      queryParams.addAll(_queryParams('', 'name', name));
     }
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
@@ -110,14 +110,14 @@ class ItemsApi {
   ///
   /// Parameters:
   ///
+  /// * [String] name:
+  ///   Name of the item.
+  ///
   /// * [int] minLevel:
   ///   Minimum level items.
   ///
   /// * [int] maxLevel:
   ///   Maximum level items.
-  ///
-  /// * [String] name:
-  ///   Name of the item.
   ///
   /// * [ItemType] type:
   ///   Type of items.
@@ -134,9 +134,9 @@ class ItemsApi {
   /// * [int] size:
   ///   Page size
   Future<DataPageItemSchema?> getAllItemsItemsGet({
+    String? name,
     int? minLevel,
     int? maxLevel,
-    String? name,
     ItemType? type,
     CraftSkill? craftSkill,
     String? craftMaterial,
@@ -144,9 +144,9 @@ class ItemsApi {
     int? size,
   }) async {
     final response = await getAllItemsItemsGetWithHttpInfo(
+      name: name,
       minLevel: minLevel,
       maxLevel: maxLevel,
-      name: name,
       type: type,
       craftSkill: craftSkill,
       craftMaterial: craftMaterial,

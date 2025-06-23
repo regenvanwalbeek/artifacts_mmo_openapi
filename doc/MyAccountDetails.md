@@ -10,9 +10,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **String** | Username. | 
 **email** | **String** | Email. | 
-**subscribed** | **bool** | Subscribed for the current season. | 
-**status** | [**AccountStatus**](AccountStatus.md) | Member status. | 
+**member** | **bool** | Member status. | 
+**memberExpiration** | [**DateTime**](DateTime.md) |  | [optional] 
+**status** | [**AccountStatus**](AccountStatus.md) | Account status. | 
 **badges** | [**List<Object>**](Object.md) | Account badges. | [optional] [default to const []]
+**skins** | [**List<Object>**](Object.md) | Skins owned. | [default to const []]
 **gems** | **int** | Gems. | 
 **achievementsPoints** | **int** | Achievement points. | 
 **banned** | **bool** | Banned. | 

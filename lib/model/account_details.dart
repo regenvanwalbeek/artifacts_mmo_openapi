@@ -14,9 +14,10 @@ class AccountDetails {
   /// Returns a new [AccountDetails] instance.
   AccountDetails({
     required this.username,
-    required this.subscribed,
+    required this.member,
     required this.status,
     this.badges = const [],
+    this.skins = const [],
     required this.achievementsPoints,
     required this.banned,
     this.banReason,
@@ -25,14 +26,17 @@ class AccountDetails {
   /// Username.
   String username;
 
-  /// Subscribed for the current season.
-  bool subscribed;
-
   /// Member status.
+  bool member;
+
+  /// Account status.
   AccountStatus status;
 
   /// Account badges.
   List<Object> badges;
+
+  /// Skins owned.
+  List<Object> skins;
 
   /// Achievement points.
   int achievementsPoints;
@@ -54,9 +58,10 @@ class AccountDetails {
       identical(this, other) ||
       other is AccountDetails &&
           other.username == username &&
-          other.subscribed == subscribed &&
+          other.member == member &&
           other.status == status &&
           _deepEquality.equals(other.badges, badges) &&
+          _deepEquality.equals(other.skins, skins) &&
           other.achievementsPoints == achievementsPoints &&
           other.banned == banned &&
           other.banReason == banReason;
@@ -65,23 +70,25 @@ class AccountDetails {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (username.hashCode) +
-      (subscribed.hashCode) +
+      (member.hashCode) +
       (status.hashCode) +
       (badges.hashCode) +
+      (skins.hashCode) +
       (achievementsPoints.hashCode) +
       (banned.hashCode) +
       (banReason == null ? 0 : banReason!.hashCode);
 
   @override
   String toString() =>
-      'AccountDetails[username=$username, subscribed=$subscribed, status=$status, badges=$badges, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
+      'AccountDetails[username=$username, member=$member, status=$status, badges=$badges, skins=$skins, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'username'] = this.username;
-    json[r'subscribed'] = this.subscribed;
+    json[r'member'] = this.member;
     json[r'status'] = this.status;
     json[r'badges'] = this.badges;
+    json[r'skins'] = this.skins;
     json[r'achievements_points'] = this.achievementsPoints;
     json[r'banned'] = this.banned;
     if (this.banReason != null) {
@@ -114,9 +121,10 @@ class AccountDetails {
 
       return AccountDetails(
         username: mapValueOfType<String>(json, r'username')!,
-        subscribed: mapValueOfType<bool>(json, r'subscribed')!,
+        member: mapValueOfType<bool>(json, r'member')!,
         status: AccountStatus.fromJson(json[r'status'])!,
         badges: listFromJson(json[r'badges']),
+        skins: listFromJson(json[r'skins']),
         achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         banned: mapValueOfType<bool>(json, r'banned')!,
         banReason: mapValueOfType<String>(json, r'ban_reason'),
@@ -177,8 +185,9 @@ class AccountDetails {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'username',
-    'subscribed',
+    'member',
     'status',
+    'skins',
     'achievements_points',
     'banned',
   };

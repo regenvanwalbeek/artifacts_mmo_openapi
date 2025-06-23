@@ -23,10 +23,12 @@ class NPCType {
   String toJson() => value;
 
   static const merchant = NPCType._(r'merchant');
+  static const trader = NPCType._(r'trader');
 
   /// List of all possible values in this [enum][NPCType].
   static const values = <NPCType>[
     merchant,
+    trader,
   ];
 
   static NPCType? fromJson(dynamic value) =>
@@ -72,6 +74,8 @@ class NPCTypeTypeTransformer {
       switch (data) {
         case r'merchant':
           return NPCType.merchant;
+        case r'trader':
+          return NPCType.trader;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -16,7 +16,7 @@ class ActiveEventSchema {
     required this.name,
     required this.code,
     required this.map,
-    required this.previousSkin,
+    required this.previousMap,
     required this.duration,
     required this.expiration,
     required this.createdAt,
@@ -32,7 +32,7 @@ class ActiveEventSchema {
   MapSchema map;
 
   /// Previous map skin.
-  String previousSkin;
+  MapSchema previousMap;
 
   /// Duration in minutes.
   int duration;
@@ -50,7 +50,7 @@ class ActiveEventSchema {
           other.name == name &&
           other.code == code &&
           other.map == map &&
-          other.previousSkin == previousSkin &&
+          other.previousMap == previousMap &&
           other.duration == duration &&
           other.expiration == expiration &&
           other.createdAt == createdAt;
@@ -61,21 +61,21 @@ class ActiveEventSchema {
       (name.hashCode) +
       (code.hashCode) +
       (map.hashCode) +
-      (previousSkin.hashCode) +
+      (previousMap.hashCode) +
       (duration.hashCode) +
       (expiration.hashCode) +
       (createdAt.hashCode);
 
   @override
   String toString() =>
-      'ActiveEventSchema[name=$name, code=$code, map=$map, previousSkin=$previousSkin, duration=$duration, expiration=$expiration, createdAt=$createdAt]';
+      'ActiveEventSchema[name=$name, code=$code, map=$map, previousMap=$previousMap, duration=$duration, expiration=$expiration, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'name'] = this.name;
     json[r'code'] = this.code;
     json[r'map'] = this.map;
-    json[r'previous_skin'] = this.previousSkin;
+    json[r'previous_map'] = this.previousMap;
     json[r'duration'] = this.duration;
     json[r'expiration'] = this.expiration.toUtc().toIso8601String();
     json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
@@ -106,7 +106,7 @@ class ActiveEventSchema {
         name: mapValueOfType<String>(json, r'name')!,
         code: mapValueOfType<String>(json, r'code')!,
         map: MapSchema.fromJson(json[r'map'])!,
-        previousSkin: mapValueOfType<String>(json, r'previous_skin')!,
+        previousMap: MapSchema.fromJson(json[r'previous_map'])!,
         duration: mapValueOfType<int>(json, r'duration')!,
         expiration: mapDateTime(json, r'expiration', r'')!,
         createdAt: mapDateTime(json, r'created_at', r'')!,
@@ -169,7 +169,7 @@ class ActiveEventSchema {
     'name',
     'code',
     'map',
-    'previous_skin',
+    'previous_map',
     'duration',
     'expiration',
     'created_at',

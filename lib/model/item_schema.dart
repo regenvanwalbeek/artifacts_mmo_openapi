@@ -19,6 +19,7 @@ class ItemSchema {
     required this.type,
     required this.subtype,
     required this.description,
+    this.conditions = const [],
     this.effects = const [],
     this.craft,
     required this.tradeable,
@@ -44,6 +45,9 @@ class ItemSchema {
   /// Item description.
   String description;
 
+  /// Item conditions. If applicable. Conditions for using or equipping the item.
+  List<ConditionSchema> conditions;
+
   /// List of object effects. For equipment, it will include item stats.
   List<SimpleEffectSchema> effects;
 
@@ -62,6 +66,7 @@ class ItemSchema {
           other.type == type &&
           other.subtype == subtype &&
           other.description == description &&
+          _deepEquality.equals(other.conditions, conditions) &&
           _deepEquality.equals(other.effects, effects) &&
           other.craft == craft &&
           other.tradeable == tradeable;
@@ -75,13 +80,14 @@ class ItemSchema {
       (type.hashCode) +
       (subtype.hashCode) +
       (description.hashCode) +
+      (conditions.hashCode) +
       (effects.hashCode) +
       (craft == null ? 0 : craft!.hashCode) +
       (tradeable.hashCode);
 
   @override
   String toString() =>
-      'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, effects=$effects, craft=$craft, tradeable=$tradeable]';
+      'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, conditions=$conditions, effects=$effects, craft=$craft, tradeable=$tradeable]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -91,6 +97,7 @@ class ItemSchema {
     json[r'type'] = this.type;
     json[r'subtype'] = this.subtype;
     json[r'description'] = this.description;
+    json[r'conditions'] = this.conditions;
     json[r'effects'] = this.effects;
     if (this.craft != null) {
       json[r'craft'] = this.craft;
@@ -128,6 +135,7 @@ class ItemSchema {
         type: mapValueOfType<String>(json, r'type')!,
         subtype: mapValueOfType<String>(json, r'subtype')!,
         description: mapValueOfType<String>(json, r'description')!,
+        conditions: ConditionSchema.listFromJson(json[r'conditions']),
         effects: SimpleEffectSchema.listFromJson(json[r'effects']),
         craft: CraftSchema.fromJson(json[r'craft']),
         tradeable: mapValueOfType<bool>(json, r'tradeable')!,

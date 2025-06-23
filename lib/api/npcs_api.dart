@@ -15,6 +15,124 @@ class NPCsApi {
 
   final ApiClient apiClient;
 
+  /// Get All Npcs Items
+  ///
+  /// Retrieve the list of all NPC items.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] code:
+  ///   The code of the item.
+  ///
+  /// * [String] npc:
+  ///   The code of the npc.
+  ///
+  /// * [String] currency:
+  ///   The code of the currency.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response> getAllNpcsItemsNpcsItemsGetWithHttpInfo({
+    String? code,
+    String? npc,
+    String? currency,
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/npcs/items';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (code != null) {
+      queryParams.addAll(_queryParams('', 'code', code));
+    }
+    if (npc != null) {
+      queryParams.addAll(_queryParams('', 'npc', npc));
+    }
+    if (currency != null) {
+      queryParams.addAll(_queryParams('', 'currency', currency));
+    }
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get All Npcs Items
+  ///
+  /// Retrieve the list of all NPC items.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] code:
+  ///   The code of the item.
+  ///
+  /// * [String] npc:
+  ///   The code of the npc.
+  ///
+  /// * [String] currency:
+  ///   The code of the currency.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageNPCItem?> getAllNpcsItemsNpcsItemsGet({
+    String? code,
+    String? npc,
+    String? currency,
+    int? page,
+    int? size,
+  }) async {
+    final response = await getAllNpcsItemsNpcsItemsGetWithHttpInfo(
+      code: code,
+      npc: npc,
+      currency: currency,
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageNPCItem',
+      ) as DataPageNPCItem;
+    }
+    return null;
+  }
+
   /// Get All Npcs
   ///
   /// Fetch NPCs details.
@@ -22,6 +140,9 @@ class NPCsApi {
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
+  ///
+  /// * [String] name:
+  ///   Name of the npc.
   ///
   /// * [NPCType] type:
   ///   The type of the NPC.
@@ -31,13 +152,14 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getAllNpcsNpcsGetWithHttpInfo({
+  Future<Response> getAllNpcsNpcsDetailsGetWithHttpInfo({
+    String? name,
     NPCType? type,
     int? page,
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/npcs';
+    final path = r'/npcs/details';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -46,6 +168,9 @@ class NPCsApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
+    if (name != null) {
+      queryParams.addAll(_queryParams('', 'name', name));
+    }
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
     }
@@ -75,6 +200,9 @@ class NPCsApi {
   ///
   /// Parameters:
   ///
+  /// * [String] name:
+  ///   Name of the npc.
+  ///
   /// * [NPCType] type:
   ///   The type of the NPC.
   ///
@@ -83,12 +211,14 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageNPCSchema?> getAllNpcsNpcsGet({
+  Future<DataPageNPCSchema?> getAllNpcsNpcsDetailsGet({
+    String? name,
     NPCType? type,
     int? page,
     int? size,
   }) async {
-    final response = await getAllNpcsNpcsGetWithHttpInfo(
+    final response = await getAllNpcsNpcsDetailsGetWithHttpInfo(
+      name: name,
       type: type,
       page: page,
       size: size,
@@ -111,7 +241,7 @@ class NPCsApi {
 
   /// Get Npc Items
   ///
-  /// Retrieve the items list of a NPC. If the NPC has items to buy or sell, they will be displayed.
+  /// Retrieve the items list of a NPC. If the NPC has items to buy, sell or trade, they will be displayed.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -125,13 +255,13 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getNpcItemsNpcsCodeItemsGetWithHttpInfo(
+  Future<Response> getNpcItemsNpcsItemsCodeGetWithHttpInfo(
     String code, {
     int? page,
     int? size,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/npcs/{code}/items'.replaceAll('{code}', code);
+    final path = r'/npcs/items/{code}'.replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -162,7 +292,7 @@ class NPCsApi {
 
   /// Get Npc Items
   ///
-  /// Retrieve the items list of a NPC. If the NPC has items to buy or sell, they will be displayed.
+  /// Retrieve the items list of a NPC. If the NPC has items to buy, sell or trade, they will be displayed.
   ///
   /// Parameters:
   ///
@@ -174,12 +304,12 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageNPCItem?> getNpcItemsNpcsCodeItemsGet(
+  Future<DataPageNPCItem?> getNpcItemsNpcsItemsCodeGet(
     String code, {
     int? page,
     int? size,
   }) async {
-    final response = await getNpcItemsNpcsCodeItemsGetWithHttpInfo(
+    final response = await getNpcItemsNpcsItemsCodeGetWithHttpInfo(
       code,
       page: page,
       size: size,
@@ -210,11 +340,11 @@ class NPCsApi {
   ///
   /// * [String] code (required):
   ///   The code of the NPC.
-  Future<Response> getNpcNpcsCodeGetWithHttpInfo(
+  Future<Response> getNpcNpcsDetailsCodeGetWithHttpInfo(
     String code,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/npcs/{code}'.replaceAll('{code}', code);
+    final path = r'/npcs/details/{code}'.replaceAll('{code}', code);
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -244,10 +374,10 @@ class NPCsApi {
   ///
   /// * [String] code (required):
   ///   The code of the NPC.
-  Future<NPCResponseSchema?> getNpcNpcsCodeGet(
+  Future<NPCResponseSchema?> getNpcNpcsDetailsCodeGet(
     String code,
   ) async {
-    final response = await getNpcNpcsCodeGetWithHttpInfo(
+    final response = await getNpcNpcsDetailsCodeGetWithHttpInfo(
       code,
     );
     if (response.statusCode >= HttpStatus.badRequest) {

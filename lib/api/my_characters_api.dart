@@ -85,7 +85,7 @@ class MyCharactersApi {
 
   /// Action Buy Bank Expansion
   ///
-  /// Buy a 20 slots bank expansion.
+  /// Buy a 25 slots bank expansion.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -123,7 +123,7 @@ class MyCharactersApi {
 
   /// Action Buy Bank Expansion
   ///
-  /// Buy a 20 slots bank expansion.
+  /// Buy a 25 slots bank expansion.
   ///
   /// Parameters:
   ///
@@ -149,6 +149,80 @@ class MyCharactersApi {
         await _decodeBodyBytes(response),
         'BankExtensionTransactionResponseSchema',
       ) as BankExtensionTransactionResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Change Skin
+  ///
+  /// Change the skin of your character.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [ChangeSkinCharacterSchema] changeSkinCharacterSchema (required):
+  Future<Response> actionChangeSkinMyNameActionChangeSkinPostWithHttpInfo(
+    String name,
+    ChangeSkinCharacterSchema changeSkinCharacterSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/change_skin'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = changeSkinCharacterSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Change Skin
+  ///
+  /// Change the skin of your character.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [ChangeSkinCharacterSchema] changeSkinCharacterSchema (required):
+  Future<ChangeSkinResponseSchema?> actionChangeSkinMyNameActionChangeSkinPost(
+    String name,
+    ChangeSkinCharacterSchema changeSkinCharacterSchema,
+  ) async {
+    final response =
+        await actionChangeSkinMyNameActionChangeSkinPostWithHttpInfo(
+      name,
+      changeSkinCharacterSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ChangeSkinResponseSchema',
+      ) as ChangeSkinResponseSchema;
     }
     return null;
   }
@@ -950,6 +1024,152 @@ class MyCharactersApi {
         await _decodeBodyBytes(response),
         'GECreateOrderTransactionResponseSchema',
       ) as GECreateOrderTransactionResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Give Gold
+  ///
+  /// Give gold to another character in your account on the same map.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GiveGoldSchema] giveGoldSchema (required):
+  Future<Response> actionGiveGoldMyNameActionGiveGoldPostWithHttpInfo(
+    String name,
+    GiveGoldSchema giveGoldSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/give_gold'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = giveGoldSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Give Gold
+  ///
+  /// Give gold to another character in your account on the same map.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GiveGoldSchema] giveGoldSchema (required):
+  Future<GiveGoldReponseSchema?> actionGiveGoldMyNameActionGiveGoldPost(
+    String name,
+    GiveGoldSchema giveGoldSchema,
+  ) async {
+    final response = await actionGiveGoldMyNameActionGiveGoldPostWithHttpInfo(
+      name,
+      giveGoldSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GiveGoldReponseSchema',
+      ) as GiveGoldReponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Give Item
+  ///
+  /// Give an item to another character in your account on the same map.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GiveItemSchema] giveItemSchema (required):
+  Future<Response> actionGiveItemMyNameActionGiveItemPostWithHttpInfo(
+    String name,
+    GiveItemSchema giveItemSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/give_item'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = giveItemSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Give Item
+  ///
+  /// Give an item to another character in your account on the same map.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GiveItemSchema] giveItemSchema (required):
+  Future<GiveItemReponseSchema?> actionGiveItemMyNameActionGiveItemPost(
+    String name,
+    GiveItemSchema giveItemSchema,
+  ) async {
+    final response = await actionGiveItemMyNameActionGiveItemPostWithHttpInfo(
+      name,
+      giveItemSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GiveItemReponseSchema',
+      ) as GiveItemReponseSchema;
     }
     return null;
   }
@@ -1823,7 +2043,7 @@ class MyCharactersApi {
 
   /// Get All Characters Logs
   ///
-  /// History of the last 100 actions of all your characters.
+  /// History of the last 250 actions of all your characters.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1870,7 +2090,7 @@ class MyCharactersApi {
 
   /// Get All Characters Logs
   ///
-  /// History of the last 100 actions of all your characters.
+  /// History of the last 250 actions of all your characters.
   ///
   /// Parameters:
   ///
@@ -1884,6 +2104,97 @@ class MyCharactersApi {
     int? size,
   }) async {
     final response = await getAllCharactersLogsMyLogsGetWithHttpInfo(
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPageLogSchema',
+      ) as DataPageLogSchema;
+    }
+    return null;
+  }
+
+  /// Get Character Logs
+  ///
+  /// History of the last actions of your character.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response> getCharacterLogsMyLogsNameGetWithHttpInfo(
+    String name, {
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/logs/{name}'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Character Logs
+  ///
+  /// History of the last actions of your character.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPageLogSchema?> getCharacterLogsMyLogsNameGet(
+    String name, {
+    int? page,
+    int? size,
+  }) async {
+    final response = await getCharacterLogsMyLogsNameGetWithHttpInfo(
+      name,
       page: page,
       size: size,
     );

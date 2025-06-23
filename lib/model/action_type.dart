@@ -44,6 +44,10 @@ class ActionType {
   static const rest = ActionType._(r'rest');
   static const use = ActionType._(r'use');
   static const buyBankExpansion = ActionType._(r'buy_bank_expansion');
+  static const giveItem = ActionType._(r'give_item');
+  static const giveGold = ActionType._(r'give_gold');
+  static const changeSkin = ActionType._(r'change_skin');
+  static const rename = ActionType._(r'rename');
 
   /// List of all possible values in this [enum][ActionType].
   static const values = <ActionType>[
@@ -69,6 +73,10 @@ class ActionType {
     rest,
     use,
     buyBankExpansion,
+    giveItem,
+    giveGold,
+    changeSkin,
+    rename,
   ];
 
   static ActionType? fromJson(dynamic value) =>
@@ -156,6 +164,14 @@ class ActionTypeTypeTransformer {
           return ActionType.use;
         case r'buy_bank_expansion':
           return ActionType.buyBankExpansion;
+        case r'give_item':
+          return ActionType.giveItem;
+        case r'give_gold':
+          return ActionType.giveGold;
+        case r'change_skin':
+          return ActionType.changeSkin;
+        case r'rename':
+          return ActionType.rename;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

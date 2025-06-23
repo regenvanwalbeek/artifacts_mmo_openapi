@@ -28,6 +28,8 @@ class CharacterSkin {
   static const women1 = CharacterSkin._(r'women1');
   static const women2 = CharacterSkin._(r'women2');
   static const women3 = CharacterSkin._(r'women3');
+  static const corrupted1 = CharacterSkin._(r'corrupted1');
+  static const zombie1 = CharacterSkin._(r'zombie1');
 
   /// List of all possible values in this [enum][CharacterSkin].
   static const values = <CharacterSkin>[
@@ -37,6 +39,8 @@ class CharacterSkin {
     women1,
     women2,
     women3,
+    corrupted1,
+    zombie1,
   ];
 
   static CharacterSkin? fromJson(dynamic value) =>
@@ -92,6 +96,10 @@ class CharacterSkinTypeTransformer {
           return CharacterSkin.women2;
         case r'women3':
           return CharacterSkin.women3;
+        case r'corrupted1':
+          return CharacterSkin.corrupted1;
+        case r'zombie1':
+          return CharacterSkin.zombie1;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

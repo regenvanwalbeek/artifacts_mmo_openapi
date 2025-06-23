@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.api.DefaultApi
+# artifacts_mmo_openapi.api.ServerDetailsApi
 
 ## Load the API package
 ```dart
@@ -9,13 +9,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getStatusGet**](DefaultApi.md#getstatusget) | **GET** / | Get Status
+[**getServerDetailsGet**](ServerDetailsApi.md#getserverdetailsget) | **GET** / | Get Server Details
 
 
-# **getStatusGet**
-> StatusResponseSchema getStatusGet()
+# **getServerDetailsGet**
+> StatusResponseSchema getServerDetailsGet()
 
-Get Status
+Get Server Details
 
 Return the status of the game server.
 
@@ -23,13 +23,13 @@ Return the status of the game server.
 ```dart
 import 'package:artifacts_mmo_openapi/api.dart';
 
-final api_instance = DefaultApi();
+final api_instance = ServerDetailsApi();
 
 try {
-    final result = api_instance.getStatusGet();
+    final result = api_instance.getServerDetailsGet();
     print(result);
 } catch (e) {
-    print('Exception when calling DefaultApi->getStatusGet: $e\n');
+    print('Exception when calling ServerDetailsApi->getServerDetailsGet: $e\n');
 }
 ```
 

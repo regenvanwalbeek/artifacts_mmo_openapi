@@ -17,7 +17,6 @@ class EventSchema {
     required this.code,
     required this.content,
     this.maps = const [],
-    required this.skin,
     required this.duration,
     required this.rate,
   });
@@ -34,9 +33,6 @@ class EventSchema {
   /// Map list of the event.
   List<EventMapSchema> maps;
 
-  /// Map skin of the event.
-  String skin;
-
   /// Duration in minutes.
   int duration;
 
@@ -51,7 +47,6 @@ class EventSchema {
           other.code == code &&
           other.content == content &&
           _deepEquality.equals(other.maps, maps) &&
-          other.skin == skin &&
           other.duration == duration &&
           other.rate == rate;
 
@@ -62,13 +57,12 @@ class EventSchema {
       (code.hashCode) +
       (content.hashCode) +
       (maps.hashCode) +
-      (skin.hashCode) +
       (duration.hashCode) +
       (rate.hashCode);
 
   @override
   String toString() =>
-      'EventSchema[name=$name, code=$code, content=$content, maps=$maps, skin=$skin, duration=$duration, rate=$rate]';
+      'EventSchema[name=$name, code=$code, content=$content, maps=$maps, duration=$duration, rate=$rate]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -76,7 +70,6 @@ class EventSchema {
     json[r'code'] = this.code;
     json[r'content'] = this.content;
     json[r'maps'] = this.maps;
-    json[r'skin'] = this.skin;
     json[r'duration'] = this.duration;
     json[r'rate'] = this.rate;
     return json;
@@ -107,7 +100,6 @@ class EventSchema {
         code: mapValueOfType<String>(json, r'code')!,
         content: EventContentSchema.fromJson(json[r'content'])!,
         maps: EventMapSchema.listFromJson(json[r'maps']),
-        skin: mapValueOfType<String>(json, r'skin')!,
         duration: mapValueOfType<int>(json, r'duration')!,
         rate: mapValueOfType<int>(json, r'rate')!,
       );
@@ -170,7 +162,6 @@ class EventSchema {
     'code',
     'content',
     'maps',
-    'skin',
     'duration',
     'rate',
   };

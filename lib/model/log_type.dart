@@ -50,6 +50,12 @@ class LogType {
   static const use = LogType._(r'use');
   static const buyBankExpansion = LogType._(r'buy_bank_expansion');
   static const achievement = LogType._(r'achievement');
+  static const giveItem = LogType._(r'give_item');
+  static const giveGold = LogType._(r'give_gold');
+  static const receiveItem = LogType._(r'receive_item');
+  static const receiveGold = LogType._(r'receive_gold');
+  static const changeSkin = LogType._(r'change_skin');
+  static const rename = LogType._(r'rename');
 
   /// List of all possible values in this [enum][LogType].
   static const values = <LogType>[
@@ -81,6 +87,12 @@ class LogType {
     use,
     buyBankExpansion,
     achievement,
+    giveItem,
+    giveGold,
+    receiveItem,
+    receiveGold,
+    changeSkin,
+    rename,
   ];
 
   static LogType? fromJson(dynamic value) =>
@@ -180,6 +192,18 @@ class LogTypeTypeTransformer {
           return LogType.buyBankExpansion;
         case r'achievement':
           return LogType.achievement;
+        case r'give_item':
+          return LogType.giveItem;
+        case r'give_gold':
+          return LogType.giveGold;
+        case r'receive_item':
+          return LogType.receiveItem;
+        case r'receive_gold':
+          return LogType.receiveGold;
+        case r'change_skin':
+          return LogType.changeSkin;
+        case r'rename':
+          return LogType.rename;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

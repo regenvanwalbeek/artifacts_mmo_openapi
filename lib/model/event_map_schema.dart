@@ -15,6 +15,7 @@ class EventMapSchema {
   EventMapSchema({
     required this.x,
     required this.y,
+    required this.skin,
   });
 
   /// Position X of the map.
@@ -23,23 +24,30 @@ class EventMapSchema {
   /// Position Y of the map.
   int y;
 
+  /// Map skin of the map
+  String skin;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is EventMapSchema && other.x == x && other.y == y;
+      other is EventMapSchema &&
+          other.x == x &&
+          other.y == y &&
+          other.skin == skin;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (x.hashCode) + (y.hashCode);
+      (x.hashCode) + (y.hashCode) + (skin.hashCode);
 
   @override
-  String toString() => 'EventMapSchema[x=$x, y=$y]';
+  String toString() => 'EventMapSchema[x=$x, y=$y, skin=$skin]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'x'] = this.x;
     json[r'y'] = this.y;
+    json[r'skin'] = this.skin;
     return json;
   }
 
@@ -66,6 +74,7 @@ class EventMapSchema {
       return EventMapSchema(
         x: mapValueOfType<int>(json, r'x')!,
         y: mapValueOfType<int>(json, r'y')!,
+        skin: mapValueOfType<String>(json, r'skin')!,
       );
     }
     return null;
@@ -124,5 +133,6 @@ class EventMapSchema {
   static const requiredKeys = <String>{
     'x',
     'y',
+    'skin',
   };
 }

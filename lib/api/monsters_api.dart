@@ -24,6 +24,9 @@ class MonstersApi {
   ///
   /// Parameters:
   ///
+  /// * [String] name:
+  ///   Name of the monster.
+  ///
   /// * [int] minLevel:
   ///   Monster minimum level.
   ///
@@ -39,6 +42,7 @@ class MonstersApi {
   /// * [int] size:
   ///   Page size
   Future<Response> getAllMonstersMonstersGetWithHttpInfo({
+    String? name,
     int? minLevel,
     int? maxLevel,
     String? drop,
@@ -55,6 +59,9 @@ class MonstersApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
+    if (name != null) {
+      queryParams.addAll(_queryParams('', 'name', name));
+    }
     if (minLevel != null) {
       queryParams.addAll(_queryParams('', 'min_level', minLevel));
     }
@@ -90,6 +97,9 @@ class MonstersApi {
   ///
   /// Parameters:
   ///
+  /// * [String] name:
+  ///   Name of the monster.
+  ///
   /// * [int] minLevel:
   ///   Monster minimum level.
   ///
@@ -105,6 +115,7 @@ class MonstersApi {
   /// * [int] size:
   ///   Page size
   Future<DataPageMonsterSchema?> getAllMonstersMonstersGet({
+    String? name,
     int? minLevel,
     int? maxLevel,
     String? drop,
@@ -112,6 +123,7 @@ class MonstersApi {
     int? size,
   }) async {
     final response = await getAllMonstersMonstersGetWithHttpInfo(
+      name: name,
       minLevel: minLevel,
       maxLevel: maxLevel,
       drop: drop,

@@ -26,3 +26,7 @@ To see what options can be configured in `config.json`, run:
 ```
 java -jar .\openapi-generator-cli.jar config-help -g dart
 ```
+
+## Updating OpenApi Jar
+
+The latest `openapi-generator-cli.jar` can be found at https://openapi-generator.tech/docs/installation/#jar

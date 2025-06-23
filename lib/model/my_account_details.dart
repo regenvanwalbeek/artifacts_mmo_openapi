@@ -15,9 +15,11 @@ class MyAccountDetails {
   MyAccountDetails({
     required this.username,
     required this.email,
-    required this.subscribed,
+    required this.member,
+    this.memberExpiration,
     required this.status,
     this.badges = const [],
+    this.skins = const [],
     required this.gems,
     required this.achievementsPoints,
     required this.banned,
@@ -30,14 +32,19 @@ class MyAccountDetails {
   /// Email.
   String email;
 
-  /// Subscribed for the current season.
-  bool subscribed;
-
   /// Member status.
+  bool member;
+
+  DateTime? memberExpiration;
+
+  /// Account status.
   AccountStatus status;
 
   /// Account badges.
   List<Object> badges;
+
+  /// Skins owned.
+  List<Object> skins;
 
   /// Gems.
   int gems;
@@ -63,9 +70,11 @@ class MyAccountDetails {
       other is MyAccountDetails &&
           other.username == username &&
           other.email == email &&
-          other.subscribed == subscribed &&
+          other.member == member &&
+          other.memberExpiration == memberExpiration &&
           other.status == status &&
           _deepEquality.equals(other.badges, badges) &&
+          _deepEquality.equals(other.skins, skins) &&
           other.gems == gems &&
           other.achievementsPoints == achievementsPoints &&
           other.banned == banned &&
@@ -76,9 +85,11 @@ class MyAccountDetails {
       // ignore: unnecessary_parenthesis
       (username.hashCode) +
       (email.hashCode) +
-      (subscribed.hashCode) +
+      (member.hashCode) +
+      (memberExpiration == null ? 0 : memberExpiration!.hashCode) +
       (status.hashCode) +
       (badges.hashCode) +
+      (skins.hashCode) +
       (gems.hashCode) +
       (achievementsPoints.hashCode) +
       (banned.hashCode) +
@@ -86,15 +97,22 @@ class MyAccountDetails {
 
   @override
   String toString() =>
-      'MyAccountDetails[username=$username, email=$email, subscribed=$subscribed, status=$status, badges=$badges, gems=$gems, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
+      'MyAccountDetails[username=$username, email=$email, member=$member, memberExpiration=$memberExpiration, status=$status, badges=$badges, skins=$skins, gems=$gems, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'username'] = this.username;
     json[r'email'] = this.email;
-    json[r'subscribed'] = this.subscribed;
+    json[r'member'] = this.member;
+    if (this.memberExpiration != null) {
+      json[r'member_expiration'] =
+          this.memberExpiration!.toUtc().toIso8601String();
+    } else {
+      json[r'member_expiration'] = null;
+    }
     json[r'status'] = this.status;
     json[r'badges'] = this.badges;
+    json[r'skins'] = this.skins;
     json[r'gems'] = this.gems;
     json[r'achievements_points'] = this.achievementsPoints;
     json[r'banned'] = this.banned;
@@ -129,9 +147,11 @@ class MyAccountDetails {
       return MyAccountDetails(
         username: mapValueOfType<String>(json, r'username')!,
         email: mapValueOfType<String>(json, r'email')!,
-        subscribed: mapValueOfType<bool>(json, r'subscribed')!,
+        member: mapValueOfType<bool>(json, r'member')!,
+        memberExpiration: mapDateTime(json, r'member_expiration', r''),
         status: AccountStatus.fromJson(json[r'status'])!,
         badges: listFromJson(json[r'badges']),
+        skins: listFromJson(json[r'skins']),
         gems: mapValueOfType<int>(json, r'gems')!,
         achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         banned: mapValueOfType<bool>(json, r'banned')!,
@@ -194,8 +214,9 @@ class MyAccountDetails {
   static const requiredKeys = <String>{
     'username',
     'email',
-    'subscribed',
+    'member',
     'status',
+    'skins',
     'gems',
     'achievements_points',
     'banned',

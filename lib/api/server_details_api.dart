@@ -10,18 +10,18 @@
 
 part of openapi_generation;
 
-class DefaultApi {
-  DefaultApi([ApiClient? apiClient])
+class ServerDetailsApi {
+  ServerDetailsApi([ApiClient? apiClient])
       : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
-  /// Get Status
+  /// Get Server Details
   ///
   /// Return the status of the game server.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getStatusGetWithHttpInfo() async {
+  Future<Response> getServerDetailsGetWithHttpInfo() async {
     // ignore: prefer_const_declarations
     final path = r'/';
 
@@ -45,11 +45,11 @@ class DefaultApi {
     );
   }
 
-  /// Get Status
+  /// Get Server Details
   ///
   /// Return the status of the game server.
-  Future<StatusResponseSchema?> getStatusGet() async {
-    final response = await getStatusGetWithHttpInfo();
+  Future<StatusResponseSchema?> getServerDetailsGet() async {
+    final response = await getServerDetailsGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

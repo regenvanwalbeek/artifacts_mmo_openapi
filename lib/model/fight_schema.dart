@@ -17,8 +17,6 @@ class FightSchema {
     required this.gold,
     this.drops = const [],
     required this.turns,
-    required this.monsterBlockedHits,
-    required this.playerBlockedHits,
     this.logs = const [],
     required this.result,
   });
@@ -35,12 +33,6 @@ class FightSchema {
   /// Numbers of the turns of the combat.
   int turns;
 
-  /// The amount of blocked hits by the monster.
-  BlockedHitsSchema monsterBlockedHits;
-
-  /// The amount of blocked hits by the player.
-  BlockedHitsSchema playerBlockedHits;
-
   /// The fight logs.
   List<String> logs;
 
@@ -55,8 +47,6 @@ class FightSchema {
           other.gold == gold &&
           _deepEquality.equals(other.drops, drops) &&
           other.turns == turns &&
-          other.monsterBlockedHits == monsterBlockedHits &&
-          other.playerBlockedHits == playerBlockedHits &&
           _deepEquality.equals(other.logs, logs) &&
           other.result == result;
 
@@ -67,14 +57,12 @@ class FightSchema {
       (gold.hashCode) +
       (drops.hashCode) +
       (turns.hashCode) +
-      (monsterBlockedHits.hashCode) +
-      (playerBlockedHits.hashCode) +
       (logs.hashCode) +
       (result.hashCode);
 
   @override
   String toString() =>
-      'FightSchema[xp=$xp, gold=$gold, drops=$drops, turns=$turns, monsterBlockedHits=$monsterBlockedHits, playerBlockedHits=$playerBlockedHits, logs=$logs, result=$result]';
+      'FightSchema[xp=$xp, gold=$gold, drops=$drops, turns=$turns, logs=$logs, result=$result]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -82,8 +70,6 @@ class FightSchema {
     json[r'gold'] = this.gold;
     json[r'drops'] = this.drops;
     json[r'turns'] = this.turns;
-    json[r'monster_blocked_hits'] = this.monsterBlockedHits;
-    json[r'player_blocked_hits'] = this.playerBlockedHits;
     json[r'logs'] = this.logs;
     json[r'result'] = this.result;
     return json;
@@ -114,10 +100,6 @@ class FightSchema {
         gold: mapValueOfType<int>(json, r'gold')!,
         drops: DropSchema.listFromJson(json[r'drops']),
         turns: mapValueOfType<int>(json, r'turns')!,
-        monsterBlockedHits:
-            BlockedHitsSchema.fromJson(json[r'monster_blocked_hits'])!,
-        playerBlockedHits:
-            BlockedHitsSchema.fromJson(json[r'player_blocked_hits'])!,
         logs: json[r'logs'] is Iterable
             ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
@@ -182,8 +164,6 @@ class FightSchema {
     'gold',
     'drops',
     'turns',
-    'monster_blocked_hits',
-    'player_blocked_hits',
     'logs',
     'result',
   };

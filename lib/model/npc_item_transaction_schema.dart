@@ -15,6 +15,7 @@ class NpcItemTransactionSchema {
   NpcItemTransactionSchema({
     required this.code,
     required this.quantity,
+    required this.currency,
     required this.price,
     required this.totalPrice,
   });
@@ -24,6 +25,9 @@ class NpcItemTransactionSchema {
 
   /// Item quantity.
   int quantity;
+
+  /// Currency used for the transaction.
+  String currency;
 
   /// Item price.
   int price;
@@ -37,6 +41,7 @@ class NpcItemTransactionSchema {
       other is NpcItemTransactionSchema &&
           other.code == code &&
           other.quantity == quantity &&
+          other.currency == currency &&
           other.price == price &&
           other.totalPrice == totalPrice;
 
@@ -45,17 +50,19 @@ class NpcItemTransactionSchema {
       // ignore: unnecessary_parenthesis
       (code.hashCode) +
       (quantity.hashCode) +
+      (currency.hashCode) +
       (price.hashCode) +
       (totalPrice.hashCode);
 
   @override
   String toString() =>
-      'NpcItemTransactionSchema[code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice]';
+      'NpcItemTransactionSchema[code=$code, quantity=$quantity, currency=$currency, price=$price, totalPrice=$totalPrice]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'quantity'] = this.quantity;
+    json[r'currency'] = this.currency;
     json[r'price'] = this.price;
     json[r'total_price'] = this.totalPrice;
     return json;
@@ -84,6 +91,7 @@ class NpcItemTransactionSchema {
       return NpcItemTransactionSchema(
         code: mapValueOfType<String>(json, r'code')!,
         quantity: mapValueOfType<int>(json, r'quantity')!,
+        currency: mapValueOfType<String>(json, r'currency')!,
         price: mapValueOfType<int>(json, r'price')!,
         totalPrice: mapValueOfType<int>(json, r'total_price')!,
       );
@@ -144,6 +152,7 @@ class NpcItemTransactionSchema {
   static const requiredKeys = <String>{
     'code',
     'quantity',
+    'currency',
     'price',
     'total_price',
   };

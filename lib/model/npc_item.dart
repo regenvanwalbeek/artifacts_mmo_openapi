@@ -15,6 +15,7 @@ class NPCItem {
   NPCItem({
     required this.code,
     required this.npc,
+    required this.currency,
     required this.buyPrice,
     required this.sellPrice,
   });
@@ -24,6 +25,9 @@ class NPCItem {
 
   /// Code of the NPC that sells/buys the item.
   String npc;
+
+  /// Currency used to buy/sell the item. If it's not gold, it's the item code.
+  String currency;
 
   int? buyPrice;
 
@@ -35,6 +39,7 @@ class NPCItem {
       other is NPCItem &&
           other.code == code &&
           other.npc == npc &&
+          other.currency == currency &&
           other.buyPrice == buyPrice &&
           other.sellPrice == sellPrice;
 
@@ -43,17 +48,19 @@ class NPCItem {
       // ignore: unnecessary_parenthesis
       (code.hashCode) +
       (npc.hashCode) +
+      (currency.hashCode) +
       (buyPrice == null ? 0 : buyPrice!.hashCode) +
       (sellPrice == null ? 0 : sellPrice!.hashCode);
 
   @override
   String toString() =>
-      'NPCItem[code=$code, npc=$npc, buyPrice=$buyPrice, sellPrice=$sellPrice]';
+      'NPCItem[code=$code, npc=$npc, currency=$currency, buyPrice=$buyPrice, sellPrice=$sellPrice]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'npc'] = this.npc;
+    json[r'currency'] = this.currency;
     if (this.buyPrice != null) {
       json[r'buy_price'] = this.buyPrice;
     } else {
@@ -90,6 +97,7 @@ class NPCItem {
       return NPCItem(
         code: mapValueOfType<String>(json, r'code')!,
         npc: mapValueOfType<String>(json, r'npc')!,
+        currency: mapValueOfType<String>(json, r'currency')!,
         buyPrice: mapValueOfType<int>(json, r'buy_price'),
         sellPrice: mapValueOfType<int>(json, r'sell_price'),
       );
@@ -150,6 +158,7 @@ class NPCItem {
   static const requiredKeys = <String>{
     'code',
     'npc',
+    'currency',
     'buy_price',
     'sell_price',
   };

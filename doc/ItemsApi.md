@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAllItemsItemsGet**
-> DataPageItemSchema getAllItemsItemsGet(minLevel, maxLevel, name, type, craftSkill, craftMaterial, page, size)
+> DataPageItemSchema getAllItemsItemsGet(name, minLevel, maxLevel, type, craftSkill, craftMaterial, page, size)
 
 Get All Items
 
@@ -25,9 +25,9 @@ Fetch items details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = ItemsApi();
+final name = name_example; // String | Name of the item.
 final minLevel = 56; // int | Minimum level items.
 final maxLevel = 56; // int | Maximum level items.
-final name = name_example; // String | Name of the item.
 final type = ; // ItemType | Type of items.
 final craftSkill = ; // CraftSkill | Skill to craft items.
 final craftMaterial = craftMaterial_example; // String | Item code of items used as material for crafting.
@@ -35,7 +35,7 @@ final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getAllItemsItemsGet(minLevel, maxLevel, name, type, craftSkill, craftMaterial, page, size);
+    final result = api_instance.getAllItemsItemsGet(name, minLevel, maxLevel, type, craftSkill, craftMaterial, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling ItemsApi->getAllItemsItemsGet: $e\n');
@@ -46,9 +46,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of the item. | [optional] 
  **minLevel** | **int**| Minimum level items. | [optional] 
  **maxLevel** | **int**| Maximum level items. | [optional] 
- **name** | **String**| Name of the item. | [optional] 
  **type** | [**ItemType**](.md)| Type of items. | [optional] 
  **craftSkill** | [**CraftSkill**](.md)| Skill to craft items. | [optional] 
  **craftMaterial** | **String**| Item code of items used as material for crafting. | [optional] 

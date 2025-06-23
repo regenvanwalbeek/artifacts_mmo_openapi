@@ -83,6 +83,9 @@ String parameterToString(dynamic value) {
   if (value is CharacterSkin) {
     return CharacterSkinTypeTransformer().encode(value).toString();
   }
+  if (value is ConditionOperator) {
+    return ConditionOperatorTypeTransformer().encode(value).toString();
+  }
   if (value is CraftSkill) {
     return CraftSkillTypeTransformer().encode(value).toString();
   }
@@ -118,6 +121,9 @@ String parameterToString(dynamic value) {
   }
   if (value is TaskType) {
     return TaskTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is XPType) {
+    return XPTypeTypeTransformer().encode(value).toString();
   }
   return value.toString();
 }
