@@ -27,7 +27,7 @@ The recommended way to consume this package is by consuming the publicly publish
 Add the following to your library's `pubspec.yaml`:
 
 ```yaml
-  artifacts_mmo_openapi: ^4.1.0
+  artifacts_mmo_openapi: ^5.0.0-alpha.1
 ```
 
 ### Github
