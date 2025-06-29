@@ -10,54 +10,38 @@
 
 part of openapi_generation;
 
-class GiveItemSchema {
-  /// Returns a new [GiveItemSchema] instance.
-  GiveItemSchema({
-    required this.code,
-    required this.quantity,
-    required this.character,
+class PasswordResetResponseSchema {
+  /// Returns a new [PasswordResetResponseSchema] instance.
+  PasswordResetResponseSchema({
+    required this.message,
   });
 
-  /// Item code.
-  String code;
-
-  /// Item quantity.
-  ///
-  /// Minimum value: 1
-  int quantity;
-
-  /// Character name. The name of the character who will receive the item.
-  String character;
+  /// Success message.
+  String message;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GiveItemSchema &&
-          other.code == code &&
-          other.quantity == quantity &&
-          other.character == character;
+      other is PasswordResetResponseSchema && other.message == message;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code.hashCode) + (quantity.hashCode) + (character.hashCode);
+      (message.hashCode);
 
   @override
-  String toString() =>
-      'GiveItemSchema[code=$code, quantity=$quantity, character=$character]';
+  String toString() => 'PasswordResetResponseSchema[message=$message]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'code'] = this.code;
-    json[r'quantity'] = this.quantity;
-    json[r'character'] = this.character;
+    json[r'message'] = this.message;
     return json;
   }
 
-  /// Returns a new [GiveItemSchema] instance and imports its values from
+  /// Returns a new [PasswordResetResponseSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GiveItemSchema? fromJson(dynamic value) {
+  static PasswordResetResponseSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -67,30 +51,28 @@ class GiveItemSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "GiveItemSchema[$key]" is missing from JSON.');
+              'Required key "PasswordResetResponseSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "GiveItemSchema[$key]" has a null value in JSON.');
+              'Required key "PasswordResetResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return GiveItemSchema(
-        code: mapValueOfType<String>(json, r'code')!,
-        quantity: mapValueOfType<int>(json, r'quantity')!,
-        character: mapValueOfType<String>(json, r'character')!,
+      return PasswordResetResponseSchema(
+        message: mapValueOfType<String>(json, r'message')!,
       );
     }
     return null;
   }
 
-  static List<GiveItemSchema> listFromJson(
+  static List<PasswordResetResponseSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <GiveItemSchema>[];
+    final result = <PasswordResetResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GiveItemSchema.fromJson(row);
+        final value = PasswordResetResponseSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -99,12 +81,12 @@ class GiveItemSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GiveItemSchema> mapFromJson(dynamic json) {
-    final map = <String, GiveItemSchema>{};
+  static Map<String, PasswordResetResponseSchema> mapFromJson(dynamic json) {
+    final map = <String, PasswordResetResponseSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GiveItemSchema.fromJson(entry.value);
+        final value = PasswordResetResponseSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -113,17 +95,17 @@ class GiveItemSchema {
     return map;
   }
 
-  // maps a json object with a list of GiveItemSchema-objects as value to a dart map
-  static Map<String, List<GiveItemSchema>> mapListFromJson(
+  // maps a json object with a list of PasswordResetResponseSchema-objects as value to a dart map
+  static Map<String, List<PasswordResetResponseSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<GiveItemSchema>>{};
+    final map = <String, List<PasswordResetResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GiveItemSchema.listFromJson(
+        map[entry.key] = PasswordResetResponseSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -134,8 +116,6 @@ class GiveItemSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'code',
-    'quantity',
-    'character',
+    'message',
   };
 }

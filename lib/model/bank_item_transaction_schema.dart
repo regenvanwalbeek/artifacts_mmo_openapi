@@ -14,7 +14,7 @@ class BankItemTransactionSchema {
   /// Returns a new [BankItemTransactionSchema] instance.
   BankItemTransactionSchema({
     required this.cooldown,
-    required this.item,
+    this.items = const [],
     this.bank = const [],
     required this.character,
   });
@@ -22,8 +22,8 @@ class BankItemTransactionSchema {
   /// Cooldown details.
   CooldownSchema cooldown;
 
-  /// Item details.
-  ItemSchema item;
+  /// Items details.
+  List<SimpleItemSchema> items;
 
   /// Items in your banks.
   List<SimpleItemSchema> bank;
@@ -36,7 +36,7 @@ class BankItemTransactionSchema {
       identical(this, other) ||
       other is BankItemTransactionSchema &&
           other.cooldown == cooldown &&
-          other.item == item &&
+          _deepEquality.equals(other.items, items) &&
           _deepEquality.equals(other.bank, bank) &&
           other.character == character;
 
@@ -44,18 +44,18 @@ class BankItemTransactionSchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (cooldown.hashCode) +
-      (item.hashCode) +
+      (items.hashCode) +
       (bank.hashCode) +
       (character.hashCode);
 
   @override
   String toString() =>
-      'BankItemTransactionSchema[cooldown=$cooldown, item=$item, bank=$bank, character=$character]';
+      'BankItemTransactionSchema[cooldown=$cooldown, items=$items, bank=$bank, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'cooldown'] = this.cooldown;
-    json[r'item'] = this.item;
+    json[r'items'] = this.items;
     json[r'bank'] = this.bank;
     json[r'character'] = this.character;
     return json;
@@ -83,7 +83,7 @@ class BankItemTransactionSchema {
 
       return BankItemTransactionSchema(
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
-        item: ItemSchema.fromJson(json[r'item'])!,
+        items: SimpleItemSchema.listFromJson(json[r'items']),
         bank: SimpleItemSchema.listFromJson(json[r'bank']),
         character: CharacterSchema.fromJson(json[r'character'])!,
       );
@@ -143,7 +143,7 @@ class BankItemTransactionSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'cooldown',
-    'item',
+    'items',
     'bank',
     'character',
   };

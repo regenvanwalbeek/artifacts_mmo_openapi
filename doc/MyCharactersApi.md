@@ -16,15 +16,15 @@ Method | HTTP request | Description
 [**actionCraftingMyNameActionCraftingPost**](MyCharactersApi.md#actioncraftingmynameactioncraftingpost) | **POST** /my/{name}/action/crafting | Action Crafting
 [**actionDeleteItemMyNameActionDeletePost**](MyCharactersApi.md#actiondeleteitemmynameactiondeletepost) | **POST** /my/{name}/action/delete | Action Delete Item
 [**actionDepositBankGoldMyNameActionBankDepositGoldPost**](MyCharactersApi.md#actiondepositbankgoldmynameactionbankdepositgoldpost) | **POST** /my/{name}/action/bank/deposit/gold | Action Deposit Bank Gold
-[**actionDepositBankMyNameActionBankDepositPost**](MyCharactersApi.md#actiondepositbankmynameactionbankdepositpost) | **POST** /my/{name}/action/bank/deposit | Action Deposit Bank
+[**actionDepositBankItemMyNameActionBankDepositItemPost**](MyCharactersApi.md#actiondepositbankitemmynameactionbankdeposititempost) | **POST** /my/{name}/action/bank/deposit/item | Action Deposit Bank Item
 [**actionEquipItemMyNameActionEquipPost**](MyCharactersApi.md#actionequipitemmynameactionequippost) | **POST** /my/{name}/action/equip | Action Equip Item
 [**actionFightMyNameActionFightPost**](MyCharactersApi.md#actionfightmynameactionfightpost) | **POST** /my/{name}/action/fight | Action Fight
 [**actionGatheringMyNameActionGatheringPost**](MyCharactersApi.md#actiongatheringmynameactiongatheringpost) | **POST** /my/{name}/action/gathering | Action Gathering
 [**actionGeBuyItemMyNameActionGrandexchangeBuyPost**](MyCharactersApi.md#actiongebuyitemmynameactiongrandexchangebuypost) | **POST** /my/{name}/action/grandexchange/buy | Action Ge Buy Item
 [**actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost**](MyCharactersApi.md#actiongecancelsellordermynameactiongrandexchangecancelpost) | **POST** /my/{name}/action/grandexchange/cancel | Action Ge Cancel Sell Order
 [**actionGeCreateSellOrderMyNameActionGrandexchangeSellPost**](MyCharactersApi.md#actiongecreatesellordermynameactiongrandexchangesellpost) | **POST** /my/{name}/action/grandexchange/sell | Action Ge Create Sell Order
-[**actionGiveGoldMyNameActionGiveGoldPost**](MyCharactersApi.md#actiongivegoldmynameactiongivegoldpost) | **POST** /my/{name}/action/give_gold | Action Give Gold
-[**actionGiveItemMyNameActionGiveItemPost**](MyCharactersApi.md#actiongiveitemmynameactiongiveitempost) | **POST** /my/{name}/action/give_item | Action Give Item
+[**actionGiveGoldMyNameActionGiveGoldPost**](MyCharactersApi.md#actiongivegoldmynameactiongivegoldpost) | **POST** /my/{name}/action/give/gold | Action Give Gold
+[**actionGiveItemsMyNameActionGiveItemPost**](MyCharactersApi.md#actiongiveitemsmynameactiongiveitempost) | **POST** /my/{name}/action/give/item | Action Give Items
 [**actionMoveMyNameActionMovePost**](MyCharactersApi.md#actionmovemynameactionmovepost) | **POST** /my/{name}/action/move | Action Move
 [**actionNpcBuyItemMyNameActionNpcBuyPost**](MyCharactersApi.md#actionnpcbuyitemmynameactionnpcbuypost) | **POST** /my/{name}/action/npc/buy | Action Npc Buy Item
 [**actionNpcSellItemMyNameActionNpcSellPost**](MyCharactersApi.md#actionnpcsellitemmynameactionnpcsellpost) | **POST** /my/{name}/action/npc/sell | Action Npc Sell Item
@@ -36,7 +36,7 @@ Method | HTTP request | Description
 [**actionUnequipItemMyNameActionUnequipPost**](MyCharactersApi.md#actionunequipitemmynameactionunequippost) | **POST** /my/{name}/action/unequip | Action Unequip Item
 [**actionUseItemMyNameActionUsePost**](MyCharactersApi.md#actionuseitemmynameactionusepost) | **POST** /my/{name}/action/use | Action Use Item
 [**actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost**](MyCharactersApi.md#actionwithdrawbankgoldmynameactionbankwithdrawgoldpost) | **POST** /my/{name}/action/bank/withdraw/gold | Action Withdraw Bank Gold
-[**actionWithdrawBankMyNameActionBankWithdrawPost**](MyCharactersApi.md#actionwithdrawbankmynameactionbankwithdrawpost) | **POST** /my/{name}/action/bank/withdraw | Action Withdraw Bank
+[**actionWithdrawBankItemMyNameActionBankWithdrawItemPost**](MyCharactersApi.md#actionwithdrawbankitemmynameactionbankwithdrawitempost) | **POST** /my/{name}/action/bank/withdraw/item | Action Withdraw Bank Item
 [**getAllCharactersLogsMyLogsGet**](MyCharactersApi.md#getallcharacterslogsmylogsget) | **GET** /my/logs | Get All Characters Logs
 [**getCharacterLogsMyLogsNameGet**](MyCharactersApi.md#getcharacterlogsmylogsnameget) | **GET** /my/logs/{name} | Get Character Logs
 [**getMyCharactersMyCharactersGet**](MyCharactersApi.md#getmycharactersmycharactersget) | **GET** /my/characters | Get My Characters
@@ -393,12 +393,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **actionDepositBankMyNameActionBankDepositPost**
-> BankItemTransactionResponseSchema actionDepositBankMyNameActionBankDepositPost(name, simpleItemSchema)
+# **actionDepositBankItemMyNameActionBankDepositItemPost**
+> BankItemTransactionResponseSchema actionDepositBankItemMyNameActionBankDepositItemPost(name, simpleItemSchema)
 
-Action Deposit Bank
+Action Deposit Bank Item
 
-Deposit an item in a bank on the character's map.
+Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
 
 ### Example
 ```dart
@@ -412,13 +412,13 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final simpleItemSchema = SimpleItemSchema(); // SimpleItemSchema | 
+final simpleItemSchema = [List<SimpleItemSchema>()]; // List<SimpleItemSchema> | 
 
 try {
-    final result = api_instance.actionDepositBankMyNameActionBankDepositPost(name, simpleItemSchema);
+    final result = api_instance.actionDepositBankItemMyNameActionBankDepositItemPost(name, simpleItemSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling MyCharactersApi->actionDepositBankMyNameActionBankDepositPost: $e\n');
+    print('Exception when calling MyCharactersApi->actionDepositBankItemMyNameActionBankDepositItemPost: $e\n');
 }
 ```
 
@@ -427,7 +427,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **simpleItemSchema** | [**SimpleItemSchema**](SimpleItemSchema.md)|  | 
+ **simpleItemSchema** | [**List<SimpleItemSchema>**](SimpleItemSchema.md)|  | 
 
 ### Return type
 
@@ -797,12 +797,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **actionGiveItemMyNameActionGiveItemPost**
-> GiveItemReponseSchema actionGiveItemMyNameActionGiveItemPost(name, giveItemSchema)
+# **actionGiveItemsMyNameActionGiveItemPost**
+> GiveItemReponseSchema actionGiveItemsMyNameActionGiveItemPost(name, giveItemsSchema)
 
-Action Give Item
+Action Give Items
 
-Give an item to another character in your account on the same map.
+Give items to another character in your account on the same map. The cooldown will be 3 seconds multiplied by the number of different items given.
 
 ### Example
 ```dart
@@ -816,13 +816,13 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final giveItemSchema = GiveItemSchema(); // GiveItemSchema | 
+final giveItemsSchema = GiveItemsSchema(); // GiveItemsSchema | 
 
 try {
-    final result = api_instance.actionGiveItemMyNameActionGiveItemPost(name, giveItemSchema);
+    final result = api_instance.actionGiveItemsMyNameActionGiveItemPost(name, giveItemsSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling MyCharactersApi->actionGiveItemMyNameActionGiveItemPost: $e\n');
+    print('Exception when calling MyCharactersApi->actionGiveItemsMyNameActionGiveItemPost: $e\n');
 }
 ```
 
@@ -831,7 +831,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **giveItemSchema** | [**GiveItemSchema**](GiveItemSchema.md)|  | 
+ **giveItemsSchema** | [**GiveItemsSchema**](GiveItemsSchema.md)|  | 
 
 ### Return type
 
@@ -1403,12 +1403,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **actionWithdrawBankMyNameActionBankWithdrawPost**
-> BankItemTransactionResponseSchema actionWithdrawBankMyNameActionBankWithdrawPost(name, simpleItemSchema)
+# **actionWithdrawBankItemMyNameActionBankWithdrawItemPost**
+> BankItemTransactionResponseSchema actionWithdrawBankItemMyNameActionBankWithdrawItemPost(name, simpleItemSchema)
 
-Action Withdraw Bank
+Action Withdraw Bank Item
 
-Take an item from your bank and put it in the character's inventory.
+Take items from your bank and put them in the character's inventory. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
 
 ### Example
 ```dart
@@ -1422,13 +1422,13 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final simpleItemSchema = SimpleItemSchema(); // SimpleItemSchema | 
+final simpleItemSchema = [List<SimpleItemSchema>()]; // List<SimpleItemSchema> | 
 
 try {
-    final result = api_instance.actionWithdrawBankMyNameActionBankWithdrawPost(name, simpleItemSchema);
+    final result = api_instance.actionWithdrawBankItemMyNameActionBankWithdrawItemPost(name, simpleItemSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling MyCharactersApi->actionWithdrawBankMyNameActionBankWithdrawPost: $e\n');
+    print('Exception when calling MyCharactersApi->actionWithdrawBankItemMyNameActionBankWithdrawItemPost: $e\n');
 }
 ```
 
@@ -1437,7 +1437,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **simpleItemSchema** | [**SimpleItemSchema**](SimpleItemSchema.md)|  | 
+ **simpleItemSchema** | [**List<SimpleItemSchema>**](SimpleItemSchema.md)|  | 
 
 ### Return type
 

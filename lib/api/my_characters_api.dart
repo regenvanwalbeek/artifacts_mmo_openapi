@@ -518,9 +518,9 @@ class MyCharactersApi {
     return null;
   }
 
-  /// Action Deposit Bank
+  /// Action Deposit Bank Item
   ///
-  /// Deposit an item in a bank on the character's map.
+  /// Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -529,13 +529,15 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [SimpleItemSchema] simpleItemSchema (required):
-  Future<Response> actionDepositBankMyNameActionBankDepositPostWithHttpInfo(
+  /// * [List<SimpleItemSchema>] simpleItemSchema (required):
+  Future<Response>
+      actionDepositBankItemMyNameActionBankDepositItemPostWithHttpInfo(
     String name,
-    SimpleItemSchema simpleItemSchema,
+    List<SimpleItemSchema> simpleItemSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/bank/deposit'.replaceAll('{name}', name);
+    final path =
+        r'/my/{name}/action/bank/deposit/item'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = simpleItemSchema;
@@ -557,23 +559,23 @@ class MyCharactersApi {
     );
   }
 
-  /// Action Deposit Bank
+  /// Action Deposit Bank Item
   ///
-  /// Deposit an item in a bank on the character's map.
+  /// Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [SimpleItemSchema] simpleItemSchema (required):
+  /// * [List<SimpleItemSchema>] simpleItemSchema (required):
   Future<BankItemTransactionResponseSchema?>
-      actionDepositBankMyNameActionBankDepositPost(
+      actionDepositBankItemMyNameActionBankDepositItemPost(
     String name,
-    SimpleItemSchema simpleItemSchema,
+    List<SimpleItemSchema> simpleItemSchema,
   ) async {
     final response =
-        await actionDepositBankMyNameActionBankDepositPostWithHttpInfo(
+        await actionDepositBankItemMyNameActionBankDepositItemPostWithHttpInfo(
       name,
       simpleItemSchema,
     );
@@ -1045,7 +1047,7 @@ class MyCharactersApi {
     GiveGoldSchema giveGoldSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/give_gold'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/give/gold'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = giveGoldSchema;
@@ -1101,9 +1103,9 @@ class MyCharactersApi {
     return null;
   }
 
-  /// Action Give Item
+  /// Action Give Items
   ///
-  /// Give an item to another character in your account on the same map.
+  /// Give items to another character in your account on the same map. The cooldown will be 3 seconds multiplied by the number of different items given.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1112,16 +1114,16 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GiveItemSchema] giveItemSchema (required):
-  Future<Response> actionGiveItemMyNameActionGiveItemPostWithHttpInfo(
+  /// * [GiveItemsSchema] giveItemsSchema (required):
+  Future<Response> actionGiveItemsMyNameActionGiveItemPostWithHttpInfo(
     String name,
-    GiveItemSchema giveItemSchema,
+    GiveItemsSchema giveItemsSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/give_item'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/give/item'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
-    Object? postBody = giveItemSchema;
+    Object? postBody = giveItemsSchema;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1140,23 +1142,23 @@ class MyCharactersApi {
     );
   }
 
-  /// Action Give Item
+  /// Action Give Items
   ///
-  /// Give an item to another character in your account on the same map.
+  /// Give items to another character in your account on the same map. The cooldown will be 3 seconds multiplied by the number of different items given.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GiveItemSchema] giveItemSchema (required):
-  Future<GiveItemReponseSchema?> actionGiveItemMyNameActionGiveItemPost(
+  /// * [GiveItemsSchema] giveItemsSchema (required):
+  Future<GiveItemReponseSchema?> actionGiveItemsMyNameActionGiveItemPost(
     String name,
-    GiveItemSchema giveItemSchema,
+    GiveItemsSchema giveItemsSchema,
   ) async {
-    final response = await actionGiveItemMyNameActionGiveItemPostWithHttpInfo(
+    final response = await actionGiveItemsMyNameActionGiveItemPostWithHttpInfo(
       name,
-      giveItemSchema,
+      giveItemsSchema,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1966,9 +1968,9 @@ class MyCharactersApi {
     return null;
   }
 
-  /// Action Withdraw Bank
+  /// Action Withdraw Bank Item
   ///
-  /// Take an item from your bank and put it in the character's inventory.
+  /// Take items from your bank and put them in the character's inventory. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1977,13 +1979,15 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [SimpleItemSchema] simpleItemSchema (required):
-  Future<Response> actionWithdrawBankMyNameActionBankWithdrawPostWithHttpInfo(
+  /// * [List<SimpleItemSchema>] simpleItemSchema (required):
+  Future<Response>
+      actionWithdrawBankItemMyNameActionBankWithdrawItemPostWithHttpInfo(
     String name,
-    SimpleItemSchema simpleItemSchema,
+    List<SimpleItemSchema> simpleItemSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/bank/withdraw'.replaceAll('{name}', name);
+    final path =
+        r'/my/{name}/action/bank/withdraw/item'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = simpleItemSchema;
@@ -2005,23 +2009,23 @@ class MyCharactersApi {
     );
   }
 
-  /// Action Withdraw Bank
+  /// Action Withdraw Bank Item
   ///
-  /// Take an item from your bank and put it in the character's inventory.
+  /// Take items from your bank and put them in the character's inventory. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [SimpleItemSchema] simpleItemSchema (required):
+  /// * [List<SimpleItemSchema>] simpleItemSchema (required):
   Future<BankItemTransactionResponseSchema?>
-      actionWithdrawBankMyNameActionBankWithdrawPost(
+      actionWithdrawBankItemMyNameActionBankWithdrawItemPost(
     String name,
-    SimpleItemSchema simpleItemSchema,
+    List<SimpleItemSchema> simpleItemSchema,
   ) async {
     final response =
-        await actionWithdrawBankMyNameActionBankWithdrawPostWithHttpInfo(
+        await actionWithdrawBankItemMyNameActionBankWithdrawItemPostWithHttpInfo(
       name,
       simpleItemSchema,
     );

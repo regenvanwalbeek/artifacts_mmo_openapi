@@ -76,6 +76,70 @@ class AccountsApi {
     return null;
   }
 
+  /// Forgot Password
+  ///
+  /// Request a password reset.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [PasswordResetRequestSchema] passwordResetRequestSchema (required):
+  Future<Response> forgotPasswordAccountsForgotPasswordPostWithHttpInfo(
+    PasswordResetRequestSchema passwordResetRequestSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/accounts/forgot_password';
+
+    // ignore: prefer_final_locals
+    Object? postBody = passwordResetRequestSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Forgot Password
+  ///
+  /// Request a password reset.
+  ///
+  /// Parameters:
+  ///
+  /// * [PasswordResetRequestSchema] passwordResetRequestSchema (required):
+  Future<PasswordResetResponseSchema?> forgotPasswordAccountsForgotPasswordPost(
+    PasswordResetRequestSchema passwordResetRequestSchema,
+  ) async {
+    final response = await forgotPasswordAccountsForgotPasswordPostWithHttpInfo(
+      passwordResetRequestSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'PasswordResetResponseSchema',
+      ) as PasswordResetResponseSchema;
+    }
+    return null;
+  }
+
   /// Get Account
   ///
   /// Retrieve the details of a character.
@@ -326,6 +390,70 @@ class AccountsApi {
         await _decodeBodyBytes(response),
         'CharactersListSchema',
       ) as CharactersListSchema;
+    }
+    return null;
+  }
+
+  /// Reset Password
+  ///
+  /// Reset password with a token. Use /forgot_password to get a token by email.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [PasswordResetConfirmSchema] passwordResetConfirmSchema (required):
+  Future<Response> resetPasswordAccountsResetPasswordPostWithHttpInfo(
+    PasswordResetConfirmSchema passwordResetConfirmSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/accounts/reset_password';
+
+    // ignore: prefer_final_locals
+    Object? postBody = passwordResetConfirmSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Reset Password
+  ///
+  /// Reset password with a token. Use /forgot_password to get a token by email.
+  ///
+  /// Parameters:
+  ///
+  /// * [PasswordResetConfirmSchema] passwordResetConfirmSchema (required):
+  Future<PasswordResetResponseSchema?> resetPasswordAccountsResetPasswordPost(
+    PasswordResetConfirmSchema passwordResetConfirmSchema,
+  ) async {
+    final response = await resetPasswordAccountsResetPasswordPostWithHttpInfo(
+      passwordResetConfirmSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'PasswordResetResponseSchema',
+      ) as PasswordResetResponseSchema;
     }
     return null;
   }

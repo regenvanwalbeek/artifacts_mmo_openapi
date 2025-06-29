@@ -433,20 +433,16 @@ class ApiClient {
           return GeOrderHistorySchema.fromJson(value);
         case 'GiveGoldDataSchema':
           return GiveGoldDataSchema.fromJson(value);
-        case 'GiveGoldDetailsSchema':
-          return GiveGoldDetailsSchema.fromJson(value);
         case 'GiveGoldReponseSchema':
           return GiveGoldReponseSchema.fromJson(value);
         case 'GiveGoldSchema':
           return GiveGoldSchema.fromJson(value);
         case 'GiveItemDataSchema':
           return GiveItemDataSchema.fromJson(value);
-        case 'GiveItemDetailsSchema':
-          return GiveItemDetailsSchema.fromJson(value);
         case 'GiveItemReponseSchema':
           return GiveItemReponseSchema.fromJson(value);
-        case 'GiveItemSchema':
-          return GiveItemSchema.fromJson(value);
+        case 'GiveItemsSchema':
+          return GiveItemsSchema.fromJson(value);
         case 'GoldSchema':
           return GoldSchema.fromJson(value);
         case 'HTTPValidationError':
@@ -499,6 +495,12 @@ class ApiClient {
           return NpcMerchantTransactionResponseSchema.fromJson(value);
         case 'NpcMerchantTransactionSchema':
           return NpcMerchantTransactionSchema.fromJson(value);
+        case 'PasswordResetConfirmSchema':
+          return PasswordResetConfirmSchema.fromJson(value);
+        case 'PasswordResetRequestSchema':
+          return PasswordResetRequestSchema.fromJson(value);
+        case 'PasswordResetResponseSchema':
+          return PasswordResetResponseSchema.fromJson(value);
         case 'RateLimitSchema':
           return RateLimitSchema.fromJson(value);
         case 'RecyclingDataSchema':
@@ -523,12 +525,6 @@ class ApiClient {
           return RewardResponseSchema.fromJson(value);
         case 'RewardsSchema':
           return RewardsSchema.fromJson(value);
-        case 'SandboxGiveXpSchema':
-          return SandboxGiveXpSchema.fromJson(value);
-        case 'SandboxResponseSchema':
-          return SandboxResponseSchema.fromJson(value);
-        case 'SandboxSchema':
-          return SandboxSchema.fromJson(value);
         case 'SeasonBadgeSchema':
           return SeasonBadgeSchema.fromJson(value);
         case 'SeasonSchema':
@@ -585,8 +581,6 @@ class ApiClient {
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':
           return ValidationErrorLocInner.fromJson(value);
-        case 'XPType':
-          return XPTypeTypeTransformer().decode(value);
         default:
           dynamic match;
           if (value is List &&

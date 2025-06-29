@@ -32,8 +32,8 @@ class ActionType {
   static const sellNpc = ActionType._(r'sell_npc');
   static const cancelGe = ActionType._(r'cancel_ge');
   static const deleteItem = ActionType._(r'delete_item');
-  static const deposit = ActionType._(r'deposit');
-  static const withdraw = ActionType._(r'withdraw');
+  static const depositItem = ActionType._(r'deposit_item');
+  static const withdrawItem = ActionType._(r'withdraw_item');
   static const depositGold = ActionType._(r'deposit_gold');
   static const withdrawGold = ActionType._(r'withdraw_gold');
   static const equip = ActionType._(r'equip');
@@ -61,8 +61,8 @@ class ActionType {
     sellNpc,
     cancelGe,
     deleteItem,
-    deposit,
-    withdraw,
+    depositItem,
+    withdrawItem,
     depositGold,
     withdrawGold,
     equip,
@@ -140,10 +140,10 @@ class ActionTypeTypeTransformer {
           return ActionType.cancelGe;
         case r'delete_item':
           return ActionType.deleteItem;
-        case r'deposit':
-          return ActionType.deposit;
-        case r'withdraw':
-          return ActionType.withdraw;
+        case r'deposit_item':
+          return ActionType.depositItem;
+        case r'withdraw_item':
+          return ActionType.withdrawItem;
         case r'deposit_gold':
           return ActionType.depositGold;
         case r'withdraw_gold':

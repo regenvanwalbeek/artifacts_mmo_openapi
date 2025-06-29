@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cooldown** | [**CooldownSchema**](CooldownSchema.md) | Cooldown details. | 
-**item** | [**ItemSchema**](ItemSchema.md) | Item details. | 
+**items** | [**List<SimpleItemSchema>**](SimpleItemSchema.md) | Items details. | [default to const []]
 **bank** | [**List<SimpleItemSchema>**](SimpleItemSchema.md) | Items in your banks. | [default to const []]
 **character** | [**CharacterSchema**](CharacterSchema.md) | Player details. | 
 

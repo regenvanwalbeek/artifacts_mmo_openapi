@@ -10,38 +10,46 @@
 
 part of openapi_generation;
 
-class SandboxResponseSchema {
-  /// Returns a new [SandboxResponseSchema] instance.
-  SandboxResponseSchema({
-    required this.data,
+class PasswordResetConfirmSchema {
+  /// Returns a new [PasswordResetConfirmSchema] instance.
+  PasswordResetConfirmSchema({
+    required this.token,
+    required this.newPassword,
   });
 
-  /// Sandbox action data.
-  SandboxSchema data;
+  /// Password reset token.
+  String token;
+
+  /// Your new password.
+  String newPassword;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SandboxResponseSchema && other.data == data;
+      other is PasswordResetConfirmSchema &&
+          other.token == token &&
+          other.newPassword == newPassword;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (data.hashCode);
+      (token.hashCode) + (newPassword.hashCode);
 
   @override
-  String toString() => 'SandboxResponseSchema[data=$data]';
+  String toString() =>
+      'PasswordResetConfirmSchema[token=$token, newPassword=$newPassword]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'data'] = this.data;
+    json[r'token'] = this.token;
+    json[r'new_password'] = this.newPassword;
     return json;
   }
 
-  /// Returns a new [SandboxResponseSchema] instance and imports its values from
+  /// Returns a new [PasswordResetConfirmSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static SandboxResponseSchema? fromJson(dynamic value) {
+  static PasswordResetConfirmSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -51,28 +59,29 @@ class SandboxResponseSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "SandboxResponseSchema[$key]" is missing from JSON.');
+              'Required key "PasswordResetConfirmSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "SandboxResponseSchema[$key]" has a null value in JSON.');
+              'Required key "PasswordResetConfirmSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return SandboxResponseSchema(
-        data: SandboxSchema.fromJson(json[r'data'])!,
+      return PasswordResetConfirmSchema(
+        token: mapValueOfType<String>(json, r'token')!,
+        newPassword: mapValueOfType<String>(json, r'new_password')!,
       );
     }
     return null;
   }
 
-  static List<SandboxResponseSchema> listFromJson(
+  static List<PasswordResetConfirmSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <SandboxResponseSchema>[];
+    final result = <PasswordResetConfirmSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = SandboxResponseSchema.fromJson(row);
+        final value = PasswordResetConfirmSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -81,12 +90,12 @@ class SandboxResponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, SandboxResponseSchema> mapFromJson(dynamic json) {
-    final map = <String, SandboxResponseSchema>{};
+  static Map<String, PasswordResetConfirmSchema> mapFromJson(dynamic json) {
+    final map = <String, PasswordResetConfirmSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SandboxResponseSchema.fromJson(entry.value);
+        final value = PasswordResetConfirmSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -95,17 +104,17 @@ class SandboxResponseSchema {
     return map;
   }
 
-  // maps a json object with a list of SandboxResponseSchema-objects as value to a dart map
-  static Map<String, List<SandboxResponseSchema>> mapListFromJson(
+  // maps a json object with a list of PasswordResetConfirmSchema-objects as value to a dart map
+  static Map<String, List<PasswordResetConfirmSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<SandboxResponseSchema>>{};
+    final map = <String, List<PasswordResetConfirmSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = SandboxResponseSchema.listFromJson(
+        map[entry.key] = PasswordResetConfirmSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -116,6 +125,7 @@ class SandboxResponseSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'data',
+    'token',
+    'new_password',
   };
 }

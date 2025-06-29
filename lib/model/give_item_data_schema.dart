@@ -14,17 +14,21 @@ class GiveItemDataSchema {
   /// Returns a new [GiveItemDataSchema] instance.
   GiveItemDataSchema({
     required this.cooldown,
-    required this.details,
+    this.items = const [],
+    required this.receiverCharacter,
     required this.character,
   });
 
   /// Cooldown details.
   CooldownSchema cooldown;
 
-  /// Item details.
-  GiveItemDetailsSchema details;
+  /// Items given.
+  List<SimpleItemSchema> items;
 
-  /// Character details.
+  /// Character details of the receiving character.
+  CharacterSchema receiverCharacter;
+
+  /// Character details of the sending character.
   CharacterSchema character;
 
   @override
@@ -32,22 +36,27 @@ class GiveItemDataSchema {
       identical(this, other) ||
       other is GiveItemDataSchema &&
           other.cooldown == cooldown &&
-          other.details == details &&
+          _deepEquality.equals(other.items, items) &&
+          other.receiverCharacter == receiverCharacter &&
           other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (details.hashCode) + (character.hashCode);
+      (cooldown.hashCode) +
+      (items.hashCode) +
+      (receiverCharacter.hashCode) +
+      (character.hashCode);
 
   @override
   String toString() =>
-      'GiveItemDataSchema[cooldown=$cooldown, details=$details, character=$character]';
+      'GiveItemDataSchema[cooldown=$cooldown, items=$items, receiverCharacter=$receiverCharacter, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'cooldown'] = this.cooldown;
-    json[r'details'] = this.details;
+    json[r'items'] = this.items;
+    json[r'receiver_character'] = this.receiverCharacter;
     json[r'character'] = this.character;
     return json;
   }
@@ -74,7 +83,9 @@ class GiveItemDataSchema {
 
       return GiveItemDataSchema(
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
-        details: GiveItemDetailsSchema.fromJson(json[r'details'])!,
+        items: SimpleItemSchema.listFromJson(json[r'items']),
+        receiverCharacter:
+            CharacterSchema.fromJson(json[r'receiver_character'])!,
         character: CharacterSchema.fromJson(json[r'character'])!,
       );
     }
@@ -133,7 +144,8 @@ class GiveItemDataSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'cooldown',
-    'details',
+    'items',
+    'receiver_character',
     'character',
   };
 }

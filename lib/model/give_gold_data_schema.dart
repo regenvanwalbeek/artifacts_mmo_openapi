@@ -14,15 +14,22 @@ class GiveGoldDataSchema {
   /// Returns a new [GiveGoldDataSchema] instance.
   GiveGoldDataSchema({
     required this.cooldown,
-    required this.details,
+    required this.quantity,
+    required this.receiverCharacter,
     required this.character,
   });
 
   /// Cooldown details.
   CooldownSchema cooldown;
 
-  /// Details of the gold transfer.
-  GiveGoldDetailsSchema details;
+  /// Quantity of gold given.
+  ///
+  /// Minimum value: 1
+  /// Maximum value: 1000000
+  int quantity;
+
+  /// Character details of the receiving character.
+  CharacterSchema receiverCharacter;
 
   /// Character details.
   CharacterSchema character;
@@ -32,22 +39,27 @@ class GiveGoldDataSchema {
       identical(this, other) ||
       other is GiveGoldDataSchema &&
           other.cooldown == cooldown &&
-          other.details == details &&
+          other.quantity == quantity &&
+          other.receiverCharacter == receiverCharacter &&
           other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (details.hashCode) + (character.hashCode);
+      (cooldown.hashCode) +
+      (quantity.hashCode) +
+      (receiverCharacter.hashCode) +
+      (character.hashCode);
 
   @override
   String toString() =>
-      'GiveGoldDataSchema[cooldown=$cooldown, details=$details, character=$character]';
+      'GiveGoldDataSchema[cooldown=$cooldown, quantity=$quantity, receiverCharacter=$receiverCharacter, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'cooldown'] = this.cooldown;
-    json[r'details'] = this.details;
+    json[r'quantity'] = this.quantity;
+    json[r'receiver_character'] = this.receiverCharacter;
     json[r'character'] = this.character;
     return json;
   }
@@ -74,7 +86,9 @@ class GiveGoldDataSchema {
 
       return GiveGoldDataSchema(
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
-        details: GiveGoldDetailsSchema.fromJson(json[r'details'])!,
+        quantity: mapValueOfType<int>(json, r'quantity')!,
+        receiverCharacter:
+            CharacterSchema.fromJson(json[r'receiver_character'])!,
         character: CharacterSchema.fromJson(json[r'character'])!,
       );
     }
@@ -133,7 +147,8 @@ class GiveGoldDataSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'cooldown',
-    'details',
+    'quantity',
+    'receiver_character',
     'character',
   };
 }

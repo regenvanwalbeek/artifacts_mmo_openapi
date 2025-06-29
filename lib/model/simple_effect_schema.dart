@@ -15,6 +15,7 @@ class SimpleEffectSchema {
   SimpleEffectSchema({
     required this.code,
     required this.value,
+    required this.description,
   });
 
   /// Effect code.
@@ -23,23 +24,31 @@ class SimpleEffectSchema {
   /// Effect value.
   int value;
 
+  /// Description of the effect.
+  String description;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SimpleEffectSchema && other.code == code && other.value == value;
+      other is SimpleEffectSchema &&
+          other.code == code &&
+          other.value == value &&
+          other.description == description;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code.hashCode) + (value.hashCode);
+      (code.hashCode) + (value.hashCode) + (description.hashCode);
 
   @override
-  String toString() => 'SimpleEffectSchema[code=$code, value=$value]';
+  String toString() =>
+      'SimpleEffectSchema[code=$code, value=$value, description=$description]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'value'] = this.value;
+    json[r'description'] = this.description;
     return json;
   }
 
@@ -66,6 +75,7 @@ class SimpleEffectSchema {
       return SimpleEffectSchema(
         code: mapValueOfType<String>(json, r'code')!,
         value: mapValueOfType<int>(json, r'value')!,
+        description: mapValueOfType<String>(json, r'description')!,
       );
     }
     return null;
@@ -124,5 +134,6 @@ class SimpleEffectSchema {
   static const requiredKeys = <String>{
     'code',
     'value',
+    'description',
   };
 }

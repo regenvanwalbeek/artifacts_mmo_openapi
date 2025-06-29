@@ -10,55 +10,45 @@
 
 part of openapi_generation;
 
-class GiveGoldDetailsSchema {
-  /// Returns a new [GiveGoldDetailsSchema] instance.
-  GiveGoldDetailsSchema({
-    required this.quantity,
-    required this.sender,
-    required this.receiver,
+class GiveItemsSchema {
+  /// Returns a new [GiveItemsSchema] instance.
+  GiveItemsSchema({
+    this.items = const [],
+    required this.character,
   });
 
-  /// Gold quantity.
-  ///
-  /// Minimum value: 1
-  /// Maximum value: 1000000
-  int quantity;
+  /// List of items to give
+  List<SimpleItemSchema> items;
 
-  /// Sender character name.
-  String sender;
-
-  /// Receiver character name.
-  String receiver;
+  /// Character name. The name of the character who will receive the items.
+  String character;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GiveGoldDetailsSchema &&
-          other.quantity == quantity &&
-          other.sender == sender &&
-          other.receiver == receiver;
+      other is GiveItemsSchema &&
+          _deepEquality.equals(other.items, items) &&
+          other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (quantity.hashCode) + (sender.hashCode) + (receiver.hashCode);
+      (items.hashCode) + (character.hashCode);
 
   @override
-  String toString() =>
-      'GiveGoldDetailsSchema[quantity=$quantity, sender=$sender, receiver=$receiver]';
+  String toString() => 'GiveItemsSchema[items=$items, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'quantity'] = this.quantity;
-    json[r'sender'] = this.sender;
-    json[r'receiver'] = this.receiver;
+    json[r'items'] = this.items;
+    json[r'character'] = this.character;
     return json;
   }
 
-  /// Returns a new [GiveGoldDetailsSchema] instance and imports its values from
+  /// Returns a new [GiveItemsSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GiveGoldDetailsSchema? fromJson(dynamic value) {
+  static GiveItemsSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -68,30 +58,29 @@ class GiveGoldDetailsSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "GiveGoldDetailsSchema[$key]" is missing from JSON.');
+              'Required key "GiveItemsSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "GiveGoldDetailsSchema[$key]" has a null value in JSON.');
+              'Required key "GiveItemsSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return GiveGoldDetailsSchema(
-        quantity: mapValueOfType<int>(json, r'quantity')!,
-        sender: mapValueOfType<String>(json, r'sender')!,
-        receiver: mapValueOfType<String>(json, r'receiver')!,
+      return GiveItemsSchema(
+        items: SimpleItemSchema.listFromJson(json[r'items']),
+        character: mapValueOfType<String>(json, r'character')!,
       );
     }
     return null;
   }
 
-  static List<GiveGoldDetailsSchema> listFromJson(
+  static List<GiveItemsSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <GiveGoldDetailsSchema>[];
+    final result = <GiveItemsSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GiveGoldDetailsSchema.fromJson(row);
+        final value = GiveItemsSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -100,12 +89,12 @@ class GiveGoldDetailsSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GiveGoldDetailsSchema> mapFromJson(dynamic json) {
-    final map = <String, GiveGoldDetailsSchema>{};
+  static Map<String, GiveItemsSchema> mapFromJson(dynamic json) {
+    final map = <String, GiveItemsSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GiveGoldDetailsSchema.fromJson(entry.value);
+        final value = GiveItemsSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -114,17 +103,17 @@ class GiveGoldDetailsSchema {
     return map;
   }
 
-  // maps a json object with a list of GiveGoldDetailsSchema-objects as value to a dart map
-  static Map<String, List<GiveGoldDetailsSchema>> mapListFromJson(
+  // maps a json object with a list of GiveItemsSchema-objects as value to a dart map
+  static Map<String, List<GiveItemsSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<GiveGoldDetailsSchema>>{};
+    final map = <String, List<GiveItemsSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GiveGoldDetailsSchema.listFromJson(
+        map[entry.key] = GiveItemsSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -135,8 +124,7 @@ class GiveGoldDetailsSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'quantity',
-    'sender',
-    'receiver',
+    'items',
+    'character',
   };
 }

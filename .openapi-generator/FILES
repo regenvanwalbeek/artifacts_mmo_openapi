@@ -110,13 +110,11 @@ doc/GETransactionSchema.md
 doc/GatheringSkill.md
 doc/GeOrderHistorySchema.md
 doc/GiveGoldDataSchema.md
-doc/GiveGoldDetailsSchema.md
 doc/GiveGoldReponseSchema.md
 doc/GiveGoldSchema.md
 doc/GiveItemDataSchema.md
-doc/GiveItemDetailsSchema.md
 doc/GiveItemReponseSchema.md
-doc/GiveItemSchema.md
+doc/GiveItemsSchema.md
 doc/GoldSchema.md
 doc/GrandExchangeApi.md
 doc/HTTPValidationError.md
@@ -151,6 +149,9 @@ doc/NpcItemTransactionSchema.md
 doc/NpcMerchantBuySchema.md
 doc/NpcMerchantTransactionResponseSchema.md
 doc/NpcMerchantTransactionSchema.md
+doc/PasswordResetConfirmSchema.md
+doc/PasswordResetRequestSchema.md
+doc/PasswordResetResponseSchema.md
 doc/RateLimitSchema.md
 doc/RecyclingDataSchema.md
 doc/RecyclingItemsSchema.md
@@ -164,10 +165,6 @@ doc/RewardDataResponseSchema.md
 doc/RewardDataSchema.md
 doc/RewardResponseSchema.md
 doc/RewardsSchema.md
-doc/SandboxApi.md
-doc/SandboxGiveXpSchema.md
-doc/SandboxResponseSchema.md
-doc/SandboxSchema.md
 doc/SeasonBadgeSchema.md
 doc/SeasonSchema.md
 doc/SeasonSkinSchema.md
@@ -199,7 +196,6 @@ doc/UseItemResponseSchema.md
 doc/UseItemSchema.md
 doc/ValidationError.md
 doc/ValidationErrorLocInner.md
-doc/XPType.md
 git_push.sh
 lib/api.dart
 lib/api/accounts_api.dart
@@ -217,7 +213,6 @@ lib/api/my_account_api.dart
 lib/api/my_characters_api.dart
 lib/api/npcs_api.dart
 lib/api/resources_api.dart
-lib/api/sandbox_api.dart
 lib/api/server_details_api.dart
 lib/api/tasks_api.dart
 lib/api/token_api.dart
@@ -331,13 +326,11 @@ lib/model/ge_transaction_list_schema.dart
 lib/model/ge_transaction_response_schema.dart
 lib/model/ge_transaction_schema.dart
 lib/model/give_gold_data_schema.dart
-lib/model/give_gold_details_schema.dart
 lib/model/give_gold_reponse_schema.dart
 lib/model/give_gold_schema.dart
 lib/model/give_item_data_schema.dart
-lib/model/give_item_details_schema.dart
 lib/model/give_item_reponse_schema.dart
-lib/model/give_item_schema.dart
+lib/model/give_items_schema.dart
 lib/model/gold_schema.dart
 lib/model/http_validation_error.dart
 lib/model/inventory_slot.dart
@@ -364,6 +357,9 @@ lib/model/npc_merchant_transaction_schema.dart
 lib/model/npc_response_schema.dart
 lib/model/npc_schema.dart
 lib/model/npc_type.dart
+lib/model/password_reset_confirm_schema.dart
+lib/model/password_reset_request_schema.dart
+lib/model/password_reset_response_schema.dart
 lib/model/rate_limit_schema.dart
 lib/model/recycling_data_schema.dart
 lib/model/recycling_items_schema.dart
@@ -376,9 +372,6 @@ lib/model/reward_data_response_schema.dart
 lib/model/reward_data_schema.dart
 lib/model/reward_response_schema.dart
 lib/model/rewards_schema.dart
-lib/model/sandbox_give_xp_schema.dart
-lib/model/sandbox_response_schema.dart
-lib/model/sandbox_schema.dart
 lib/model/season_badge_schema.dart
 lib/model/season_schema.dart
 lib/model/season_skin_schema.dart
@@ -407,5 +400,4 @@ lib/model/use_item_response_schema.dart
 lib/model/use_item_schema.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
-lib/model/xp_type.dart
 pubspec.yaml

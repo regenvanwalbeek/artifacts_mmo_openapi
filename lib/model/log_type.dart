@@ -33,8 +33,8 @@ class LogType {
   static const sellNpc = LogType._(r'sell_npc');
   static const cancelGe = LogType._(r'cancel_ge');
   static const deleteItem = LogType._(r'delete_item');
-  static const deposit = LogType._(r'deposit');
-  static const withdraw = LogType._(r'withdraw');
+  static const depositItem = LogType._(r'deposit_item');
+  static const withdrawItem = LogType._(r'withdraw_item');
   static const depositGold = LogType._(r'deposit_gold');
   static const withdrawGold = LogType._(r'withdraw_gold');
   static const equip = LogType._(r'equip');
@@ -70,8 +70,8 @@ class LogType {
     sellNpc,
     cancelGe,
     deleteItem,
-    deposit,
-    withdraw,
+    depositItem,
+    withdrawItem,
     depositGold,
     withdrawGold,
     equip,
@@ -158,10 +158,10 @@ class LogTypeTypeTransformer {
           return LogType.cancelGe;
         case r'delete_item':
           return LogType.deleteItem;
-        case r'deposit':
-          return LogType.deposit;
-        case r'withdraw':
-          return LogType.withdraw;
+        case r'deposit_item':
+          return LogType.depositItem;
+        case r'withdraw_item':
+          return LogType.withdrawItem;
         case r'deposit_gold':
           return LogType.depositGold;
         case r'withdraw_gold':
