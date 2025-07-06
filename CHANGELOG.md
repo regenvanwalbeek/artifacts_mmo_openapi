@@ -1,3 +1,7 @@
+## 5.0.0
+
+- Season 5 Generation
+
 ## 5.0.0-alpha.1
 
 - Alpha Release: Support Season 5 updates
