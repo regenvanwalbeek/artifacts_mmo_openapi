@@ -74,8 +74,8 @@ import 'package:artifacts_mmo_openapi/api.dart';
 final api_instance = TasksApi();
 final minLevel = 56; // int | Minimum level.
 final maxLevel = 56; // int | Maximum level.
-final skill = ; // Skill | The code of the skill.
-final type = ; // TaskType | The type of tasks.
+final skill = ; // SkillAZAZ09 | The code of the skill.
+final type = ; // TaskTypeAZAZ09 | The type of tasks.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -93,8 +93,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **minLevel** | **int**| Minimum level. | [optional] 
  **maxLevel** | **int**| Maximum level. | [optional] 
- **skill** | [**Skill**](.md)| The code of the skill. | [optional] 
- **type** | [**TaskType**](.md)| The type of tasks. | [optional] 
+ **skill** | [**SkillAZAZ09**](.md)| The code of the skill. | [optional] 
+ **type** | [**TaskTypeAZAZ09**](.md)| The type of tasks. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

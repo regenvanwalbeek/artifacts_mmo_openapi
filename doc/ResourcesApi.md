@@ -27,7 +27,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 final api_instance = ResourcesApi();
 final minLevel = 56; // int | Skill minimum level.
 final maxLevel = 56; // int | Skill maximum level.
-final skill = ; // GatheringSkill | The code of the skill.
+final skill = ; // GatheringSkillAZAZ09 | The code of the skill.
 final drop = drop_example; // String | Item code of the drop.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **minLevel** | **int**| Skill minimum level. | [optional] 
  **maxLevel** | **int**| Skill maximum level. | [optional] 
- **skill** | [**GatheringSkill**](.md)| The code of the skill. | [optional] 
+ **skill** | [**GatheringSkillAZAZ09**](.md)| The code of the skill. | [optional] 
  **drop** | **String**| Item code of the drop. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]

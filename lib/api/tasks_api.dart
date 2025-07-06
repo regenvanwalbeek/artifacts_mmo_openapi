@@ -111,10 +111,10 @@ class TasksApi {
   /// * [int] maxLevel:
   ///   Maximum level.
   ///
-  /// * [Skill] skill:
+  /// * [SkillAZAZ09] skill:
   ///   The code of the skill.
   ///
-  /// * [TaskType] type:
+  /// * [TaskTypeAZAZ09] type:
   ///   The type of tasks.
   ///
   /// * [int] page:
@@ -125,8 +125,8 @@ class TasksApi {
   Future<Response> getAllTasksTasksListGetWithHttpInfo({
     int? minLevel,
     int? maxLevel,
-    Skill? skill,
-    TaskType? type,
+    SkillAZAZ09? skill,
+    TaskTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {
@@ -184,10 +184,10 @@ class TasksApi {
   /// * [int] maxLevel:
   ///   Maximum level.
   ///
-  /// * [Skill] skill:
+  /// * [SkillAZAZ09] skill:
   ///   The code of the skill.
   ///
-  /// * [TaskType] type:
+  /// * [TaskTypeAZAZ09] type:
   ///   The type of tasks.
   ///
   /// * [int] page:
@@ -198,8 +198,8 @@ class TasksApi {
   Future<DataPageTaskFullSchema?> getAllTasksTasksListGet({
     int? minLevel,
     int? maxLevel,
-    Skill? skill,
-    TaskType? type,
+    SkillAZAZ09? skill,
+    TaskTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {

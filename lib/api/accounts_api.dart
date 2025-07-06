@@ -217,7 +217,7 @@ class AccountsApi {
   /// * [String] account (required):
   ///   The character name.
   ///
-  /// * [AchievementType] type:
+  /// * [AchievementTypeAZAZ09] type:
   ///   Type of achievements.
   ///
   /// * [bool] completed:
@@ -231,7 +231,7 @@ class AccountsApi {
   Future<Response>
       getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(
     String account, {
-    AchievementType? type,
+    AchievementTypeAZAZ09? type,
     bool? completed,
     int? page,
     int? size,
@@ -282,7 +282,7 @@ class AccountsApi {
   /// * [String] account (required):
   ///   The character name.
   ///
-  /// * [AchievementType] type:
+  /// * [AchievementTypeAZAZ09] type:
   ///   Type of achievements.
   ///
   /// * [bool] completed:
@@ -296,7 +296,7 @@ class AccountsApi {
   Future<DataPageAccountAchievementSchema?>
       getAccountAchievementsAccountsAccountAchievementsGet(
     String account, {
-    AchievementType? type,
+    AchievementTypeAZAZ09? type,
     bool? completed,
     int? page,
     int? size,

@@ -68,7 +68,7 @@ List of all achievements.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = AchievementsApi();
-final type = ; // AchievementType | Type of achievements.
+final type = ; // AchievementTypeAZAZ09 | Type of achievements.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -84,7 +84,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | [**AchievementType**](.md)| Type of achievements. | [optional] 
+ **type** | [**AchievementTypeAZAZ09**](.md)| Type of achievements. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | [**List<EffectSchema>**](EffectSchema.md) |  | [default to const []]
-**total** | **int** |  | 
+**total** | **int** |  | [optional] 
 **page** | **int** |  | 
 **size** | **int** |  | 
 **pages** | **int** |  | [optional] 

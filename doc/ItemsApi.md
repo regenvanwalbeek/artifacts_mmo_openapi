@@ -28,8 +28,8 @@ final api_instance = ItemsApi();
 final name = name_example; // String | Name of the item.
 final minLevel = 56; // int | Minimum level items.
 final maxLevel = 56; // int | Maximum level items.
-final type = ; // ItemType | Type of items.
-final craftSkill = ; // CraftSkill | Skill to craft items.
+final type = ; // ItemTypeAZAZ09 | Type of items.
+final craftSkill = ; // CraftSkillAZAZ09 | Skill to craft items.
 final craftMaterial = craftMaterial_example; // String | Item code of items used as material for crafting.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
@@ -49,8 +49,8 @@ Name | Type | Description  | Notes
  **name** | **String**| Name of the item. | [optional] 
  **minLevel** | **int**| Minimum level items. | [optional] 
  **maxLevel** | **int**| Maximum level items. | [optional] 
- **type** | [**ItemType**](.md)| Type of items. | [optional] 
- **craftSkill** | [**CraftSkill**](.md)| Skill to craft items. | [optional] 
+ **type** | [**ItemTypeAZAZ09**](.md)| Type of items. | [optional] 
+ **craftSkill** | [**CraftSkillAZAZ09**](.md)| Skill to craft items. | [optional] 
  **craftMaterial** | **String**| Item code of items used as material for crafting. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]

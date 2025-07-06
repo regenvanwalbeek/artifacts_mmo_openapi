@@ -65,8 +65,10 @@ String parameterToString(dynamic value) {
   if (value is DateTime) {
     return value.toUtc().toIso8601String();
   }
-  if (value is AccountLeaderboardType) {
-    return AccountLeaderboardTypeTypeTransformer().encode(value).toString();
+  if (value is AccountLeaderboardTypeAZAZ09) {
+    return AccountLeaderboardTypeAZAZ09TypeTransformer()
+        .encode(value)
+        .toString();
   }
   if (value is AccountStatus) {
     return AccountStatusTypeTransformer().encode(value).toString();
@@ -74,11 +76,16 @@ String parameterToString(dynamic value) {
   if (value is AchievementType) {
     return AchievementTypeTypeTransformer().encode(value).toString();
   }
+  if (value is AchievementTypeAZAZ09) {
+    return AchievementTypeAZAZ09TypeTransformer().encode(value).toString();
+  }
   if (value is ActionType) {
     return ActionTypeTypeTransformer().encode(value).toString();
   }
-  if (value is CharacterLeaderboardType) {
-    return CharacterLeaderboardTypeTypeTransformer().encode(value).toString();
+  if (value is CharacterLeaderboardTypeAZAZ09) {
+    return CharacterLeaderboardTypeAZAZ09TypeTransformer()
+        .encode(value)
+        .toString();
   }
   if (value is CharacterSkin) {
     return CharacterSkinTypeTransformer().encode(value).toString();
@@ -88,6 +95,9 @@ String parameterToString(dynamic value) {
   }
   if (value is CraftSkill) {
     return CraftSkillTypeTransformer().encode(value).toString();
+  }
+  if (value is CraftSkillAZAZ09) {
+    return CraftSkillAZAZ09TypeTransformer().encode(value).toString();
   }
   if (value is EffectSubtype) {
     return EffectSubtypeTypeTransformer().encode(value).toString();
@@ -101,11 +111,14 @@ String parameterToString(dynamic value) {
   if (value is GatheringSkill) {
     return GatheringSkillTypeTransformer().encode(value).toString();
   }
+  if (value is GatheringSkillAZAZ09) {
+    return GatheringSkillAZAZ09TypeTransformer().encode(value).toString();
+  }
   if (value is ItemSlot) {
     return ItemSlotTypeTransformer().encode(value).toString();
   }
-  if (value is ItemType) {
-    return ItemTypeTypeTransformer().encode(value).toString();
+  if (value is ItemTypeAZAZ09) {
+    return ItemTypeAZAZ09TypeTransformer().encode(value).toString();
   }
   if (value is LogType) {
     return LogTypeTypeTransformer().encode(value).toString();
@@ -113,14 +126,23 @@ String parameterToString(dynamic value) {
   if (value is MapContentType) {
     return MapContentTypeTypeTransformer().encode(value).toString();
   }
+  if (value is MapContentTypeAZAZ09) {
+    return MapContentTypeAZAZ09TypeTransformer().encode(value).toString();
+  }
   if (value is NPCType) {
     return NPCTypeTypeTransformer().encode(value).toString();
   }
-  if (value is Skill) {
-    return SkillTypeTransformer().encode(value).toString();
+  if (value is NPCTypeAZAZ09) {
+    return NPCTypeAZAZ09TypeTransformer().encode(value).toString();
+  }
+  if (value is SkillAZAZ09) {
+    return SkillAZAZ09TypeTransformer().encode(value).toString();
   }
   if (value is TaskType) {
     return TaskTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is TaskTypeAZAZ09) {
+    return TaskTypeAZAZ09TypeTransformer().encode(value).toString();
   }
   return value.toString();
 }

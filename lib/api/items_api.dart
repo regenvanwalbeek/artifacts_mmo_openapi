@@ -32,10 +32,10 @@ class ItemsApi {
   /// * [int] maxLevel:
   ///   Maximum level items.
   ///
-  /// * [ItemType] type:
+  /// * [ItemTypeAZAZ09] type:
   ///   Type of items.
   ///
-  /// * [CraftSkill] craftSkill:
+  /// * [CraftSkillAZAZ09] craftSkill:
   ///   Skill to craft items.
   ///
   /// * [String] craftMaterial:
@@ -50,8 +50,8 @@ class ItemsApi {
     String? name,
     int? minLevel,
     int? maxLevel,
-    ItemType? type,
-    CraftSkill? craftSkill,
+    ItemTypeAZAZ09? type,
+    CraftSkillAZAZ09? craftSkill,
     String? craftMaterial,
     int? page,
     int? size,
@@ -119,10 +119,10 @@ class ItemsApi {
   /// * [int] maxLevel:
   ///   Maximum level items.
   ///
-  /// * [ItemType] type:
+  /// * [ItemTypeAZAZ09] type:
   ///   Type of items.
   ///
-  /// * [CraftSkill] craftSkill:
+  /// * [CraftSkillAZAZ09] craftSkill:
   ///   Skill to craft items.
   ///
   /// * [String] craftMaterial:
@@ -137,8 +137,8 @@ class ItemsApi {
     String? name,
     int? minLevel,
     int? maxLevel,
-    ItemType? type,
-    CraftSkill? craftSkill,
+    ItemTypeAZAZ09? type,
+    CraftSkillAZAZ09? craftSkill,
     String? craftMaterial,
     int? page,
     int? size,

@@ -105,7 +105,7 @@ class EventsApi {
   ///
   /// Parameters:
   ///
-  /// * [MapContentType] type:
+  /// * [MapContentTypeAZAZ09] type:
   ///   Type of event.
   ///
   /// * [int] page:
@@ -114,7 +114,7 @@ class EventsApi {
   /// * [int] size:
   ///   Page size
   Future<Response> getAllEventsEventsGetWithHttpInfo({
-    MapContentType? type,
+    MapContentTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {
@@ -157,7 +157,7 @@ class EventsApi {
   ///
   /// Parameters:
   ///
-  /// * [MapContentType] type:
+  /// * [MapContentTypeAZAZ09] type:
   ///   Type of event.
   ///
   /// * [int] page:
@@ -166,7 +166,7 @@ class EventsApi {
   /// * [int] size:
   ///   Page size
   Future<DataPageEventSchema?> getAllEventsEventsGet({
-    MapContentType? type,
+    MapContentTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {

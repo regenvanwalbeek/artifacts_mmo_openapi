@@ -70,7 +70,7 @@ Fetch events details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = EventsApi();
-final type = ; // MapContentType | Type of event.
+final type = ; // MapContentTypeAZAZ09 | Type of event.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -86,7 +86,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | [**MapContentType**](.md)| Type of event. | [optional] 
+ **type** | [**MapContentTypeAZAZ09**](.md)| Type of event. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

@@ -144,7 +144,7 @@ class NPCsApi {
   /// * [String] name:
   ///   Name of the npc.
   ///
-  /// * [NPCType] type:
+  /// * [NPCTypeAZAZ09] type:
   ///   The type of the NPC.
   ///
   /// * [int] page:
@@ -154,7 +154,7 @@ class NPCsApi {
   ///   Page size
   Future<Response> getAllNpcsNpcsDetailsGetWithHttpInfo({
     String? name,
-    NPCType? type,
+    NPCTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {
@@ -203,7 +203,7 @@ class NPCsApi {
   /// * [String] name:
   ///   Name of the npc.
   ///
-  /// * [NPCType] type:
+  /// * [NPCTypeAZAZ09] type:
   ///   The type of the NPC.
   ///
   /// * [int] page:
@@ -213,7 +213,7 @@ class NPCsApi {
   ///   Page size
   Future<DataPageNPCSchema?> getAllNpcsNpcsDetailsGet({
     String? name,
-    NPCType? type,
+    NPCTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {

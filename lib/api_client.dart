@@ -237,8 +237,8 @@ class ApiClient {
           return AccountDetailsSchema.fromJson(value);
         case 'AccountLeaderboardSchema':
           return AccountLeaderboardSchema.fromJson(value);
-        case 'AccountLeaderboardType':
-          return AccountLeaderboardTypeTypeTransformer().decode(value);
+        case 'AccountLeaderboardTypeAZAZ09':
+          return AccountLeaderboardTypeAZAZ09TypeTransformer().decode(value);
         case 'AccountStatus':
           return AccountStatusTypeTransformer().decode(value);
         case 'AchievementResponseSchema':
@@ -249,6 +249,8 @@ class ApiClient {
           return AchievementSchema.fromJson(value);
         case 'AchievementType':
           return AchievementTypeTypeTransformer().decode(value);
+        case 'AchievementTypeAZAZ09':
+          return AchievementTypeAZAZ09TypeTransformer().decode(value);
         case 'ActionType':
           return ActionTypeTypeTransformer().decode(value);
         case 'ActiveEventSchema':
@@ -297,8 +299,8 @@ class ApiClient {
           return CharacterFightResponseSchema.fromJson(value);
         case 'CharacterLeaderboardSchema':
           return CharacterLeaderboardSchema.fromJson(value);
-        case 'CharacterLeaderboardType':
-          return CharacterLeaderboardTypeTypeTransformer().decode(value);
+        case 'CharacterLeaderboardTypeAZAZ09':
+          return CharacterLeaderboardTypeAZAZ09TypeTransformer().decode(value);
         case 'CharacterMovementDataSchema':
           return CharacterMovementDataSchema.fromJson(value);
         case 'CharacterMovementResponseSchema':
@@ -325,6 +327,8 @@ class ApiClient {
           return CraftSchema.fromJson(value);
         case 'CraftSkill':
           return CraftSkillTypeTransformer().decode(value);
+        case 'CraftSkillAZAZ09':
+          return CraftSkillAZAZ09TypeTransformer().decode(value);
         case 'CraftingSchema':
           return CraftingSchema.fromJson(value);
         case 'DataPageAccountAchievementSchema':
@@ -429,6 +433,8 @@ class ApiClient {
           return GETransactionSchema.fromJson(value);
         case 'GatheringSkill':
           return GatheringSkillTypeTransformer().decode(value);
+        case 'GatheringSkillAZAZ09':
+          return GatheringSkillAZAZ09TypeTransformer().decode(value);
         case 'GeOrderHistorySchema':
           return GeOrderHistorySchema.fromJson(value);
         case 'GiveGoldDataSchema':
@@ -455,8 +461,8 @@ class ApiClient {
           return ItemSchema.fromJson(value);
         case 'ItemSlot':
           return ItemSlotTypeTransformer().decode(value);
-        case 'ItemType':
-          return ItemTypeTypeTransformer().decode(value);
+        case 'ItemTypeAZAZ09':
+          return ItemTypeAZAZ09TypeTransformer().decode(value);
         case 'LogSchema':
           return LogSchema.fromJson(value);
         case 'LogType':
@@ -465,6 +471,8 @@ class ApiClient {
           return MapContentSchema.fromJson(value);
         case 'MapContentType':
           return MapContentTypeTypeTransformer().decode(value);
+        case 'MapContentTypeAZAZ09':
+          return MapContentTypeAZAZ09TypeTransformer().decode(value);
         case 'MapResponseSchema':
           return MapResponseSchema.fromJson(value);
         case 'MapSchema':
@@ -487,6 +495,8 @@ class ApiClient {
           return NPCSchema.fromJson(value);
         case 'NPCType':
           return NPCTypeTypeTransformer().decode(value);
+        case 'NPCTypeAZAZ09':
+          return NPCTypeAZAZ09TypeTransformer().decode(value);
         case 'NpcItemTransactionSchema':
           return NpcItemTransactionSchema.fromJson(value);
         case 'NpcMerchantBuySchema':
@@ -535,8 +545,8 @@ class ApiClient {
           return SimpleEffectSchema.fromJson(value);
         case 'SimpleItemSchema':
           return SimpleItemSchema.fromJson(value);
-        case 'Skill':
-          return SkillTypeTransformer().decode(value);
+        case 'SkillAZAZ09':
+          return SkillAZAZ09TypeTransformer().decode(value);
         case 'SkillDataSchema':
           return SkillDataSchema.fromJson(value);
         case 'SkillInfoSchema':
@@ -569,6 +579,8 @@ class ApiClient {
           return TaskTradeSchema.fromJson(value);
         case 'TaskType':
           return TaskTypeTypeTransformer().decode(value);
+        case 'TaskTypeAZAZ09':
+          return TaskTypeAZAZ09TypeTransformer().decode(value);
         case 'TokenResponseSchema':
           return TokenResponseSchema.fromJson(value);
         case 'UnequipSchema':

@@ -2220,7 +2220,7 @@ class MyCharactersApi {
 
   /// Get My Characters
   ///
-  /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
+  /// List of your characters.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getMyCharactersMyCharactersGetWithHttpInfo() async {
@@ -2249,7 +2249,7 @@ class MyCharactersApi {
 
   /// Get My Characters
   ///
-  /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
+  /// List of your characters.
   Future<MyCharactersListSchema?> getMyCharactersMyCharactersGet() async {
     final response = await getMyCharactersMyCharactersGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {

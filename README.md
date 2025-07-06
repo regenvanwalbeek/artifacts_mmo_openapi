@@ -27,7 +27,7 @@ The recommended way to consume this package is by consuming the publicly publish
 Add the following to your library's `pubspec.yaml`:
 
 ```yaml
-  artifacts_mmo_openapi: ^5.0.0-alpha.1
+  artifacts_mmo_openapi: ^5.0.0-alpha
 ```
 
 ### Github
@@ -167,12 +167,13 @@ Class | Method | HTTP request | Description
  - [AccountDetails](doc//AccountDetails.md)
  - [AccountDetailsSchema](doc//AccountDetailsSchema.md)
  - [AccountLeaderboardSchema](doc//AccountLeaderboardSchema.md)
- - [AccountLeaderboardType](doc//AccountLeaderboardType.md)
+ - [AccountLeaderboardTypeAZAZ09](doc//AccountLeaderboardTypeAZAZ09.md)
  - [AccountStatus](doc//AccountStatus.md)
  - [AchievementResponseSchema](doc//AchievementResponseSchema.md)
  - [AchievementRewardsSchema](doc//AchievementRewardsSchema.md)
  - [AchievementSchema](doc//AchievementSchema.md)
  - [AchievementType](doc//AchievementType.md)
+ - [AchievementTypeAZAZ09](doc//AchievementTypeAZAZ09.md)
  - [ActionType](doc//ActionType.md)
  - [ActiveEventSchema](doc//ActiveEventSchema.md)
  - [AddAccountSchema](doc//AddAccountSchema.md)
@@ -197,7 +198,7 @@ Class | Method | HTTP request | Description
  - [CharacterFightDataSchema](doc//CharacterFightDataSchema.md)
  - [CharacterFightResponseSchema](doc//CharacterFightResponseSchema.md)
  - [CharacterLeaderboardSchema](doc//CharacterLeaderboardSchema.md)
- - [CharacterLeaderboardType](doc//CharacterLeaderboardType.md)
+ - [CharacterLeaderboardTypeAZAZ09](doc//CharacterLeaderboardTypeAZAZ09.md)
  - [CharacterMovementDataSchema](doc//CharacterMovementDataSchema.md)
  - [CharacterMovementResponseSchema](doc//CharacterMovementResponseSchema.md)
  - [CharacterResponseSchema](doc//CharacterResponseSchema.md)
@@ -211,6 +212,7 @@ Class | Method | HTTP request | Description
  - [CooldownSchema](doc//CooldownSchema.md)
  - [CraftSchema](doc//CraftSchema.md)
  - [CraftSkill](doc//CraftSkill.md)
+ - [CraftSkillAZAZ09](doc//CraftSkillAZAZ09.md)
  - [CraftingSchema](doc//CraftingSchema.md)
  - [DataPageAccountAchievementSchema](doc//DataPageAccountAchievementSchema.md)
  - [DataPageAccountLeaderboardSchema](doc//DataPageAccountLeaderboardSchema.md)
@@ -263,6 +265,7 @@ Class | Method | HTTP request | Description
  - [GETransactionResponseSchema](doc//GETransactionResponseSchema.md)
  - [GETransactionSchema](doc//GETransactionSchema.md)
  - [GatheringSkill](doc//GatheringSkill.md)
+ - [GatheringSkillAZAZ09](doc//GatheringSkillAZAZ09.md)
  - [GeOrderHistorySchema](doc//GeOrderHistorySchema.md)
  - [GiveGoldDataSchema](doc//GiveGoldDataSchema.md)
  - [GiveGoldReponseSchema](doc//GiveGoldReponseSchema.md)
@@ -276,11 +279,12 @@ Class | Method | HTTP request | Description
  - [ItemResponseSchema](doc//ItemResponseSchema.md)
  - [ItemSchema](doc//ItemSchema.md)
  - [ItemSlot](doc//ItemSlot.md)
- - [ItemType](doc//ItemType.md)
+ - [ItemTypeAZAZ09](doc//ItemTypeAZAZ09.md)
  - [LogSchema](doc//LogSchema.md)
  - [LogType](doc//LogType.md)
  - [MapContentSchema](doc//MapContentSchema.md)
  - [MapContentType](doc//MapContentType.md)
+ - [MapContentTypeAZAZ09](doc//MapContentTypeAZAZ09.md)
  - [MapResponseSchema](doc//MapResponseSchema.md)
  - [MapSchema](doc//MapSchema.md)
  - [MonsterResponseSchema](doc//MonsterResponseSchema.md)
@@ -292,6 +296,7 @@ Class | Method | HTTP request | Description
  - [NPCResponseSchema](doc//NPCResponseSchema.md)
  - [NPCSchema](doc//NPCSchema.md)
  - [NPCType](doc//NPCType.md)
+ - [NPCTypeAZAZ09](doc//NPCTypeAZAZ09.md)
  - [NpcItemTransactionSchema](doc//NpcItemTransactionSchema.md)
  - [NpcMerchantBuySchema](doc//NpcMerchantBuySchema.md)
  - [NpcMerchantTransactionResponseSchema](doc//NpcMerchantTransactionResponseSchema.md)
@@ -316,7 +321,7 @@ Class | Method | HTTP request | Description
  - [SeasonSkinSchema](doc//SeasonSkinSchema.md)
  - [SimpleEffectSchema](doc//SimpleEffectSchema.md)
  - [SimpleItemSchema](doc//SimpleItemSchema.md)
- - [Skill](doc//Skill.md)
+ - [SkillAZAZ09](doc//SkillAZAZ09.md)
  - [SkillDataSchema](doc//SkillDataSchema.md)
  - [SkillInfoSchema](doc//SkillInfoSchema.md)
  - [SkillResponseSchema](doc//SkillResponseSchema.md)
@@ -333,6 +338,7 @@ Class | Method | HTTP request | Description
  - [TaskTradeResponseSchema](doc//TaskTradeResponseSchema.md)
  - [TaskTradeSchema](doc//TaskTradeSchema.md)
  - [TaskType](doc//TaskType.md)
+ - [TaskTypeAZAZ09](doc//TaskTypeAZAZ09.md)
  - [TokenResponseSchema](doc//TokenResponseSchema.md)
  - [UnequipSchema](doc//UnequipSchema.md)
  - [UseItemResponseSchema](doc//UseItemResponseSchema.md)

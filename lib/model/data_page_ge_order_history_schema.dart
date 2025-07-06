@@ -14,7 +14,7 @@ class DataPageGeOrderHistorySchema {
   /// Returns a new [DataPageGeOrderHistorySchema] instance.
   DataPageGeOrderHistorySchema({
     this.data = const [],
-    required this.total,
+    this.total,
     required this.page,
     required this.size,
     this.pages,
@@ -166,7 +166,6 @@ class DataPageGeOrderHistorySchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'data',
-    'total',
     'page',
     'size',
   };

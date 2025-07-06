@@ -6,13 +6,14 @@ doc/AccountAchievementSchema.md
 doc/AccountDetails.md
 doc/AccountDetailsSchema.md
 doc/AccountLeaderboardSchema.md
-doc/AccountLeaderboardType.md
+doc/AccountLeaderboardTypeAZAZ09.md
 doc/AccountStatus.md
 doc/AccountsApi.md
 doc/AchievementResponseSchema.md
 doc/AchievementRewardsSchema.md
 doc/AchievementSchema.md
 doc/AchievementType.md
+doc/AchievementTypeAZAZ09.md
 doc/AchievementsApi.md
 doc/ActionType.md
 doc/ActiveEventSchema.md
@@ -39,7 +40,7 @@ doc/ChangeSkinResponseSchema.md
 doc/CharacterFightDataSchema.md
 doc/CharacterFightResponseSchema.md
 doc/CharacterLeaderboardSchema.md
-doc/CharacterLeaderboardType.md
+doc/CharacterLeaderboardTypeAZAZ09.md
 doc/CharacterMovementDataSchema.md
 doc/CharacterMovementResponseSchema.md
 doc/CharacterResponseSchema.md
@@ -54,6 +55,7 @@ doc/ConditionSchema.md
 doc/CooldownSchema.md
 doc/CraftSchema.md
 doc/CraftSkill.md
+doc/CraftSkillAZAZ09.md
 doc/CraftingSchema.md
 doc/DataPageAccountAchievementSchema.md
 doc/DataPageAccountLeaderboardSchema.md
@@ -108,6 +110,7 @@ doc/GETransactionListSchema.md
 doc/GETransactionResponseSchema.md
 doc/GETransactionSchema.md
 doc/GatheringSkill.md
+doc/GatheringSkillAZAZ09.md
 doc/GeOrderHistorySchema.md
 doc/GiveGoldDataSchema.md
 doc/GiveGoldReponseSchema.md
@@ -122,13 +125,14 @@ doc/InventorySlot.md
 doc/ItemResponseSchema.md
 doc/ItemSchema.md
 doc/ItemSlot.md
-doc/ItemType.md
+doc/ItemTypeAZAZ09.md
 doc/ItemsApi.md
 doc/LeaderboardApi.md
 doc/LogSchema.md
 doc/LogType.md
 doc/MapContentSchema.md
 doc/MapContentType.md
+doc/MapContentTypeAZAZ09.md
 doc/MapResponseSchema.md
 doc/MapSchema.md
 doc/MapsApi.md
@@ -144,6 +148,7 @@ doc/NPCItem.md
 doc/NPCResponseSchema.md
 doc/NPCSchema.md
 doc/NPCType.md
+doc/NPCTypeAZAZ09.md
 doc/NPCsApi.md
 doc/NpcItemTransactionSchema.md
 doc/NpcMerchantBuySchema.md
@@ -171,7 +176,7 @@ doc/SeasonSkinSchema.md
 doc/ServerDetailsApi.md
 doc/SimpleEffectSchema.md
 doc/SimpleItemSchema.md
-doc/Skill.md
+doc/SkillAZAZ09.md
 doc/SkillDataSchema.md
 doc/SkillInfoSchema.md
 doc/SkillResponseSchema.md
@@ -188,6 +193,7 @@ doc/TaskTradeDataSchema.md
 doc/TaskTradeResponseSchema.md
 doc/TaskTradeSchema.md
 doc/TaskType.md
+doc/TaskTypeAZAZ09.md
 doc/TasksApi.md
 doc/TokenApi.md
 doc/TokenResponseSchema.md
@@ -228,12 +234,13 @@ lib/model/account_achievement_schema.dart
 lib/model/account_details.dart
 lib/model/account_details_schema.dart
 lib/model/account_leaderboard_schema.dart
-lib/model/account_leaderboard_type.dart
+lib/model/account_leaderboard_type_azaz09.dart
 lib/model/account_status.dart
 lib/model/achievement_response_schema.dart
 lib/model/achievement_rewards_schema.dart
 lib/model/achievement_schema.dart
 lib/model/achievement_type.dart
+lib/model/achievement_type_azaz09.dart
 lib/model/action_type.dart
 lib/model/active_event_schema.dart
 lib/model/add_account_schema.dart
@@ -258,7 +265,7 @@ lib/model/change_skin_response_schema.dart
 lib/model/character_fight_data_schema.dart
 lib/model/character_fight_response_schema.dart
 lib/model/character_leaderboard_schema.dart
-lib/model/character_leaderboard_type.dart
+lib/model/character_leaderboard_type_azaz09.dart
 lib/model/character_movement_data_schema.dart
 lib/model/character_movement_response_schema.dart
 lib/model/character_response_schema.dart
@@ -272,6 +279,7 @@ lib/model/condition_schema.dart
 lib/model/cooldown_schema.dart
 lib/model/craft_schema.dart
 lib/model/craft_skill.dart
+lib/model/craft_skill_azaz09.dart
 lib/model/crafting_schema.dart
 lib/model/data_page_account_achievement_schema.dart
 lib/model/data_page_account_leaderboard_schema.dart
@@ -313,6 +321,7 @@ lib/model/event_schema.dart
 lib/model/fight_result.dart
 lib/model/fight_schema.dart
 lib/model/gathering_skill.dart
+lib/model/gathering_skill_azaz09.dart
 lib/model/ge_buy_order_schema.dart
 lib/model/ge_cancel_order_schema.dart
 lib/model/ge_create_order_transaction_response_schema.dart
@@ -337,11 +346,12 @@ lib/model/inventory_slot.dart
 lib/model/item_response_schema.dart
 lib/model/item_schema.dart
 lib/model/item_slot.dart
-lib/model/item_type.dart
+lib/model/item_type_azaz09.dart
 lib/model/log_schema.dart
 lib/model/log_type.dart
 lib/model/map_content_schema.dart
 lib/model/map_content_type.dart
+lib/model/map_content_type_azaz09.dart
 lib/model/map_response_schema.dart
 lib/model/map_schema.dart
 lib/model/monster_response_schema.dart
@@ -357,6 +367,7 @@ lib/model/npc_merchant_transaction_schema.dart
 lib/model/npc_response_schema.dart
 lib/model/npc_schema.dart
 lib/model/npc_type.dart
+lib/model/npc_type_azaz09.dart
 lib/model/password_reset_confirm_schema.dart
 lib/model/password_reset_request_schema.dart
 lib/model/password_reset_response_schema.dart
@@ -377,7 +388,7 @@ lib/model/season_schema.dart
 lib/model/season_skin_schema.dart
 lib/model/simple_effect_schema.dart
 lib/model/simple_item_schema.dart
-lib/model/skill.dart
+lib/model/skill_azaz09.dart
 lib/model/skill_data_schema.dart
 lib/model/skill_info_schema.dart
 lib/model/skill_response_schema.dart
@@ -394,6 +405,7 @@ lib/model/task_trade_data_schema.dart
 lib/model/task_trade_response_schema.dart
 lib/model/task_trade_schema.dart
 lib/model/task_type.dart
+lib/model/task_type_azaz09.dart
 lib/model/token_response_schema.dart
 lib/model/unequip_schema.dart
 lib/model/use_item_response_schema.dart

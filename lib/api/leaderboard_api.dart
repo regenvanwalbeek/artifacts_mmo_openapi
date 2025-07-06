@@ -24,7 +24,7 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [AccountLeaderboardType] sort:
+  /// * [AccountLeaderboardTypeAZAZ09] sort:
   ///   Default sort by achievements points.
   ///
   /// * [String] name:
@@ -36,7 +36,7 @@ class LeaderboardApi {
   /// * [int] size:
   ///   Page size
   Future<Response> getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo({
-    AccountLeaderboardType? sort,
+    AccountLeaderboardTypeAZAZ09? sort,
     String? name,
     int? page,
     int? size,
@@ -83,7 +83,7 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [AccountLeaderboardType] sort:
+  /// * [AccountLeaderboardTypeAZAZ09] sort:
   ///   Default sort by achievements points.
   ///
   /// * [String] name:
@@ -96,7 +96,7 @@ class LeaderboardApi {
   ///   Page size
   Future<DataPageAccountLeaderboardSchema?>
       getAccountsLeaderboardLeaderboardAccountsGet({
-    AccountLeaderboardType? sort,
+    AccountLeaderboardTypeAZAZ09? sort,
     String? name,
     int? page,
     int? size,
@@ -132,7 +132,7 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [CharacterLeaderboardType] sort:
+  /// * [CharacterLeaderboardTypeAZAZ09] sort:
   ///   Default sort by combat total XP.
   ///
   /// * [String] name:
@@ -145,7 +145,7 @@ class LeaderboardApi {
   ///   Page size
   Future<Response>
       getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo({
-    CharacterLeaderboardType? sort,
+    CharacterLeaderboardTypeAZAZ09? sort,
     String? name,
     int? page,
     int? size,
@@ -192,7 +192,7 @@ class LeaderboardApi {
   ///
   /// Parameters:
   ///
-  /// * [CharacterLeaderboardType] sort:
+  /// * [CharacterLeaderboardTypeAZAZ09] sort:
   ///   Default sort by combat total XP.
   ///
   /// * [String] name:
@@ -205,7 +205,7 @@ class LeaderboardApi {
   ///   Page size
   Future<DataPageCharacterLeaderboardSchema?>
       getCharactersLeaderboardLeaderboardCharactersGet({
-    CharacterLeaderboardType? sort,
+    CharacterLeaderboardTypeAZAZ09? sort,
     String? name,
     int? page,
     int? size,

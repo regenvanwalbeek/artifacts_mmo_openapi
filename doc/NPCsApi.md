@@ -79,7 +79,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = NPCsApi();
 final name = name_example; // String | Name of the npc.
-final type = ; // NPCType | The type of the NPC.
+final type = ; // NPCTypeAZAZ09 | The type of the NPC.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -96,7 +96,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of the npc. | [optional] 
- **type** | [**NPCType**](.md)| The type of the NPC. | [optional] 
+ **type** | [**NPCTypeAZAZ09**](.md)| The type of the NPC. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

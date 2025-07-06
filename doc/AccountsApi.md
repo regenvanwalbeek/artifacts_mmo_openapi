@@ -157,7 +157,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = AccountsApi();
 final account = account_example; // String | The character name.
-final type = ; // AchievementType | Type of achievements.
+final type = ; // AchievementTypeAZAZ09 | Type of achievements.
 final completed = true; // bool | Filter by completed achievements.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
@@ -175,7 +175,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account** | **String**| The character name. | 
- **type** | [**AchievementType**](.md)| Type of achievements. | [optional] 
+ **type** | [**AchievementTypeAZAZ09**](.md)| Type of achievements. | [optional] 
  **completed** | **bool**| Filter by completed achievements. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]

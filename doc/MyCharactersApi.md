@@ -1563,7 +1563,7 @@ Name | Type | Description  | Notes
 
 Get My Characters
 
-List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
+List of your characters.
 
 ### Example
 ```dart

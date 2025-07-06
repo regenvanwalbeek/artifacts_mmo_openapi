@@ -14,7 +14,7 @@ class DataPageAccountAchievementSchema {
   /// Returns a new [DataPageAccountAchievementSchema] instance.
   DataPageAccountAchievementSchema({
     this.data = const [],
-    required this.total,
+    this.total,
     required this.page,
     required this.size,
     this.pages,
@@ -167,7 +167,6 @@ class DataPageAccountAchievementSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'data',
-    'total',
     'page',
     'size',
   };

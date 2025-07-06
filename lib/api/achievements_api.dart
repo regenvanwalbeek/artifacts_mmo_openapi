@@ -90,7 +90,7 @@ class AchievementsApi {
   ///
   /// Parameters:
   ///
-  /// * [AchievementType] type:
+  /// * [AchievementTypeAZAZ09] type:
   ///   Type of achievements.
   ///
   /// * [int] page:
@@ -99,7 +99,7 @@ class AchievementsApi {
   /// * [int] size:
   ///   Page size
   Future<Response> getAllAchievementsAchievementsGetWithHttpInfo({
-    AchievementType? type,
+    AchievementTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {
@@ -142,7 +142,7 @@ class AchievementsApi {
   ///
   /// Parameters:
   ///
-  /// * [AchievementType] type:
+  /// * [AchievementTypeAZAZ09] type:
   ///   Type of achievements.
   ///
   /// * [int] page:
@@ -151,7 +151,7 @@ class AchievementsApi {
   /// * [int] size:
   ///   Page size
   Future<DataPageAchievementSchema?> getAllAchievementsAchievementsGet({
-    AchievementType? type,
+    AchievementTypeAZAZ09? type,
     int? page,
     int? size,
   }) async {
