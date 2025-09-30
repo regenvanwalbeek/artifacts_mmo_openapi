@@ -26,8 +26,8 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = ItemsApi();
 final name = name_example; // String | Name of the item.
-final minLevel = 56; // int | Minimum level items.
-final maxLevel = 56; // int | Maximum level items.
+final minLevel = 56; // int | Minimum level.
+final maxLevel = 56; // int | Maximum level.
 final type = ; // ItemType | Type of items.
 final craftSkill = ; // CraftSkill | Skill to craft items.
 final craftMaterial = craftMaterial_example; // String | Item code of items used as material for crafting.
@@ -47,8 +47,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of the item. | [optional] 
- **minLevel** | **int**| Minimum level items. | [optional] 
- **maxLevel** | **int**| Maximum level items. | [optional] 
+ **minLevel** | **int**| Minimum level. | [optional] 
+ **maxLevel** | **int**| Maximum level. | [optional] 
  **type** | [**ItemType**](.md)| Type of items. | [optional] 
  **craftSkill** | [**CraftSkill**](.md)| Skill to craft items. | [optional] 
  **craftMaterial** | **String**| Item code of items used as material for crafting. | [optional] 

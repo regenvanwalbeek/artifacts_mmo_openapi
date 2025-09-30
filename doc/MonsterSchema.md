@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **name** | **String** | Name of the monster. | 
 **code** | **String** | The code of the monster. This is the monster's unique identifier (ID). | 
 **level** | **int** | Monster level. | 
+**type** | [**MonsterType**](MonsterType.md) | Monster type. | 
 **hp** | **int** | Monster hit points. | 
 **attackFire** | **int** | Monster fire attack. | 
 **attackEarth** | **int** | Monster earth attack. | 
@@ -21,6 +22,7 @@ Name | Type | Description | Notes
 **resWater** | **int** | Monster % water resistance. | 
 **resAir** | **int** | Monster % air resistance. | 
 **criticalStrike** | **int** | Monster % critical strike. | 
+**initiative** | **int** | Monster initiative for turn order. | 
 **effects** | [**List<SimpleEffectSchema>**](SimpleEffectSchema.md) | List of effects. | [optional] [default to const []]
 **minGold** | **int** | Monster minimum gold drop.  | 
 **maxGold** | **int** | Monster maximum gold drop.  | 

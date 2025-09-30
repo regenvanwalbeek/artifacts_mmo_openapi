@@ -100,14 +100,14 @@ class EffectsApi {
 
   /// Get Effect
   ///
-  /// Retrieve the details of a badge.
+  /// Retrieve the details of an effect.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] code (required):
-  ///   The code of the achievement.
+  ///   The code of the effect.
   Future<Response> getEffectEffectsCodeGetWithHttpInfo(
     String code,
   ) async {
@@ -136,12 +136,12 @@ class EffectsApi {
 
   /// Get Effect
   ///
-  /// Retrieve the details of a badge.
+  /// Retrieve the details of an effect.
   ///
   /// Parameters:
   ///
   /// * [String] code (required):
-  ///   The code of the achievement.
+  ///   The code of the effect.
   Future<EffectResponseSchema?> getEffectEffectsCodeGet(
     String code,
   ) async {

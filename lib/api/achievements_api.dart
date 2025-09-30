@@ -18,7 +18,7 @@ class AchievementsApi {
 
   /// Get Achievement
   ///
-  /// Retrieve the details of a achievement.
+  /// Retrieve the details of an achievement.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -54,7 +54,7 @@ class AchievementsApi {
 
   /// Get Achievement
   ///
-  /// Retrieve the details of a achievement.
+  /// Retrieve the details of an achievement.
   ///
   /// Parameters:
   ///

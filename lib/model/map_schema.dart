@@ -13,12 +13,18 @@ part of openapi_generation;
 class MapSchema {
   /// Returns a new [MapSchema] instance.
   MapSchema({
+    required this.mapId,
     required this.name,
     required this.skin,
     required this.x,
     required this.y,
-    required this.content,
+    required this.layer,
+    required this.access,
+    required this.interactions,
   });
+
+  /// ID of the map.
+  int mapId;
 
   /// Name of the map.
   String name;
@@ -32,42 +38,54 @@ class MapSchema {
   /// Position Y of the map.
   int y;
 
-  MapContentSchema? content;
+  /// Layer of the map.
+  MapLayer layer;
+
+  /// Access information for the map
+  AccessSchema access;
+
+  /// Interactions available on this map.
+  InteractionSchema interactions;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is MapSchema &&
+          other.mapId == mapId &&
           other.name == name &&
           other.skin == skin &&
           other.x == x &&
           other.y == y &&
-          other.content == content;
+          other.layer == layer &&
+          other.access == access &&
+          other.interactions == interactions;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
+      (mapId.hashCode) +
       (name.hashCode) +
       (skin.hashCode) +
       (x.hashCode) +
       (y.hashCode) +
-      (content == null ? 0 : content!.hashCode);
+      (layer.hashCode) +
+      (access.hashCode) +
+      (interactions.hashCode);
 
   @override
   String toString() =>
-      'MapSchema[name=$name, skin=$skin, x=$x, y=$y, content=$content]';
+      'MapSchema[mapId=$mapId, name=$name, skin=$skin, x=$x, y=$y, layer=$layer, access=$access, interactions=$interactions]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'map_id'] = this.mapId;
     json[r'name'] = this.name;
     json[r'skin'] = this.skin;
     json[r'x'] = this.x;
     json[r'y'] = this.y;
-    if (this.content != null) {
-      json[r'content'] = this.content;
-    } else {
-      json[r'content'] = null;
-    }
+    json[r'layer'] = this.layer;
+    json[r'access'] = this.access;
+    json[r'interactions'] = this.interactions;
     return json;
   }
 
@@ -92,11 +110,14 @@ class MapSchema {
       }());
 
       return MapSchema(
+        mapId: mapValueOfType<int>(json, r'map_id')!,
         name: mapValueOfType<String>(json, r'name')!,
         skin: mapValueOfType<String>(json, r'skin')!,
         x: mapValueOfType<int>(json, r'x')!,
         y: mapValueOfType<int>(json, r'y')!,
-        content: MapContentSchema.fromJson(json[r'content']),
+        layer: MapLayer.fromJson(json[r'layer'])!,
+        access: AccessSchema.fromJson(json[r'access'])!,
+        interactions: InteractionSchema.fromJson(json[r'interactions'])!,
       );
     }
     return null;
@@ -153,10 +174,13 @@ class MapSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'map_id',
     'name',
     'skin',
     'x',
     'y',
-    'content',
+    'layer',
+    'access',
+    'interactions',
   };
 }

@@ -27,10 +27,10 @@ class ItemsApi {
   ///   Name of the item.
   ///
   /// * [int] minLevel:
-  ///   Minimum level items.
+  ///   Minimum level.
   ///
   /// * [int] maxLevel:
-  ///   Maximum level items.
+  ///   Maximum level.
   ///
   /// * [ItemType] type:
   ///   Type of items.
@@ -114,10 +114,10 @@ class ItemsApi {
   ///   Name of the item.
   ///
   /// * [int] minLevel:
-  ///   Minimum level items.
+  ///   Minimum level.
   ///
   /// * [int] maxLevel:
-  ///   Maximum level items.
+  ///   Maximum level.
   ///
   /// * [ItemType] type:
   ///   Type of items.

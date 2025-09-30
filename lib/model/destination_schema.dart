@@ -13,33 +13,73 @@ part of openapi_generation;
 class DestinationSchema {
   /// Returns a new [DestinationSchema] instance.
   DestinationSchema({
-    required this.x,
-    required this.y,
+    this.x,
+    this.y,
+    this.mapId,
   });
 
   /// The x coordinate of the destination.
-  int x;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? x;
 
   /// The y coordinate of the destination.
-  int y;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? y;
+
+  /// The map ID of the destination.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? mapId;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DestinationSchema && other.x == x && other.y == y;
+      other is DestinationSchema &&
+          other.x == x &&
+          other.y == y &&
+          other.mapId == mapId;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (x.hashCode) + (y.hashCode);
+      (x == null ? 0 : x!.hashCode) +
+      (y == null ? 0 : y!.hashCode) +
+      (mapId == null ? 0 : mapId!.hashCode);
 
   @override
-  String toString() => 'DestinationSchema[x=$x, y=$y]';
+  String toString() => 'DestinationSchema[x=$x, y=$y, mapId=$mapId]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'x'] = this.x;
-    json[r'y'] = this.y;
+    if (this.x != null) {
+      json[r'x'] = this.x;
+    } else {
+      json[r'x'] = null;
+    }
+    if (this.y != null) {
+      json[r'y'] = this.y;
+    } else {
+      json[r'y'] = null;
+    }
+    if (this.mapId != null) {
+      json[r'map_id'] = this.mapId;
+    } else {
+      json[r'map_id'] = null;
+    }
     return json;
   }
 
@@ -64,8 +104,9 @@ class DestinationSchema {
       }());
 
       return DestinationSchema(
-        x: mapValueOfType<int>(json, r'x')!,
-        y: mapValueOfType<int>(json, r'y')!,
+        x: mapValueOfType<int>(json, r'x'),
+        y: mapValueOfType<int>(json, r'y'),
+        mapId: mapValueOfType<int>(json, r'map_id'),
       );
     }
     return null;
@@ -121,8 +162,5 @@ class DestinationSchema {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-    'x',
-    'y',
-  };
+  static const requiredKeys = <String>{};
 }

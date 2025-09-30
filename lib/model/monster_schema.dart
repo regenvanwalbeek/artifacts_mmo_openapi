@@ -16,6 +16,7 @@ class MonsterSchema {
     required this.name,
     required this.code,
     required this.level,
+    required this.type,
     required this.hp,
     required this.attackFire,
     required this.attackEarth,
@@ -26,6 +27,7 @@ class MonsterSchema {
     required this.resWater,
     required this.resAir,
     required this.criticalStrike,
+    required this.initiative,
     this.effects = const [],
     required this.minGold,
     required this.maxGold,
@@ -40,6 +42,9 @@ class MonsterSchema {
 
   /// Monster level.
   int level;
+
+  /// Monster type.
+  MonsterType type;
 
   /// Monster hit points.
   int hp;
@@ -71,6 +76,9 @@ class MonsterSchema {
   /// Monster % critical strike.
   int criticalStrike;
 
+  /// Monster initiative for turn order.
+  int initiative;
+
   /// List of effects.
   List<SimpleEffectSchema> effects;
 
@@ -90,6 +98,7 @@ class MonsterSchema {
           other.name == name &&
           other.code == code &&
           other.level == level &&
+          other.type == type &&
           other.hp == hp &&
           other.attackFire == attackFire &&
           other.attackEarth == attackEarth &&
@@ -100,6 +109,7 @@ class MonsterSchema {
           other.resWater == resWater &&
           other.resAir == resAir &&
           other.criticalStrike == criticalStrike &&
+          other.initiative == initiative &&
           _deepEquality.equals(other.effects, effects) &&
           other.minGold == minGold &&
           other.maxGold == maxGold &&
@@ -111,6 +121,7 @@ class MonsterSchema {
       (name.hashCode) +
       (code.hashCode) +
       (level.hashCode) +
+      (type.hashCode) +
       (hp.hashCode) +
       (attackFire.hashCode) +
       (attackEarth.hashCode) +
@@ -121,6 +132,7 @@ class MonsterSchema {
       (resWater.hashCode) +
       (resAir.hashCode) +
       (criticalStrike.hashCode) +
+      (initiative.hashCode) +
       (effects.hashCode) +
       (minGold.hashCode) +
       (maxGold.hashCode) +
@@ -128,13 +140,14 @@ class MonsterSchema {
 
   @override
   String toString() =>
-      'MonsterSchema[name=$name, code=$code, level=$level, hp=$hp, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, criticalStrike=$criticalStrike, effects=$effects, minGold=$minGold, maxGold=$maxGold, drops=$drops]';
+      'MonsterSchema[name=$name, code=$code, level=$level, type=$type, hp=$hp, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, criticalStrike=$criticalStrike, initiative=$initiative, effects=$effects, minGold=$minGold, maxGold=$maxGold, drops=$drops]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'name'] = this.name;
     json[r'code'] = this.code;
     json[r'level'] = this.level;
+    json[r'type'] = this.type;
     json[r'hp'] = this.hp;
     json[r'attack_fire'] = this.attackFire;
     json[r'attack_earth'] = this.attackEarth;
@@ -145,6 +158,7 @@ class MonsterSchema {
     json[r'res_water'] = this.resWater;
     json[r'res_air'] = this.resAir;
     json[r'critical_strike'] = this.criticalStrike;
+    json[r'initiative'] = this.initiative;
     json[r'effects'] = this.effects;
     json[r'min_gold'] = this.minGold;
     json[r'max_gold'] = this.maxGold;
@@ -176,6 +190,7 @@ class MonsterSchema {
         name: mapValueOfType<String>(json, r'name')!,
         code: mapValueOfType<String>(json, r'code')!,
         level: mapValueOfType<int>(json, r'level')!,
+        type: MonsterType.fromJson(json[r'type'])!,
         hp: mapValueOfType<int>(json, r'hp')!,
         attackFire: mapValueOfType<int>(json, r'attack_fire')!,
         attackEarth: mapValueOfType<int>(json, r'attack_earth')!,
@@ -186,6 +201,7 @@ class MonsterSchema {
         resWater: mapValueOfType<int>(json, r'res_water')!,
         resAir: mapValueOfType<int>(json, r'res_air')!,
         criticalStrike: mapValueOfType<int>(json, r'critical_strike')!,
+        initiative: mapValueOfType<int>(json, r'initiative')!,
         effects: SimpleEffectSchema.listFromJson(json[r'effects']),
         minGold: mapValueOfType<int>(json, r'min_gold')!,
         maxGold: mapValueOfType<int>(json, r'max_gold')!,
@@ -249,6 +265,7 @@ class MonsterSchema {
     'name',
     'code',
     'level',
+    'type',
     'hp',
     'attack_fire',
     'attack_earth',
@@ -259,6 +276,7 @@ class MonsterSchema {
     'res_water',
     'res_air',
     'critical_strike',
+    'initiative',
     'min_gold',
     'max_gold',
     'drops',

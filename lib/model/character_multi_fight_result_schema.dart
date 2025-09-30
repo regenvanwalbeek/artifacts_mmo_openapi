@@ -10,75 +10,68 @@
 
 part of openapi_generation;
 
-class FightSchema {
-  /// Returns a new [FightSchema] instance.
-  FightSchema({
+class CharacterMultiFightResultSchema {
+  /// Returns a new [CharacterMultiFightResultSchema] instance.
+  CharacterMultiFightResultSchema({
+    required this.characterName,
     required this.xp,
     required this.gold,
     this.drops = const [],
-    required this.turns,
-    this.logs = const [],
-    required this.result,
+    required this.finalHp,
   });
 
-  /// The amount of xp gained from the fight.
+  /// Name of the character.
+  String characterName;
+
+  /// XP gained by this character.
   int xp;
 
-  /// The amount of gold gained from the fight.
+  /// Gold gained by this character.
   int gold;
 
-  /// The items dropped from the fight.
+  /// Items dropped for this character.
   List<DropSchema> drops;
 
-  /// Numbers of the turns of the combat.
-  int turns;
-
-  /// The fight logs.
-  List<String> logs;
-
-  /// The result of the fight.
-  FightResult result;
+  /// Character's HP at the end of combat.
+  int finalHp;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is FightSchema &&
+      other is CharacterMultiFightResultSchema &&
+          other.characterName == characterName &&
           other.xp == xp &&
           other.gold == gold &&
           _deepEquality.equals(other.drops, drops) &&
-          other.turns == turns &&
-          _deepEquality.equals(other.logs, logs) &&
-          other.result == result;
+          other.finalHp == finalHp;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
+      (characterName.hashCode) +
       (xp.hashCode) +
       (gold.hashCode) +
       (drops.hashCode) +
-      (turns.hashCode) +
-      (logs.hashCode) +
-      (result.hashCode);
+      (finalHp.hashCode);
 
   @override
   String toString() =>
-      'FightSchema[xp=$xp, gold=$gold, drops=$drops, turns=$turns, logs=$logs, result=$result]';
+      'CharacterMultiFightResultSchema[characterName=$characterName, xp=$xp, gold=$gold, drops=$drops, finalHp=$finalHp]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'character_name'] = this.characterName;
     json[r'xp'] = this.xp;
     json[r'gold'] = this.gold;
     json[r'drops'] = this.drops;
-    json[r'turns'] = this.turns;
-    json[r'logs'] = this.logs;
-    json[r'result'] = this.result;
+    json[r'final_hp'] = this.finalHp;
     return json;
   }
 
-  /// Returns a new [FightSchema] instance and imports its values from
+  /// Returns a new [CharacterMultiFightResultSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static FightSchema? fromJson(dynamic value) {
+  static CharacterMultiFightResultSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -88,35 +81,32 @@ class FightSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "FightSchema[$key]" is missing from JSON.');
+              'Required key "CharacterMultiFightResultSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "FightSchema[$key]" has a null value in JSON.');
+              'Required key "CharacterMultiFightResultSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return FightSchema(
+      return CharacterMultiFightResultSchema(
+        characterName: mapValueOfType<String>(json, r'character_name')!,
         xp: mapValueOfType<int>(json, r'xp')!,
         gold: mapValueOfType<int>(json, r'gold')!,
         drops: DropSchema.listFromJson(json[r'drops']),
-        turns: mapValueOfType<int>(json, r'turns')!,
-        logs: json[r'logs'] is Iterable
-            ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false)
-            : const [],
-        result: FightResult.fromJson(json[r'result'])!,
+        finalHp: mapValueOfType<int>(json, r'final_hp')!,
       );
     }
     return null;
   }
 
-  static List<FightSchema> listFromJson(
+  static List<CharacterMultiFightResultSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <FightSchema>[];
+    final result = <CharacterMultiFightResultSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = FightSchema.fromJson(row);
+        final value = CharacterMultiFightResultSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -125,12 +115,13 @@ class FightSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, FightSchema> mapFromJson(dynamic json) {
-    final map = <String, FightSchema>{};
+  static Map<String, CharacterMultiFightResultSchema> mapFromJson(
+      dynamic json) {
+    final map = <String, CharacterMultiFightResultSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = FightSchema.fromJson(entry.value);
+        final value = CharacterMultiFightResultSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -139,17 +130,17 @@ class FightSchema {
     return map;
   }
 
-  // maps a json object with a list of FightSchema-objects as value to a dart map
-  static Map<String, List<FightSchema>> mapListFromJson(
+  // maps a json object with a list of CharacterMultiFightResultSchema-objects as value to a dart map
+  static Map<String, List<CharacterMultiFightResultSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<FightSchema>>{};
+    final map = <String, List<CharacterMultiFightResultSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = FightSchema.listFromJson(
+        map[entry.key] = CharacterMultiFightResultSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -160,11 +151,10 @@ class FightSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'character_name',
     'xp',
     'gold',
     'drops',
-    'turns',
-    'logs',
-    'result',
+    'final_hp',
   };
 }

@@ -177,7 +177,7 @@ class GrandExchangeApi {
   ///
   /// * [String] id (required):
   ///   The id of the order.
-  Future<GEOrderReponseSchema?> getGeSellOrderGrandexchangeOrdersIdGet(
+  Future<GEOrderResponseSchema?> getGeSellOrderGrandexchangeOrdersIdGet(
     String id,
   ) async {
     final response = await getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
@@ -193,8 +193,8 @@ class GrandExchangeApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'GEOrderReponseSchema',
-      ) as GEOrderReponseSchema;
+        'GEOrderResponseSchema',
+      ) as GEOrderResponseSchema;
     }
     return null;
   }

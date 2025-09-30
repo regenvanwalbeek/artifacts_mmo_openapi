@@ -16,8 +16,8 @@ class NPCItem {
     required this.code,
     required this.npc,
     required this.currency,
-    required this.buyPrice,
-    required this.sellPrice,
+    this.buyPrice,
+    this.sellPrice,
   });
 
   /// The code of the NPC. This is the NPC's unique identifier (ID).
@@ -29,8 +29,22 @@ class NPCItem {
   /// Currency used to buy/sell the item. If it's not gold, it's the item code.
   String currency;
 
+  /// Price to buy the item.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   int? buyPrice;
 
+  /// Price to sell the item.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   int? sellPrice;
 
   @override
@@ -159,7 +173,5 @@ class NPCItem {
     'code',
     'npc',
     'currency',
-    'buy_price',
-    'sell_price',
   };
 }

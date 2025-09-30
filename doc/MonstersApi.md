@@ -26,8 +26,8 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MonstersApi();
 final name = name_example; // String | Name of the monster.
-final minLevel = 56; // int | Monster minimum level.
-final maxLevel = 56; // int | Monster maximum level.
+final minLevel = 56; // int | Minimum level.
+final maxLevel = 56; // int | Maximum level.
 final drop = drop_example; // String | Item code of the drop.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
@@ -45,8 +45,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of the monster. | [optional] 
- **minLevel** | **int**| Monster minimum level. | [optional] 
- **maxLevel** | **int**| Monster maximum level. | [optional] 
+ **minLevel** | **int**| Minimum level. | [optional] 
+ **maxLevel** | **int**| Maximum level. | [optional] 
  **drop** | **String**| Item code of the drop. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]

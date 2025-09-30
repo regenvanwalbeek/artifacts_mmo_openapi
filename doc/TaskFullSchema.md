@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **type** | [**TaskType**](TaskType.md) | The type of task. | 
 **minQuantity** | **int** | Minimum amount of task. | 
 **maxQuantity** | **int** | Maximum amount of task. | 
-**skill** | **String** |  | 
+**skill** | **String** | Skill required to complete the task. | [optional] 
 **rewards** | [**RewardsSchema**](RewardsSchema.md) | Rewards. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

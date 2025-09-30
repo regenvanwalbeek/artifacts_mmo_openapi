@@ -66,7 +66,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGeSellOrderGrandexchangeOrdersIdGet**
-> GEOrderReponseSchema getGeSellOrderGrandexchangeOrdersIdGet(id)
+> GEOrderResponseSchema getGeSellOrderGrandexchangeOrdersIdGet(id)
 
 Get Ge Sell Order
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GEOrderReponseSchema**](GEOrderReponseSchema.md)
+[**GEOrderResponseSchema**](GEOrderResponseSchema.md)
 
 ### Authorization
 

@@ -27,9 +27,9 @@ Retrieve the list of all NPC items.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = NPCsApi();
-final code = code_example; // String | The code of the item.
-final npc = npc_example; // String | The code of the npc.
-final currency = currency_example; // String | The code of the currency.
+final code = code_example; // String | Item code.
+final npc = npc_example; // String | NPC code.
+final currency = currency_example; // String | Currency code.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -45,9 +45,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| The code of the item. | [optional] 
- **npc** | **String**| The code of the npc. | [optional] 
- **currency** | **String**| The code of the currency. | [optional] 
+ **code** | **String**| Item code. | [optional] 
+ **npc** | **String**| NPC code. | [optional] 
+ **currency** | **String**| Currency code. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -78,8 +78,8 @@ Fetch NPCs details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = NPCsApi();
-final name = name_example; // String | Name of the npc.
-final type = ; // NPCType | The type of the NPC.
+final name = name_example; // String | NPC name.
+final type = ; // NPCType | Type of NPCs.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -95,8 +95,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| Name of the npc. | [optional] 
- **type** | [**NPCType**](.md)| The type of the NPC. | [optional] 
+ **name** | **String**| NPC name. | [optional] 
+ **type** | [**NPCType**](.md)| Type of NPCs. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

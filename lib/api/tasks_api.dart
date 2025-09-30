@@ -112,10 +112,10 @@ class TasksApi {
   ///   Maximum level.
   ///
   /// * [Skill] skill:
-  ///   The code of the skill.
+  ///   Skill of tasks.
   ///
   /// * [TaskType] type:
-  ///   The type of tasks.
+  ///   Type of tasks.
   ///
   /// * [int] page:
   ///   Page number
@@ -185,10 +185,10 @@ class TasksApi {
   ///   Maximum level.
   ///
   /// * [Skill] skill:
-  ///   The code of the skill.
+  ///   Skill of tasks.
   ///
   /// * [TaskType] type:
-  ///   The type of tasks.
+  ///   Type of tasks.
   ///
   /// * [int] page:
   ///   Page number

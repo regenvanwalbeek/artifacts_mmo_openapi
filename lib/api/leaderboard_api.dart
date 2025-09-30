@@ -25,10 +25,10 @@ class LeaderboardApi {
   /// Parameters:
   ///
   /// * [AccountLeaderboardType] sort:
-  ///   Default sort by achievements points.
+  ///   Sort of account leaderboards.
   ///
   /// * [String] name:
-  ///   Find a account by name.
+  ///   Account name.
   ///
   /// * [int] page:
   ///   Page number
@@ -84,10 +84,10 @@ class LeaderboardApi {
   /// Parameters:
   ///
   /// * [AccountLeaderboardType] sort:
-  ///   Default sort by achievements points.
+  ///   Sort of account leaderboards.
   ///
   /// * [String] name:
-  ///   Find a account by name.
+  ///   Account name.
   ///
   /// * [int] page:
   ///   Page number
@@ -133,10 +133,10 @@ class LeaderboardApi {
   /// Parameters:
   ///
   /// * [CharacterLeaderboardType] sort:
-  ///   Default sort by combat total XP.
+  ///   Sort of character leaderboards.
   ///
   /// * [String] name:
-  ///   Find a character by name.
+  ///   Character name.
   ///
   /// * [int] page:
   ///   Page number
@@ -193,10 +193,10 @@ class LeaderboardApi {
   /// Parameters:
   ///
   /// * [CharacterLeaderboardType] sort:
-  ///   Default sort by combat total XP.
+  ///   Sort of character leaderboards.
   ///
   /// * [String] name:
-  ///   Find a character by name.
+  ///   Character name.
   ///
   /// * [int] page:
   ///   Page number

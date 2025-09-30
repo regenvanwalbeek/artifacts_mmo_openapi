@@ -26,6 +26,10 @@ class ConditionOperator {
   static const ne = ConditionOperator._(r'ne');
   static const gt = ConditionOperator._(r'gt');
   static const lt = ConditionOperator._(r'lt');
+  static const cost = ConditionOperator._(r'cost');
+  static const hasItem = ConditionOperator._(r'has_item');
+  static const achievementUnlocked =
+      ConditionOperator._(r'achievement_unlocked');
 
   /// List of all possible values in this [enum][ConditionOperator].
   static const values = <ConditionOperator>[
@@ -33,6 +37,9 @@ class ConditionOperator {
     ne,
     gt,
     lt,
+    cost,
+    hasItem,
+    achievementUnlocked,
   ];
 
   static ConditionOperator? fromJson(dynamic value) =>
@@ -84,6 +91,12 @@ class ConditionOperatorTypeTransformer {
           return ConditionOperator.gt;
         case r'lt':
           return ConditionOperator.lt;
+        case r'cost':
+          return ConditionOperator.cost;
+        case r'has_item':
+          return ConditionOperator.hasItem;
+        case r'achievement_unlocked':
+          return ConditionOperator.achievementUnlocked;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

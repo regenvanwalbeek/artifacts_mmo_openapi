@@ -33,6 +33,7 @@ Method | HTTP request | Description
 [**actionTaskCancelMyNameActionTaskCancelPost**](MyCharactersApi.md#actiontaskcancelmynameactiontaskcancelpost) | **POST** /my/{name}/action/task/cancel | Action Task Cancel
 [**actionTaskExchangeMyNameActionTaskExchangePost**](MyCharactersApi.md#actiontaskexchangemynameactiontaskexchangepost) | **POST** /my/{name}/action/task/exchange | Action Task Exchange
 [**actionTaskTradeMyNameActionTaskTradePost**](MyCharactersApi.md#actiontasktrademynameactiontasktradepost) | **POST** /my/{name}/action/task/trade | Action Task Trade
+[**actionTransitionMyNameActionTransitionPost**](MyCharactersApi.md#actiontransitionmynameactiontransitionpost) | **POST** /my/{name}/action/transition | Action Transition
 [**actionUnequipItemMyNameActionUnequipPost**](MyCharactersApi.md#actionunequipitemmynameactionunequippost) | **POST** /my/{name}/action/unequip | Action Unequip Item
 [**actionUseItemMyNameActionUsePost**](MyCharactersApi.md#actionuseitemmynameactionusepost) | **POST** /my/{name}/action/use | Action Use Item
 [**actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost**](MyCharactersApi.md#actionwithdrawbankgoldmynameactionbankwithdrawgoldpost) | **POST** /my/{name}/action/bank/withdraw/gold | Action Withdraw Bank Gold
@@ -96,7 +97,7 @@ Name | Type | Description  | Notes
 
 Action Buy Bank Expansion
 
-Buy a 25 slots bank expansion.
+Buy a 20 slots bank expansion.
 
 ### Example
 ```dart
@@ -245,7 +246,7 @@ Name | Type | Description  | Notes
 
 Action Crafting
 
-Crafting an item. The character must be on a map with a workshop.
+Craft an item. The character must be on a map with a workshop.
 
 ### Example
 ```dart
@@ -398,7 +399,7 @@ Name | Type | Description  | Notes
 
 Action Deposit Bank Item
 
-Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
+Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items deposited.
 
 ### Example
 ```dart
@@ -496,11 +497,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionFightMyNameActionFightPost**
-> CharacterFightResponseSchema actionFightMyNameActionFightPost(name)
+> CharacterFightResponseSchema actionFightMyNameActionFightPost(name, fightRequestSchema)
 
 Action Fight
 
-Start a fight against a monster on the character's map.
+Start a fight against a monster on the character's map. Possibility of fighting with 2 other characters for boss fights.
 
 ### Example
 ```dart
@@ -514,9 +515,10 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
+final fightRequestSchema = FightRequestSchema(); // FightRequestSchema | 
 
 try {
-    final result = api_instance.actionFightMyNameActionFightPost(name);
+    final result = api_instance.actionFightMyNameActionFightPost(name, fightRequestSchema);
     print(result);
 } catch (e) {
     print('Exception when calling MyCharactersApi->actionFightMyNameActionFightPost: $e\n');
@@ -528,6 +530,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
+ **fightRequestSchema** | [**FightRequestSchema**](FightRequestSchema.md)|  | [optional] 
 
 ### Return type
 
@@ -539,7 +542,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -700,7 +703,7 @@ Name | Type | Description  | Notes
 
 Action Ge Create Sell Order
 
-Create a sell order at the Grand Exchange on the character's map. Please note there is a 3% listing tax, charged at the time of posting, on the total price.
+Create a sell order at the Grand Exchange on the character's map.  Please note there is a 3% listing tax, charged at the time of posting, on the total price.
 
 ### Example
 ```dart
@@ -747,7 +750,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionGiveGoldMyNameActionGiveGoldPost**
-> GiveGoldReponseSchema actionGiveGoldMyNameActionGiveGoldPost(name, giveGoldSchema)
+> GiveGoldResponseSchema actionGiveGoldMyNameActionGiveGoldPost(name, giveGoldSchema)
 
 Action Give Gold
 
@@ -784,7 +787,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GiveGoldReponseSchema**](GiveGoldReponseSchema.md)
+[**GiveGoldResponseSchema**](GiveGoldResponseSchema.md)
 
 ### Authorization
 
@@ -798,7 +801,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionGiveItemsMyNameActionGiveItemPost**
-> GiveItemReponseSchema actionGiveItemsMyNameActionGiveItemPost(name, giveItemsSchema)
+> GiveItemResponseSchema actionGiveItemsMyNameActionGiveItemPost(name, giveItemsSchema)
 
 Action Give Items
 
@@ -835,7 +838,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GiveItemReponseSchema**](GiveItemReponseSchema.md)
+[**GiveItemResponseSchema**](GiveItemResponseSchema.md)
 
 ### Authorization
 
@@ -853,7 +856,7 @@ Name | Type | Description  | Notes
 
 Action Move
 
-Moves a character on the map using the map's X and Y position.
+Moves a character on the map using either the map's ID or X and Y position. Provide either 'map_id' or both 'x' and 'y' coordinates in the request body.
 
 ### Example
 ```dart
@@ -1250,6 +1253,55 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **actionTransitionMyNameActionTransitionPost**
+> CharacterTransitionResponseSchema actionTransitionMyNameActionTransitionPost(name)
+
+Action Transition
+
+Execute a transition from the current map to another layer. The character must be on a map that has a transition available.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+
+try {
+    final result = api_instance.actionTransitionMyNameActionTransitionPost(name);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionTransitionMyNameActionTransitionPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+
+### Return type
+
+[**CharacterTransitionResponseSchema**](CharacterTransitionResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **actionUnequipItemMyNameActionUnequipPost**
 > EquipmentResponseSchema actionUnequipItemMyNameActionUnequipPost(name, unequipSchema)
 
@@ -1459,7 +1511,7 @@ Name | Type | Description  | Notes
 
 Get All Characters Logs
 
-History of the last 250 actions of all your characters.
+History of the last 5000 actions of all your characters.
 
 ### Example
 ```dart
@@ -1563,7 +1615,7 @@ Name | Type | Description  | Notes
 
 Get My Characters
 
-List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
+List of your characters.
 
 ### Example
 ```dart

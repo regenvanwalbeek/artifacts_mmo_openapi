@@ -18,11 +18,11 @@ class AccountAchievementSchema {
     required this.description,
     required this.points,
     required this.type,
-    required this.target,
+    this.target,
     required this.total,
     required this.rewards,
     required this.current,
-    required this.completedAt,
+    this.completedAt,
   });
 
   /// Name of the achievement.
@@ -40,6 +40,13 @@ class AccountAchievementSchema {
   /// Type of achievement.
   AchievementType type;
 
+  /// Target of the achievement.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   String? target;
 
   /// Total to do.
@@ -51,6 +58,13 @@ class AccountAchievementSchema {
   /// Current progress.
   int current;
 
+  /// Completed at.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   DateTime? completedAt;
 
   @override
@@ -201,10 +215,8 @@ class AccountAchievementSchema {
     'description',
     'points',
     'type',
-    'target',
     'total',
     'rewards',
     'current',
-    'completed_at',
   };
 }

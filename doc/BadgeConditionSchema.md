@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | Code of the condition. | 
-**quantity** | **int** |  | 
+**quantity** | **int** | Quantity of the condition (if any). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

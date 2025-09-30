@@ -106,7 +106,7 @@ class BadgesApi {
   /// Parameters:
   ///
   /// * [String] code (required):
-  ///   The code of the achievement.
+  ///   The code of the badge.
   Future<Response> getBadgeBadgesCodeGetWithHttpInfo(
     String code,
   ) async {
@@ -140,7 +140,7 @@ class BadgesApi {
   /// Parameters:
   ///
   /// * [String] code (required):
-  ///   The code of the achievement.
+  ///   The code of the badge.
   Future<BadgeResponseSchema?> getBadgeBadgesCodeGet(
     String code,
   ) async {

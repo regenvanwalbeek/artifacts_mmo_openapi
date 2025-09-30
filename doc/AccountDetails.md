@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **username** | **String** | Username. | 
 **member** | **bool** | Member status. | 
 **status** | [**AccountStatus**](AccountStatus.md) | Account status. | 
-**badges** | [**List<Object>**](Object.md) | Account badges. | [optional] [default to const []]
-**skins** | [**List<Object>**](Object.md) | Skins owned. | [default to const []]
+**badges** | **List<String>** | Account badges. | [optional] [default to const []]
+**skins** | **List<String>** | Skins owned. | [default to const []]
 **achievementsPoints** | **int** | Achievement points. | 
 **banned** | **bool** | Banned. | 
 **banReason** | **String** | Ban reason. | [optional] 

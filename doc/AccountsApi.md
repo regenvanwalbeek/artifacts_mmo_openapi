@@ -106,14 +106,14 @@ No authorization required
 
 Get Account
 
-Retrieve the details of a character.
+Retrieve the details of an account.
 
 ### Example
 ```dart
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = AccountsApi();
-final account = account_example; // String | The account name.
+final account = account_example; // String | The name of the account.
 
 try {
     final result = api_instance.getAccountAccountsAccountGet(account);
@@ -127,7 +127,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | **String**| The account name. | 
+ **account** | **String**| The name of the account. | 
 
 ### Return type
 
@@ -156,7 +156,7 @@ Retrieve the achievements of a account.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = AccountsApi();
-final account = account_example; // String | The character name.
+final account = account_example; // String | The name of the account.
 final type = ; // AchievementType | Type of achievements.
 final completed = true; // bool | Filter by completed achievements.
 final page = 56; // int | Page number
@@ -174,7 +174,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | **String**| The character name. | 
+ **account** | **String**| The name of the account. | 
  **type** | [**AchievementType**](.md)| Type of achievements. | [optional] 
  **completed** | **bool**| Filter by completed achievements. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
@@ -207,7 +207,7 @@ Account character lists.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = AccountsApi();
-final account = account_example; // String | The character name.
+final account = account_example; // String | The name of the account.
 
 try {
     final result = api_instance.getAccountCharactersAccountsAccountCharactersGet(account);
@@ -221,7 +221,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account** | **String**| The character name. | 
+ **account** | **String**| The name of the account. | 
 
 ### Return type
 

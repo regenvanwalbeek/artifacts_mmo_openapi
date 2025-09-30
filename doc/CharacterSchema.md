@@ -46,6 +46,8 @@ Name | Type | Description | Notes
 **criticalStrike** | **int** | % Critical strike. Critical strikes adds 50% extra damage to an attack (1.5x). | 
 **wisdom** | **int** | Wisdom increases the amount of XP gained from fights and skills (1% extra per 10 wisdom). | 
 **prospecting** | **int** | Prospecting increases the chances of getting drops from fights and skills (1% extra per 10 PP). | 
+**initiative** | **int** | Initiative determines turn order in combat. Higher initiative goes first. | 
+**threat** | **int** | Threat level affects monster targeting in multi-character combat. | 
 **attackFire** | **int** | Fire attack. | 
 **attackEarth** | **int** | Earth attack. | 
 **attackWater** | **int** | Water attack. | 
@@ -59,8 +61,11 @@ Name | Type | Description | Notes
 **resEarth** | **int** | % Earth resistance. Reduces earth attack. | 
 **resWater** | **int** | % Water resistance. Reduces water attack. | 
 **resAir** | **int** | % Air resistance. Reduces air attack. | 
+**effects** | [**List<StorageEffectSchema>**](StorageEffectSchema.md) | List of active effects on the character. | [optional] [default to const []]
 **x** | **int** | Character x coordinate. | 
 **y** | **int** | Character y coordinate. | 
+**layer** | [**MapLayer**](MapLayer.md) | Character current layer. | 
+**mapId** | **int** | Character current map ID. | 
 **cooldown** | **int** | Cooldown in seconds. | 
 **cooldownExpiration** | [**DateTime**](DateTime.md) | Datetime Cooldown expiration. | [optional] 
 **weaponSlot** | **String** | Weapon slot. | 

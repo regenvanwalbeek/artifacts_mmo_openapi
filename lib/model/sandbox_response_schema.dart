@@ -10,18 +10,19 @@
 
 part of openapi_generation;
 
-class GEOrderReponseSchema {
-  /// Returns a new [GEOrderReponseSchema] instance.
-  GEOrderReponseSchema({
+class SandboxResponseSchema {
+  /// Returns a new [SandboxResponseSchema] instance.
+  SandboxResponseSchema({
     required this.data,
   });
 
-  GEOrderSchema data;
+  /// Sandbox action data.
+  SandboxSchema data;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GEOrderReponseSchema && other.data == data;
+      other is SandboxResponseSchema && other.data == data;
 
   @override
   int get hashCode =>
@@ -29,7 +30,7 @@ class GEOrderReponseSchema {
       (data.hashCode);
 
   @override
-  String toString() => 'GEOrderReponseSchema[data=$data]';
+  String toString() => 'SandboxResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -37,10 +38,10 @@ class GEOrderReponseSchema {
     return json;
   }
 
-  /// Returns a new [GEOrderReponseSchema] instance and imports its values from
+  /// Returns a new [SandboxResponseSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GEOrderReponseSchema? fromJson(dynamic value) {
+  static SandboxResponseSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -50,28 +51,28 @@ class GEOrderReponseSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "GEOrderReponseSchema[$key]" is missing from JSON.');
+              'Required key "SandboxResponseSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "GEOrderReponseSchema[$key]" has a null value in JSON.');
+              'Required key "SandboxResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return GEOrderReponseSchema(
-        data: GEOrderSchema.fromJson(json[r'data'])!,
+      return SandboxResponseSchema(
+        data: SandboxSchema.fromJson(json[r'data'])!,
       );
     }
     return null;
   }
 
-  static List<GEOrderReponseSchema> listFromJson(
+  static List<SandboxResponseSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <GEOrderReponseSchema>[];
+    final result = <SandboxResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GEOrderReponseSchema.fromJson(row);
+        final value = SandboxResponseSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -80,12 +81,12 @@ class GEOrderReponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GEOrderReponseSchema> mapFromJson(dynamic json) {
-    final map = <String, GEOrderReponseSchema>{};
+  static Map<String, SandboxResponseSchema> mapFromJson(dynamic json) {
+    final map = <String, SandboxResponseSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GEOrderReponseSchema.fromJson(entry.value);
+        final value = SandboxResponseSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -94,17 +95,17 @@ class GEOrderReponseSchema {
     return map;
   }
 
-  // maps a json object with a list of GEOrderReponseSchema-objects as value to a dart map
-  static Map<String, List<GEOrderReponseSchema>> mapListFromJson(
+  // maps a json object with a list of SandboxResponseSchema-objects as value to a dart map
+  static Map<String, List<SandboxResponseSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<GEOrderReponseSchema>>{};
+    final map = <String, List<SandboxResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEOrderReponseSchema.listFromJson(
+        map[entry.key] = SandboxResponseSchema.listFromJson(
           entry.value,
           growable: growable,
         );

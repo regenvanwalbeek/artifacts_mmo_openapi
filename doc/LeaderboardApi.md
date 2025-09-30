@@ -25,8 +25,8 @@ Fetch leaderboard details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = LeaderboardApi();
-final sort = ; // AccountLeaderboardType | Default sort by achievements points.
-final name = name_example; // String | Find a account by name.
+final sort = ; // AccountLeaderboardType | Sort of account leaderboards.
+final name = name_example; // String | Account name.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -42,8 +42,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sort** | [**AccountLeaderboardType**](.md)| Default sort by achievements points. | [optional] 
- **name** | **String**| Find a account by name. | [optional] 
+ **sort** | [**AccountLeaderboardType**](.md)| Sort of account leaderboards. | [optional] 
+ **name** | **String**| Account name. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -74,8 +74,8 @@ Fetch leaderboard details.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = LeaderboardApi();
-final sort = ; // CharacterLeaderboardType | Default sort by combat total XP.
-final name = name_example; // String | Find a character by name.
+final sort = ; // CharacterLeaderboardType | Sort of character leaderboards.
+final name = name_example; // String | Character name.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
@@ -91,8 +91,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sort** | [**CharacterLeaderboardType**](.md)| Default sort by combat total XP. | [optional] 
- **name** | **String**| Find a character by name. | [optional] 
+ **sort** | [**CharacterLeaderboardType**](.md)| Sort of character leaderboards. | [optional] 
+ **name** | **String**| Character name. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

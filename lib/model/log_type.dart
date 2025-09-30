@@ -25,6 +25,7 @@ class LogType {
   static const spawn = LogType._(r'spawn');
   static const movement = LogType._(r'movement');
   static const fight = LogType._(r'fight');
+  static const multiFight = LogType._(r'multi_fight');
   static const crafting = LogType._(r'crafting');
   static const gathering = LogType._(r'gathering');
   static const buyGe = LogType._(r'buy_ge');
@@ -44,7 +45,6 @@ class LogType {
   static const taskCancelled = LogType._(r'task_cancelled');
   static const taskCompleted = LogType._(r'task_completed');
   static const taskTrade = LogType._(r'task_trade');
-  static const christmasExchange = LogType._(r'christmas_exchange');
   static const recycling = LogType._(r'recycling');
   static const rest = LogType._(r'rest');
   static const use = LogType._(r'use');
@@ -56,12 +56,14 @@ class LogType {
   static const receiveGold = LogType._(r'receive_gold');
   static const changeSkin = LogType._(r'change_skin');
   static const rename = LogType._(r'rename');
+  static const transition = LogType._(r'transition');
 
   /// List of all possible values in this [enum][LogType].
   static const values = <LogType>[
     spawn,
     movement,
     fight,
+    multiFight,
     crafting,
     gathering,
     buyGe,
@@ -81,7 +83,6 @@ class LogType {
     taskCancelled,
     taskCompleted,
     taskTrade,
-    christmasExchange,
     recycling,
     rest,
     use,
@@ -93,6 +94,7 @@ class LogType {
     receiveGold,
     changeSkin,
     rename,
+    transition,
   ];
 
   static LogType? fromJson(dynamic value) =>
@@ -142,6 +144,8 @@ class LogTypeTypeTransformer {
           return LogType.movement;
         case r'fight':
           return LogType.fight;
+        case r'multi_fight':
+          return LogType.multiFight;
         case r'crafting':
           return LogType.crafting;
         case r'gathering':
@@ -180,8 +184,6 @@ class LogTypeTypeTransformer {
           return LogType.taskCompleted;
         case r'task_trade':
           return LogType.taskTrade;
-        case r'christmas_exchange':
-          return LogType.christmasExchange;
         case r'recycling':
           return LogType.recycling;
         case r'rest':
@@ -204,6 +206,8 @@ class LogTypeTypeTransformer {
           return LogType.changeSkin;
         case r'rename':
           return LogType.rename;
+        case r'transition':
+          return LogType.transition;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

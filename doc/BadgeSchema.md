@@ -9,7 +9,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | Code of the badge. This is the badge's unique identifier (ID). | 
-**season** | **int** |  | [optional] 
+**season** | **int** | Season of the badge. | [optional] 
 **description** | **String** | Description of the badge. | 
 **conditions** | [**List<BadgeConditionSchema>**](BadgeConditionSchema.md) | Conditions to get the badge. | [default to const []]
 

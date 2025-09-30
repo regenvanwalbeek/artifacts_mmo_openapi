@@ -13,16 +13,24 @@ part of openapi_generation;
 class EventMapSchema {
   /// Returns a new [EventMapSchema] instance.
   EventMapSchema({
+    required this.mapId,
     required this.x,
     required this.y,
+    required this.layer,
     required this.skin,
   });
+
+  /// ID of the map.
+  int mapId;
 
   /// Position X of the map.
   int x;
 
   /// Position Y of the map.
   int y;
+
+  /// Layer of the map.
+  String layer;
 
   /// Map skin of the map
   String skin;
@@ -31,22 +39,31 @@ class EventMapSchema {
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is EventMapSchema &&
+          other.mapId == mapId &&
           other.x == x &&
           other.y == y &&
+          other.layer == layer &&
           other.skin == skin;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (x.hashCode) + (y.hashCode) + (skin.hashCode);
+      (mapId.hashCode) +
+      (x.hashCode) +
+      (y.hashCode) +
+      (layer.hashCode) +
+      (skin.hashCode);
 
   @override
-  String toString() => 'EventMapSchema[x=$x, y=$y, skin=$skin]';
+  String toString() =>
+      'EventMapSchema[mapId=$mapId, x=$x, y=$y, layer=$layer, skin=$skin]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'map_id'] = this.mapId;
     json[r'x'] = this.x;
     json[r'y'] = this.y;
+    json[r'layer'] = this.layer;
     json[r'skin'] = this.skin;
     return json;
   }
@@ -72,8 +89,10 @@ class EventMapSchema {
       }());
 
       return EventMapSchema(
+        mapId: mapValueOfType<int>(json, r'map_id')!,
         x: mapValueOfType<int>(json, r'x')!,
         y: mapValueOfType<int>(json, r'y')!,
+        layer: mapValueOfType<String>(json, r'layer')!,
         skin: mapValueOfType<String>(json, r'skin')!,
       );
     }
@@ -131,8 +150,10 @@ class EventMapSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'map_id',
     'x',
     'y',
+    'layer',
     'skin',
   };
 }

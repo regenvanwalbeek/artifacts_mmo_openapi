@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Get Achievement
 
-Retrieve the details of a achievement.
+Retrieve the details of an achievement.
 
 ### Example
 ```dart

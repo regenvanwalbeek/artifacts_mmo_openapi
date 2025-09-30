@@ -63,14 +63,14 @@ No authorization required
 
 Get Effect
 
-Retrieve the details of a badge.
+Retrieve the details of an effect.
 
 ### Example
 ```dart
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = EffectsApi();
-final code = code_example; // String | The code of the achievement.
+final code = code_example; // String | The code of the effect.
 
 try {
     final result = api_instance.getEffectEffectsCodeGet(code);
@@ -84,7 +84,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| The code of the achievement. | 
+ **code** | **String**| The code of the effect. | 
 
 ### Return type
 

@@ -51,6 +51,8 @@ class CharacterSchema {
     required this.criticalStrike,
     required this.wisdom,
     required this.prospecting,
+    required this.initiative,
+    required this.threat,
     required this.attackFire,
     required this.attackEarth,
     required this.attackWater,
@@ -64,8 +66,11 @@ class CharacterSchema {
     required this.resEarth,
     required this.resWater,
     required this.resAir,
+    this.effects = const [],
     required this.x,
     required this.y,
+    required this.layer,
+    required this.mapId,
     required this.cooldown,
     this.cooldownExpiration,
     required this.weaponSlot,
@@ -208,6 +213,12 @@ class CharacterSchema {
   /// Prospecting increases the chances of getting drops from fights and skills (1% extra per 10 PP).
   int prospecting;
 
+  /// Initiative determines turn order in combat. Higher initiative goes first.
+  int initiative;
+
+  /// Threat level affects monster targeting in multi-character combat.
+  int threat;
+
   /// Fire attack.
   int attackFire;
 
@@ -247,11 +258,20 @@ class CharacterSchema {
   /// % Air resistance. Reduces air attack.
   int resAir;
 
+  /// List of active effects on the character.
+  List<StorageEffectSchema> effects;
+
   /// Character x coordinate.
   int x;
 
   /// Character y coordinate.
   int y;
+
+  /// Character current layer.
+  MapLayer layer;
+
+  /// Character current map ID.
+  int mapId;
 
   /// Cooldown in seconds.
   int cooldown;
@@ -383,6 +403,8 @@ class CharacterSchema {
           other.criticalStrike == criticalStrike &&
           other.wisdom == wisdom &&
           other.prospecting == prospecting &&
+          other.initiative == initiative &&
+          other.threat == threat &&
           other.attackFire == attackFire &&
           other.attackEarth == attackEarth &&
           other.attackWater == attackWater &&
@@ -396,8 +418,11 @@ class CharacterSchema {
           other.resEarth == resEarth &&
           other.resWater == resWater &&
           other.resAir == resAir &&
+          _deepEquality.equals(other.effects, effects) &&
           other.x == x &&
           other.y == y &&
+          other.layer == layer &&
+          other.mapId == mapId &&
           other.cooldown == cooldown &&
           other.cooldownExpiration == cooldownExpiration &&
           other.weaponSlot == weaponSlot &&
@@ -466,6 +491,8 @@ class CharacterSchema {
       (criticalStrike.hashCode) +
       (wisdom.hashCode) +
       (prospecting.hashCode) +
+      (initiative.hashCode) +
+      (threat.hashCode) +
       (attackFire.hashCode) +
       (attackEarth.hashCode) +
       (attackWater.hashCode) +
@@ -479,8 +506,11 @@ class CharacterSchema {
       (resEarth.hashCode) +
       (resWater.hashCode) +
       (resAir.hashCode) +
+      (effects.hashCode) +
       (x.hashCode) +
       (y.hashCode) +
+      (layer.hashCode) +
+      (mapId.hashCode) +
       (cooldown.hashCode) +
       (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode) +
       (weaponSlot.hashCode) +
@@ -510,7 +540,7 @@ class CharacterSchema {
 
   @override
   String toString() =>
-      'CharacterSchema[name=$name, account=$account, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, alchemyLevel=$alchemyLevel, alchemyXp=$alchemyXp, alchemyMaxXp=$alchemyMaxXp, hp=$hp, maxHp=$maxHp, haste=$haste, criticalStrike=$criticalStrike, wisdom=$wisdom, prospecting=$prospecting, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmg=$dmg, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, x=$x, y=$y, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, runeSlot=$runeSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, utility1Slot=$utility1Slot, utility1SlotQuantity=$utility1SlotQuantity, utility2Slot=$utility2Slot, utility2SlotQuantity=$utility2SlotQuantity, bagSlot=$bagSlot, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
+      'CharacterSchema[name=$name, account=$account, skin=$skin, level=$level, xp=$xp, maxXp=$maxXp, gold=$gold, speed=$speed, miningLevel=$miningLevel, miningXp=$miningXp, miningMaxXp=$miningMaxXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingXp=$woodcuttingXp, woodcuttingMaxXp=$woodcuttingMaxXp, fishingLevel=$fishingLevel, fishingXp=$fishingXp, fishingMaxXp=$fishingMaxXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingXp=$weaponcraftingXp, weaponcraftingMaxXp=$weaponcraftingMaxXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingXp=$gearcraftingXp, gearcraftingMaxXp=$gearcraftingMaxXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingXp=$jewelrycraftingXp, jewelrycraftingMaxXp=$jewelrycraftingMaxXp, cookingLevel=$cookingLevel, cookingXp=$cookingXp, cookingMaxXp=$cookingMaxXp, alchemyLevel=$alchemyLevel, alchemyXp=$alchemyXp, alchemyMaxXp=$alchemyMaxXp, hp=$hp, maxHp=$maxHp, haste=$haste, criticalStrike=$criticalStrike, wisdom=$wisdom, prospecting=$prospecting, initiative=$initiative, threat=$threat, attackFire=$attackFire, attackEarth=$attackEarth, attackWater=$attackWater, attackAir=$attackAir, dmg=$dmg, dmgFire=$dmgFire, dmgEarth=$dmgEarth, dmgWater=$dmgWater, dmgAir=$dmgAir, resFire=$resFire, resEarth=$resEarth, resWater=$resWater, resAir=$resAir, effects=$effects, x=$x, y=$y, layer=$layer, mapId=$mapId, cooldown=$cooldown, cooldownExpiration=$cooldownExpiration, weaponSlot=$weaponSlot, runeSlot=$runeSlot, shieldSlot=$shieldSlot, helmetSlot=$helmetSlot, bodyArmorSlot=$bodyArmorSlot, legArmorSlot=$legArmorSlot, bootsSlot=$bootsSlot, ring1Slot=$ring1Slot, ring2Slot=$ring2Slot, amuletSlot=$amuletSlot, artifact1Slot=$artifact1Slot, artifact2Slot=$artifact2Slot, artifact3Slot=$artifact3Slot, utility1Slot=$utility1Slot, utility1SlotQuantity=$utility1SlotQuantity, utility2Slot=$utility2Slot, utility2SlotQuantity=$utility2SlotQuantity, bagSlot=$bagSlot, task=$task, taskType=$taskType, taskProgress=$taskProgress, taskTotal=$taskTotal, inventoryMaxItems=$inventoryMaxItems, inventory=$inventory]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -552,6 +582,8 @@ class CharacterSchema {
     json[r'critical_strike'] = this.criticalStrike;
     json[r'wisdom'] = this.wisdom;
     json[r'prospecting'] = this.prospecting;
+    json[r'initiative'] = this.initiative;
+    json[r'threat'] = this.threat;
     json[r'attack_fire'] = this.attackFire;
     json[r'attack_earth'] = this.attackEarth;
     json[r'attack_water'] = this.attackWater;
@@ -565,8 +597,11 @@ class CharacterSchema {
     json[r'res_earth'] = this.resEarth;
     json[r'res_water'] = this.resWater;
     json[r'res_air'] = this.resAir;
+    json[r'effects'] = this.effects;
     json[r'x'] = this.x;
     json[r'y'] = this.y;
+    json[r'layer'] = this.layer;
+    json[r'map_id'] = this.mapId;
     json[r'cooldown'] = this.cooldown;
     if (this.cooldownExpiration != null) {
       json[r'cooldown_expiration'] =
@@ -664,6 +699,8 @@ class CharacterSchema {
         criticalStrike: mapValueOfType<int>(json, r'critical_strike')!,
         wisdom: mapValueOfType<int>(json, r'wisdom')!,
         prospecting: mapValueOfType<int>(json, r'prospecting')!,
+        initiative: mapValueOfType<int>(json, r'initiative')!,
+        threat: mapValueOfType<int>(json, r'threat')!,
         attackFire: mapValueOfType<int>(json, r'attack_fire')!,
         attackEarth: mapValueOfType<int>(json, r'attack_earth')!,
         attackWater: mapValueOfType<int>(json, r'attack_water')!,
@@ -677,8 +714,11 @@ class CharacterSchema {
         resEarth: mapValueOfType<int>(json, r'res_earth')!,
         resWater: mapValueOfType<int>(json, r'res_water')!,
         resAir: mapValueOfType<int>(json, r'res_air')!,
+        effects: StorageEffectSchema.listFromJson(json[r'effects']),
         x: mapValueOfType<int>(json, r'x')!,
         y: mapValueOfType<int>(json, r'y')!,
+        layer: MapLayer.fromJson(json[r'layer'])!,
+        mapId: mapValueOfType<int>(json, r'map_id')!,
         cooldown: mapValueOfType<int>(json, r'cooldown')!,
         cooldownExpiration: mapDateTime(json, r'cooldown_expiration', r''),
         weaponSlot: mapValueOfType<String>(json, r'weapon_slot')!,
@@ -801,6 +841,8 @@ class CharacterSchema {
     'critical_strike',
     'wisdom',
     'prospecting',
+    'initiative',
+    'threat',
     'attack_fire',
     'attack_earth',
     'attack_water',
@@ -816,6 +858,8 @@ class CharacterSchema {
     'res_air',
     'x',
     'y',
+    'layer',
+    'map_id',
     'cooldown',
     'weapon_slot',
     'rune_slot',

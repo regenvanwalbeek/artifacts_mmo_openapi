@@ -85,7 +85,7 @@ class MyCharactersApi {
 
   /// Action Buy Bank Expansion
   ///
-  /// Buy a 25 slots bank expansion.
+  /// Buy a 20 slots bank expansion.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -123,7 +123,7 @@ class MyCharactersApi {
 
   /// Action Buy Bank Expansion
   ///
-  /// Buy a 25 slots bank expansion.
+  /// Buy a 20 slots bank expansion.
   ///
   /// Parameters:
   ///
@@ -297,7 +297,7 @@ class MyCharactersApi {
 
   /// Action Crafting
   ///
-  /// Crafting an item. The character must be on a map with a workshop.
+  /// Craft an item. The character must be on a map with a workshop.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -336,7 +336,7 @@ class MyCharactersApi {
 
   /// Action Crafting
   ///
-  /// Crafting an item. The character must be on a map with a workshop.
+  /// Craft an item. The character must be on a map with a workshop.
   ///
   /// Parameters:
   ///
@@ -520,7 +520,7 @@ class MyCharactersApi {
 
   /// Action Deposit Bank Item
   ///
-  /// Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
+  /// Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items deposited.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -561,7 +561,7 @@ class MyCharactersApi {
 
   /// Action Deposit Bank Item
   ///
-  /// Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items withdrawn.
+  /// Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items deposited.
   ///
   /// Parameters:
   ///
@@ -670,7 +670,7 @@ class MyCharactersApi {
 
   /// Action Fight
   ///
-  /// Start a fight against a monster on the character's map.
+  /// Start a fight against a monster on the character's map. Possibility of fighting with 2 other characters for boss fights.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -678,20 +678,23 @@ class MyCharactersApi {
   ///
   /// * [String] name (required):
   ///   Name of your character.
+  ///
+  /// * [FightRequestSchema] fightRequestSchema:
   Future<Response> actionFightMyNameActionFightPostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    FightRequestSchema? fightRequestSchema,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/fight'.replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
-    Object? postBody;
+    Object? postBody = fightRequestSchema;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    const contentTypes = <String>[];
+    const contentTypes = <String>['application/json'];
 
     return apiClient.invokeAPI(
       path,
@@ -706,17 +709,21 @@ class MyCharactersApi {
 
   /// Action Fight
   ///
-  /// Start a fight against a monster on the character's map.
+  /// Start a fight against a monster on the character's map. Possibility of fighting with 2 other characters for boss fights.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
+  ///
+  /// * [FightRequestSchema] fightRequestSchema:
   Future<CharacterFightResponseSchema?> actionFightMyNameActionFightPost(
-    String name,
-  ) async {
+    String name, {
+    FightRequestSchema? fightRequestSchema,
+  }) async {
     final response = await actionFightMyNameActionFightPostWithHttpInfo(
       name,
+      fightRequestSchema: fightRequestSchema,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -955,7 +962,7 @@ class MyCharactersApi {
 
   /// Action Ge Create Sell Order
   ///
-  /// Create a sell order at the Grand Exchange on the character's map. Please note there is a 3% listing tax, charged at the time of posting, on the total price.
+  /// Create a sell order at the Grand Exchange on the character's map.  Please note there is a 3% listing tax, charged at the time of posting, on the total price.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -996,7 +1003,7 @@ class MyCharactersApi {
 
   /// Action Ge Create Sell Order
   ///
-  /// Create a sell order at the Grand Exchange on the character's map. Please note there is a 3% listing tax, charged at the time of posting, on the total price.
+  /// Create a sell order at the Grand Exchange on the character's map.  Please note there is a 3% listing tax, charged at the time of posting, on the total price.
   ///
   /// Parameters:
   ///
@@ -1079,7 +1086,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [GiveGoldSchema] giveGoldSchema (required):
-  Future<GiveGoldReponseSchema?> actionGiveGoldMyNameActionGiveGoldPost(
+  Future<GiveGoldResponseSchema?> actionGiveGoldMyNameActionGiveGoldPost(
     String name,
     GiveGoldSchema giveGoldSchema,
   ) async {
@@ -1097,8 +1104,8 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'GiveGoldReponseSchema',
-      ) as GiveGoldReponseSchema;
+        'GiveGoldResponseSchema',
+      ) as GiveGoldResponseSchema;
     }
     return null;
   }
@@ -1152,7 +1159,7 @@ class MyCharactersApi {
   ///   Name of your character.
   ///
   /// * [GiveItemsSchema] giveItemsSchema (required):
-  Future<GiveItemReponseSchema?> actionGiveItemsMyNameActionGiveItemPost(
+  Future<GiveItemResponseSchema?> actionGiveItemsMyNameActionGiveItemPost(
     String name,
     GiveItemsSchema giveItemsSchema,
   ) async {
@@ -1170,15 +1177,15 @@ class MyCharactersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'GiveItemReponseSchema',
-      ) as GiveItemReponseSchema;
+        'GiveItemResponseSchema',
+      ) as GiveItemResponseSchema;
     }
     return null;
   }
 
   /// Action Move
   ///
-  /// Moves a character on the map using the map's X and Y position.
+  /// Moves a character on the map using either the map's ID or X and Y position. Provide either 'map_id' or both 'x' and 'y' coordinates in the request body.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -1217,7 +1224,7 @@ class MyCharactersApi {
 
   /// Action Move
   ///
-  /// Moves a character on the map using the map's X and Y position.
+  /// Moves a character on the map using either the map's ID or X and Y position. Provide either 'map_id' or both 'x' and 'y' coordinates in the request body.
   ///
   /// Parameters:
   ///
@@ -1745,6 +1752,74 @@ class MyCharactersApi {
     return null;
   }
 
+  /// Action Transition
+  ///
+  /// Execute a transition from the current map to another layer. The character must be on a map that has a transition available.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<Response> actionTransitionMyNameActionTransitionPostWithHttpInfo(
+    String name,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/transition'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Transition
+  ///
+  /// Execute a transition from the current map to another layer. The character must be on a map that has a transition available.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  Future<CharacterTransitionResponseSchema?>
+      actionTransitionMyNameActionTransitionPost(
+    String name,
+  ) async {
+    final response =
+        await actionTransitionMyNameActionTransitionPostWithHttpInfo(
+      name,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CharacterTransitionResponseSchema',
+      ) as CharacterTransitionResponseSchema;
+    }
+    return null;
+  }
+
   /// Action Unequip Item
   ///
   /// Unequip an item on your character.
@@ -2047,7 +2122,7 @@ class MyCharactersApi {
 
   /// Get All Characters Logs
   ///
-  /// History of the last 250 actions of all your characters.
+  /// History of the last 5000 actions of all your characters.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2094,7 +2169,7 @@ class MyCharactersApi {
 
   /// Get All Characters Logs
   ///
-  /// History of the last 250 actions of all your characters.
+  /// History of the last 5000 actions of all your characters.
   ///
   /// Parameters:
   ///
@@ -2220,7 +2295,7 @@ class MyCharactersApi {
 
   /// Get My Characters
   ///
-  /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
+  /// List of your characters.
   ///
   /// Note: This method returns the HTTP [Response].
   Future<Response> getMyCharactersMyCharactersGetWithHttpInfo() async {
@@ -2249,7 +2324,7 @@ class MyCharactersApi {
 
   /// Get My Characters
   ///
-  /// List of your characters. This endpoint is deprecated and will be removed in a future version. Please use accounts/{account}/characters.
+  /// List of your characters.
   Future<MyCharactersListSchema?> getMyCharactersMyCharactersGet() async {
     final response = await getMyCharactersMyCharactersGetWithHttpInfo();
     if (response.statusCode >= HttpStatus.badRequest) {

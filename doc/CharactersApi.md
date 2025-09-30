@@ -11,6 +11,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createCharacterCharactersCreatePost**](CharactersApi.md#createcharactercharacterscreatepost) | **POST** /characters/create | Create Character
 [**deleteCharacterCharactersDeletePost**](CharactersApi.md#deletecharactercharactersdeletepost) | **POST** /characters/delete | Delete Character
+[**getActiveCharactersCharactersActiveGet**](CharactersApi.md#getactivecharacterscharactersactiveget) | **GET** /characters/active | Get Active Characters
 [**getCharacterCharactersNameGet**](CharactersApi.md#getcharactercharactersnameget) | **GET** /characters/{name} | Get Character
 
 
@@ -112,6 +113,51 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **getActiveCharactersCharactersActiveGet**
+> DataPageActiveCharacterSchema getActiveCharactersCharactersActiveGet(page, size)
+
+Get Active Characters
+
+Fetch active characters details.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+
+final api_instance = CharactersApi();
+final page = 56; // int | Page number
+final size = 56; // int | Page size
+
+try {
+    final result = api_instance.getActiveCharactersCharactersActiveGet(page, size);
+    print(result);
+} catch (e) {
+    print('Exception when calling CharactersApi->getActiveCharactersCharactersActiveGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
+
+### Return type
+
+[**DataPageActiveCharacterSchema**](DataPageActiveCharacterSchema.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **getCharacterCharactersNameGet**
 > CharacterResponseSchema getCharacterCharactersNameGet(name)
 
@@ -124,7 +170,7 @@ Retrieve the details of a character.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = CharactersApi();
-final name = name_example; // String | The character name.
+final name = name_example; // String | The name of the character.
 
 try {
     final result = api_instance.getCharacterCharactersNameGet(name);
@@ -138,7 +184,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **String**| The character name. | 
+ **name** | **String**| The name of the character. | 
 
 ### Return type
 

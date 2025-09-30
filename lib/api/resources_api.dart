@@ -25,13 +25,13 @@ class ResourcesApi {
   /// Parameters:
   ///
   /// * [int] minLevel:
-  ///   Skill minimum level.
+  ///   Minimum level.
   ///
   /// * [int] maxLevel:
-  ///   Skill maximum level.
+  ///   Maximum level.
   ///
   /// * [GatheringSkill] skill:
-  ///   The code of the skill.
+  ///   Skill of resources.
   ///
   /// * [String] drop:
   ///   Item code of the drop.
@@ -98,13 +98,13 @@ class ResourcesApi {
   /// Parameters:
   ///
   /// * [int] minLevel:
-  ///   Skill minimum level.
+  ///   Minimum level.
   ///
   /// * [int] maxLevel:
-  ///   Skill maximum level.
+  ///   Maximum level.
   ///
   /// * [GatheringSkill] skill:
-  ///   The code of the skill.
+  ///   Skill of resources.
   ///
   /// * [String] drop:
   ///   Item code of the drop.

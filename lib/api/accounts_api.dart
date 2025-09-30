@@ -142,14 +142,14 @@ class AccountsApi {
 
   /// Get Account
   ///
-  /// Retrieve the details of a character.
+  /// Retrieve the details of an account.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
   /// * [String] account (required):
-  ///   The account name.
+  ///   The name of the account.
   Future<Response> getAccountAccountsAccountGetWithHttpInfo(
     String account,
   ) async {
@@ -178,12 +178,12 @@ class AccountsApi {
 
   /// Get Account
   ///
-  /// Retrieve the details of a character.
+  /// Retrieve the details of an account.
   ///
   /// Parameters:
   ///
   /// * [String] account (required):
-  ///   The account name.
+  ///   The name of the account.
   Future<AccountDetailsSchema?> getAccountAccountsAccountGet(
     String account,
   ) async {
@@ -215,7 +215,7 @@ class AccountsApi {
   /// Parameters:
   ///
   /// * [String] account (required):
-  ///   The character name.
+  ///   The name of the account.
   ///
   /// * [AchievementType] type:
   ///   Type of achievements.
@@ -280,7 +280,7 @@ class AccountsApi {
   /// Parameters:
   ///
   /// * [String] account (required):
-  ///   The character name.
+  ///   The name of the account.
   ///
   /// * [AchievementType] type:
   ///   Type of achievements.
@@ -334,7 +334,7 @@ class AccountsApi {
   /// Parameters:
   ///
   /// * [String] account (required):
-  ///   The character name.
+  ///   The name of the account.
   Future<Response> getAccountCharactersAccountsAccountCharactersGetWithHttpInfo(
     String account,
   ) async {
@@ -369,7 +369,7 @@ class AccountsApi {
   /// Parameters:
   ///
   /// * [String] account (required):
-  ///   The character name.
+  ///   The name of the account.
   Future<CharactersListSchema?>
       getAccountCharactersAccountsAccountCharactersGet(
     String account,

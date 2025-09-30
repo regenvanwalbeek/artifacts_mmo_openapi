@@ -33,10 +33,10 @@ class AccountDetails {
   AccountStatus status;
 
   /// Account badges.
-  List<Object> badges;
+  List<String> badges;
 
   /// Skins owned.
-  List<Object> skins;
+  List<String> skins;
 
   /// Achievement points.
   int achievementsPoints;
@@ -123,8 +123,16 @@ class AccountDetails {
         username: mapValueOfType<String>(json, r'username')!,
         member: mapValueOfType<bool>(json, r'member')!,
         status: AccountStatus.fromJson(json[r'status'])!,
-        badges: listFromJson(json[r'badges']),
-        skins: listFromJson(json[r'skins']),
+        badges: json[r'badges'] is Iterable
+            ? (json[r'badges'] as Iterable)
+                .cast<String>()
+                .toList(growable: false)
+            : const [],
+        skins: json[r'skins'] is Iterable
+            ? (json[r'skins'] as Iterable)
+                .cast<String>()
+                .toList(growable: false)
+            : const [],
         achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         banned: mapValueOfType<bool>(json, r'banned')!,
         banReason: mapValueOfType<String>(json, r'ban_reason'),

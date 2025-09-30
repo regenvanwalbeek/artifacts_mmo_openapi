@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of action. | 
 **content** | [**Object**](.md) |  | 
 **cooldown** | **int** | Cooldown in seconds. | 
-**cooldownExpiration** | [**DateTime**](DateTime.md) |  | 
+**cooldownExpiration** | [**DateTime**](DateTime.md) | Datetime of cooldown expiration. | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) | Datetime of creation. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

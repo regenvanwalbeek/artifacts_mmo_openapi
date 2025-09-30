@@ -14,12 +14,19 @@ class BadgeConditionSchema {
   /// Returns a new [BadgeConditionSchema] instance.
   BadgeConditionSchema({
     required this.code,
-    required this.quantity,
+    this.quantity,
   });
 
   /// Code of the condition.
   String code;
 
+  /// Quantity of the condition (if any).
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   int? quantity;
 
   @override
@@ -128,6 +135,5 @@ class BadgeConditionSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'code',
-    'quantity',
   };
 }

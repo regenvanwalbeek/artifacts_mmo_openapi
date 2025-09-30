@@ -70,7 +70,7 @@ Retrieve the details of a badge.
 import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = BadgesApi();
-final code = code_example; // String | The code of the achievement.
+final code = code_example; // String | The code of the badge.
 
 try {
     final result = api_instance.getBadgeBadgesCodeGet(code);
@@ -84,7 +84,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| The code of the achievement. | 
+ **code** | **String**| The code of the badge. | 
 
 ### Return type
 

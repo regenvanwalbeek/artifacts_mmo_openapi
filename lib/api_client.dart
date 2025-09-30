@@ -229,6 +229,8 @@ class ApiClient {
           return valueString == 'true' || valueString == '1';
         case 'DateTime':
           return value is DateTime ? value : DateTime.tryParse(value);
+        case 'AccessSchema':
+          return AccessSchema.fromJson(value);
         case 'AccountAchievementSchema':
           return AccountAchievementSchema.fromJson(value);
         case 'AccountDetails':
@@ -251,6 +253,10 @@ class ApiClient {
           return AchievementTypeTypeTransformer().decode(value);
         case 'ActionType':
           return ActionTypeTypeTransformer().decode(value);
+        case 'ActiveCharacterSchema':
+          return ActiveCharacterSchema.fromJson(value);
+        case 'ActiveEventResponseSchema':
+          return ActiveEventResponseSchema.fromJson(value);
         case 'ActiveEventSchema':
           return ActiveEventSchema.fromJson(value);
         case 'AddAccountSchema':
@@ -295,6 +301,8 @@ class ApiClient {
           return CharacterFightDataSchema.fromJson(value);
         case 'CharacterFightResponseSchema':
           return CharacterFightResponseSchema.fromJson(value);
+        case 'CharacterFightSchema':
+          return CharacterFightSchema.fromJson(value);
         case 'CharacterLeaderboardSchema':
           return CharacterLeaderboardSchema.fromJson(value);
         case 'CharacterLeaderboardType':
@@ -303,6 +311,8 @@ class ApiClient {
           return CharacterMovementDataSchema.fromJson(value);
         case 'CharacterMovementResponseSchema':
           return CharacterMovementResponseSchema.fromJson(value);
+        case 'CharacterMultiFightResultSchema':
+          return CharacterMultiFightResultSchema.fromJson(value);
         case 'CharacterResponseSchema':
           return CharacterResponseSchema.fromJson(value);
         case 'CharacterRestDataSchema':
@@ -313,8 +323,20 @@ class ApiClient {
           return CharacterSchema.fromJson(value);
         case 'CharacterSkin':
           return CharacterSkinTypeTransformer().decode(value);
+        case 'CharacterTransitionDataSchema':
+          return CharacterTransitionDataSchema.fromJson(value);
+        case 'CharacterTransitionResponseSchema':
+          return CharacterTransitionResponseSchema.fromJson(value);
         case 'CharactersListSchema':
           return CharactersListSchema.fromJson(value);
+        case 'CombatResultSchema':
+          return CombatResultSchema.fromJson(value);
+        case 'CombatSimulationDataSchema':
+          return CombatSimulationDataSchema.fromJson(value);
+        case 'CombatSimulationRequestSchema':
+          return CombatSimulationRequestSchema.fromJson(value);
+        case 'CombatSimulationResponseSchema':
+          return CombatSimulationResponseSchema.fromJson(value);
         case 'ConditionOperator':
           return ConditionOperatorTypeTransformer().decode(value);
         case 'ConditionSchema':
@@ -333,6 +355,8 @@ class ApiClient {
           return DataPageAccountLeaderboardSchema.fromJson(value);
         case 'DataPageAchievementSchema':
           return DataPageAchievementSchema.fromJson(value);
+        case 'DataPageActiveCharacterSchema':
+          return DataPageActiveCharacterSchema.fromJson(value);
         case 'DataPageActiveEventSchema':
           return DataPageActiveEventSchema.fromJson(value);
         case 'DataPageBadgeSchema':
@@ -395,16 +419,22 @@ class ApiClient {
           return EquipSchema.fromJson(value);
         case 'EquipmentResponseSchema':
           return EquipmentResponseSchema.fromJson(value);
+        case 'ErrorResponseSchema':
+          return ErrorResponseSchema.fromJson(value);
+        case 'ErrorSchema':
+          return ErrorSchema.fromJson(value);
         case 'EventContentSchema':
           return EventContentSchema.fromJson(value);
         case 'EventMapSchema':
           return EventMapSchema.fromJson(value);
         case 'EventSchema':
           return EventSchema.fromJson(value);
+        case 'FakeCharacterSchema':
+          return FakeCharacterSchema.fromJson(value);
+        case 'FightRequestSchema':
+          return FightRequestSchema.fromJson(value);
         case 'FightResult':
           return FightResultTypeTransformer().decode(value);
-        case 'FightSchema':
-          return FightSchema.fromJson(value);
         case 'GEBuyOrderSchema':
           return GEBuyOrderSchema.fromJson(value);
         case 'GECancelOrderSchema':
@@ -415,8 +445,8 @@ class ApiClient {
           return GEOrderCreatedSchema.fromJson(value);
         case 'GEOrderCreationrSchema':
           return GEOrderCreationrSchema.fromJson(value);
-        case 'GEOrderReponseSchema':
-          return GEOrderReponseSchema.fromJson(value);
+        case 'GEOrderResponseSchema':
+          return GEOrderResponseSchema.fromJson(value);
         case 'GEOrderSchema':
           return GEOrderSchema.fromJson(value);
         case 'GEOrderTransactionSchema':
@@ -433,20 +463,22 @@ class ApiClient {
           return GeOrderHistorySchema.fromJson(value);
         case 'GiveGoldDataSchema':
           return GiveGoldDataSchema.fromJson(value);
-        case 'GiveGoldReponseSchema':
-          return GiveGoldReponseSchema.fromJson(value);
+        case 'GiveGoldResponseSchema':
+          return GiveGoldResponseSchema.fromJson(value);
         case 'GiveGoldSchema':
           return GiveGoldSchema.fromJson(value);
         case 'GiveItemDataSchema':
           return GiveItemDataSchema.fromJson(value);
-        case 'GiveItemReponseSchema':
-          return GiveItemReponseSchema.fromJson(value);
+        case 'GiveItemResponseSchema':
+          return GiveItemResponseSchema.fromJson(value);
         case 'GiveItemsSchema':
           return GiveItemsSchema.fromJson(value);
         case 'GoldSchema':
           return GoldSchema.fromJson(value);
         case 'HTTPValidationError':
           return HTTPValidationError.fromJson(value);
+        case 'InteractionSchema':
+          return InteractionSchema.fromJson(value);
         case 'InventorySlot':
           return InventorySlot.fromJson(value);
         case 'ItemResponseSchema':
@@ -461,10 +493,14 @@ class ApiClient {
           return LogSchema.fromJson(value);
         case 'LogType':
           return LogTypeTypeTransformer().decode(value);
+        case 'MapAccessType':
+          return MapAccessTypeTypeTransformer().decode(value);
         case 'MapContentSchema':
           return MapContentSchema.fromJson(value);
         case 'MapContentType':
           return MapContentTypeTypeTransformer().decode(value);
+        case 'MapLayer':
+          return MapLayerTypeTransformer().decode(value);
         case 'MapResponseSchema':
           return MapResponseSchema.fromJson(value);
         case 'MapSchema':
@@ -473,6 +509,8 @@ class ApiClient {
           return MonsterResponseSchema.fromJson(value);
         case 'MonsterSchema':
           return MonsterSchema.fromJson(value);
+        case 'MonsterType':
+          return MonsterTypeTypeTransformer().decode(value);
         case 'MyAccountDetails':
           return MyAccountDetails.fromJson(value);
         case 'MyAccountDetailsSchema':
@@ -525,6 +563,14 @@ class ApiClient {
           return RewardResponseSchema.fromJson(value);
         case 'RewardsSchema':
           return RewardsSchema.fromJson(value);
+        case 'SandboxGiveItemSchema':
+          return SandboxGiveItemSchema.fromJson(value);
+        case 'SandboxGiveXpSchema':
+          return SandboxGiveXpSchema.fromJson(value);
+        case 'SandboxResponseSchema':
+          return SandboxResponseSchema.fromJson(value);
+        case 'SandboxSchema':
+          return SandboxSchema.fromJson(value);
         case 'SeasonBadgeSchema':
           return SeasonBadgeSchema.fromJson(value);
         case 'SeasonSchema':
@@ -543,10 +589,14 @@ class ApiClient {
           return SkillInfoSchema.fromJson(value);
         case 'SkillResponseSchema':
           return SkillResponseSchema.fromJson(value);
+        case 'SpawnEventRequest':
+          return SpawnEventRequest.fromJson(value);
         case 'StatusResponseSchema':
           return StatusResponseSchema.fromJson(value);
         case 'StatusSchema':
           return StatusSchema.fromJson(value);
+        case 'StorageEffectSchema':
+          return StorageEffectSchema.fromJson(value);
         case 'TaskCancelledResponseSchema':
           return TaskCancelledResponseSchema.fromJson(value);
         case 'TaskCancelledSchema':
@@ -571,6 +621,8 @@ class ApiClient {
           return TaskTypeTypeTransformer().decode(value);
         case 'TokenResponseSchema':
           return TokenResponseSchema.fromJson(value);
+        case 'TransitionSchema':
+          return TransitionSchema.fromJson(value);
         case 'UnequipSchema':
           return UnequipSchema.fromJson(value);
         case 'UseItemResponseSchema':
@@ -581,6 +633,8 @@ class ApiClient {
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':
           return ValidationErrorLocInner.fromJson(value);
+        case 'XPType':
+          return XPTypeTypeTransformer().decode(value);
         default:
           dynamic match;
           if (value is List &&

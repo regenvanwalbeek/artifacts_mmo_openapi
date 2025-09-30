@@ -15,6 +15,7 @@ class CharacterMovementDataSchema {
   CharacterMovementDataSchema({
     required this.cooldown,
     required this.destination,
+    this.path = const [],
     required this.character,
   });
 
@@ -23,6 +24,9 @@ class CharacterMovementDataSchema {
 
   /// Destination details.
   MapSchema destination;
+
+  /// Path taken from start to destination (list of coordinates)
+  List<List<Object>> path;
 
   /// Character details.
   CharacterSchema character;
@@ -33,21 +37,26 @@ class CharacterMovementDataSchema {
       other is CharacterMovementDataSchema &&
           other.cooldown == cooldown &&
           other.destination == destination &&
+          _deepEquality.equals(other.path, path) &&
           other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (destination.hashCode) + (character.hashCode);
+      (cooldown.hashCode) +
+      (destination.hashCode) +
+      (path.hashCode) +
+      (character.hashCode);
 
   @override
   String toString() =>
-      'CharacterMovementDataSchema[cooldown=$cooldown, destination=$destination, character=$character]';
+      'CharacterMovementDataSchema[cooldown=$cooldown, destination=$destination, path=$path, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'cooldown'] = this.cooldown;
     json[r'destination'] = this.destination;
+    json[r'path'] = this.path;
     json[r'character'] = this.character;
     return json;
   }
@@ -75,6 +84,11 @@ class CharacterMovementDataSchema {
       return CharacterMovementDataSchema(
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
         destination: MapSchema.fromJson(json[r'destination'])!,
+        path: json[r'path'] is List
+            ? (json[r'path'] as List)
+                .map((e) => listFromJson(json[r'path']))
+                .toList()
+            : const [],
         character: CharacterSchema.fromJson(json[r'character'])!,
       );
     }
@@ -134,6 +148,7 @@ class CharacterMovementDataSchema {
   static const requiredKeys = <String>{
     'cooldown',
     'destination',
+    'path',
     'character',
   };
 }

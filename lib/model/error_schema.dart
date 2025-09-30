@@ -10,37 +10,51 @@
 
 part of openapi_generation;
 
-class GiveGoldReponseSchema {
-  /// Returns a new [GiveGoldReponseSchema] instance.
-  GiveGoldReponseSchema({
-    required this.data,
+class ErrorSchema {
+  /// Returns a new [ErrorSchema] instance.
+  ErrorSchema({
+    required this.code,
+    required this.message,
+    this.data = const {},
   });
 
-  GiveGoldDataSchema data;
+  /// Error code
+  int code;
+
+  /// Error message
+  String message;
+
+  /// Additional error data (used primarily for validation errors)
+  Map<String, Object> data;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GiveGoldReponseSchema && other.data == data;
+      other is ErrorSchema &&
+          other.code == code &&
+          other.message == message &&
+          _deepEquality.equals(other.data, data);
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (data.hashCode);
+      (code.hashCode) + (message.hashCode) + (data.hashCode);
 
   @override
-  String toString() => 'GiveGoldReponseSchema[data=$data]';
+  String toString() => 'ErrorSchema[code=$code, message=$message, data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'code'] = this.code;
+    json[r'message'] = this.message;
     json[r'data'] = this.data;
     return json;
   }
 
-  /// Returns a new [GiveGoldReponseSchema] instance and imports its values from
+  /// Returns a new [ErrorSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GiveGoldReponseSchema? fromJson(dynamic value) {
+  static ErrorSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -50,28 +64,30 @@ class GiveGoldReponseSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "GiveGoldReponseSchema[$key]" is missing from JSON.');
+              'Required key "ErrorSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "GiveGoldReponseSchema[$key]" has a null value in JSON.');
+              'Required key "ErrorSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return GiveGoldReponseSchema(
-        data: GiveGoldDataSchema.fromJson(json[r'data'])!,
+      return ErrorSchema(
+        code: mapValueOfType<int>(json, r'code')!,
+        message: mapValueOfType<String>(json, r'message')!,
+        data: mapCastOfType<String, Object>(json, r'data') ?? const {},
       );
     }
     return null;
   }
 
-  static List<GiveGoldReponseSchema> listFromJson(
+  static List<ErrorSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <GiveGoldReponseSchema>[];
+    final result = <ErrorSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GiveGoldReponseSchema.fromJson(row);
+        final value = ErrorSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -80,12 +96,12 @@ class GiveGoldReponseSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GiveGoldReponseSchema> mapFromJson(dynamic json) {
-    final map = <String, GiveGoldReponseSchema>{};
+  static Map<String, ErrorSchema> mapFromJson(dynamic json) {
+    final map = <String, ErrorSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GiveGoldReponseSchema.fromJson(entry.value);
+        final value = ErrorSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -94,17 +110,17 @@ class GiveGoldReponseSchema {
     return map;
   }
 
-  // maps a json object with a list of GiveGoldReponseSchema-objects as value to a dart map
-  static Map<String, List<GiveGoldReponseSchema>> mapListFromJson(
+  // maps a json object with a list of ErrorSchema-objects as value to a dart map
+  static Map<String, List<ErrorSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<GiveGoldReponseSchema>>{};
+    final map = <String, List<ErrorSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GiveGoldReponseSchema.listFromJson(
+        map[entry.key] = ErrorSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -115,6 +131,7 @@ class GiveGoldReponseSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'data',
+    'code',
+    'message',
   };
 }

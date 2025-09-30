@@ -24,13 +24,13 @@ class NPCsApi {
   /// Parameters:
   ///
   /// * [String] code:
-  ///   The code of the item.
+  ///   Item code.
   ///
   /// * [String] npc:
-  ///   The code of the npc.
+  ///   NPC code.
   ///
   /// * [String] currency:
-  ///   The code of the currency.
+  ///   Currency code.
   ///
   /// * [int] page:
   ///   Page number
@@ -90,13 +90,13 @@ class NPCsApi {
   /// Parameters:
   ///
   /// * [String] code:
-  ///   The code of the item.
+  ///   Item code.
   ///
   /// * [String] npc:
-  ///   The code of the npc.
+  ///   NPC code.
   ///
   /// * [String] currency:
-  ///   The code of the currency.
+  ///   Currency code.
   ///
   /// * [int] page:
   ///   Page number
@@ -142,10 +142,10 @@ class NPCsApi {
   /// Parameters:
   ///
   /// * [String] name:
-  ///   Name of the npc.
+  ///   NPC name.
   ///
   /// * [NPCType] type:
-  ///   The type of the NPC.
+  ///   Type of NPCs.
   ///
   /// * [int] page:
   ///   Page number
@@ -201,10 +201,10 @@ class NPCsApi {
   /// Parameters:
   ///
   /// * [String] name:
-  ///   Name of the npc.
+  ///   NPC name.
   ///
   /// * [NPCType] type:
-  ///   The type of the NPC.
+  ///   Type of NPCs.
   ///
   /// * [int] page:
   ///   Page number

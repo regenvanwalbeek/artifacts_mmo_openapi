@@ -110,8 +110,17 @@ String parameterToString(dynamic value) {
   if (value is LogType) {
     return LogTypeTypeTransformer().encode(value).toString();
   }
+  if (value is MapAccessType) {
+    return MapAccessTypeTypeTransformer().encode(value).toString();
+  }
   if (value is MapContentType) {
     return MapContentTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is MapLayer) {
+    return MapLayerTypeTransformer().encode(value).toString();
+  }
+  if (value is MonsterType) {
+    return MonsterTypeTypeTransformer().encode(value).toString();
   }
   if (value is NPCType) {
     return NPCTypeTypeTransformer().encode(value).toString();
@@ -121,6 +130,9 @@ String parameterToString(dynamic value) {
   }
   if (value is TaskType) {
     return TaskTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is XPType) {
+    return XPTypeTypeTransformer().encode(value).toString();
   }
   return value.toString();
 }

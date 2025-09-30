@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the achievement. | 
 **points** | **int** | Points of the achievement. Used for the leaderboard. | 
 **type** | [**AchievementType**](AchievementType.md) | Type of achievement. | 
-**target** | **String** |  | 
+**target** | **String** | Target of the achievement. | [optional] 
 **total** | **int** | Total to do. | 
 **rewards** | [**AchievementRewardsSchema**](AchievementRewardsSchema.md) | Rewards. | 
 

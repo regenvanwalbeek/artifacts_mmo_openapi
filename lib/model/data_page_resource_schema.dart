@@ -14,24 +14,48 @@ class DataPageResourceSchema {
   /// Returns a new [DataPageResourceSchema] instance.
   DataPageResourceSchema({
     this.data = const [],
-    required this.total,
-    required this.page,
-    required this.size,
+    this.total,
+    this.page,
+    this.size,
     this.pages,
   });
 
   List<ResourceSchema> data;
 
   /// Minimum value: 0
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   int? total;
 
   /// Minimum value: 1
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   int? page;
 
   /// Minimum value: 1
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   int? size;
 
   /// Minimum value: 0
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   int? pages;
 
   @override
@@ -166,8 +190,5 @@ class DataPageResourceSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'data',
-    'total',
-    'page',
-    'size',
   };
 }

@@ -28,10 +28,10 @@ class MonstersApi {
   ///   Name of the monster.
   ///
   /// * [int] minLevel:
-  ///   Monster minimum level.
+  ///   Minimum level.
   ///
   /// * [int] maxLevel:
-  ///   Monster maximum level.
+  ///   Maximum level.
   ///
   /// * [String] drop:
   ///   Item code of the drop.
@@ -101,10 +101,10 @@ class MonstersApi {
   ///   Name of the monster.
   ///
   /// * [int] minLevel:
-  ///   Monster minimum level.
+  ///   Minimum level.
   ///
   /// * [int] maxLevel:
-  ///   Monster maximum level.
+  ///   Maximum level.
   ///
   /// * [String] drop:
   ///   Item code of the drop.

@@ -106,7 +106,7 @@ class EventsApi {
   /// Parameters:
   ///
   /// * [MapContentType] type:
-  ///   Type of event.
+  ///   Type of events.
   ///
   /// * [int] page:
   ///   Page number
@@ -158,7 +158,7 @@ class EventsApi {
   /// Parameters:
   ///
   /// * [MapContentType] type:
-  ///   Type of event.
+  ///   Type of events.
   ///
   /// * [int] page:
   ///   Page number
@@ -187,6 +187,70 @@ class EventsApi {
         await _decodeBodyBytes(response),
         'DataPageEventSchema',
       ) as DataPageEventSchema;
+    }
+    return null;
+  }
+
+  /// Spawn Event
+  ///
+  /// Spawn a specific event by code consuming 1 event token.  Rules:   - Maximum active events defined by utils.config.max_active_events().   - Event must not already be active.   - Member or founder account required.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [SpawnEventRequest] spawnEventRequest (required):
+  Future<Response> spawnEventEventsSpawnPostWithHttpInfo(
+    SpawnEventRequest spawnEventRequest,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/events/spawn';
+
+    // ignore: prefer_final_locals
+    Object? postBody = spawnEventRequest;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Spawn Event
+  ///
+  /// Spawn a specific event by code consuming 1 event token.  Rules:   - Maximum active events defined by utils.config.max_active_events().   - Event must not already be active.   - Member or founder account required.
+  ///
+  /// Parameters:
+  ///
+  /// * [SpawnEventRequest] spawnEventRequest (required):
+  Future<ActiveEventResponseSchema?> spawnEventEventsSpawnPost(
+    SpawnEventRequest spawnEventRequest,
+  ) async {
+    final response = await spawnEventEventsSpawnPostWithHttpInfo(
+      spawnEventRequest,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ActiveEventResponseSchema',
+      ) as ActiveEventResponseSchema;
     }
     return null;
   }

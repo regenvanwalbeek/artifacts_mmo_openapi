@@ -18,7 +18,7 @@ class TaskFullSchema {
     required this.type,
     required this.minQuantity,
     required this.maxQuantity,
-    required this.skill,
+    this.skill,
     required this.rewards,
   });
 
@@ -37,6 +37,13 @@ class TaskFullSchema {
   /// Maximum amount of task.
   int maxQuantity;
 
+  /// Skill required to complete the task.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
   String? skill;
 
   /// Rewards.
@@ -174,7 +181,6 @@ class TaskFullSchema {
     'type',
     'min_quantity',
     'max_quantity',
-    'skill',
     'rewards',
   };
 }

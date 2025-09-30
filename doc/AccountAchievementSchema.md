@@ -13,11 +13,11 @@ Name | Type | Description | Notes
 **description** | **String** | Description of the achievement. | 
 **points** | **int** | Points of the achievement. Used for the leaderboard. | 
 **type** | [**AchievementType**](AchievementType.md) | Type of achievement. | 
-**target** | **String** |  | 
+**target** | **String** | Target of the achievement. | [optional] 
 **total** | **int** | Total to do. | 
 **rewards** | [**AchievementRewardsSchema**](AchievementRewardsSchema.md) | Rewards. | 
 **current** | **int** | Current progress. | 
-**completedAt** | [**DateTime**](DateTime.md) |  | 
+**completedAt** | [**DateTime**](DateTime.md) | Completed at. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -15,17 +15,17 @@ class CharacterFightDataSchema {
   CharacterFightDataSchema({
     required this.cooldown,
     required this.fight,
-    required this.character,
+    this.characters = const [],
   });
 
   /// Cooldown details.
   CooldownSchema cooldown;
 
-  /// Fight details.
-  FightSchema fight;
+  /// Character fight details.
+  CharacterFightSchema fight;
 
-  /// Player details.
-  CharacterSchema character;
+  /// All characters involved.
+  List<CharacterSchema> characters;
 
   @override
   bool operator ==(Object other) =>
@@ -33,22 +33,22 @@ class CharacterFightDataSchema {
       other is CharacterFightDataSchema &&
           other.cooldown == cooldown &&
           other.fight == fight &&
-          other.character == character;
+          _deepEquality.equals(other.characters, characters);
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (cooldown.hashCode) + (fight.hashCode) + (character.hashCode);
+      (cooldown.hashCode) + (fight.hashCode) + (characters.hashCode);
 
   @override
   String toString() =>
-      'CharacterFightDataSchema[cooldown=$cooldown, fight=$fight, character=$character]';
+      'CharacterFightDataSchema[cooldown=$cooldown, fight=$fight, characters=$characters]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'cooldown'] = this.cooldown;
     json[r'fight'] = this.fight;
-    json[r'character'] = this.character;
+    json[r'characters'] = this.characters;
     return json;
   }
 
@@ -74,8 +74,8 @@ class CharacterFightDataSchema {
 
       return CharacterFightDataSchema(
         cooldown: CooldownSchema.fromJson(json[r'cooldown'])!,
-        fight: FightSchema.fromJson(json[r'fight'])!,
-        character: CharacterSchema.fromJson(json[r'character'])!,
+        fight: CharacterFightSchema.fromJson(json[r'fight'])!,
+        characters: CharacterSchema.listFromJson(json[r'characters']),
       );
     }
     return null;
@@ -134,6 +134,6 @@ class CharacterFightDataSchema {
   static const requiredKeys = <String>{
     'cooldown',
     'fight',
-    'character',
+    'characters',
   };
 }
