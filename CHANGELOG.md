@@ -1,3 +1,7 @@
+## 6.0.0
+
+- Season 6 Generation
+
 ## 5.0.0
 
 - Season 5 Generation
