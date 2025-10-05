@@ -15,8 +15,7 @@ class ValidationErrorLocInner {
   ValidationErrorLocInner();
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) || other is ValidationErrorLocInner;
+  bool operator ==(Object other) => identical(this, other) || other is ValidationErrorLocInner;
 
   @override
   int get hashCode => 1;
@@ -42,10 +41,8 @@ class ValidationErrorLocInner {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ValidationErrorLocInner[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ValidationErrorLocInner[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "ValidationErrorLocInner[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "ValidationErrorLocInner[$key]" has a null value in JSON.');
         });
         return true;
       }());
