@@ -670,7 +670,7 @@ class MyCharactersApi {
 
   /// Action Fight
   ///
-  /// Start a fight against a monster on the character's map. Possibility of fighting with 2 other characters for boss fights.
+  /// Start a fight against a monster on the character's map. Add participants for multi-character fights (up to 3 characters, only for boss).
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -709,7 +709,7 @@ class MyCharactersApi {
 
   /// Action Fight
   ///
-  /// Start a fight against a monster on the character's map. Possibility of fighting with 2 other characters for boss fights.
+  /// Start a fight against a monster on the character's map. Add participants for multi-character fights (up to 3 characters, only for boss).
   ///
   /// Parameters:
   ///

@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **maxSkillLevel** | **int** | Maximum skill level. | 
 **charactersOnline** | **int** | Characters online. | 
 **season** | [**SeasonSchema**](SeasonSchema.md) | Current season details. | [optional] 
-**announcements** | [**List<AnnouncementSchema>**](AnnouncementSchema.md) | Server announcements. | [default to const []]
 **rateLimits** | [**List<RateLimitSchema>**](RateLimitSchema.md) | Rate limits. | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

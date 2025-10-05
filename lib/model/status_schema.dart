@@ -19,7 +19,6 @@ class StatusSchema {
     required this.maxSkillLevel,
     required this.charactersOnline,
     this.season,
-    this.announcements = const [],
     this.rateLimits = const [],
   });
 
@@ -47,9 +46,6 @@ class StatusSchema {
   ///
   SeasonSchema? season;
 
-  /// Server announcements.
-  List<AnnouncementSchema> announcements;
-
   /// Rate limits.
   List<RateLimitSchema> rateLimits;
 
@@ -63,7 +59,6 @@ class StatusSchema {
           other.maxSkillLevel == maxSkillLevel &&
           other.charactersOnline == charactersOnline &&
           other.season == season &&
-          _deepEquality.equals(other.announcements, announcements) &&
           _deepEquality.equals(other.rateLimits, rateLimits);
 
   @override
@@ -75,12 +70,11 @@ class StatusSchema {
       (maxSkillLevel.hashCode) +
       (charactersOnline.hashCode) +
       (season == null ? 0 : season!.hashCode) +
-      (announcements.hashCode) +
       (rateLimits.hashCode);
 
   @override
   String toString() =>
-      'StatusSchema[version=$version, serverTime=$serverTime, maxLevel=$maxLevel, maxSkillLevel=$maxSkillLevel, charactersOnline=$charactersOnline, season=$season, announcements=$announcements, rateLimits=$rateLimits]';
+      'StatusSchema[version=$version, serverTime=$serverTime, maxLevel=$maxLevel, maxSkillLevel=$maxSkillLevel, charactersOnline=$charactersOnline, season=$season, rateLimits=$rateLimits]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -94,7 +88,6 @@ class StatusSchema {
     } else {
       json[r'season'] = null;
     }
-    json[r'announcements'] = this.announcements;
     json[r'rate_limits'] = this.rateLimits;
     return json;
   }
@@ -126,7 +119,6 @@ class StatusSchema {
         maxSkillLevel: mapValueOfType<int>(json, r'max_skill_level')!,
         charactersOnline: mapValueOfType<int>(json, r'characters_online')!,
         season: SeasonSchema.fromJson(json[r'season']),
-        announcements: AnnouncementSchema.listFromJson(json[r'announcements']),
         rateLimits: RateLimitSchema.listFromJson(json[r'rate_limits']),
       );
     }
@@ -189,7 +181,6 @@ class StatusSchema {
     'max_level',
     'max_skill_level',
     'characters_online',
-    'announcements',
     'rate_limits',
   };
 }

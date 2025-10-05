@@ -25,7 +25,7 @@ class ConditionSchema {
   ConditionOperator operator_;
 
   /// Condition value.
-  String value;
+  int value;
 
   @override
   bool operator ==(Object other) =>
@@ -75,7 +75,7 @@ class ConditionSchema {
       return ConditionSchema(
         code: mapValueOfType<String>(json, r'code')!,
         operator_: ConditionOperator.fromJson(json[r'operator'])!,
-        value: mapValueOfType<String>(json, r'value')!,
+        value: mapValueOfType<int>(json, r'value')!,
       );
     }
     return null;

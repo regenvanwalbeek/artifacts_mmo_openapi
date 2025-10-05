@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** | Condition code. | 
 **operator_** | [**ConditionOperator**](ConditionOperator.md) | Condition operator. | 
-**value** | **String** | Condition value. | 
+**value** | **int** | Condition value. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
