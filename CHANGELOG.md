@@ -1,3 +1,7 @@
+## 6.1.0
+
+- Fix bug with simulator
+
 ## 6.0.0
 
 - Season 6 Generation

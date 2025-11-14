@@ -43,10 +43,7 @@ class CombatResultSchema {
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (result.hashCode) +
-      (turns.hashCode) +
-      (logs.hashCode) +
-      (characterResults.hashCode);
+      (result.hashCode) + (turns.hashCode) + (logs.hashCode) + (characterResults.hashCode);
 
   @override
   String toString() =>
@@ -73,10 +70,8 @@ class CombatResultSchema {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CombatResultSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CombatResultSchema[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "CombatResultSchema[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "CombatResultSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
@@ -84,11 +79,16 @@ class CombatResultSchema {
       return CombatResultSchema(
         result: mapValueOfType<String>(json, r'result')!,
         turns: mapValueOfType<int>(json, r'turns')!,
-        logs: json[r'logs'] is Iterable
-            ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false)
-            : const [],
-        characterResults: listFromJson(json[r'character_results']),
+        logs: json[r'logs'] is Iterable ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false) : const [],
+        characterResults: listObjectFromJson(json[r'character_results']!)!,
       );
+    }
+    return null;
+  }
+
+  static List<Object>? listObjectFromJson(dynamic json) {
+    if (json is List) {
+      return json.nonNulls.map((e) => e).toList();
     }
     return null;
   }
