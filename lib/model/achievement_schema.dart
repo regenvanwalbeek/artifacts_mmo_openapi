@@ -17,9 +17,7 @@ class AchievementSchema {
     required this.code,
     required this.description,
     required this.points,
-    required this.type,
-    this.target,
-    required this.total,
+    this.objectives = const [],
     required this.rewards,
   });
 
@@ -35,20 +33,8 @@ class AchievementSchema {
   /// Points of the achievement. Used for the leaderboard.
   int points;
 
-  /// Type of achievement.
-  AchievementType type;
-
-  /// Target of the achievement.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? target;
-
-  /// Total to do.
-  int total;
+  /// List of objectives that must be completed.
+  List<AchievementObjectiveSchema> objectives;
 
   /// Rewards.
   AchievementRewardsSchema rewards;
@@ -61,9 +47,7 @@ class AchievementSchema {
           other.code == code &&
           other.description == description &&
           other.points == points &&
-          other.type == type &&
-          other.target == target &&
-          other.total == total &&
+          _deepEquality.equals(other.objectives, objectives) &&
           other.rewards == rewards;
 
   @override
@@ -73,14 +57,12 @@ class AchievementSchema {
       (code.hashCode) +
       (description.hashCode) +
       (points.hashCode) +
-      (type.hashCode) +
-      (target == null ? 0 : target!.hashCode) +
-      (total.hashCode) +
+      (objectives.hashCode) +
       (rewards.hashCode);
 
   @override
   String toString() =>
-      'AchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, rewards=$rewards]';
+      'AchievementSchema[name=$name, code=$code, description=$description, points=$points, objectives=$objectives, rewards=$rewards]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -88,13 +70,7 @@ class AchievementSchema {
     json[r'code'] = this.code;
     json[r'description'] = this.description;
     json[r'points'] = this.points;
-    json[r'type'] = this.type;
-    if (this.target != null) {
-      json[r'target'] = this.target;
-    } else {
-      json[r'target'] = null;
-    }
-    json[r'total'] = this.total;
+    json[r'objectives'] = this.objectives;
     json[r'rewards'] = this.rewards;
     return json;
   }
@@ -124,9 +100,8 @@ class AchievementSchema {
         code: mapValueOfType<String>(json, r'code')!,
         description: mapValueOfType<String>(json, r'description')!,
         points: mapValueOfType<int>(json, r'points')!,
-        type: AchievementType.fromJson(json[r'type'])!,
-        target: mapValueOfType<String>(json, r'target'),
-        total: mapValueOfType<int>(json, r'total')!,
+        objectives:
+            AchievementObjectiveSchema.listFromJson(json[r'objectives']),
         rewards: AchievementRewardsSchema.fromJson(json[r'rewards'])!,
       );
     }
@@ -188,8 +163,7 @@ class AchievementSchema {
     'code',
     'description',
     'points',
-    'type',
-    'total',
+    'objectives',
     'rewards',
   };
 }

@@ -231,6 +231,8 @@ class ApiClient {
           return value is DateTime ? value : DateTime.tryParse(value);
         case 'AccessSchema':
           return AccessSchema.fromJson(value);
+        case 'AccountAchievementObjectiveSchema':
+          return AccountAchievementObjectiveSchema.fromJson(value);
         case 'AccountAchievementSchema':
           return AccountAchievementSchema.fromJson(value);
         case 'AccountDetails':
@@ -243,6 +245,8 @@ class ApiClient {
           return AccountLeaderboardTypeTypeTransformer().decode(value);
         case 'AccountStatus':
           return AccountStatusTypeTransformer().decode(value);
+        case 'AchievementObjectiveSchema':
+          return AchievementObjectiveSchema.fromJson(value);
         case 'AchievementResponseSchema':
           return AchievementResponseSchema.fromJson(value);
         case 'AchievementRewardsSchema':
@@ -327,6 +331,8 @@ class ApiClient {
           return CharacterTransitionResponseSchema.fromJson(value);
         case 'CharactersListSchema':
           return CharactersListSchema.fromJson(value);
+        case 'ClaimPendingItemResponseSchema':
+          return ClaimPendingItemResponseSchema.fromJson(value);
         case 'CombatResultSchema':
           return CombatResultSchema.fromJson(value);
         case 'CombatSimulationDataSchema':
@@ -383,6 +389,8 @@ class ApiClient {
           return DataPageNPCItem.fromJson(value);
         case 'DataPageNPCSchema':
           return DataPageNPCSchema.fromJson(value);
+        case 'DataPagePendingItemSchema':
+          return DataPagePendingItemSchema.fromJson(value);
         case 'DataPageResourceSchema':
           return DataPageResourceSchema.fromJson(value);
         case 'DataPageSimpleItemSchema':
@@ -433,12 +441,16 @@ class ApiClient {
           return FightRequestSchema.fromJson(value);
         case 'FightResult':
           return FightResultTypeTransformer().decode(value);
+        case 'GEBuyOrderCreationSchema':
+          return GEBuyOrderCreationSchema.fromJson(value);
         case 'GEBuyOrderSchema':
           return GEBuyOrderSchema.fromJson(value);
         case 'GECancelOrderSchema':
           return GECancelOrderSchema.fromJson(value);
         case 'GECreateOrderTransactionResponseSchema':
           return GECreateOrderTransactionResponseSchema.fromJson(value);
+        case 'GEFillBuyOrderSchema':
+          return GEFillBuyOrderSchema.fromJson(value);
         case 'GEOrderCreatedSchema':
           return GEOrderCreatedSchema.fromJson(value);
         case 'GEOrderCreationrSchema':
@@ -449,6 +461,8 @@ class ApiClient {
           return GEOrderSchema.fromJson(value);
         case 'GEOrderTransactionSchema':
           return GEOrderTransactionSchema.fromJson(value);
+        case 'GEOrderType':
+          return GEOrderTypeTypeTransformer().decode(value);
         case 'GETransactionListSchema':
           return GETransactionListSchema.fromJson(value);
         case 'GETransactionResponseSchema':
@@ -537,6 +551,10 @@ class ApiClient {
           return PasswordResetRequestSchema.fromJson(value);
         case 'PasswordResetResponseSchema':
           return PasswordResetResponseSchema.fromJson(value);
+        case 'PendingItemSchema':
+          return PendingItemSchema.fromJson(value);
+        case 'PendingItemSource':
+          return PendingItemSourceTypeTransformer().decode(value);
         case 'RateLimitSchema':
           return RateLimitSchema.fromJson(value);
         case 'RecyclingDataSchema':
@@ -557,10 +575,20 @@ class ApiClient {
           return RewardDataResponseSchema.fromJson(value);
         case 'RewardDataSchema':
           return RewardDataSchema.fromJson(value);
+        case 'RewardItemSchema':
+          return RewardItemSchema.fromJson(value);
         case 'RewardResponseSchema':
           return RewardResponseSchema.fromJson(value);
         case 'RewardsSchema':
           return RewardsSchema.fromJson(value);
+        case 'SandboxGiveItemSchema':
+          return SandboxGiveItemSchema.fromJson(value);
+        case 'SandboxGiveXpSchema':
+          return SandboxGiveXpSchema.fromJson(value);
+        case 'SandboxResponseSchema':
+          return SandboxResponseSchema.fromJson(value);
+        case 'SandboxSchema':
+          return SandboxSchema.fromJson(value);
         case 'SeasonBadgeSchema':
           return SeasonBadgeSchema.fromJson(value);
         case 'SeasonSchema':
@@ -623,6 +651,8 @@ class ApiClient {
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':
           return ValidationErrorLocInner.fromJson(value);
+        case 'XPType':
+          return XPTypeTypeTransformer().decode(value);
         default:
           dynamic match;
           if (value is List &&

@@ -10,30 +10,48 @@
 
 part of openapi_generation;
 
-class ValidationErrorLocInner {
-  /// Returns a new [ValidationErrorLocInner] instance.
-  ValidationErrorLocInner();
+class GEFillBuyOrderSchema {
+  /// Returns a new [GEFillBuyOrderSchema] instance.
+  GEFillBuyOrderSchema({
+    required this.id,
+    required this.quantity,
+  });
+
+  /// Buy order id.
+  String id;
+
+  /// Item quantity to sell.
+  ///
+  /// Minimum value: 1
+  /// Maximum value: 100
+  int quantity;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ValidationErrorLocInner;
+      identical(this, other) ||
+      other is GEFillBuyOrderSchema &&
+          other.id == id &&
+          other.quantity == quantity;
 
   @override
-  int get hashCode => 1;
-  // ignore: unnecessary_parenthesis
+  int get hashCode =>
+      // ignore: unnecessary_parenthesis
+      (id.hashCode) + (quantity.hashCode);
 
   @override
-  String toString() => 'ValidationErrorLocInner[]';
+  String toString() => 'GEFillBuyOrderSchema[id=$id, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'id'] = this.id;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
-  /// Returns a new [ValidationErrorLocInner] instance and imports its values from
+  /// Returns a new [GEFillBuyOrderSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ValidationErrorLocInner? fromJson(dynamic value) {
+  static GEFillBuyOrderSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -43,26 +61,29 @@ class ValidationErrorLocInner {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ValidationErrorLocInner[$key]" is missing from JSON.');
+              'Required key "GEFillBuyOrderSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ValidationErrorLocInner[$key]" has a null value in JSON.');
+              'Required key "GEFillBuyOrderSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return ValidationErrorLocInner();
+      return GEFillBuyOrderSchema(
+        id: mapValueOfType<String>(json, r'id')!,
+        quantity: mapValueOfType<int>(json, r'quantity')!,
+      );
     }
     return null;
   }
 
-  static List<ValidationErrorLocInner> listFromJson(
+  static List<GEFillBuyOrderSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ValidationErrorLocInner>[];
+    final result = <GEFillBuyOrderSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ValidationErrorLocInner.fromJson(row);
+        final value = GEFillBuyOrderSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -71,12 +92,12 @@ class ValidationErrorLocInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ValidationErrorLocInner> mapFromJson(dynamic json) {
-    final map = <String, ValidationErrorLocInner>{};
+  static Map<String, GEFillBuyOrderSchema> mapFromJson(dynamic json) {
+    final map = <String, GEFillBuyOrderSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ValidationErrorLocInner.fromJson(entry.value);
+        final value = GEFillBuyOrderSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -85,17 +106,17 @@ class ValidationErrorLocInner {
     return map;
   }
 
-  // maps a json object with a list of ValidationErrorLocInner-objects as value to a dart map
-  static Map<String, List<ValidationErrorLocInner>> mapListFromJson(
+  // maps a json object with a list of GEFillBuyOrderSchema-objects as value to a dart map
+  static Map<String, List<GEFillBuyOrderSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ValidationErrorLocInner>>{};
+    final map = <String, List<GEFillBuyOrderSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ValidationErrorLocInner.listFromJson(
+        map[entry.key] = GEFillBuyOrderSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -105,5 +126,8 @@ class ValidationErrorLocInner {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+    'id',
+    'quantity',
+  };
 }

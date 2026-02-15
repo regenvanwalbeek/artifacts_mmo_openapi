@@ -10,45 +10,54 @@
 
 part of openapi_generation;
 
-class AchievementRewardsSchema {
-  /// Returns a new [AchievementRewardsSchema] instance.
-  AchievementRewardsSchema({
-    this.gold = 0,
-    this.items = const [],
+class SandboxGiveXpSchema {
+  /// Returns a new [SandboxGiveXpSchema] instance.
+  SandboxGiveXpSchema({
+    required this.type,
+    required this.amount,
+    required this.character,
   });
 
-  /// Gold rewards.
-  int gold;
+  /// Type of XP to give (e.g., 'combat', 'woodcutting', 'mining', etc.).
+  XPType type;
 
-  /// Item rewards.
-  List<RewardItemSchema> items;
+  /// Amount of XP to give to the character.
+  ///
+  /// Maximum value: 100000
+  int amount;
+
+  /// Name of the character to receive the XP.
+  String character;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AchievementRewardsSchema &&
-          other.gold == gold &&
-          _deepEquality.equals(other.items, items);
+      other is SandboxGiveXpSchema &&
+          other.type == type &&
+          other.amount == amount &&
+          other.character == character;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (gold.hashCode) + (items.hashCode);
+      (type.hashCode) + (amount.hashCode) + (character.hashCode);
 
   @override
-  String toString() => 'AchievementRewardsSchema[gold=$gold, items=$items]';
+  String toString() =>
+      'SandboxGiveXpSchema[type=$type, amount=$amount, character=$character]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'gold'] = this.gold;
-    json[r'items'] = this.items;
+    json[r'type'] = this.type;
+    json[r'amount'] = this.amount;
+    json[r'character'] = this.character;
     return json;
   }
 
-  /// Returns a new [AchievementRewardsSchema] instance and imports its values from
+  /// Returns a new [SandboxGiveXpSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AchievementRewardsSchema? fromJson(dynamic value) {
+  static SandboxGiveXpSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -58,29 +67,30 @@ class AchievementRewardsSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "AchievementRewardsSchema[$key]" is missing from JSON.');
+              'Required key "SandboxGiveXpSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "AchievementRewardsSchema[$key]" has a null value in JSON.');
+              'Required key "SandboxGiveXpSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return AchievementRewardsSchema(
-        gold: mapValueOfType<int>(json, r'gold') ?? 0,
-        items: RewardItemSchema.listFromJson(json[r'items']),
+      return SandboxGiveXpSchema(
+        type: XPType.fromJson(json[r'type'])!,
+        amount: mapValueOfType<int>(json, r'amount')!,
+        character: mapValueOfType<String>(json, r'character')!,
       );
     }
     return null;
   }
 
-  static List<AchievementRewardsSchema> listFromJson(
+  static List<SandboxGiveXpSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <AchievementRewardsSchema>[];
+    final result = <SandboxGiveXpSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = AchievementRewardsSchema.fromJson(row);
+        final value = SandboxGiveXpSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -89,12 +99,12 @@ class AchievementRewardsSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, AchievementRewardsSchema> mapFromJson(dynamic json) {
-    final map = <String, AchievementRewardsSchema>{};
+  static Map<String, SandboxGiveXpSchema> mapFromJson(dynamic json) {
+    final map = <String, SandboxGiveXpSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AchievementRewardsSchema.fromJson(entry.value);
+        final value = SandboxGiveXpSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -103,17 +113,17 @@ class AchievementRewardsSchema {
     return map;
   }
 
-  // maps a json object with a list of AchievementRewardsSchema-objects as value to a dart map
-  static Map<String, List<AchievementRewardsSchema>> mapListFromJson(
+  // maps a json object with a list of SandboxGiveXpSchema-objects as value to a dart map
+  static Map<String, List<SandboxGiveXpSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<AchievementRewardsSchema>>{};
+    final map = <String, List<SandboxGiveXpSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AchievementRewardsSchema.listFromJson(
+        map[entry.key] = SandboxGiveXpSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -123,5 +133,9 @@ class AchievementRewardsSchema {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+    'type',
+    'amount',
+    'character',
+  };
 }

@@ -31,6 +31,8 @@ class AchievementType {
   static const task = AchievementType._(r'task');
   static const other = AchievementType._(r'other');
   static const use = AchievementType._(r'use');
+  static const npcBuy = AchievementType._(r'npc_buy');
+  static const npcSell = AchievementType._(r'npc_sell');
 
   /// List of all possible values in this [enum][AchievementType].
   static const values = <AchievementType>[
@@ -43,6 +45,8 @@ class AchievementType {
     task,
     other,
     use,
+    npcBuy,
+    npcSell,
   ];
 
   static AchievementType? fromJson(dynamic value) =>
@@ -104,6 +108,10 @@ class AchievementTypeTypeTransformer {
           return AchievementType.other;
         case r'use':
           return AchievementType.use;
+        case r'npc_buy':
+          return AchievementType.npcBuy;
+        case r'npc_sell':
+          return AchievementType.npcSell;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

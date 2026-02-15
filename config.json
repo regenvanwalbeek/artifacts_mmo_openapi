@@ -1,10 +1,1 @@
-{
-    "pubAuthor": "Regen Van Walbeek",
-    "pubDescription": "An OpenApi generated client for ArtifactsMMO: https://artifactsmmo.com/",
-    "pubHomepage": "https://github.com/regenvanwalbeek/artifacts_mmo_openapi",
-    "pubLibrary": "openapi_generation",
-    "pubName": "artifacts_mmo_openapi",
-    "pubVersion": "6.0.0",
-    "gitUserId": "regenvanwalbeek",
-    "gitRepoId": "artifacts_mmo_openapi"
-}
+{"pubAuthor":"Regen Van Walbeek","pubDescription":"An OpenApi generated client for ArtifactsMMO: https://artifactsmmo.com/","pubHomepage":"https://github.com/regenvanwalbeek/artifacts_mmo_openapi","pubLibrary":"openapi_generation","pubName":"artifacts_mmo_openapi","pubVersion":"7.0.0","gitUserId":"regenvanwalbeek","gitRepoId":"artifacts_mmo_openapi"}

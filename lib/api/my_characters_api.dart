@@ -227,6 +227,86 @@ class MyCharactersApi {
     return null;
   }
 
+  /// Action Claim Pending Item
+  ///
+  /// Claim a pending item with a specific character.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [String] id (required):
+  ///   The ID of the pending item to claim.
+  Future<Response>
+      actionClaimPendingItemMyNameActionClaimItemIdPostWithHttpInfo(
+    String name,
+    String id,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/claim_item/{id}'
+        .replaceAll('{name}', name)
+        .replaceAll('{id}', id);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Claim Pending Item
+  ///
+  /// Claim a pending item with a specific character.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [String] id (required):
+  ///   The ID of the pending item to claim.
+  Future<ClaimPendingItemResponseSchema?>
+      actionClaimPendingItemMyNameActionClaimItemIdPost(
+    String name,
+    String id,
+  ) async {
+    final response =
+        await actionClaimPendingItemMyNameActionClaimItemIdPostWithHttpInfo(
+      name,
+      id,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ClaimPendingItemResponseSchema',
+      ) as ClaimPendingItemResponseSchema;
+    }
+    return null;
+  }
+
   /// Action Complete Task
   ///
   /// Complete a task.
@@ -883,9 +963,9 @@ class MyCharactersApi {
     return null;
   }
 
-  /// Action Ge Cancel Sell Order
+  /// Action Ge Cancel Order
   ///
-  /// Cancel a sell order at the Grand Exchange on the character's map.
+  /// Cancel an order (sell or buy) at the Grand Exchange on the character's map.  For sell orders: Items are returned to your inventory. For buy orders: Gold is refunded to your character.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -896,7 +976,7 @@ class MyCharactersApi {
   ///
   /// * [GECancelOrderSchema] gECancelOrderSchema (required):
   Future<Response>
-      actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
+      actionGeCancelOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
     String name,
     GECancelOrderSchema gECancelOrderSchema,
   ) async {
@@ -924,9 +1004,9 @@ class MyCharactersApi {
     );
   }
 
-  /// Action Ge Cancel Sell Order
+  /// Action Ge Cancel Order
   ///
-  /// Cancel a sell order at the Grand Exchange on the character's map.
+  /// Cancel an order (sell or buy) at the Grand Exchange on the character's map.  For sell orders: Items are returned to your inventory. For buy orders: Gold is refunded to your character.
   ///
   /// Parameters:
   ///
@@ -935,12 +1015,12 @@ class MyCharactersApi {
   ///
   /// * [GECancelOrderSchema] gECancelOrderSchema (required):
   Future<GETransactionResponseSchema?>
-      actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(
+      actionGeCancelOrderMyNameActionGrandexchangeCancelPost(
     String name,
     GECancelOrderSchema gECancelOrderSchema,
   ) async {
     final response =
-        await actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
+        await actionGeCancelOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
       name,
       gECancelOrderSchema,
     );
@@ -960,9 +1040,86 @@ class MyCharactersApi {
     return null;
   }
 
+  /// Action Ge Create Buy Order
+  ///
+  /// Create a buy order at the Grand Exchange on the character's map.  The total gold (price * quantity) is locked when creating the order. Other players can then sell items to fulfill your order. Items will be delivered to your pending items when the order is filled.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GEBuyOrderCreationSchema] gEBuyOrderCreationSchema (required):
+  Future<Response>
+      actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPostWithHttpInfo(
+    String name,
+    GEBuyOrderCreationSchema gEBuyOrderCreationSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/{name}/action/grandexchange/create-buy-order'
+        .replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = gEBuyOrderCreationSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Ge Create Buy Order
+  ///
+  /// Create a buy order at the Grand Exchange on the character's map.  The total gold (price * quantity) is locked when creating the order. Other players can then sell items to fulfill your order. Items will be delivered to your pending items when the order is filled.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GEBuyOrderCreationSchema] gEBuyOrderCreationSchema (required):
+  Future<GECreateOrderTransactionResponseSchema?>
+      actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost(
+    String name,
+    GEBuyOrderCreationSchema gEBuyOrderCreationSchema,
+  ) async {
+    final response =
+        await actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPostWithHttpInfo(
+      name,
+      gEBuyOrderCreationSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GECreateOrderTransactionResponseSchema',
+      ) as GECreateOrderTransactionResponseSchema;
+    }
+    return null;
+  }
+
   /// Action Ge Create Sell Order
   ///
-  /// Create a sell order at the Grand Exchange on the character's map.  Please note there is a 3% listing tax, charged at the time of posting, on the total price.
+  /// Create a sell order at the Grand Exchange on the character's map.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -973,13 +1130,13 @@ class MyCharactersApi {
   ///
   /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
   Future<Response>
-      actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
+      actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPostWithHttpInfo(
     String name,
     GEOrderCreationrSchema gEOrderCreationrSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path =
-        r'/my/{name}/action/grandexchange/sell'.replaceAll('{name}', name);
+    final path = r'/my/{name}/action/grandexchange/create-sell-order'
+        .replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
     Object? postBody = gEOrderCreationrSchema;
@@ -1003,7 +1160,7 @@ class MyCharactersApi {
 
   /// Action Ge Create Sell Order
   ///
-  /// Create a sell order at the Grand Exchange on the character's map.  Please note there is a 3% listing tax, charged at the time of posting, on the total price.
+  /// Create a sell order at the Grand Exchange on the character's map.
   ///
   /// Parameters:
   ///
@@ -1012,12 +1169,12 @@ class MyCharactersApi {
   ///
   /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
   Future<GECreateOrderTransactionResponseSchema?>
-      actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(
+      actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(
     String name,
     GEOrderCreationrSchema gEOrderCreationrSchema,
   ) async {
     final response =
-        await actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo(
+        await actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPostWithHttpInfo(
       name,
       gEOrderCreationrSchema,
     );
@@ -1033,6 +1190,82 @@ class MyCharactersApi {
         await _decodeBodyBytes(response),
         'GECreateOrderTransactionResponseSchema',
       ) as GECreateOrderTransactionResponseSchema;
+    }
+    return null;
+  }
+
+  /// Action Ge Fill
+  ///
+  /// Sell items to an existing buy order at the Grand Exchange on the character's map.  You will receive the gold immediately. The buyer will receive the items in their pending items.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GEFillBuyOrderSchema] gEFillBuyOrderSchema (required):
+  Future<Response> actionGeFillMyNameActionGrandexchangeFillPostWithHttpInfo(
+    String name,
+    GEFillBuyOrderSchema gEFillBuyOrderSchema,
+  ) async {
+    // ignore: prefer_const_declarations
+    final path =
+        r'/my/{name}/action/grandexchange/fill'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody = gEFillBuyOrderSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Action Ge Fill
+  ///
+  /// Sell items to an existing buy order at the Grand Exchange on the character's map.  You will receive the gold immediately. The buyer will receive the items in their pending items.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   Name of your character.
+  ///
+  /// * [GEFillBuyOrderSchema] gEFillBuyOrderSchema (required):
+  Future<GETransactionResponseSchema?>
+      actionGeFillMyNameActionGrandexchangeFillPost(
+    String name,
+    GEFillBuyOrderSchema gEFillBuyOrderSchema,
+  ) async {
+    final response =
+        await actionGeFillMyNameActionGrandexchangeFillPostWithHttpInfo(
+      name,
+      gEFillBuyOrderSchema,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GETransactionResponseSchema',
+      ) as GETransactionResponseSchema;
     }
     return null;
   }

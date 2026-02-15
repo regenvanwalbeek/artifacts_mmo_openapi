@@ -10,30 +10,45 @@
 
 part of openapi_generation;
 
-class ValidationErrorLocInner {
-  /// Returns a new [ValidationErrorLocInner] instance.
-  ValidationErrorLocInner();
+class RewardItemSchema {
+  /// Returns a new [RewardItemSchema] instance.
+  RewardItemSchema({
+    required this.code,
+    required this.quantity,
+  });
+
+  /// Item code.
+  String code;
+
+  /// Item quantity.
+  int quantity;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ValidationErrorLocInner;
+      identical(this, other) ||
+      other is RewardItemSchema &&
+          other.code == code &&
+          other.quantity == quantity;
 
   @override
-  int get hashCode => 1;
-  // ignore: unnecessary_parenthesis
+  int get hashCode =>
+      // ignore: unnecessary_parenthesis
+      (code.hashCode) + (quantity.hashCode);
 
   @override
-  String toString() => 'ValidationErrorLocInner[]';
+  String toString() => 'RewardItemSchema[code=$code, quantity=$quantity]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'code'] = this.code;
+    json[r'quantity'] = this.quantity;
     return json;
   }
 
-  /// Returns a new [ValidationErrorLocInner] instance and imports its values from
+  /// Returns a new [RewardItemSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ValidationErrorLocInner? fromJson(dynamic value) {
+  static RewardItemSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -43,26 +58,29 @@ class ValidationErrorLocInner {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ValidationErrorLocInner[$key]" is missing from JSON.');
+              'Required key "RewardItemSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ValidationErrorLocInner[$key]" has a null value in JSON.');
+              'Required key "RewardItemSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return ValidationErrorLocInner();
+      return RewardItemSchema(
+        code: mapValueOfType<String>(json, r'code')!,
+        quantity: mapValueOfType<int>(json, r'quantity')!,
+      );
     }
     return null;
   }
 
-  static List<ValidationErrorLocInner> listFromJson(
+  static List<RewardItemSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ValidationErrorLocInner>[];
+    final result = <RewardItemSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ValidationErrorLocInner.fromJson(row);
+        final value = RewardItemSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -71,12 +89,12 @@ class ValidationErrorLocInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ValidationErrorLocInner> mapFromJson(dynamic json) {
-    final map = <String, ValidationErrorLocInner>{};
+  static Map<String, RewardItemSchema> mapFromJson(dynamic json) {
+    final map = <String, RewardItemSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ValidationErrorLocInner.fromJson(entry.value);
+        final value = RewardItemSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -85,17 +103,17 @@ class ValidationErrorLocInner {
     return map;
   }
 
-  // maps a json object with a list of ValidationErrorLocInner-objects as value to a dart map
-  static Map<String, List<ValidationErrorLocInner>> mapListFromJson(
+  // maps a json object with a list of RewardItemSchema-objects as value to a dart map
+  static Map<String, List<RewardItemSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ValidationErrorLocInner>>{};
+    final map = <String, List<RewardItemSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ValidationErrorLocInner.listFromJson(
+        map[entry.key] = RewardItemSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -105,5 +123,8 @@ class ValidationErrorLocInner {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+    'code',
+    'quantity',
+  };
 }

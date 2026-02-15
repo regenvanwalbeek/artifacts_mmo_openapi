@@ -30,6 +30,8 @@ class LogType {
   static const gathering = LogType._(r'gathering');
   static const buyGe = LogType._(r'buy_ge');
   static const sellGe = LogType._(r'sell_ge');
+  static const createBuyOrderGe = LogType._(r'create_buy_order_ge');
+  static const fillBuyOrderGe = LogType._(r'fill_buy_order_ge');
   static const buyNpc = LogType._(r'buy_npc');
   static const sellNpc = LogType._(r'sell_npc');
   static const cancelGe = LogType._(r'cancel_ge');
@@ -57,6 +59,7 @@ class LogType {
   static const changeSkin = LogType._(r'change_skin');
   static const rename = LogType._(r'rename');
   static const transition = LogType._(r'transition');
+  static const claimItem = LogType._(r'claim_item');
 
   /// List of all possible values in this [enum][LogType].
   static const values = <LogType>[
@@ -68,6 +71,8 @@ class LogType {
     gathering,
     buyGe,
     sellGe,
+    createBuyOrderGe,
+    fillBuyOrderGe,
     buyNpc,
     sellNpc,
     cancelGe,
@@ -95,6 +100,7 @@ class LogType {
     changeSkin,
     rename,
     transition,
+    claimItem,
   ];
 
   static LogType? fromJson(dynamic value) =>
@@ -154,6 +160,10 @@ class LogTypeTypeTransformer {
           return LogType.buyGe;
         case r'sell_ge':
           return LogType.sellGe;
+        case r'create_buy_order_ge':
+          return LogType.createBuyOrderGe;
+        case r'fill_buy_order_ge':
+          return LogType.fillBuyOrderGe;
         case r'buy_npc':
           return LogType.buyNpc;
         case r'sell_npc':
@@ -208,6 +218,8 @@ class LogTypeTypeTransformer {
           return LogType.rename;
         case r'transition':
           return LogType.transition;
+        case r'claim_item':
+          return LogType.claimItem;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

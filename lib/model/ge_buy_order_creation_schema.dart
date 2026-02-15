@@ -10,22 +10,13 @@
 
 part of openapi_generation;
 
-class GEOrderCreatedSchema {
-  /// Returns a new [GEOrderCreatedSchema] instance.
-  GEOrderCreatedSchema({
-    required this.id,
-    required this.createdAt,
+class GEBuyOrderCreationSchema {
+  /// Returns a new [GEBuyOrderCreationSchema] instance.
+  GEBuyOrderCreationSchema({
     required this.code,
     required this.quantity,
     required this.price,
-    required this.totalPrice,
   });
-
-  /// Order id.
-  String id;
-
-  /// Order created at.
-  DateTime createdAt;
 
   /// Item code.
   String code;
@@ -39,53 +30,38 @@ class GEOrderCreatedSchema {
   /// Item price per unit.
   ///
   /// Minimum value: 1
+  /// Maximum value: 1000000000
   int price;
-
-  /// Total price.
-  ///
-  /// Minimum value: 1
-  int totalPrice;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GEOrderCreatedSchema &&
-          other.id == id &&
-          other.createdAt == createdAt &&
+      other is GEBuyOrderCreationSchema &&
           other.code == code &&
           other.quantity == quantity &&
-          other.price == price &&
-          other.totalPrice == totalPrice;
+          other.price == price;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (id.hashCode) +
-      (createdAt.hashCode) +
-      (code.hashCode) +
-      (quantity.hashCode) +
-      (price.hashCode) +
-      (totalPrice.hashCode);
+      (code.hashCode) + (quantity.hashCode) + (price.hashCode);
 
   @override
   String toString() =>
-      'GEOrderCreatedSchema[id=$id, createdAt=$createdAt, code=$code, quantity=$quantity, price=$price, totalPrice=$totalPrice]';
+      'GEBuyOrderCreationSchema[code=$code, quantity=$quantity, price=$price]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    json[r'id'] = this.id;
-    json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
     json[r'code'] = this.code;
     json[r'quantity'] = this.quantity;
     json[r'price'] = this.price;
-    json[r'total_price'] = this.totalPrice;
     return json;
   }
 
-  /// Returns a new [GEOrderCreatedSchema] instance and imports its values from
+  /// Returns a new [GEBuyOrderCreationSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GEOrderCreatedSchema? fromJson(dynamic value) {
+  static GEBuyOrderCreationSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -95,33 +71,30 @@ class GEOrderCreatedSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "GEOrderCreatedSchema[$key]" is missing from JSON.');
+              'Required key "GEBuyOrderCreationSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "GEOrderCreatedSchema[$key]" has a null value in JSON.');
+              'Required key "GEBuyOrderCreationSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return GEOrderCreatedSchema(
-        id: mapValueOfType<String>(json, r'id')!,
-        createdAt: mapDateTime(json, r'created_at', r'')!,
+      return GEBuyOrderCreationSchema(
         code: mapValueOfType<String>(json, r'code')!,
         quantity: mapValueOfType<int>(json, r'quantity')!,
         price: mapValueOfType<int>(json, r'price')!,
-        totalPrice: mapValueOfType<int>(json, r'total_price')!,
       );
     }
     return null;
   }
 
-  static List<GEOrderCreatedSchema> listFromJson(
+  static List<GEBuyOrderCreationSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <GEOrderCreatedSchema>[];
+    final result = <GEBuyOrderCreationSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GEOrderCreatedSchema.fromJson(row);
+        final value = GEBuyOrderCreationSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -130,12 +103,12 @@ class GEOrderCreatedSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GEOrderCreatedSchema> mapFromJson(dynamic json) {
-    final map = <String, GEOrderCreatedSchema>{};
+  static Map<String, GEBuyOrderCreationSchema> mapFromJson(dynamic json) {
+    final map = <String, GEBuyOrderCreationSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GEOrderCreatedSchema.fromJson(entry.value);
+        final value = GEBuyOrderCreationSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -144,17 +117,17 @@ class GEOrderCreatedSchema {
     return map;
   }
 
-  // maps a json object with a list of GEOrderCreatedSchema-objects as value to a dart map
-  static Map<String, List<GEOrderCreatedSchema>> mapListFromJson(
+  // maps a json object with a list of GEBuyOrderCreationSchema-objects as value to a dart map
+  static Map<String, List<GEBuyOrderCreationSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<GEOrderCreatedSchema>>{};
+    final map = <String, List<GEBuyOrderCreationSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GEOrderCreatedSchema.listFromJson(
+        map[entry.key] = GEBuyOrderCreationSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -165,11 +138,8 @@ class GEOrderCreatedSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'id',
-    'created_at',
     'code',
     'quantity',
     'price',
-    'total_price',
   };
 }
