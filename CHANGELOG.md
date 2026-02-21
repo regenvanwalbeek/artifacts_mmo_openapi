@@ -1,3 +1,7 @@
+## 7.0.0
+
+- Season 7 Generation
+
 ## 6.1.0
 
 - Fix bug with simulator
