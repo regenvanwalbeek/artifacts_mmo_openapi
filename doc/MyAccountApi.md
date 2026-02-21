@@ -13,8 +13,9 @@ Method | HTTP request | Description
 [**getAccountDetailsMyDetailsGet**](MyAccountApi.md#getaccountdetailsmydetailsget) | **GET** /my/details | Get Account Details
 [**getBankDetailsMyBankGet**](MyAccountApi.md#getbankdetailsmybankget) | **GET** /my/bank | Get Bank Details
 [**getBankItemsMyBankItemsGet**](MyAccountApi.md#getbankitemsmybankitemsget) | **GET** /my/bank/items | Get Bank Items
-[**getGeSellHistoryMyGrandexchangeHistoryGet**](MyAccountApi.md#getgesellhistorymygrandexchangehistoryget) | **GET** /my/grandexchange/history | Get Ge Sell History
-[**getGeSellOrdersMyGrandexchangeOrdersGet**](MyAccountApi.md#getgesellordersmygrandexchangeordersget) | **GET** /my/grandexchange/orders | Get Ge Sell Orders
+[**getGeHistoryMyGrandexchangeHistoryGet**](MyAccountApi.md#getgehistorymygrandexchangehistoryget) | **GET** /my/grandexchange/history | Get Ge History
+[**getGeOrdersMyGrandexchangeOrdersGet**](MyAccountApi.md#getgeordersmygrandexchangeordersget) | **GET** /my/grandexchange/orders | Get Ge Orders
+[**getPendingItemsMyPendingItemsGet**](MyAccountApi.md#getpendingitemsmypendingitemsget) | **GET** /my/pending-items | Get Pending Items
 
 
 # **changePasswordMyChangePasswordPost**
@@ -209,12 +210,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getGeSellHistoryMyGrandexchangeHistoryGet**
-> DataPageGeOrderHistorySchema getGeSellHistoryMyGrandexchangeHistoryGet(id, code, page, size)
+# **getGeHistoryMyGrandexchangeHistoryGet**
+> DataPageGeOrderHistorySchema getGeHistoryMyGrandexchangeHistoryGet(id, code, page, size)
 
-Get Ge Sell History
+Get Ge History
 
-Fetch your sales history of the last 7 days.
+Fetch your transaction history of the last 7 days (buy and sell orders).
 
 ### Example
 ```dart
@@ -233,10 +234,10 @@ final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getGeSellHistoryMyGrandexchangeHistoryGet(id, code, page, size);
+    final result = api_instance.getGeHistoryMyGrandexchangeHistoryGet(id, code, page, size);
     print(result);
 } catch (e) {
-    print('Exception when calling MyAccountApi->getGeSellHistoryMyGrandexchangeHistoryGet: $e\n');
+    print('Exception when calling MyAccountApi->getGeHistoryMyGrandexchangeHistoryGet: $e\n');
 }
 ```
 
@@ -264,12 +265,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getGeSellOrdersMyGrandexchangeOrdersGet**
-> DataPageGEOrderSchema getGeSellOrdersMyGrandexchangeOrdersGet(code, page, size)
+# **getGeOrdersMyGrandexchangeOrdersGet**
+> DataPageGEOrderSchema getGeOrdersMyGrandexchangeOrdersGet(code, type, page, size)
 
-Get Ge Sell Orders
+Get Ge Orders
 
-Fetch your sell orders details.
+Fetch your orders details (sell and buy orders).
 
 ### Example
 ```dart
@@ -283,14 +284,15 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyAccountApi();
 final code = code_example; // String | The code of the item.
+final type = ; // GEOrderType | Filter by order type (sell or buy).
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getGeSellOrdersMyGrandexchangeOrdersGet(code, page, size);
+    final result = api_instance.getGeOrdersMyGrandexchangeOrdersGet(code, type, page, size);
     print(result);
 } catch (e) {
-    print('Exception when calling MyAccountApi->getGeSellOrdersMyGrandexchangeOrdersGet: $e\n');
+    print('Exception when calling MyAccountApi->getGeOrdersMyGrandexchangeOrdersGet: $e\n');
 }
 ```
 
@@ -299,12 +301,64 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **String**| The code of the item. | [optional] 
+ **type** | [**GEOrderType**](.md)| Filter by order type (sell or buy). | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
 [**DataPageGEOrderSchema**](DataPageGEOrderSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getPendingItemsMyPendingItemsGet**
+> DataPagePendingItemSchema getPendingItemsMyPendingItemsGet(page, size)
+
+Get Pending Items
+
+Retrieve all unclaimed pending items for your account.  These are items from various sources (achievements, grand exchange, events, etc.) that can be claimed by any character on your account using /my/{name}/action/claim/{id}.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyAccountApi();
+final page = 56; // int | Page number
+final size = 56; // int | Page size
+
+try {
+    final result = api_instance.getPendingItemsMyPendingItemsGet(page, size);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyAccountApi->getPendingItemsMyPendingItemsGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
+
+### Return type
+
+[**DataPagePendingItemSchema**](DataPagePendingItemSchema.md)
 
 ### Authorization
 

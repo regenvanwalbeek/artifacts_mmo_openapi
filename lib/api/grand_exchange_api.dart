@@ -16,9 +16,9 @@ class GrandExchangeApi {
 
   final ApiClient apiClient;
 
-  /// Get Ge Sell History
+  /// Get Ge History
   ///
-  /// Fetch the sales history of the item for the last 7 days.
+  /// Fetch the transaction history of the item for the last 7 days (buy and sell orders).
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -27,21 +27,17 @@ class GrandExchangeApi {
   /// * [String] code (required):
   ///   The code of the item.
   ///
-  /// * [String] seller:
-  ///   The seller (account name) of the item.
-  ///
-  /// * [String] buyer:
-  ///   The buyer (account name) of the item.
+  /// * [String] account:
+  ///   Account involved in the transaction (matches either seller or buyer).
   ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
+  Future<Response> getGeHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
     String code, {
-    String? seller,
-    String? buyer,
+    String? account,
     int? page,
     int? size,
   }) async {
@@ -55,11 +51,8 @@ class GrandExchangeApi {
     final headerParams = <String, String>{};
     final formParams = <String, String>{};
 
-    if (seller != null) {
-      queryParams.addAll(_queryParams('', 'seller', seller));
-    }
-    if (buyer != null) {
-      queryParams.addAll(_queryParams('', 'buyer', buyer));
+    if (account != null) {
+      queryParams.addAll(_queryParams('', 'account', account));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -81,39 +74,32 @@ class GrandExchangeApi {
     );
   }
 
-  /// Get Ge Sell History
+  /// Get Ge History
   ///
-  /// Fetch the sales history of the item for the last 7 days.
+  /// Fetch the transaction history of the item for the last 7 days (buy and sell orders).
   ///
   /// Parameters:
   ///
   /// * [String] code (required):
   ///   The code of the item.
   ///
-  /// * [String] seller:
-  ///   The seller (account name) of the item.
-  ///
-  /// * [String] buyer:
-  ///   The buyer (account name) of the item.
+  /// * [String] account:
+  ///   Account involved in the transaction (matches either seller or buyer).
   ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?>
-      getGeSellHistoryGrandexchangeHistoryCodeGet(
+  Future<DataPageGeOrderHistorySchema?> getGeHistoryGrandexchangeHistoryCodeGet(
     String code, {
-    String? seller,
-    String? buyer,
+    String? account,
     int? page,
     int? size,
   }) async {
-    final response =
-        await getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
+    final response = await getGeHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
       code,
-      seller: seller,
-      buyer: buyer,
+      account: account,
       page: page,
       size: size,
     );
@@ -133,9 +119,9 @@ class GrandExchangeApi {
     return null;
   }
 
-  /// Get Ge Sell Order
+  /// Get Ge Order
   ///
-  /// Retrieve the sell order of a item.
+  /// Retrieve a specific order by ID.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -143,7 +129,7 @@ class GrandExchangeApi {
   ///
   /// * [String] id (required):
   ///   The id of the order.
-  Future<Response> getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
+  Future<Response> getGeOrderGrandexchangeOrdersIdGetWithHttpInfo(
     String id,
   ) async {
     // ignore: prefer_const_declarations
@@ -169,18 +155,18 @@ class GrandExchangeApi {
     );
   }
 
-  /// Get Ge Sell Order
+  /// Get Ge Order
   ///
-  /// Retrieve the sell order of a item.
+  /// Retrieve a specific order by ID.
   ///
   /// Parameters:
   ///
   /// * [String] id (required):
   ///   The id of the order.
-  Future<GEOrderResponseSchema?> getGeSellOrderGrandexchangeOrdersIdGet(
+  Future<GEOrderResponseSchema?> getGeOrderGrandexchangeOrdersIdGet(
     String id,
   ) async {
-    final response = await getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
+    final response = await getGeOrderGrandexchangeOrdersIdGetWithHttpInfo(
       id,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -199,9 +185,9 @@ class GrandExchangeApi {
     return null;
   }
 
-  /// Get Ge Sell Orders
+  /// Get Ge Orders
   ///
-  /// Fetch all sell orders.
+  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -210,17 +196,21 @@ class GrandExchangeApi {
   /// * [String] code:
   ///   The code of the item.
   ///
-  /// * [String] seller:
-  ///   The seller (account name) of the item.
+  /// * [String] account:
+  ///   The account that sells or buys items.
+  ///
+  /// * [GEOrderType] type:
+  ///   Filter by order type (sell or buy).
   ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo({
+  Future<Response> getGeOrdersGrandexchangeOrdersGetWithHttpInfo({
     String? code,
-    String? seller,
+    String? account,
+    GEOrderType? type,
     int? page,
     int? size,
   }) async {
@@ -237,8 +227,11 @@ class GrandExchangeApi {
     if (code != null) {
       queryParams.addAll(_queryParams('', 'code', code));
     }
-    if (seller != null) {
-      queryParams.addAll(_queryParams('', 'seller', seller));
+    if (account != null) {
+      queryParams.addAll(_queryParams('', 'account', account));
+    }
+    if (type != null) {
+      queryParams.addAll(_queryParams('', 'type', type));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -260,32 +253,37 @@ class GrandExchangeApi {
     );
   }
 
-  /// Get Ge Sell Orders
+  /// Get Ge Orders
   ///
-  /// Fetch all sell orders.
+  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
   ///
   /// Parameters:
   ///
   /// * [String] code:
   ///   The code of the item.
   ///
-  /// * [String] seller:
-  ///   The seller (account name) of the item.
+  /// * [String] account:
+  ///   The account that sells or buys items.
+  ///
+  /// * [GEOrderType] type:
+  ///   Filter by order type (sell or buy).
   ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGEOrderSchema?> getGeSellOrdersGrandexchangeOrdersGet({
+  Future<DataPageGEOrderSchema?> getGeOrdersGrandexchangeOrdersGet({
     String? code,
-    String? seller,
+    String? account,
+    GEOrderType? type,
     int? page,
     int? size,
   }) async {
-    final response = await getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo(
+    final response = await getGeOrdersGrandexchangeOrdersGetWithHttpInfo(
       code: code,
-      seller: seller,
+      account: account,
+      type: type,
       page: page,
       size: size,
     );

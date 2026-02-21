@@ -29,6 +29,8 @@ class ActionType {
   static const gathering = ActionType._(r'gathering');
   static const buyGe = ActionType._(r'buy_ge');
   static const sellGe = ActionType._(r'sell_ge');
+  static const createBuyOrderGe = ActionType._(r'create_buy_order_ge');
+  static const fillBuyOrderGe = ActionType._(r'fill_buy_order_ge');
   static const buyNpc = ActionType._(r'buy_npc');
   static const sellNpc = ActionType._(r'sell_npc');
   static const cancelGe = ActionType._(r'cancel_ge');
@@ -49,6 +51,7 @@ class ActionType {
   static const changeSkin = ActionType._(r'change_skin');
   static const rename = ActionType._(r'rename');
   static const transition = ActionType._(r'transition');
+  static const claimItem = ActionType._(r'claim_item');
 
   /// List of all possible values in this [enum][ActionType].
   static const values = <ActionType>[
@@ -59,6 +62,8 @@ class ActionType {
     gathering,
     buyGe,
     sellGe,
+    createBuyOrderGe,
+    fillBuyOrderGe,
     buyNpc,
     sellNpc,
     cancelGe,
@@ -79,6 +84,7 @@ class ActionType {
     changeSkin,
     rename,
     transition,
+    claimItem,
   ];
 
   static ActionType? fromJson(dynamic value) =>
@@ -136,6 +142,10 @@ class ActionTypeTypeTransformer {
           return ActionType.buyGe;
         case r'sell_ge':
           return ActionType.sellGe;
+        case r'create_buy_order_ge':
+          return ActionType.createBuyOrderGe;
+        case r'fill_buy_order_ge':
+          return ActionType.fillBuyOrderGe;
         case r'buy_npc':
           return ActionType.buyNpc;
         case r'sell_npc':
@@ -176,6 +186,8 @@ class ActionTypeTypeTransformer {
           return ActionType.rename;
         case r'transition':
           return ActionType.transition;
+        case r'claim_item':
+          return ActionType.claimItem;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

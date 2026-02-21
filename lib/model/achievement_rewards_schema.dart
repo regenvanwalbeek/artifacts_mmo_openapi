@@ -13,28 +13,35 @@ part of openapi_generation;
 class AchievementRewardsSchema {
   /// Returns a new [AchievementRewardsSchema] instance.
   AchievementRewardsSchema({
-    required this.gold,
+    this.gold = 0,
+    this.items = const [],
   });
 
   /// Gold rewards.
   int gold;
 
+  /// Item rewards.
+  List<RewardItemSchema> items;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AchievementRewardsSchema && other.gold == gold;
+      other is AchievementRewardsSchema &&
+          other.gold == gold &&
+          _deepEquality.equals(other.items, items);
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (gold.hashCode);
+      (gold.hashCode) + (items.hashCode);
 
   @override
-  String toString() => 'AchievementRewardsSchema[gold=$gold]';
+  String toString() => 'AchievementRewardsSchema[gold=$gold, items=$items]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'gold'] = this.gold;
+    json[r'items'] = this.items;
     return json;
   }
 
@@ -59,7 +66,8 @@ class AchievementRewardsSchema {
       }());
 
       return AchievementRewardsSchema(
-        gold: mapValueOfType<int>(json, r'gold')!,
+        gold: mapValueOfType<int>(json, r'gold') ?? 0,
+        items: RewardItemSchema.listFromJson(json[r'items']),
       );
     }
     return null;
@@ -115,7 +123,5 @@ class AchievementRewardsSchema {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{
-    'gold',
-  };
+  static const requiredKeys = <String>{};
 }

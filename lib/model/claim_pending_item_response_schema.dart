@@ -10,30 +10,38 @@
 
 part of openapi_generation;
 
-class ValidationErrorLocInner {
-  /// Returns a new [ValidationErrorLocInner] instance.
-  ValidationErrorLocInner();
+class ClaimPendingItemResponseSchema {
+  /// Returns a new [ClaimPendingItemResponseSchema] instance.
+  ClaimPendingItemResponseSchema({
+    required this.data,
+  });
+
+  /// Response data containing cooldown, item, and character.
+  ClaimPendingItemDataSchema data;
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ValidationErrorLocInner;
+      identical(this, other) ||
+      other is ClaimPendingItemResponseSchema && other.data == data;
 
   @override
-  int get hashCode => 1;
-  // ignore: unnecessary_parenthesis
+  int get hashCode =>
+      // ignore: unnecessary_parenthesis
+      (data.hashCode);
 
   @override
-  String toString() => 'ValidationErrorLocInner[]';
+  String toString() => 'ClaimPendingItemResponseSchema[data=$data]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+    json[r'data'] = this.data;
     return json;
   }
 
-  /// Returns a new [ValidationErrorLocInner] instance and imports its values from
+  /// Returns a new [ClaimPendingItemResponseSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ValidationErrorLocInner? fromJson(dynamic value) {
+  static ClaimPendingItemResponseSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -43,26 +51,28 @@ class ValidationErrorLocInner {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "ValidationErrorLocInner[$key]" is missing from JSON.');
+              'Required key "ClaimPendingItemResponseSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "ValidationErrorLocInner[$key]" has a null value in JSON.');
+              'Required key "ClaimPendingItemResponseSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return ValidationErrorLocInner();
+      return ClaimPendingItemResponseSchema(
+        data: ClaimPendingItemDataSchema.fromJson(json[r'data'])!,
+      );
     }
     return null;
   }
 
-  static List<ValidationErrorLocInner> listFromJson(
+  static List<ClaimPendingItemResponseSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ValidationErrorLocInner>[];
+    final result = <ClaimPendingItemResponseSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ValidationErrorLocInner.fromJson(row);
+        final value = ClaimPendingItemResponseSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -71,12 +81,12 @@ class ValidationErrorLocInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ValidationErrorLocInner> mapFromJson(dynamic json) {
-    final map = <String, ValidationErrorLocInner>{};
+  static Map<String, ClaimPendingItemResponseSchema> mapFromJson(dynamic json) {
+    final map = <String, ClaimPendingItemResponseSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ValidationErrorLocInner.fromJson(entry.value);
+        final value = ClaimPendingItemResponseSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -85,17 +95,17 @@ class ValidationErrorLocInner {
     return map;
   }
 
-  // maps a json object with a list of ValidationErrorLocInner-objects as value to a dart map
-  static Map<String, List<ValidationErrorLocInner>> mapListFromJson(
+  // maps a json object with a list of ClaimPendingItemResponseSchema-objects as value to a dart map
+  static Map<String, List<ClaimPendingItemResponseSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ValidationErrorLocInner>>{};
+    final map = <String, List<ClaimPendingItemResponseSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ValidationErrorLocInner.listFromJson(
+        map[entry.key] = ClaimPendingItemResponseSchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -105,5 +115,7 @@ class ValidationErrorLocInner {
   }
 
   /// The list of required keys that must be present in a JSON.
-  static const requiredKeys = <String>{};
+  static const requiredKeys = <String>{
+    'data',
+  };
 }

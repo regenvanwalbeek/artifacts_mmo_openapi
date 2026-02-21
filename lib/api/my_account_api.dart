@@ -274,9 +274,9 @@ class MyAccountApi {
     return null;
   }
 
-  /// Get Ge Sell History
+  /// Get Ge History
   ///
-  /// Fetch your sales history of the last 7 days.
+  /// Fetch your transaction history of the last 7 days (buy and sell orders).
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -293,7 +293,7 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo({
+  Future<Response> getGeHistoryMyGrandexchangeHistoryGetWithHttpInfo({
     String? id,
     String? code,
     int? page,
@@ -335,9 +335,9 @@ class MyAccountApi {
     );
   }
 
-  /// Get Ge Sell History
+  /// Get Ge History
   ///
-  /// Fetch your sales history of the last 7 days.
+  /// Fetch your transaction history of the last 7 days (buy and sell orders).
   ///
   /// Parameters:
   ///
@@ -352,15 +352,13 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?>
-      getGeSellHistoryMyGrandexchangeHistoryGet({
+  Future<DataPageGeOrderHistorySchema?> getGeHistoryMyGrandexchangeHistoryGet({
     String? id,
     String? code,
     int? page,
     int? size,
   }) async {
-    final response =
-        await getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo(
+    final response = await getGeHistoryMyGrandexchangeHistoryGetWithHttpInfo(
       id: id,
       code: code,
       page: page,
@@ -382,9 +380,9 @@ class MyAccountApi {
     return null;
   }
 
-  /// Get Ge Sell Orders
+  /// Get Ge Orders
   ///
-  /// Fetch your sell orders details.
+  /// Fetch your orders details (sell and buy orders).
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -393,13 +391,17 @@ class MyAccountApi {
   /// * [String] code:
   ///   The code of the item.
   ///
+  /// * [GEOrderType] type:
+  ///   Filter by order type (sell or buy).
+  ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<Response> getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo({
+  Future<Response> getGeOrdersMyGrandexchangeOrdersGetWithHttpInfo({
     String? code,
+    GEOrderType? type,
     int? page,
     int? size,
   }) async {
@@ -415,6 +417,9 @@ class MyAccountApi {
 
     if (code != null) {
       queryParams.addAll(_queryParams('', 'code', code));
+    }
+    if (type != null) {
+      queryParams.addAll(_queryParams('', 'type', type));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -436,27 +441,32 @@ class MyAccountApi {
     );
   }
 
-  /// Get Ge Sell Orders
+  /// Get Ge Orders
   ///
-  /// Fetch your sell orders details.
+  /// Fetch your orders details (sell and buy orders).
   ///
   /// Parameters:
   ///
   /// * [String] code:
   ///   The code of the item.
   ///
+  /// * [GEOrderType] type:
+  ///   Filter by order type (sell or buy).
+  ///
   /// * [int] page:
   ///   Page number
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGEOrderSchema?> getGeSellOrdersMyGrandexchangeOrdersGet({
+  Future<DataPageGEOrderSchema?> getGeOrdersMyGrandexchangeOrdersGet({
     String? code,
+    GEOrderType? type,
     int? page,
     int? size,
   }) async {
-    final response = await getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo(
+    final response = await getGeOrdersMyGrandexchangeOrdersGetWithHttpInfo(
       code: code,
+      type: type,
       page: page,
       size: size,
     );
@@ -472,6 +482,88 @@ class MyAccountApi {
         await _decodeBodyBytes(response),
         'DataPageGEOrderSchema',
       ) as DataPageGEOrderSchema;
+    }
+    return null;
+  }
+
+  /// Get Pending Items
+  ///
+  /// Retrieve all unclaimed pending items for your account.  These are items from various sources (achievements, grand exchange, events, etc.) that can be claimed by any character on your account using /my/{name}/action/claim/{id}.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<Response> getPendingItemsMyPendingItemsGetWithHttpInfo({
+    int? page,
+    int? size,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/pending-items';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (page != null) {
+      queryParams.addAll(_queryParams('', 'page', page));
+    }
+    if (size != null) {
+      queryParams.addAll(_queryParams('', 'size', size));
+    }
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get Pending Items
+  ///
+  /// Retrieve all unclaimed pending items for your account.  These are items from various sources (achievements, grand exchange, events, etc.) that can be claimed by any character on your account using /my/{name}/action/claim/{id}.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] page:
+  ///   Page number
+  ///
+  /// * [int] size:
+  ///   Page size
+  Future<DataPagePendingItemSchema?> getPendingItemsMyPendingItemsGet({
+    int? page,
+    int? size,
+  }) async {
+    final response = await getPendingItemsMyPendingItemsGetWithHttpInfo(
+      page: page,
+      size: size,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'DataPagePendingItemSchema',
+      ) as DataPagePendingItemSchema;
     }
     return null;
   }

@@ -17,11 +17,8 @@ class AccountAchievementSchema {
     required this.code,
     required this.description,
     required this.points,
-    required this.type,
-    this.target,
-    required this.total,
+    this.objectives = const [],
     required this.rewards,
-    required this.current,
     this.completedAt,
   });
 
@@ -37,28 +34,13 @@ class AccountAchievementSchema {
   /// Points of the achievement. Used for the leaderboard.
   int points;
 
-  /// Type of achievement.
-  AchievementType type;
-
-  /// Target of the achievement.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? target;
-
-  /// Total to do.
-  int total;
+  /// List of objectives with progress.
+  List<AccountAchievementObjectiveSchema> objectives;
 
   /// Rewards.
   AchievementRewardsSchema rewards;
 
-  /// Current progress.
-  int current;
-
-  /// Completed at.
+  /// Completion timestamp.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -75,11 +57,8 @@ class AccountAchievementSchema {
           other.code == code &&
           other.description == description &&
           other.points == points &&
-          other.type == type &&
-          other.target == target &&
-          other.total == total &&
+          _deepEquality.equals(other.objectives, objectives) &&
           other.rewards == rewards &&
-          other.current == current &&
           other.completedAt == completedAt;
 
   @override
@@ -89,16 +68,13 @@ class AccountAchievementSchema {
       (code.hashCode) +
       (description.hashCode) +
       (points.hashCode) +
-      (type.hashCode) +
-      (target == null ? 0 : target!.hashCode) +
-      (total.hashCode) +
+      (objectives.hashCode) +
       (rewards.hashCode) +
-      (current.hashCode) +
       (completedAt == null ? 0 : completedAt!.hashCode);
 
   @override
   String toString() =>
-      'AccountAchievementSchema[name=$name, code=$code, description=$description, points=$points, type=$type, target=$target, total=$total, rewards=$rewards, current=$current, completedAt=$completedAt]';
+      'AccountAchievementSchema[name=$name, code=$code, description=$description, points=$points, objectives=$objectives, rewards=$rewards, completedAt=$completedAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -106,15 +82,8 @@ class AccountAchievementSchema {
     json[r'code'] = this.code;
     json[r'description'] = this.description;
     json[r'points'] = this.points;
-    json[r'type'] = this.type;
-    if (this.target != null) {
-      json[r'target'] = this.target;
-    } else {
-      json[r'target'] = null;
-    }
-    json[r'total'] = this.total;
+    json[r'objectives'] = this.objectives;
     json[r'rewards'] = this.rewards;
-    json[r'current'] = this.current;
     if (this.completedAt != null) {
       json[r'completed_at'] = this.completedAt!.toUtc().toIso8601String();
     } else {
@@ -148,11 +117,9 @@ class AccountAchievementSchema {
         code: mapValueOfType<String>(json, r'code')!,
         description: mapValueOfType<String>(json, r'description')!,
         points: mapValueOfType<int>(json, r'points')!,
-        type: AchievementType.fromJson(json[r'type'])!,
-        target: mapValueOfType<String>(json, r'target'),
-        total: mapValueOfType<int>(json, r'total')!,
+        objectives:
+            AccountAchievementObjectiveSchema.listFromJson(json[r'objectives']),
         rewards: AchievementRewardsSchema.fromJson(json[r'rewards'])!,
-        current: mapValueOfType<int>(json, r'current')!,
         completedAt: mapDateTime(json, r'completed_at', r''),
       );
     }
@@ -214,9 +181,7 @@ class AccountAchievementSchema {
     'code',
     'description',
     'points',
-    'type',
-    'total',
+    'objectives',
     'rewards',
-    'current',
   };
 }

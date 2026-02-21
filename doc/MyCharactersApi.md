@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**actionAcceptNewTaskMyNameActionTaskNewPost**](MyCharactersApi.md#actionacceptnewtaskmynameactiontasknewpost) | **POST** /my/{name}/action/task/new | Action Accept New Task
 [**actionBuyBankExpansionMyNameActionBankBuyExpansionPost**](MyCharactersApi.md#actionbuybankexpansionmynameactionbankbuyexpansionpost) | **POST** /my/{name}/action/bank/buy_expansion | Action Buy Bank Expansion
 [**actionChangeSkinMyNameActionChangeSkinPost**](MyCharactersApi.md#actionchangeskinmynameactionchangeskinpost) | **POST** /my/{name}/action/change_skin | Action Change Skin
+[**actionClaimPendingItemMyNameActionClaimItemIdPost**](MyCharactersApi.md#actionclaimpendingitemmynameactionclaimitemidpost) | **POST** /my/{name}/action/claim_item/{id} | Action Claim Pending Item
 [**actionCompleteTaskMyNameActionTaskCompletePost**](MyCharactersApi.md#actioncompletetaskmynameactiontaskcompletepost) | **POST** /my/{name}/action/task/complete | Action Complete Task
 [**actionCraftingMyNameActionCraftingPost**](MyCharactersApi.md#actioncraftingmynameactioncraftingpost) | **POST** /my/{name}/action/crafting | Action Crafting
 [**actionDeleteItemMyNameActionDeletePost**](MyCharactersApi.md#actiondeleteitemmynameactiondeletepost) | **POST** /my/{name}/action/delete | Action Delete Item
@@ -21,8 +22,10 @@ Method | HTTP request | Description
 [**actionFightMyNameActionFightPost**](MyCharactersApi.md#actionfightmynameactionfightpost) | **POST** /my/{name}/action/fight | Action Fight
 [**actionGatheringMyNameActionGatheringPost**](MyCharactersApi.md#actiongatheringmynameactiongatheringpost) | **POST** /my/{name}/action/gathering | Action Gathering
 [**actionGeBuyItemMyNameActionGrandexchangeBuyPost**](MyCharactersApi.md#actiongebuyitemmynameactiongrandexchangebuypost) | **POST** /my/{name}/action/grandexchange/buy | Action Ge Buy Item
-[**actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost**](MyCharactersApi.md#actiongecancelsellordermynameactiongrandexchangecancelpost) | **POST** /my/{name}/action/grandexchange/cancel | Action Ge Cancel Sell Order
-[**actionGeCreateSellOrderMyNameActionGrandexchangeSellPost**](MyCharactersApi.md#actiongecreatesellordermynameactiongrandexchangesellpost) | **POST** /my/{name}/action/grandexchange/sell | Action Ge Create Sell Order
+[**actionGeCancelOrderMyNameActionGrandexchangeCancelPost**](MyCharactersApi.md#actiongecancelordermynameactiongrandexchangecancelpost) | **POST** /my/{name}/action/grandexchange/cancel | Action Ge Cancel Order
+[**actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost**](MyCharactersApi.md#actiongecreatebuyordermynameactiongrandexchangecreatebuyorderpost) | **POST** /my/{name}/action/grandexchange/create-buy-order | Action Ge Create Buy Order
+[**actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost**](MyCharactersApi.md#actiongecreatesellordermynameactiongrandexchangecreatesellorderpost) | **POST** /my/{name}/action/grandexchange/create-sell-order | Action Ge Create Sell Order
+[**actionGeFillMyNameActionGrandexchangeFillPost**](MyCharactersApi.md#actiongefillmynameactiongrandexchangefillpost) | **POST** /my/{name}/action/grandexchange/fill | Action Ge Fill
 [**actionGiveGoldMyNameActionGiveGoldPost**](MyCharactersApi.md#actiongivegoldmynameactiongivegoldpost) | **POST** /my/{name}/action/give/gold | Action Give Gold
 [**actionGiveItemsMyNameActionGiveItemPost**](MyCharactersApi.md#actiongiveitemsmynameactiongiveitempost) | **POST** /my/{name}/action/give/item | Action Give Items
 [**actionMoveMyNameActionMovePost**](MyCharactersApi.md#actionmovemynameactionmovepost) | **POST** /my/{name}/action/move | Action Move
@@ -188,6 +191,57 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionClaimPendingItemMyNameActionClaimItemIdPost**
+> ClaimPendingItemResponseSchema actionClaimPendingItemMyNameActionClaimItemIdPost(name, id)
+
+Action Claim Pending Item
+
+Claim a pending item with a specific character.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final id = id_example; // String | The ID of the pending item to claim.
+
+try {
+    final result = api_instance.actionClaimPendingItemMyNameActionClaimItemIdPost(name, id);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionClaimPendingItemMyNameActionClaimItemIdPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **id** | **String**| The ID of the pending item to claim. | 
+
+### Return type
+
+[**ClaimPendingItemResponseSchema**](ClaimPendingItemResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -647,12 +701,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost**
-> GETransactionResponseSchema actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(name, gECancelOrderSchema)
+# **actionGeCancelOrderMyNameActionGrandexchangeCancelPost**
+> GETransactionResponseSchema actionGeCancelOrderMyNameActionGrandexchangeCancelPost(name, gECancelOrderSchema)
 
-Action Ge Cancel Sell Order
+Action Ge Cancel Order
 
-Cancel a sell order at the Grand Exchange on the character's map.
+Cancel an order (sell or buy) at the Grand Exchange on the character's map.  For sell orders: Items are returned to your inventory. For buy orders: Gold is refunded to your character.
 
 ### Example
 ```dart
@@ -669,10 +723,10 @@ final name = name_example; // String | Name of your character.
 final gECancelOrderSchema = GECancelOrderSchema(); // GECancelOrderSchema | 
 
 try {
-    final result = api_instance.actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost(name, gECancelOrderSchema);
+    final result = api_instance.actionGeCancelOrderMyNameActionGrandexchangeCancelPost(name, gECancelOrderSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling MyCharactersApi->actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost: $e\n');
+    print('Exception when calling MyCharactersApi->actionGeCancelOrderMyNameActionGrandexchangeCancelPost: $e\n');
 }
 ```
 
@@ -698,12 +752,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **actionGeCreateSellOrderMyNameActionGrandexchangeSellPost**
-> GECreateOrderTransactionResponseSchema actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(name, gEOrderCreationrSchema)
+# **actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost**
+> GECreateOrderTransactionResponseSchema actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost(name, gEBuyOrderCreationSchema)
+
+Action Ge Create Buy Order
+
+Create a buy order at the Grand Exchange on the character's map.  The total gold (price * quantity) is locked when creating the order. Other players can then sell items to fulfill your order. Items will be delivered to your pending items when the order is filled.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final gEBuyOrderCreationSchema = GEBuyOrderCreationSchema(); // GEBuyOrderCreationSchema | 
+
+try {
+    final result = api_instance.actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost(name, gEBuyOrderCreationSchema);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **gEBuyOrderCreationSchema** | [**GEBuyOrderCreationSchema**](GEBuyOrderCreationSchema.md)|  | 
+
+### Return type
+
+[**GECreateOrderTransactionResponseSchema**](GECreateOrderTransactionResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost**
+> GECreateOrderTransactionResponseSchema actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(name, gEOrderCreationrSchema)
 
 Action Ge Create Sell Order
 
-Create a sell order at the Grand Exchange on the character's map.  Please note there is a 3% listing tax, charged at the time of posting, on the total price.
+Create a sell order at the Grand Exchange on the character's map.
 
 ### Example
 ```dart
@@ -720,10 +825,10 @@ final name = name_example; // String | Name of your character.
 final gEOrderCreationrSchema = GEOrderCreationrSchema(); // GEOrderCreationrSchema | 
 
 try {
-    final result = api_instance.actionGeCreateSellOrderMyNameActionGrandexchangeSellPost(name, gEOrderCreationrSchema);
+    final result = api_instance.actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(name, gEOrderCreationrSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling MyCharactersApi->actionGeCreateSellOrderMyNameActionGrandexchangeSellPost: $e\n');
+    print('Exception when calling MyCharactersApi->actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost: $e\n');
 }
 ```
 
@@ -737,6 +842,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GECreateOrderTransactionResponseSchema**](GECreateOrderTransactionResponseSchema.md)
+
+### Authorization
+
+[JWTBearer](../README.md#JWTBearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **actionGeFillMyNameActionGrandexchangeFillPost**
+> GETransactionResponseSchema actionGeFillMyNameActionGrandexchangeFillPost(name, gEFillBuyOrderSchema)
+
+Action Ge Fill
+
+Sell items to an existing buy order at the Grand Exchange on the character's map.  You will receive the gold immediately. The buyer will receive the items in their pending items.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+// TODO Configure HTTP Bearer authorization: JWTBearer
+// Case 1. Use String Token
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
+// Case 2. Use Function which generate token.
+// String yourTokenGeneratorFunction() { ... }
+//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
+
+final api_instance = MyCharactersApi();
+final name = name_example; // String | Name of your character.
+final gEFillBuyOrderSchema = GEFillBuyOrderSchema(); // GEFillBuyOrderSchema | 
+
+try {
+    final result = api_instance.actionGeFillMyNameActionGrandexchangeFillPost(name, gEFillBuyOrderSchema);
+    print(result);
+} catch (e) {
+    print('Exception when calling MyCharactersApi->actionGeFillMyNameActionGrandexchangeFillPost: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| Name of your character. | 
+ **gEFillBuyOrderSchema** | [**GEFillBuyOrderSchema**](GEFillBuyOrderSchema.md)|  | 
+
+### Return type
+
+[**GETransactionResponseSchema**](GETransactionResponseSchema.md)
 
 ### Authorization
 

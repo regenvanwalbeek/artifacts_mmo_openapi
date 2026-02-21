@@ -14,7 +14,8 @@ class GEOrderSchema {
   /// Returns a new [GEOrderSchema] instance.
   GEOrderSchema({
     required this.id,
-    required this.seller,
+    this.type,
+    this.account,
     required this.code,
     required this.quantity,
     required this.price,
@@ -24,8 +25,23 @@ class GEOrderSchema {
   /// Order id.
   String id;
 
-  /// Seller account name.
-  String seller;
+  /// Order type (sell or buy).
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  GEOrderType? type;
+
+  /// Account linked to the order.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? account;
 
   /// Item code.
   String code;
@@ -49,7 +65,8 @@ class GEOrderSchema {
       identical(this, other) ||
       other is GEOrderSchema &&
           other.id == id &&
-          other.seller == seller &&
+          other.type == type &&
+          other.account == account &&
           other.code == code &&
           other.quantity == quantity &&
           other.price == price &&
@@ -59,7 +76,8 @@ class GEOrderSchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (id.hashCode) +
-      (seller.hashCode) +
+      (type == null ? 0 : type!.hashCode) +
+      (account == null ? 0 : account!.hashCode) +
       (code.hashCode) +
       (quantity.hashCode) +
       (price.hashCode) +
@@ -67,12 +85,21 @@ class GEOrderSchema {
 
   @override
   String toString() =>
-      'GEOrderSchema[id=$id, seller=$seller, code=$code, quantity=$quantity, price=$price, createdAt=$createdAt]';
+      'GEOrderSchema[id=$id, type=$type, account=$account, code=$code, quantity=$quantity, price=$price, createdAt=$createdAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'id'] = this.id;
-    json[r'seller'] = this.seller;
+    if (this.type != null) {
+      json[r'type'] = this.type;
+    } else {
+      json[r'type'] = null;
+    }
+    if (this.account != null) {
+      json[r'account'] = this.account;
+    } else {
+      json[r'account'] = null;
+    }
     json[r'code'] = this.code;
     json[r'quantity'] = this.quantity;
     json[r'price'] = this.price;
@@ -102,7 +129,8 @@ class GEOrderSchema {
 
       return GEOrderSchema(
         id: mapValueOfType<String>(json, r'id')!,
-        seller: mapValueOfType<String>(json, r'seller')!,
+        type: GEOrderType.fromJson(json[r'type']),
+        account: mapValueOfType<String>(json, r'account'),
         code: mapValueOfType<String>(json, r'code')!,
         quantity: mapValueOfType<int>(json, r'quantity')!,
         price: mapValueOfType<int>(json, r'price')!,
@@ -164,7 +192,6 @@ class GEOrderSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'id',
-    'seller',
     'code',
     'quantity',
     'price',

@@ -98,6 +98,9 @@ String parameterToString(dynamic value) {
   if (value is FightResult) {
     return FightResultTypeTransformer().encode(value).toString();
   }
+  if (value is GEOrderType) {
+    return GEOrderTypeTypeTransformer().encode(value).toString();
+  }
   if (value is GatheringSkill) {
     return GatheringSkillTypeTransformer().encode(value).toString();
   }
@@ -124,6 +127,9 @@ String parameterToString(dynamic value) {
   }
   if (value is NPCType) {
     return NPCTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is PendingItemSource) {
+    return PendingItemSourceTypeTransformer().encode(value).toString();
   }
   if (value is Skill) {
     return SkillTypeTransformer().encode(value).toString();

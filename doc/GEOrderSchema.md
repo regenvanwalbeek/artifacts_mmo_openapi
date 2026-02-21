@@ -9,7 +9,8 @@ import 'package:artifacts_mmo_openapi/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | Order id. | 
-**seller** | **String** | Seller account name. | 
+**type** | [**GEOrderType**](GEOrderType.md) | Order type (sell or buy). | [optional] 
+**account** | **String** | Account linked to the order. | [optional] 
 **code** | **String** | Item code. | 
 **quantity** | **int** | Item quantity. | 
 **price** | **int** | Item price per unit. | 
