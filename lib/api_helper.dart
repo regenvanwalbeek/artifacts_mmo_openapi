@@ -137,9 +137,6 @@ String parameterToString(dynamic value) {
   if (value is TaskType) {
     return TaskTypeTypeTransformer().encode(value).toString();
   }
-  if (value is XPType) {
-    return XPTypeTypeTransformer().encode(value).toString();
-  }
   return value.toString();
 }
 

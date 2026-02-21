@@ -17,7 +17,7 @@ class ClaimPendingItemResponseSchema {
   });
 
   /// Response data containing cooldown, item, and character.
-  Object data;
+  ClaimPendingItemDataSchema data;
 
   @override
   bool operator ==(Object other) =>
@@ -59,7 +59,7 @@ class ClaimPendingItemResponseSchema {
       }());
 
       return ClaimPendingItemResponseSchema(
-        data: mapValueOfType<Object>(json, r'data')!,
+        data: ClaimPendingItemDataSchema.fromJson(json[r'data'])!,
       );
     }
     return null;

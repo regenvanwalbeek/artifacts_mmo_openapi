@@ -8,13 +8,13 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Pending item ID. | [optional] 
+**id** | **String** | Pending item ID. | 
 **account** | **String** | Account username. | 
 **source_** | [**PendingItemSource**](PendingItemSource.md) | Source of the pending item. | 
 **sourceId** | **String** | ID reference for the source (e.g., achievement code, order id). | [optional] 
 **description** | **String** | Description for display. | 
 **gold** | **int** | Gold amount. | [optional] [default to 0]
-**items** | **String** | Items in format 'item_code:quantity,item_code2:quantity2'. | [optional] 
+**items** | [**List<SimpleItemSchema>**](SimpleItemSchema.md) | List of items to be claimed. | [optional] [default to const []]
 **createdAt** | [**DateTime**](DateTime.md) | When the pending item was created. | 
 **claimedAt** | [**DateTime**](DateTime.md) | When the pending item was claimed. | [optional] 
 

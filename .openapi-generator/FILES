@@ -57,6 +57,7 @@ doc/CharacterTransitionDataSchema.md
 doc/CharacterTransitionResponseSchema.md
 doc/CharactersApi.md
 doc/CharactersListSchema.md
+doc/ClaimPendingItemDataSchema.md
 doc/ClaimPendingItemResponseSchema.md
 doc/CombatResultSchema.md
 doc/CombatSimulationDataSchema.md
@@ -193,11 +194,6 @@ doc/RewardDataSchema.md
 doc/RewardItemSchema.md
 doc/RewardResponseSchema.md
 doc/RewardsSchema.md
-doc/SandboxApi.md
-doc/SandboxGiveItemSchema.md
-doc/SandboxGiveXpSchema.md
-doc/SandboxResponseSchema.md
-doc/SandboxSchema.md
 doc/SeasonBadgeSchema.md
 doc/SeasonSchema.md
 doc/SeasonSkinSchema.md
@@ -233,7 +229,6 @@ doc/UseItemResponseSchema.md
 doc/UseItemSchema.md
 doc/ValidationError.md
 doc/ValidationErrorLocInner.md
-doc/XPType.md
 git_push.sh
 lib/api.dart
 lib/api/accounts_api.dart
@@ -251,7 +246,6 @@ lib/api/my_account_api.dart
 lib/api/my_characters_api.dart
 lib/api/npcs_api.dart
 lib/api/resources_api.dart
-lib/api/sandbox_api.dart
 lib/api/server_details_api.dart
 lib/api/simulation_api.dart
 lib/api/tasks_api.dart
@@ -315,6 +309,7 @@ lib/model/character_skin.dart
 lib/model/character_transition_data_schema.dart
 lib/model/character_transition_response_schema.dart
 lib/model/characters_list_schema.dart
+lib/model/claim_pending_item_data_schema.dart
 lib/model/claim_pending_item_response_schema.dart
 lib/model/combat_result_schema.dart
 lib/model/combat_simulation_data_schema.dart
@@ -440,10 +435,6 @@ lib/model/reward_data_schema.dart
 lib/model/reward_item_schema.dart
 lib/model/reward_response_schema.dart
 lib/model/rewards_schema.dart
-lib/model/sandbox_give_item_schema.dart
-lib/model/sandbox_give_xp_schema.dart
-lib/model/sandbox_response_schema.dart
-lib/model/sandbox_schema.dart
 lib/model/season_badge_schema.dart
 lib/model/season_schema.dart
 lib/model/season_skin_schema.dart
@@ -475,5 +466,4 @@ lib/model/use_item_response_schema.dart
 lib/model/use_item_schema.dart
 lib/model/validation_error.dart
 lib/model/validation_error_loc_inner.dart
-lib/model/xp_type.dart
 pubspec.yaml

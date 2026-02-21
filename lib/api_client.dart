@@ -331,6 +331,8 @@ class ApiClient {
           return CharacterTransitionResponseSchema.fromJson(value);
         case 'CharactersListSchema':
           return CharactersListSchema.fromJson(value);
+        case 'ClaimPendingItemDataSchema':
+          return ClaimPendingItemDataSchema.fromJson(value);
         case 'ClaimPendingItemResponseSchema':
           return ClaimPendingItemResponseSchema.fromJson(value);
         case 'CombatResultSchema':
@@ -581,14 +583,6 @@ class ApiClient {
           return RewardResponseSchema.fromJson(value);
         case 'RewardsSchema':
           return RewardsSchema.fromJson(value);
-        case 'SandboxGiveItemSchema':
-          return SandboxGiveItemSchema.fromJson(value);
-        case 'SandboxGiveXpSchema':
-          return SandboxGiveXpSchema.fromJson(value);
-        case 'SandboxResponseSchema':
-          return SandboxResponseSchema.fromJson(value);
-        case 'SandboxSchema':
-          return SandboxSchema.fromJson(value);
         case 'SeasonBadgeSchema':
           return SeasonBadgeSchema.fromJson(value);
         case 'SeasonSchema':
@@ -651,8 +645,6 @@ class ApiClient {
           return ValidationError.fromJson(value);
         case 'ValidationErrorLocInner':
           return ValidationErrorLocInner.fromJson(value);
-        case 'XPType':
-          return XPTypeTypeTransformer().decode(value);
         default:
           dynamic match;
           if (value is List &&

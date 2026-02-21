@@ -43,7 +43,6 @@ part 'api/my_account_api.dart';
 part 'api/my_characters_api.dart';
 part 'api/npcs_api.dart';
 part 'api/resources_api.dart';
-part 'api/sandbox_api.dart';
 part 'api/server_details_api.dart';
 part 'api/simulation_api.dart';
 part 'api/tasks_api.dart';
@@ -100,6 +99,7 @@ part 'model/character_skin.dart';
 part 'model/character_transition_data_schema.dart';
 part 'model/character_transition_response_schema.dart';
 part 'model/characters_list_schema.dart';
+part 'model/claim_pending_item_data_schema.dart';
 part 'model/claim_pending_item_response_schema.dart';
 part 'model/combat_result_schema.dart';
 part 'model/combat_simulation_data_schema.dart';
@@ -225,10 +225,6 @@ part 'model/reward_data_schema.dart';
 part 'model/reward_item_schema.dart';
 part 'model/reward_response_schema.dart';
 part 'model/rewards_schema.dart';
-part 'model/sandbox_give_item_schema.dart';
-part 'model/sandbox_give_xp_schema.dart';
-part 'model/sandbox_response_schema.dart';
-part 'model/sandbox_schema.dart';
 part 'model/season_badge_schema.dart';
 part 'model/season_schema.dart';
 part 'model/season_skin_schema.dart';
@@ -260,7 +256,6 @@ part 'model/use_item_response_schema.dart';
 part 'model/use_item_schema.dart';
 part 'model/validation_error.dart';
 part 'model/validation_error_loc_inner.dart';
-part 'model/xp_type.dart';
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.

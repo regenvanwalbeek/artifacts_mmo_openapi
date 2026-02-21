@@ -13,25 +13,19 @@ part of openapi_generation;
 class PendingItemSchema {
   /// Returns a new [PendingItemSchema] instance.
   PendingItemSchema({
-    this.id,
+    required this.id,
     required this.account,
     required this.source_,
     this.sourceId,
     required this.description,
     this.gold = 0,
-    this.items,
+    this.items = const [],
     required this.createdAt,
     this.claimedAt,
   });
 
   /// Pending item ID.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? id;
+  String id;
 
   /// Account username.
   String account;
@@ -54,14 +48,8 @@ class PendingItemSchema {
   /// Gold amount.
   int gold;
 
-  /// Items in format 'item_code:quantity,item_code2:quantity2'.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? items;
+  /// List of items to be claimed.
+  List<SimpleItemSchema> items;
 
   /// When the pending item was created.
   DateTime createdAt;
@@ -85,20 +73,20 @@ class PendingItemSchema {
           other.sourceId == sourceId &&
           other.description == description &&
           other.gold == gold &&
-          other.items == items &&
+          _deepEquality.equals(other.items, items) &&
           other.createdAt == createdAt &&
           other.claimedAt == claimedAt;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (id == null ? 0 : id!.hashCode) +
+      (id.hashCode) +
       (account.hashCode) +
       (source_.hashCode) +
       (sourceId == null ? 0 : sourceId!.hashCode) +
       (description.hashCode) +
       (gold.hashCode) +
-      (items == null ? 0 : items!.hashCode) +
+      (items.hashCode) +
       (createdAt.hashCode) +
       (claimedAt == null ? 0 : claimedAt!.hashCode);
 
@@ -108,11 +96,7 @@ class PendingItemSchema {
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-    if (this.id != null) {
-      json[r'id'] = this.id;
-    } else {
-      json[r'id'] = null;
-    }
+    json[r'id'] = this.id;
     json[r'account'] = this.account;
     json[r'source'] = this.source_;
     if (this.sourceId != null) {
@@ -122,11 +106,7 @@ class PendingItemSchema {
     }
     json[r'description'] = this.description;
     json[r'gold'] = this.gold;
-    if (this.items != null) {
-      json[r'items'] = this.items;
-    } else {
-      json[r'items'] = null;
-    }
+    json[r'items'] = this.items;
     json[r'created_at'] = this.createdAt.toUtc().toIso8601String();
     if (this.claimedAt != null) {
       json[r'claimed_at'] = this.claimedAt!.toUtc().toIso8601String();
@@ -157,13 +137,13 @@ class PendingItemSchema {
       }());
 
       return PendingItemSchema(
-        id: mapValueOfType<String>(json, r'id'),
+        id: mapValueOfType<String>(json, r'id')!,
         account: mapValueOfType<String>(json, r'account')!,
         source_: PendingItemSource.fromJson(json[r'source'])!,
         sourceId: mapValueOfType<String>(json, r'source_id'),
         description: mapValueOfType<String>(json, r'description')!,
         gold: mapValueOfType<int>(json, r'gold') ?? 0,
-        items: mapValueOfType<String>(json, r'items'),
+        items: SimpleItemSchema.listFromJson(json[r'items']),
         createdAt: mapDateTime(json, r'created_at', r'')!,
         claimedAt: mapDateTime(json, r'claimed_at', r''),
       );
@@ -222,6 +202,7 @@ class PendingItemSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'id',
     'account',
     'source',
     'description',
