@@ -87,9 +87,17 @@ class CombatResultSchema {
         logs: json[r'logs'] is Iterable
             ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        characterResults: listFromJson(json[r'character_results']),
+        characterResults: listObjectFromJson(json[r'character_results']!)!,
       );
     }
+    return null;
+  }
+
+  static List<Object>? listObjectFromJson(dynamic json) {
+    if (json is List) {
+      return json.nonNulls.map((e) => e).toList();
+    }
+
     return null;
   }
 
