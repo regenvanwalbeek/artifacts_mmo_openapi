@@ -311,7 +311,6 @@ lib/model/character_transition_response_schema.dart
 lib/model/characters_list_schema.dart
 lib/model/claim_pending_item_data_schema.dart
 lib/model/claim_pending_item_response_schema.dart
-lib/model/combat_result_schema.dart
 lib/model/combat_simulation_data_schema.dart
 lib/model/combat_simulation_request_schema.dart
 lib/model/combat_simulation_response_schema.dart
@@ -465,5 +464,4 @@ lib/model/unequip_schema.dart
 lib/model/use_item_response_schema.dart
 lib/model/use_item_schema.dart
 lib/model/validation_error.dart
-lib/model/validation_error_loc_inner.dart
 pubspec.yaml
