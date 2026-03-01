@@ -23,6 +23,7 @@ class LogType {
   String toJson() => value;
 
   static const spawn = LogType._(r'spawn');
+  static const deleteCharacter = LogType._(r'delete_character');
   static const movement = LogType._(r'movement');
   static const fight = LogType._(r'fight');
   static const multiFight = LogType._(r'multi_fight');
@@ -60,10 +61,15 @@ class LogType {
   static const rename = LogType._(r'rename');
   static const transition = LogType._(r'transition');
   static const claimItem = LogType._(r'claim_item');
+  static const sandboxGiveGold = LogType._(r'sandbox_give_gold');
+  static const sandboxGiveItem = LogType._(r'sandbox_give_item');
+  static const sandboxGiveXp = LogType._(r'sandbox_give_xp');
+  static const sandboxResetAccount = LogType._(r'sandbox_reset_account');
 
   /// List of all possible values in this [enum][LogType].
   static const values = <LogType>[
     spawn,
+    deleteCharacter,
     movement,
     fight,
     multiFight,
@@ -101,6 +107,10 @@ class LogType {
     rename,
     transition,
     claimItem,
+    sandboxGiveGold,
+    sandboxGiveItem,
+    sandboxGiveXp,
+    sandboxResetAccount,
   ];
 
   static LogType? fromJson(dynamic value) =>
@@ -146,6 +156,8 @@ class LogTypeTypeTransformer {
       switch (data) {
         case r'spawn':
           return LogType.spawn;
+        case r'delete_character':
+          return LogType.deleteCharacter;
         case r'movement':
           return LogType.movement;
         case r'fight':
@@ -220,6 +232,14 @@ class LogTypeTypeTransformer {
           return LogType.transition;
         case r'claim_item':
           return LogType.claimItem;
+        case r'sandbox_give_gold':
+          return LogType.sandboxGiveGold;
+        case r'sandbox_give_item':
+          return LogType.sandboxGiveItem;
+        case r'sandbox_give_xp':
+          return LogType.sandboxGiveXp;
+        case r'sandbox_reset_account':
+          return LogType.sandboxResetAccount;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

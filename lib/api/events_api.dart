@@ -73,7 +73,7 @@ class EventsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageActiveEventSchema?> getAllActiveEventsEventsActiveGet({
+  Future<StaticDataPageActiveEventSchema?> getAllActiveEventsEventsActiveGet({
     int? page,
     int? size,
   }) async {
@@ -91,8 +91,8 @@ class EventsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageActiveEventSchema',
-      ) as DataPageActiveEventSchema;
+        'StaticDataPageActiveEventSchema',
+      ) as StaticDataPageActiveEventSchema;
     }
     return null;
   }
@@ -165,7 +165,7 @@ class EventsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageEventSchema?> getAllEventsEventsGet({
+  Future<StaticDataPageEventSchema?> getAllEventsEventsGet({
     MapContentType? type,
     int? page,
     int? size,
@@ -185,15 +185,15 @@ class EventsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageEventSchema',
-      ) as DataPageEventSchema;
+        'StaticDataPageEventSchema',
+      ) as StaticDataPageEventSchema;
     }
     return null;
   }
 
   /// Spawn Event
   ///
-  /// Spawn a specific event by code consuming 1 event token.  Rules:   - Maximum active events defined by utils.config.max_active_events().   - Event must not already be active.   - Member or founder account required.
+  /// Spawn a specific event by consuming 1 event token. Member or founder account required.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -228,7 +228,7 @@ class EventsApi {
 
   /// Spawn Event
   ///
-  /// Spawn a specific event by code consuming 1 event token.  Rules:   - Maximum active events defined by utils.config.max_active_events().   - Event must not already be active.   - Member or founder account required.
+  /// Spawn a specific event by consuming 1 event token. Member or founder account required.
   ///
   /// Parameters:
   ///

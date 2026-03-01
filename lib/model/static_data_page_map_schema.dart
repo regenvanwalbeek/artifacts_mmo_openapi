@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageEventSchema {
-  /// Returns a new [DataPageEventSchema] instance.
-  DataPageEventSchema({
+class StaticDataPageMapSchema {
+  /// Returns a new [StaticDataPageMapSchema] instance.
+  StaticDataPageMapSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageEventSchema {
     this.pages,
   });
 
-  List<EventSchema> data;
+  List<MapSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageEventSchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageEventSchema &&
+      other is StaticDataPageMapSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageEventSchema {
 
   @override
   String toString() =>
-      'DataPageEventSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageMapSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageEventSchema {
     return json;
   }
 
-  /// Returns a new [DataPageEventSchema] instance and imports its values from
+  /// Returns a new [StaticDataPageMapSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageEventSchema? fromJson(dynamic value) {
+  static StaticDataPageMapSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageEventSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageEventSchema[$key]" is missing from JSON.');
+              'Required key "StaticDataPageMapSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageEventSchema[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageMapSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageEventSchema(
-        data: EventSchema.listFromJson(json[r'data']),
+      return StaticDataPageMapSchema(
+        data: MapSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageEventSchema {
     return null;
   }
 
-  static List<DataPageEventSchema> listFromJson(
+  static List<StaticDataPageMapSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageEventSchema>[];
+    final result = <StaticDataPageMapSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageEventSchema.fromJson(row);
+        final value = StaticDataPageMapSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,12 @@ class DataPageEventSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageEventSchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageEventSchema>{};
+  static Map<String, StaticDataPageMapSchema> mapFromJson(dynamic json) {
+    final map = <String, StaticDataPageMapSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageEventSchema.fromJson(entry.value);
+        final value = StaticDataPageMapSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +168,17 @@ class DataPageEventSchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageEventSchema-objects as value to a dart map
-  static Map<String, List<DataPageEventSchema>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageMapSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageMapSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageEventSchema>>{};
+    final map = <String, List<StaticDataPageMapSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageEventSchema.listFromJson(
+        map[entry.key] = StaticDataPageMapSchema.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageTaskFullSchema {
-  /// Returns a new [DataPageTaskFullSchema] instance.
-  DataPageTaskFullSchema({
+class StaticDataPageNPCSchema {
+  /// Returns a new [StaticDataPageNPCSchema] instance.
+  StaticDataPageNPCSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageTaskFullSchema {
     this.pages,
   });
 
-  List<TaskFullSchema> data;
+  List<NPCSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageTaskFullSchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageTaskFullSchema &&
+      other is StaticDataPageNPCSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageTaskFullSchema {
 
   @override
   String toString() =>
-      'DataPageTaskFullSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageNPCSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageTaskFullSchema {
     return json;
   }
 
-  /// Returns a new [DataPageTaskFullSchema] instance and imports its values from
+  /// Returns a new [StaticDataPageNPCSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageTaskFullSchema? fromJson(dynamic value) {
+  static StaticDataPageNPCSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageTaskFullSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageTaskFullSchema[$key]" is missing from JSON.');
+              'Required key "StaticDataPageNPCSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageTaskFullSchema[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageNPCSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageTaskFullSchema(
-        data: TaskFullSchema.listFromJson(json[r'data']),
+      return StaticDataPageNPCSchema(
+        data: NPCSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageTaskFullSchema {
     return null;
   }
 
-  static List<DataPageTaskFullSchema> listFromJson(
+  static List<StaticDataPageNPCSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageTaskFullSchema>[];
+    final result = <StaticDataPageNPCSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageTaskFullSchema.fromJson(row);
+        final value = StaticDataPageNPCSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,12 @@ class DataPageTaskFullSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageTaskFullSchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageTaskFullSchema>{};
+  static Map<String, StaticDataPageNPCSchema> mapFromJson(dynamic json) {
+    final map = <String, StaticDataPageNPCSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageTaskFullSchema.fromJson(entry.value);
+        final value = StaticDataPageNPCSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +168,17 @@ class DataPageTaskFullSchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageTaskFullSchema-objects as value to a dart map
-  static Map<String, List<DataPageTaskFullSchema>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageNPCSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageNPCSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageTaskFullSchema>>{};
+    final map = <String, List<StaticDataPageNPCSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageTaskFullSchema.listFromJson(
+        map[entry.key] = StaticDataPageNPCSchema.listFromJson(
           entry.value,
           growable: growable,
         );

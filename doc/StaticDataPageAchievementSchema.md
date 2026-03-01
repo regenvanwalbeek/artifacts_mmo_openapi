@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.DataPageItemSchema
+# artifacts_mmo_openapi.model.StaticDataPageAchievementSchema
 
 ## Load the model package
 ```dart
@@ -8,7 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List<ItemSchema>**](ItemSchema.md) |  | [default to const []]
+**data** | [**List<AchievementSchema>**](AchievementSchema.md) |  | [default to const []]
 **total** | **int** |  | [optional] 
 **page** | **int** |  | [optional] 
 **size** | **int** |  | [optional] 

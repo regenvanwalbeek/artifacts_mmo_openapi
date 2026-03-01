@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllAchievementsAchievementsGet**
-> DataPageAchievementSchema getAllAchievementsAchievementsGet(type, page, size)
+> StaticDataPageAchievementSchema getAllAchievementsAchievementsGet(type, page, size)
 
 Get All Achievements
 
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageAchievementSchema**](DataPageAchievementSchema.md)
+[**StaticDataPageAchievementSchema**](StaticDataPageAchievementSchema.md)
 
 ### Authorization
 

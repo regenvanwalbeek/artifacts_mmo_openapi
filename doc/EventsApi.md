@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **getAllActiveEventsEventsActiveGet**
-> DataPageActiveEventSchema getAllActiveEventsEventsActiveGet(page, size)
+> StaticDataPageActiveEventSchema getAllActiveEventsEventsActiveGet(page, size)
 
 Get All Active Events
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageActiveEventSchema**](DataPageActiveEventSchema.md)
+[**StaticDataPageActiveEventSchema**](StaticDataPageActiveEventSchema.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllEventsEventsGet**
-> DataPageEventSchema getAllEventsEventsGet(type, page, size)
+> StaticDataPageEventSchema getAllEventsEventsGet(type, page, size)
 
 Get All Events
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageEventSchema**](DataPageEventSchema.md)
+[**StaticDataPageEventSchema**](StaticDataPageEventSchema.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ No authorization required
 
 Spawn Event
 
-Spawn a specific event by code consuming 1 event token.  Rules:   - Maximum active events defined by utils.config.max_active_events().   - Event must not already be active.   - Member or founder account required.
+Spawn a specific event by consuming 1 event token. Member or founder account required.
 
 ### Example
 ```dart

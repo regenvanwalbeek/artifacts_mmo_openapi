@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageResourceSchema {
-  /// Returns a new [DataPageResourceSchema] instance.
-  DataPageResourceSchema({
+class StaticDataPageBadgeSchema {
+  /// Returns a new [StaticDataPageBadgeSchema] instance.
+  StaticDataPageBadgeSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageResourceSchema {
     this.pages,
   });
 
-  List<ResourceSchema> data;
+  List<BadgeSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageResourceSchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageResourceSchema &&
+      other is StaticDataPageBadgeSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageResourceSchema {
 
   @override
   String toString() =>
-      'DataPageResourceSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageBadgeSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageResourceSchema {
     return json;
   }
 
-  /// Returns a new [DataPageResourceSchema] instance and imports its values from
+  /// Returns a new [StaticDataPageBadgeSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageResourceSchema? fromJson(dynamic value) {
+  static StaticDataPageBadgeSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageResourceSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageResourceSchema[$key]" is missing from JSON.');
+              'Required key "StaticDataPageBadgeSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageResourceSchema[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageBadgeSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageResourceSchema(
-        data: ResourceSchema.listFromJson(json[r'data']),
+      return StaticDataPageBadgeSchema(
+        data: BadgeSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageResourceSchema {
     return null;
   }
 
-  static List<DataPageResourceSchema> listFromJson(
+  static List<StaticDataPageBadgeSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageResourceSchema>[];
+    final result = <StaticDataPageBadgeSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageResourceSchema.fromJson(row);
+        final value = StaticDataPageBadgeSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,12 @@ class DataPageResourceSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageResourceSchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageResourceSchema>{};
+  static Map<String, StaticDataPageBadgeSchema> mapFromJson(dynamic json) {
+    final map = <String, StaticDataPageBadgeSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageResourceSchema.fromJson(entry.value);
+        final value = StaticDataPageBadgeSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +168,17 @@ class DataPageResourceSchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageResourceSchema-objects as value to a dart map
-  static Map<String, List<DataPageResourceSchema>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageBadgeSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageBadgeSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageResourceSchema>>{};
+    final map = <String, List<StaticDataPageBadgeSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageResourceSchema.listFromJson(
+        map[entry.key] = StaticDataPageBadgeSchema.listFromJson(
           entry.value,
           growable: growable,
         );

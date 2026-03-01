@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getAllTasksRewardsTasksRewardsGet**
-> DataPageDropRateSchema getAllTasksRewardsTasksRewardsGet(page, size)
+> StaticDataPageDropRateSchema getAllTasksRewardsTasksRewardsGet(page, size)
 
 Get All Tasks Rewards
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageDropRateSchema**](DataPageDropRateSchema.md)
+[**StaticDataPageDropRateSchema**](StaticDataPageDropRateSchema.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllTasksTasksListGet**
-> DataPageTaskFullSchema getAllTasksTasksListGet(minLevel, maxLevel, skill, type, page, size)
+> StaticDataPageTaskFullSchema getAllTasksTasksListGet(minLevel, maxLevel, skill, type, page, size)
 
 Get All Tasks
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageTaskFullSchema**](DataPageTaskFullSchema.md)
+[**StaticDataPageTaskFullSchema**](StaticDataPageTaskFullSchema.md)
 
 ### Authorization
 

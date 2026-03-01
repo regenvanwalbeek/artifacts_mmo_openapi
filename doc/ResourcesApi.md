@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAllResourcesResourcesGet**
-> DataPageResourceSchema getAllResourcesResourcesGet(minLevel, maxLevel, skill, drop, page, size)
+> StaticDataPageResourceSchema getAllResourcesResourcesGet(minLevel, maxLevel, skill, drop, page, size)
 
 Get All Resources
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageResourceSchema**](DataPageResourceSchema.md)
+[**StaticDataPageResourceSchema**](StaticDataPageResourceSchema.md)
 
 ### Authorization
 

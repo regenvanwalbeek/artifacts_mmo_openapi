@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getAllMapsMapsGet**
-> DataPageMapSchema getAllMapsMapsGet(layer, contentType, contentCode, hideBlockedMaps, page, size)
+> StaticDataPageMapSchema getAllMapsMapsGet(layer, contentType, contentCode, hideBlockedMaps, page, size)
 
 Get All Maps
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageMapSchema**](DataPageMapSchema.md)
+[**StaticDataPageMapSchema**](StaticDataPageMapSchema.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLayerMapsMapsLayerGet**
-> DataPageMapSchema getLayerMapsMapsLayerGet(layer, contentType, contentCode, hideBlockedMaps, page, size)
+> StaticDataPageMapSchema getLayerMapsMapsLayerGet(layer, contentType, contentCode, hideBlockedMaps, page, size)
 
 Get Layer Maps
 
@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageMapSchema**](DataPageMapSchema.md)
+[**StaticDataPageMapSchema**](StaticDataPageMapSchema.md)
 
 ### Authorization
 

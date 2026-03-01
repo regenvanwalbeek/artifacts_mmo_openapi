@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.DataPageEffectSchema
+# artifacts_mmo_openapi.model.StaticDataPageNPCSchema
 
 ## Load the model package
 ```dart
@@ -8,7 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List<EffectSchema>**](EffectSchema.md) |  | [default to const []]
+**data** | [**List<NPCSchema>**](NPCSchema.md) |  | [default to const []]
 **total** | **int** |  | [optional] 
 **page** | **int** |  | [optional] 
 **size** | **int** |  | [optional] 

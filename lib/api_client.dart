@@ -359,46 +359,20 @@ class ApiClient {
           return DataPageAccountAchievementSchema.fromJson(value);
         case 'DataPageAccountLeaderboardSchema':
           return DataPageAccountLeaderboardSchema.fromJson(value);
-        case 'DataPageAchievementSchema':
-          return DataPageAchievementSchema.fromJson(value);
         case 'DataPageActiveCharacterSchema':
           return DataPageActiveCharacterSchema.fromJson(value);
-        case 'DataPageActiveEventSchema':
-          return DataPageActiveEventSchema.fromJson(value);
-        case 'DataPageBadgeSchema':
-          return DataPageBadgeSchema.fromJson(value);
         case 'DataPageCharacterLeaderboardSchema':
           return DataPageCharacterLeaderboardSchema.fromJson(value);
-        case 'DataPageDropRateSchema':
-          return DataPageDropRateSchema.fromJson(value);
-        case 'DataPageEffectSchema':
-          return DataPageEffectSchema.fromJson(value);
-        case 'DataPageEventSchema':
-          return DataPageEventSchema.fromJson(value);
         case 'DataPageGEOrderSchema':
           return DataPageGEOrderSchema.fromJson(value);
         case 'DataPageGeOrderHistorySchema':
           return DataPageGeOrderHistorySchema.fromJson(value);
-        case 'DataPageItemSchema':
-          return DataPageItemSchema.fromJson(value);
         case 'DataPageLogSchema':
           return DataPageLogSchema.fromJson(value);
-        case 'DataPageMapSchema':
-          return DataPageMapSchema.fromJson(value);
-        case 'DataPageMonsterSchema':
-          return DataPageMonsterSchema.fromJson(value);
-        case 'DataPageNPCItem':
-          return DataPageNPCItem.fromJson(value);
-        case 'DataPageNPCSchema':
-          return DataPageNPCSchema.fromJson(value);
         case 'DataPagePendingItemSchema':
           return DataPagePendingItemSchema.fromJson(value);
-        case 'DataPageResourceSchema':
-          return DataPageResourceSchema.fromJson(value);
         case 'DataPageSimpleItemSchema':
           return DataPageSimpleItemSchema.fromJson(value);
-        case 'DataPageTaskFullSchema':
-          return DataPageTaskFullSchema.fromJson(value);
         case 'DeleteCharacterSchema':
           return DeleteCharacterSchema.fromJson(value);
         case 'DeleteItemResponseSchema':
@@ -603,6 +577,32 @@ class ApiClient {
           return SkillResponseSchema.fromJson(value);
         case 'SpawnEventRequest':
           return SpawnEventRequest.fromJson(value);
+        case 'StaticDataPageAchievementSchema':
+          return StaticDataPageAchievementSchema.fromJson(value);
+        case 'StaticDataPageActiveEventSchema':
+          return StaticDataPageActiveEventSchema.fromJson(value);
+        case 'StaticDataPageBadgeSchema':
+          return StaticDataPageBadgeSchema.fromJson(value);
+        case 'StaticDataPageDropRateSchema':
+          return StaticDataPageDropRateSchema.fromJson(value);
+        case 'StaticDataPageEffectSchema':
+          return StaticDataPageEffectSchema.fromJson(value);
+        case 'StaticDataPageEventSchema':
+          return StaticDataPageEventSchema.fromJson(value);
+        case 'StaticDataPageItemSchema':
+          return StaticDataPageItemSchema.fromJson(value);
+        case 'StaticDataPageMapSchema':
+          return StaticDataPageMapSchema.fromJson(value);
+        case 'StaticDataPageMonsterSchema':
+          return StaticDataPageMonsterSchema.fromJson(value);
+        case 'StaticDataPageNPCItem':
+          return StaticDataPageNPCItem.fromJson(value);
+        case 'StaticDataPageNPCSchema':
+          return StaticDataPageNPCSchema.fromJson(value);
+        case 'StaticDataPageResourceSchema':
+          return StaticDataPageResourceSchema.fromJson(value);
+        case 'StaticDataPageTaskFullSchema':
+          return StaticDataPageTaskFullSchema.fromJson(value);
         case 'StatusResponseSchema':
           return StatusResponseSchema.fromJson(value);
         case 'StatusSchema':

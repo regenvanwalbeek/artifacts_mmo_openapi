@@ -114,7 +114,7 @@ class MapsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageMapSchema?> getAllMapsMapsGet({
+  Future<StaticDataPageMapSchema?> getAllMapsMapsGet({
     MapLayer? layer,
     MapContentType? contentType,
     String? contentCode,
@@ -140,8 +140,8 @@ class MapsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageMapSchema',
-      ) as DataPageMapSchema;
+        'StaticDataPageMapSchema',
+      ) as StaticDataPageMapSchema;
     }
     return null;
   }
@@ -242,7 +242,7 @@ class MapsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageMapSchema?> getLayerMapsMapsLayerGet(
+  Future<StaticDataPageMapSchema?> getLayerMapsMapsLayerGet(
     MapLayer layer, {
     MapContentType? contentType,
     String? contentCode,
@@ -268,8 +268,8 @@ class MapsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageMapSchema',
-      ) as DataPageMapSchema;
+        'StaticDataPageMapSchema',
+      ) as StaticDataPageMapSchema;
     }
     return null;
   }

@@ -133,7 +133,7 @@ class ItemsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageItemSchema?> getAllItemsItemsGet({
+  Future<StaticDataPageItemSchema?> getAllItemsItemsGet({
     String? name,
     int? minLevel,
     int? maxLevel,
@@ -163,8 +163,8 @@ class ItemsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageItemSchema',
-      ) as DataPageItemSchema;
+        'StaticDataPageItemSchema',
+      ) as StaticDataPageItemSchema;
     }
     return null;
   }

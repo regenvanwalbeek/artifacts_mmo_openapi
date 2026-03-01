@@ -150,7 +150,7 @@ class AchievementsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageAchievementSchema?> getAllAchievementsAchievementsGet({
+  Future<StaticDataPageAchievementSchema?> getAllAchievementsAchievementsGet({
     AchievementType? type,
     int? page,
     int? size,
@@ -170,8 +170,8 @@ class AchievementsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageAchievementSchema',
-      ) as DataPageAchievementSchema;
+        'StaticDataPageAchievementSchema',
+      ) as StaticDataPageAchievementSchema;
     }
     return null;
   }

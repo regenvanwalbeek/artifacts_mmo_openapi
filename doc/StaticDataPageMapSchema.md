@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.DataPageMapSchema
+# artifacts_mmo_openapi.model.StaticDataPageMapSchema
 
 ## Load the model package
 ```dart

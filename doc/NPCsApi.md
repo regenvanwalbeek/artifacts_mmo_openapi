@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getAllNpcsItemsNpcsItemsGet**
-> DataPageNPCItem getAllNpcsItemsNpcsItemsGet(code, npc, currency, page, size)
+> StaticDataPageNPCItem getAllNpcsItemsNpcsItemsGet(code, npc, currency, page, size)
 
 Get All Npcs Items
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageNPCItem**](DataPageNPCItem.md)
+[**StaticDataPageNPCItem**](StaticDataPageNPCItem.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllNpcsNpcsDetailsGet**
-> DataPageNPCSchema getAllNpcsNpcsDetailsGet(name, type, page, size)
+> StaticDataPageNPCSchema getAllNpcsNpcsDetailsGet(name, type, page, size)
 
 Get All Npcs
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageNPCSchema**](DataPageNPCSchema.md)
+[**StaticDataPageNPCSchema**](StaticDataPageNPCSchema.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNpcItemsNpcsItemsCodeGet**
-> DataPageNPCItem getNpcItemsNpcsItemsCodeGet(code, page, size)
+> StaticDataPageNPCItem getNpcItemsNpcsItemsCodeGet(code, page, size)
 
 Get Npc Items
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageNPCItem**](DataPageNPCItem.md)
+[**StaticDataPageNPCItem**](StaticDataPageNPCItem.md)
 
 ### Authorization
 

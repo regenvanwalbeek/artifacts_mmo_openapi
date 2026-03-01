@@ -73,7 +73,7 @@ class TasksApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageDropRateSchema?> getAllTasksRewardsTasksRewardsGet({
+  Future<StaticDataPageDropRateSchema?> getAllTasksRewardsTasksRewardsGet({
     int? page,
     int? size,
   }) async {
@@ -91,8 +91,8 @@ class TasksApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageDropRateSchema',
-      ) as DataPageDropRateSchema;
+        'StaticDataPageDropRateSchema',
+      ) as StaticDataPageDropRateSchema;
     }
     return null;
   }
@@ -195,7 +195,7 @@ class TasksApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageTaskFullSchema?> getAllTasksTasksListGet({
+  Future<StaticDataPageTaskFullSchema?> getAllTasksTasksListGet({
     int? minLevel,
     int? maxLevel,
     Skill? skill,
@@ -221,8 +221,8 @@ class TasksApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageTaskFullSchema',
-      ) as DataPageTaskFullSchema;
+        'StaticDataPageTaskFullSchema',
+      ) as StaticDataPageTaskFullSchema;
     }
     return null;
   }

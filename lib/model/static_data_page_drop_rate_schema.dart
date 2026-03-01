@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageActiveEventSchema {
-  /// Returns a new [DataPageActiveEventSchema] instance.
-  DataPageActiveEventSchema({
+class StaticDataPageDropRateSchema {
+  /// Returns a new [StaticDataPageDropRateSchema] instance.
+  StaticDataPageDropRateSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageActiveEventSchema {
     this.pages,
   });
 
-  List<ActiveEventSchema> data;
+  List<DropRateSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageActiveEventSchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageActiveEventSchema &&
+      other is StaticDataPageDropRateSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageActiveEventSchema {
 
   @override
   String toString() =>
-      'DataPageActiveEventSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageDropRateSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageActiveEventSchema {
     return json;
   }
 
-  /// Returns a new [DataPageActiveEventSchema] instance and imports its values from
+  /// Returns a new [StaticDataPageDropRateSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageActiveEventSchema? fromJson(dynamic value) {
+  static StaticDataPageDropRateSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageActiveEventSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageActiveEventSchema[$key]" is missing from JSON.');
+              'Required key "StaticDataPageDropRateSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageActiveEventSchema[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageDropRateSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageActiveEventSchema(
-        data: ActiveEventSchema.listFromJson(json[r'data']),
+      return StaticDataPageDropRateSchema(
+        data: DropRateSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageActiveEventSchema {
     return null;
   }
 
-  static List<DataPageActiveEventSchema> listFromJson(
+  static List<StaticDataPageDropRateSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageActiveEventSchema>[];
+    final result = <StaticDataPageDropRateSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageActiveEventSchema.fromJson(row);
+        final value = StaticDataPageDropRateSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,12 @@ class DataPageActiveEventSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageActiveEventSchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageActiveEventSchema>{};
+  static Map<String, StaticDataPageDropRateSchema> mapFromJson(dynamic json) {
+    final map = <String, StaticDataPageDropRateSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageActiveEventSchema.fromJson(entry.value);
+        final value = StaticDataPageDropRateSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +168,17 @@ class DataPageActiveEventSchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageActiveEventSchema-objects as value to a dart map
-  static Map<String, List<DataPageActiveEventSchema>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageDropRateSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageDropRateSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageActiveEventSchema>>{};
+    final map = <String, List<StaticDataPageDropRateSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageActiveEventSchema.listFromJson(
+        map[entry.key] = StaticDataPageDropRateSchema.listFromJson(
           entry.value,
           growable: growable,
         );

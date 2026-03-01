@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAllItemsItemsGet**
-> DataPageItemSchema getAllItemsItemsGet(name, minLevel, maxLevel, type, craftSkill, craftMaterial, page, size)
+> StaticDataPageItemSchema getAllItemsItemsGet(name, minLevel, maxLevel, type, craftSkill, craftMaterial, page, size)
 
 Get All Items
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageItemSchema**](DataPageItemSchema.md)
+[**StaticDataPageItemSchema**](StaticDataPageItemSchema.md)
 
 ### Authorization
 

@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageEffectSchema {
-  /// Returns a new [DataPageEffectSchema] instance.
-  DataPageEffectSchema({
+class StaticDataPageAchievementSchema {
+  /// Returns a new [StaticDataPageAchievementSchema] instance.
+  StaticDataPageAchievementSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageEffectSchema {
     this.pages,
   });
 
-  List<EffectSchema> data;
+  List<AchievementSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageEffectSchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageEffectSchema &&
+      other is StaticDataPageAchievementSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageEffectSchema {
 
   @override
   String toString() =>
-      'DataPageEffectSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageAchievementSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageEffectSchema {
     return json;
   }
 
-  /// Returns a new [DataPageEffectSchema] instance and imports its values from
+  /// Returns a new [StaticDataPageAchievementSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageEffectSchema? fromJson(dynamic value) {
+  static StaticDataPageAchievementSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageEffectSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageEffectSchema[$key]" is missing from JSON.');
+              'Required key "StaticDataPageAchievementSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageEffectSchema[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageAchievementSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageEffectSchema(
-        data: EffectSchema.listFromJson(json[r'data']),
+      return StaticDataPageAchievementSchema(
+        data: AchievementSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageEffectSchema {
     return null;
   }
 
-  static List<DataPageEffectSchema> listFromJson(
+  static List<StaticDataPageAchievementSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageEffectSchema>[];
+    final result = <StaticDataPageAchievementSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageEffectSchema.fromJson(row);
+        final value = StaticDataPageAchievementSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,13 @@ class DataPageEffectSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageEffectSchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageEffectSchema>{};
+  static Map<String, StaticDataPageAchievementSchema> mapFromJson(
+      dynamic json) {
+    final map = <String, StaticDataPageAchievementSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageEffectSchema.fromJson(entry.value);
+        final value = StaticDataPageAchievementSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +169,17 @@ class DataPageEffectSchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageEffectSchema-objects as value to a dart map
-  static Map<String, List<DataPageEffectSchema>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageAchievementSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageAchievementSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageEffectSchema>>{};
+    final map = <String, List<StaticDataPageAchievementSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageEffectSchema.listFromJson(
+        map[entry.key] = StaticDataPageAchievementSchema.listFromJson(
           entry.value,
           growable: growable,
         );

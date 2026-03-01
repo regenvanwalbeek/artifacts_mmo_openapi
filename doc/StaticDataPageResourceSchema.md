@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.DataPageDropRateSchema
+# artifacts_mmo_openapi.model.StaticDataPageResourceSchema
 
 ## Load the model package
 ```dart
@@ -8,7 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List<DropRateSchema>**](DropRateSchema.md) |  | [default to const []]
+**data** | [**List<ResourceSchema>**](ResourceSchema.md) |  | [default to const []]
 **total** | **int** |  | [optional] 
 **page** | **int** |  | [optional] 
 **size** | **int** |  | [optional] 

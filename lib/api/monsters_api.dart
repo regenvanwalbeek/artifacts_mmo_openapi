@@ -114,7 +114,7 @@ class MonstersApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageMonsterSchema?> getAllMonstersMonstersGet({
+  Future<StaticDataPageMonsterSchema?> getAllMonstersMonstersGet({
     String? name,
     int? minLevel,
     int? maxLevel,
@@ -140,8 +140,8 @@ class MonstersApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageMonsterSchema',
-      ) as DataPageMonsterSchema;
+        'StaticDataPageMonsterSchema',
+      ) as StaticDataPageMonsterSchema;
     }
     return null;
   }

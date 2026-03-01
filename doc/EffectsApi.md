@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAllEffectsEffectsGet**
-> DataPageEffectSchema getAllEffectsEffectsGet(page, size)
+> StaticDataPageEffectSchema getAllEffectsEffectsGet(page, size)
 
 Get All Effects
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageEffectSchema**](DataPageEffectSchema.md)
+[**StaticDataPageEffectSchema**](StaticDataPageEffectSchema.md)
 
 ### Authorization
 

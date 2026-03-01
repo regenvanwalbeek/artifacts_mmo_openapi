@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageDropRateSchema {
-  /// Returns a new [DataPageDropRateSchema] instance.
-  DataPageDropRateSchema({
+class StaticDataPageTaskFullSchema {
+  /// Returns a new [StaticDataPageTaskFullSchema] instance.
+  StaticDataPageTaskFullSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageDropRateSchema {
     this.pages,
   });
 
-  List<DropRateSchema> data;
+  List<TaskFullSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageDropRateSchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageDropRateSchema &&
+      other is StaticDataPageTaskFullSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageDropRateSchema {
 
   @override
   String toString() =>
-      'DataPageDropRateSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageTaskFullSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageDropRateSchema {
     return json;
   }
 
-  /// Returns a new [DataPageDropRateSchema] instance and imports its values from
+  /// Returns a new [StaticDataPageTaskFullSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageDropRateSchema? fromJson(dynamic value) {
+  static StaticDataPageTaskFullSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageDropRateSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageDropRateSchema[$key]" is missing from JSON.');
+              'Required key "StaticDataPageTaskFullSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageDropRateSchema[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageTaskFullSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageDropRateSchema(
-        data: DropRateSchema.listFromJson(json[r'data']),
+      return StaticDataPageTaskFullSchema(
+        data: TaskFullSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageDropRateSchema {
     return null;
   }
 
-  static List<DataPageDropRateSchema> listFromJson(
+  static List<StaticDataPageTaskFullSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageDropRateSchema>[];
+    final result = <StaticDataPageTaskFullSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageDropRateSchema.fromJson(row);
+        final value = StaticDataPageTaskFullSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,12 @@ class DataPageDropRateSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageDropRateSchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageDropRateSchema>{};
+  static Map<String, StaticDataPageTaskFullSchema> mapFromJson(dynamic json) {
+    final map = <String, StaticDataPageTaskFullSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageDropRateSchema.fromJson(entry.value);
+        final value = StaticDataPageTaskFullSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +168,17 @@ class DataPageDropRateSchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageDropRateSchema-objects as value to a dart map
-  static Map<String, List<DataPageDropRateSchema>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageTaskFullSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageTaskFullSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageDropRateSchema>>{};
+    final map = <String, List<StaticDataPageTaskFullSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageDropRateSchema.listFromJson(
+        map[entry.key] = StaticDataPageTaskFullSchema.listFromJson(
           entry.value,
           growable: growable,
         );

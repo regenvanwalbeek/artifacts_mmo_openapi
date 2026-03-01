@@ -114,7 +114,7 @@ class ResourcesApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageResourceSchema?> getAllResourcesResourcesGet({
+  Future<StaticDataPageResourceSchema?> getAllResourcesResourcesGet({
     int? minLevel,
     int? maxLevel,
     GatheringSkill? skill,
@@ -140,8 +140,8 @@ class ResourcesApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageResourceSchema',
-      ) as DataPageResourceSchema;
+        'StaticDataPageResourceSchema',
+      ) as StaticDataPageResourceSchema;
     }
     return null;
   }

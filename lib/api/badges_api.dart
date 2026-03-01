@@ -73,7 +73,7 @@ class BadgesApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageBadgeSchema?> getAllBadgesBadgesGet({
+  Future<StaticDataPageBadgeSchema?> getAllBadgesBadgesGet({
     int? page,
     int? size,
   }) async {
@@ -91,8 +91,8 @@ class BadgesApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageBadgeSchema',
-      ) as DataPageBadgeSchema;
+        'StaticDataPageBadgeSchema',
+      ) as StaticDataPageBadgeSchema;
     }
     return null;
   }

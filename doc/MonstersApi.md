@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAllMonstersMonstersGet**
-> DataPageMonsterSchema getAllMonstersMonstersGet(name, minLevel, maxLevel, drop, page, size)
+> StaticDataPageMonsterSchema getAllMonstersMonstersGet(name, minLevel, maxLevel, drop, page, size)
 
 Get All Monsters
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageMonsterSchema**](DataPageMonsterSchema.md)
+[**StaticDataPageMonsterSchema**](StaticDataPageMonsterSchema.md)
 
 ### Authorization
 

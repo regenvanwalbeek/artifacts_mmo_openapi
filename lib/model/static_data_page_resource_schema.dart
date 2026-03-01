@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageMonsterSchema {
-  /// Returns a new [DataPageMonsterSchema] instance.
-  DataPageMonsterSchema({
+class StaticDataPageResourceSchema {
+  /// Returns a new [StaticDataPageResourceSchema] instance.
+  StaticDataPageResourceSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageMonsterSchema {
     this.pages,
   });
 
-  List<MonsterSchema> data;
+  List<ResourceSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageMonsterSchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageMonsterSchema &&
+      other is StaticDataPageResourceSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageMonsterSchema {
 
   @override
   String toString() =>
-      'DataPageMonsterSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageResourceSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageMonsterSchema {
     return json;
   }
 
-  /// Returns a new [DataPageMonsterSchema] instance and imports its values from
+  /// Returns a new [StaticDataPageResourceSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageMonsterSchema? fromJson(dynamic value) {
+  static StaticDataPageResourceSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageMonsterSchema {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageMonsterSchema[$key]" is missing from JSON.');
+              'Required key "StaticDataPageResourceSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageMonsterSchema[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageResourceSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageMonsterSchema(
-        data: MonsterSchema.listFromJson(json[r'data']),
+      return StaticDataPageResourceSchema(
+        data: ResourceSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageMonsterSchema {
     return null;
   }
 
-  static List<DataPageMonsterSchema> listFromJson(
+  static List<StaticDataPageResourceSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageMonsterSchema>[];
+    final result = <StaticDataPageResourceSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageMonsterSchema.fromJson(row);
+        final value = StaticDataPageResourceSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,12 @@ class DataPageMonsterSchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageMonsterSchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageMonsterSchema>{};
+  static Map<String, StaticDataPageResourceSchema> mapFromJson(dynamic json) {
+    final map = <String, StaticDataPageResourceSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageMonsterSchema.fromJson(entry.value);
+        final value = StaticDataPageResourceSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +168,17 @@ class DataPageMonsterSchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageMonsterSchema-objects as value to a dart map
-  static Map<String, List<DataPageMonsterSchema>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageResourceSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageResourceSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageMonsterSchema>>{};
+    final map = <String, List<StaticDataPageResourceSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageMonsterSchema.listFromJson(
+        map[entry.key] = StaticDataPageResourceSchema.listFromJson(
           entry.value,
           growable: growable,
         );

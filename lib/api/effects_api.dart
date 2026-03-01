@@ -74,7 +74,7 @@ class EffectsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageEffectSchema?> getAllEffectsEffectsGet({
+  Future<StaticDataPageEffectSchema?> getAllEffectsEffectsGet({
     int? page,
     int? size,
   }) async {
@@ -92,8 +92,8 @@ class EffectsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageEffectSchema',
-      ) as DataPageEffectSchema;
+        'StaticDataPageEffectSchema',
+      ) as StaticDataPageEffectSchema;
     }
     return null;
   }

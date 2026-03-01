@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.DataPageTaskFullSchema
+# artifacts_mmo_openapi.model.StaticDataPageMonsterSchema
 
 ## Load the model package
 ```dart
@@ -8,7 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List<TaskFullSchema>**](TaskFullSchema.md) |  | [default to const []]
+**data** | [**List<MonsterSchema>**](MonsterSchema.md) |  | [default to const []]
 **total** | **int** |  | [optional] 
 **page** | **int** |  | [optional] 
 **size** | **int** |  | [optional] 

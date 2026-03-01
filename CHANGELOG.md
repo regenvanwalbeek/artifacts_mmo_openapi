@@ -1,3 +1,7 @@
+## 7.2.0
+
+- Regenerate for patch 7.0.2
+
 ## 7.1.0
 
 - Fix bug with simulator

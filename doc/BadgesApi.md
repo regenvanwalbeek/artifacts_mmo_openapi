@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **getAllBadgesBadgesGet**
-> DataPageBadgeSchema getAllBadgesBadgesGet(page, size)
+> StaticDataPageBadgeSchema getAllBadgesBadgesGet(page, size)
 
 Get All Badges
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageBadgeSchema**](DataPageBadgeSchema.md)
+[**StaticDataPageBadgeSchema**](StaticDataPageBadgeSchema.md)
 
 ### Authorization
 

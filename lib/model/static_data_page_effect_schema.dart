@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class DataPageNPCItem {
-  /// Returns a new [DataPageNPCItem] instance.
-  DataPageNPCItem({
+class StaticDataPageEffectSchema {
+  /// Returns a new [StaticDataPageEffectSchema] instance.
+  StaticDataPageEffectSchema({
     this.data = const [],
     this.total,
     this.page,
@@ -20,7 +20,7 @@ class DataPageNPCItem {
     this.pages,
   });
 
-  List<NPCItem> data;
+  List<EffectSchema> data;
 
   /// Minimum value: 0
   ///
@@ -61,7 +61,7 @@ class DataPageNPCItem {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageNPCItem &&
+      other is StaticDataPageEffectSchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -79,7 +79,7 @@ class DataPageNPCItem {
 
   @override
   String toString() =>
-      'DataPageNPCItem[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'StaticDataPageEffectSchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -107,10 +107,10 @@ class DataPageNPCItem {
     return json;
   }
 
-  /// Returns a new [DataPageNPCItem] instance and imports its values from
+  /// Returns a new [StaticDataPageEffectSchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageNPCItem? fromJson(dynamic value) {
+  static StaticDataPageEffectSchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -120,15 +120,15 @@ class DataPageNPCItem {
       assert(() {
         requiredKeys.forEach((key) {
           assert(json.containsKey(key),
-              'Required key "DataPageNPCItem[$key]" is missing from JSON.');
+              'Required key "StaticDataPageEffectSchema[$key]" is missing from JSON.');
           assert(json[key] != null,
-              'Required key "DataPageNPCItem[$key]" has a null value in JSON.');
+              'Required key "StaticDataPageEffectSchema[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return DataPageNPCItem(
-        data: NPCItem.listFromJson(json[r'data']),
+      return StaticDataPageEffectSchema(
+        data: EffectSchema.listFromJson(json[r'data']),
         total: mapValueOfType<int>(json, r'total'),
         page: mapValueOfType<int>(json, r'page'),
         size: mapValueOfType<int>(json, r'size'),
@@ -138,14 +138,14 @@ class DataPageNPCItem {
     return null;
   }
 
-  static List<DataPageNPCItem> listFromJson(
+  static List<StaticDataPageEffectSchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageNPCItem>[];
+    final result = <StaticDataPageEffectSchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageNPCItem.fromJson(row);
+        final value = StaticDataPageEffectSchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +154,12 @@ class DataPageNPCItem {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageNPCItem> mapFromJson(dynamic json) {
-    final map = <String, DataPageNPCItem>{};
+  static Map<String, StaticDataPageEffectSchema> mapFromJson(dynamic json) {
+    final map = <String, StaticDataPageEffectSchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageNPCItem.fromJson(entry.value);
+        final value = StaticDataPageEffectSchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +168,17 @@ class DataPageNPCItem {
     return map;
   }
 
-  // maps a json object with a list of DataPageNPCItem-objects as value to a dart map
-  static Map<String, List<DataPageNPCItem>> mapListFromJson(
+  // maps a json object with a list of StaticDataPageEffectSchema-objects as value to a dart map
+  static Map<String, List<StaticDataPageEffectSchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageNPCItem>>{};
+    final map = <String, List<StaticDataPageEffectSchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageNPCItem.listFromJson(
+        map[entry.key] = StaticDataPageEffectSchema.listFromJson(
           entry.value,
           growable: growable,
         );

@@ -103,7 +103,7 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageNPCItem?> getAllNpcsItemsNpcsItemsGet({
+  Future<StaticDataPageNPCItem?> getAllNpcsItemsNpcsItemsGet({
     String? code,
     String? npc,
     String? currency,
@@ -127,8 +127,8 @@ class NPCsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageNPCItem',
-      ) as DataPageNPCItem;
+        'StaticDataPageNPCItem',
+      ) as StaticDataPageNPCItem;
     }
     return null;
   }
@@ -211,7 +211,7 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageNPCSchema?> getAllNpcsNpcsDetailsGet({
+  Future<StaticDataPageNPCSchema?> getAllNpcsNpcsDetailsGet({
     String? name,
     NPCType? type,
     int? page,
@@ -233,8 +233,8 @@ class NPCsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageNPCSchema',
-      ) as DataPageNPCSchema;
+        'StaticDataPageNPCSchema',
+      ) as StaticDataPageNPCSchema;
     }
     return null;
   }
@@ -304,7 +304,7 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageNPCItem?> getNpcItemsNpcsItemsCodeGet(
+  Future<StaticDataPageNPCItem?> getNpcItemsNpcsItemsCodeGet(
     String code, {
     int? page,
     int? size,
@@ -324,8 +324,8 @@ class NPCsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageNPCItem',
-      ) as DataPageNPCItem;
+        'StaticDataPageNPCItem',
+      ) as StaticDataPageNPCItem;
     }
     return null;
   }
