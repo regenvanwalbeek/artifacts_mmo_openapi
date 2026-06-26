@@ -48,12 +48,10 @@ class GEOrderResponseSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEOrderResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEOrderResponseSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'data'),
+            'Required key "GEOrderResponseSchema[data]" is missing from JSON.');
+        assert(json[r'data'] != null,
+            'Required key "GEOrderResponseSchema[data]" has a null value in JSON.');
         return true;
       }());
 

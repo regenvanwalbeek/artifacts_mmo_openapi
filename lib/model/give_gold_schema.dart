@@ -59,12 +59,14 @@ class GiveGoldSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GiveGoldSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GiveGoldSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'quantity'),
+            'Required key "GiveGoldSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GiveGoldSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "GiveGoldSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "GiveGoldSchema[character]" has a null value in JSON.');
         return true;
       }());
 

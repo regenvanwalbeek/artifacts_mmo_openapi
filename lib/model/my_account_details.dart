@@ -149,12 +149,42 @@ class MyAccountDetails {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "MyAccountDetails[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "MyAccountDetails[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'username'),
+            'Required key "MyAccountDetails[username]" is missing from JSON.');
+        assert(json[r'username'] != null,
+            'Required key "MyAccountDetails[username]" has a null value in JSON.');
+        assert(json.containsKey(r'email'),
+            'Required key "MyAccountDetails[email]" is missing from JSON.');
+        assert(json[r'email'] != null,
+            'Required key "MyAccountDetails[email]" has a null value in JSON.');
+        assert(json.containsKey(r'member'),
+            'Required key "MyAccountDetails[member]" is missing from JSON.');
+        assert(json[r'member'] != null,
+            'Required key "MyAccountDetails[member]" has a null value in JSON.');
+        assert(json.containsKey(r'status'),
+            'Required key "MyAccountDetails[status]" is missing from JSON.');
+        assert(json[r'status'] != null,
+            'Required key "MyAccountDetails[status]" has a null value in JSON.');
+        assert(json.containsKey(r'skins'),
+            'Required key "MyAccountDetails[skins]" is missing from JSON.');
+        assert(json[r'skins'] != null,
+            'Required key "MyAccountDetails[skins]" has a null value in JSON.');
+        assert(json.containsKey(r'gems'),
+            'Required key "MyAccountDetails[gems]" is missing from JSON.');
+        assert(json[r'gems'] != null,
+            'Required key "MyAccountDetails[gems]" has a null value in JSON.');
+        assert(json.containsKey(r'event_token'),
+            'Required key "MyAccountDetails[event_token]" is missing from JSON.');
+        assert(json[r'event_token'] != null,
+            'Required key "MyAccountDetails[event_token]" has a null value in JSON.');
+        assert(json.containsKey(r'achievements_points'),
+            'Required key "MyAccountDetails[achievements_points]" is missing from JSON.');
+        assert(json[r'achievements_points'] != null,
+            'Required key "MyAccountDetails[achievements_points]" has a null value in JSON.');
+        assert(json.containsKey(r'banned'),
+            'Required key "MyAccountDetails[banned]" is missing from JSON.');
+        assert(json[r'banned'] != null,
+            'Required key "MyAccountDetails[banned]" has a null value in JSON.');
         return true;
       }());
 

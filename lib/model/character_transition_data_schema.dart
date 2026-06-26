@@ -72,12 +72,22 @@ class CharacterTransitionDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterTransitionDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterTransitionDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "CharacterTransitionDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "CharacterTransitionDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'destination'),
+            'Required key "CharacterTransitionDataSchema[destination]" is missing from JSON.');
+        assert(json[r'destination'] != null,
+            'Required key "CharacterTransitionDataSchema[destination]" has a null value in JSON.');
+        assert(json.containsKey(r'transition'),
+            'Required key "CharacterTransitionDataSchema[transition]" is missing from JSON.');
+        assert(json[r'transition'] != null,
+            'Required key "CharacterTransitionDataSchema[transition]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "CharacterTransitionDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "CharacterTransitionDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 

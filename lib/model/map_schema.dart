@@ -100,12 +100,38 @@ class MapSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "MapSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "MapSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'map_id'),
+            'Required key "MapSchema[map_id]" is missing from JSON.');
+        assert(json[r'map_id'] != null,
+            'Required key "MapSchema[map_id]" has a null value in JSON.');
+        assert(json.containsKey(r'name'),
+            'Required key "MapSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "MapSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'skin'),
+            'Required key "MapSchema[skin]" is missing from JSON.');
+        assert(json[r'skin'] != null,
+            'Required key "MapSchema[skin]" has a null value in JSON.');
+        assert(json.containsKey(r'x'),
+            'Required key "MapSchema[x]" is missing from JSON.');
+        assert(json[r'x'] != null,
+            'Required key "MapSchema[x]" has a null value in JSON.');
+        assert(json.containsKey(r'y'),
+            'Required key "MapSchema[y]" is missing from JSON.');
+        assert(json[r'y'] != null,
+            'Required key "MapSchema[y]" has a null value in JSON.');
+        assert(json.containsKey(r'layer'),
+            'Required key "MapSchema[layer]" is missing from JSON.');
+        assert(json[r'layer'] != null,
+            'Required key "MapSchema[layer]" has a null value in JSON.');
+        assert(json.containsKey(r'access'),
+            'Required key "MapSchema[access]" is missing from JSON.');
+        assert(json[r'access'] != null,
+            'Required key "MapSchema[access]" has a null value in JSON.');
+        assert(json.containsKey(r'interactions'),
+            'Required key "MapSchema[interactions]" is missing from JSON.');
+        assert(json[r'interactions'] != null,
+            'Required key "MapSchema[interactions]" has a null value in JSON.');
         return true;
       }());
 

@@ -72,12 +72,22 @@ class EquipRequestSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "EquipRequestSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "EquipRequestSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "EquipRequestSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "EquipRequestSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'slot'),
+            'Required key "EquipRequestSchema[slot]" is missing from JSON.');
+        assert(json[r'slot'] != null,
+            'Required key "EquipRequestSchema[slot]" has a null value in JSON.');
+        assert(json.containsKey(r'item'),
+            'Required key "EquipRequestSchema[item]" is missing from JSON.');
+        assert(json[r'item'] != null,
+            'Required key "EquipRequestSchema[item]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "EquipRequestSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "EquipRequestSchema[character]" has a null value in JSON.');
         return true;
       }());
 

@@ -79,12 +79,26 @@ class GETransactionSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GETransactionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GETransactionSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'),
+            'Required key "GETransactionSchema[id]" is missing from JSON.');
+        assert(json[r'id'] != null,
+            'Required key "GETransactionSchema[id]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "GETransactionSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "GETransactionSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GETransactionSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GETransactionSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "GETransactionSchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "GETransactionSchema[price]" has a null value in JSON.');
+        assert(json.containsKey(r'total_price'),
+            'Required key "GETransactionSchema[total_price]" is missing from JSON.');
+        assert(json[r'total_price'] != null,
+            'Required key "GETransactionSchema[total_price]" has a null value in JSON.');
         return true;
       }());
 

@@ -103,12 +103,30 @@ class TaskFullSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "TaskFullSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "TaskFullSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "TaskFullSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "TaskFullSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'level'),
+            'Required key "TaskFullSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "TaskFullSchema[level]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "TaskFullSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "TaskFullSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'min_quantity'),
+            'Required key "TaskFullSchema[min_quantity]" is missing from JSON.');
+        assert(json[r'min_quantity'] != null,
+            'Required key "TaskFullSchema[min_quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'max_quantity'),
+            'Required key "TaskFullSchema[max_quantity]" is missing from JSON.');
+        assert(json[r'max_quantity'] != null,
+            'Required key "TaskFullSchema[max_quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'rewards'),
+            'Required key "TaskFullSchema[rewards]" is missing from JSON.');
+        assert(json[r'rewards'] != null,
+            'Required key "TaskFullSchema[rewards]" has a null value in JSON.');
         return true;
       }());
 

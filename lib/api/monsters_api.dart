@@ -48,6 +48,7 @@ class MonstersApi {
     String? drop,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/monsters';
@@ -88,6 +89,7 @@ class MonstersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -121,6 +123,7 @@ class MonstersApi {
     String? drop,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllMonstersMonstersGetWithHttpInfo(
       name: name,
@@ -129,6 +132,7 @@ class MonstersApi {
       drop: drop,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -157,8 +161,9 @@ class MonstersApi {
   /// * [String] code (required):
   ///   The code of the monster.
   Future<Response> getMonsterMonstersCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/monsters/{code}'.replaceAll('{code}', code);
 
@@ -179,6 +184,7 @@ class MonstersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -191,10 +197,12 @@ class MonstersApi {
   /// * [String] code (required):
   ///   The code of the monster.
   Future<MonsterResponseSchema?> getMonsterMonstersCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getMonsterMonstersCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

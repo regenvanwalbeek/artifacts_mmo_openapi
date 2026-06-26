@@ -31,6 +31,7 @@ class TasksApi {
   Future<Response> getAllTasksRewardsTasksRewardsGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/tasks/rewards';
@@ -59,6 +60,7 @@ class TasksApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -76,10 +78,12 @@ class TasksApi {
   Future<StaticDataPageDropRateSchema?> getAllTasksRewardsTasksRewardsGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllTasksRewardsTasksRewardsGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -129,6 +133,7 @@ class TasksApi {
     TaskType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/tasks/list';
@@ -169,6 +174,7 @@ class TasksApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -202,6 +208,7 @@ class TasksApi {
     TaskType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllTasksTasksListGetWithHttpInfo(
       minLevel: minLevel,
@@ -210,6 +217,7 @@ class TasksApi {
       type: type,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -238,8 +246,9 @@ class TasksApi {
   /// * [String] code (required):
   ///   The code of the task.
   Future<Response> getTaskTasksListCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/tasks/list/{code}'.replaceAll('{code}', code);
 
@@ -260,6 +269,7 @@ class TasksApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -272,10 +282,12 @@ class TasksApi {
   /// * [String] code (required):
   ///   The code of the task.
   Future<TaskFullResponseSchema?> getTaskTasksListCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getTaskTasksListCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -304,8 +316,9 @@ class TasksApi {
   /// * [String] code (required):
   ///   The code of the tasks reward.
   Future<Response> getTasksRewardTasksRewardsCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/tasks/rewards/{code}'.replaceAll('{code}', code);
 
@@ -326,6 +339,7 @@ class TasksApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -338,10 +352,12 @@ class TasksApi {
   /// * [String] code (required):
   ///   The code of the tasks reward.
   Future<RewardResponseSchema?> getTasksRewardTasksRewardsCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getTasksRewardTasksRewardsCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

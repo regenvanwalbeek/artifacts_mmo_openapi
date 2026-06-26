@@ -48,6 +48,7 @@ class ResourcesApi {
     String? drop,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/resources';
@@ -88,6 +89,7 @@ class ResourcesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -121,6 +123,7 @@ class ResourcesApi {
     String? drop,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllResourcesResourcesGetWithHttpInfo(
       minLevel: minLevel,
@@ -129,6 +132,7 @@ class ResourcesApi {
       drop: drop,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -157,8 +161,9 @@ class ResourcesApi {
   /// * [String] code (required):
   ///   The code of the resource.
   Future<Response> getResourceResourcesCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/resources/{code}'.replaceAll('{code}', code);
 
@@ -179,6 +184,7 @@ class ResourcesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -191,10 +197,12 @@ class ResourcesApi {
   /// * [String] code (required):
   ///   The code of the resource.
   Future<ResourceResponseSchema?> getResourceResourcesCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getResourceResourcesCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

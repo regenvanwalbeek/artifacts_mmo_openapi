@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.ValidationErrorLocInner
+# artifacts_mmo_openapi.model.LocationInner
 
 ## Load the model package
 ```dart

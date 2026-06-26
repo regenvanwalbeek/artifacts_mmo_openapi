@@ -126,12 +126,34 @@ class ItemSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ItemSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "ItemSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "ItemSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "ItemSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "ItemSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'level'),
+            'Required key "ItemSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "ItemSchema[level]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "ItemSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "ItemSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'subtype'),
+            'Required key "ItemSchema[subtype]" is missing from JSON.');
+        assert(json[r'subtype'] != null,
+            'Required key "ItemSchema[subtype]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "ItemSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "ItemSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'tradeable'),
+            'Required key "ItemSchema[tradeable]" is missing from JSON.');
+        assert(json[r'tradeable'] != null,
+            'Required key "ItemSchema[tradeable]" has a null value in JSON.');
         return true;
       }());
 

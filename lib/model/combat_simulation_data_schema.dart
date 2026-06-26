@@ -72,12 +72,22 @@ class CombatSimulationDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CombatSimulationDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CombatSimulationDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'results'),
+            'Required key "CombatSimulationDataSchema[results]" is missing from JSON.');
+        assert(json[r'results'] != null,
+            'Required key "CombatSimulationDataSchema[results]" has a null value in JSON.');
+        assert(json.containsKey(r'wins'),
+            'Required key "CombatSimulationDataSchema[wins]" is missing from JSON.');
+        assert(json[r'wins'] != null,
+            'Required key "CombatSimulationDataSchema[wins]" has a null value in JSON.');
+        assert(json.containsKey(r'losses'),
+            'Required key "CombatSimulationDataSchema[losses]" is missing from JSON.');
+        assert(json[r'losses'] != null,
+            'Required key "CombatSimulationDataSchema[losses]" has a null value in JSON.');
+        assert(json.containsKey(r'winrate'),
+            'Required key "CombatSimulationDataSchema[winrate]" is missing from JSON.');
+        assert(json[r'winrate'] != null,
+            'Required key "CombatSimulationDataSchema[winrate]" has a null value in JSON.');
         return true;
       }());
 

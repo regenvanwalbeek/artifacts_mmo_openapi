@@ -135,6 +135,7 @@ doc/ItemSlot.md
 doc/ItemType.md
 doc/ItemsApi.md
 doc/LeaderboardApi.md
+doc/LocationInner.md
 doc/LogSchema.md
 doc/LogType.md
 doc/MapAccessType.md
@@ -229,7 +230,6 @@ doc/UnequipSchema.md
 doc/UseItemResponseSchema.md
 doc/UseItemSchema.md
 doc/ValidationError.md
-doc/ValidationErrorLocInner.md
 git_push.sh
 lib/api.dart
 lib/api/accounts_api.dart
@@ -312,6 +312,7 @@ lib/model/character_transition_response_schema.dart
 lib/model/characters_list_schema.dart
 lib/model/claim_pending_item_data_schema.dart
 lib/model/claim_pending_item_response_schema.dart
+lib/model/combat_result_schema.dart
 lib/model/combat_simulation_data_schema.dart
 lib/model/combat_simulation_request_schema.dart
 lib/model/combat_simulation_response_schema.dart
@@ -382,6 +383,7 @@ lib/model/item_response_schema.dart
 lib/model/item_schema.dart
 lib/model/item_slot.dart
 lib/model/item_type.dart
+lib/model/location_inner.dart
 lib/model/log_schema.dart
 lib/model/log_type.dart
 lib/model/map_access_type.dart

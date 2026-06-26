@@ -86,12 +86,30 @@ class AchievementSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "AchievementSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "AchievementSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "AchievementSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "AchievementSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "AchievementSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "AchievementSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "AchievementSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "AchievementSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'points'),
+            'Required key "AchievementSchema[points]" is missing from JSON.');
+        assert(json[r'points'] != null,
+            'Required key "AchievementSchema[points]" has a null value in JSON.');
+        assert(json.containsKey(r'objectives'),
+            'Required key "AchievementSchema[objectives]" is missing from JSON.');
+        assert(json[r'objectives'] != null,
+            'Required key "AchievementSchema[objectives]" has a null value in JSON.');
+        assert(json.containsKey(r'rewards'),
+            'Required key "AchievementSchema[rewards]" is missing from JSON.');
+        assert(json[r'rewards'] != null,
+            'Required key "AchievementSchema[rewards]" has a null value in JSON.');
         return true;
       }());
 

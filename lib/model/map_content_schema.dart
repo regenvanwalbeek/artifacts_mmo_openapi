@@ -54,12 +54,14 @@ class MapContentSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "MapContentSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "MapContentSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'type'),
+            'Required key "MapContentSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "MapContentSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "MapContentSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "MapContentSchema[code]" has a null value in JSON.');
         return true;
       }());
 

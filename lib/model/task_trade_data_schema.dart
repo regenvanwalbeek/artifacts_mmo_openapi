@@ -63,12 +63,18 @@ class TaskTradeDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "TaskTradeDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "TaskTradeDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "TaskTradeDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "TaskTradeDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'trade'),
+            'Required key "TaskTradeDataSchema[trade]" is missing from JSON.');
+        assert(json[r'trade'] != null,
+            'Required key "TaskTradeDataSchema[trade]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "TaskTradeDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "TaskTradeDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 

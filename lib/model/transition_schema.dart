@@ -79,12 +79,22 @@ class TransitionSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "TransitionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "TransitionSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'map_id'),
+            'Required key "TransitionSchema[map_id]" is missing from JSON.');
+        assert(json[r'map_id'] != null,
+            'Required key "TransitionSchema[map_id]" has a null value in JSON.');
+        assert(json.containsKey(r'x'),
+            'Required key "TransitionSchema[x]" is missing from JSON.');
+        assert(json[r'x'] != null,
+            'Required key "TransitionSchema[x]" has a null value in JSON.');
+        assert(json.containsKey(r'y'),
+            'Required key "TransitionSchema[y]" is missing from JSON.');
+        assert(json[r'y'] != null,
+            'Required key "TransitionSchema[y]" has a null value in JSON.');
+        assert(json.containsKey(r'layer'),
+            'Required key "TransitionSchema[layer]" is missing from JSON.');
+        assert(json[r'layer'] != null,
+            'Required key "TransitionSchema[layer]" has a null value in JSON.');
         return true;
       }());
 

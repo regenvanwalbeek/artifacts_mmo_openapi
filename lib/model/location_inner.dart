@@ -10,30 +10,30 @@
 
 part of openapi_generation;
 
-class ValidationErrorLocInner {
-  /// Returns a new [ValidationErrorLocInner] instance.
-  ValidationErrorLocInner();
+class LocationInner {
+  /// Returns a new [LocationInner] instance.
+  LocationInner();
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ValidationErrorLocInner;
+      identical(this, other) || other is LocationInner;
 
   @override
   int get hashCode => 1;
   // ignore: unnecessary_parenthesis
 
   @override
-  String toString() => 'ValidationErrorLocInner[]';
+  String toString() => 'LocationInner[]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     return json;
   }
 
-  /// Returns a new [ValidationErrorLocInner] instance and imports its values from
+  /// Returns a new [LocationInner] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ValidationErrorLocInner? fromJson(dynamic value) {
+  static LocationInner? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -41,28 +41,22 @@ class ValidationErrorLocInner {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ValidationErrorLocInner[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ValidationErrorLocInner[$key]" has a null value in JSON.');
-        });
         return true;
       }());
 
-      return ValidationErrorLocInner();
+      return LocationInner();
     }
     return null;
   }
 
-  static List<ValidationErrorLocInner> listFromJson(
+  static List<LocationInner> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <ValidationErrorLocInner>[];
+    final result = <LocationInner>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = ValidationErrorLocInner.fromJson(row);
+        final value = LocationInner.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -71,12 +65,12 @@ class ValidationErrorLocInner {
     return result.toList(growable: growable);
   }
 
-  static Map<String, ValidationErrorLocInner> mapFromJson(dynamic json) {
-    final map = <String, ValidationErrorLocInner>{};
+  static Map<String, LocationInner> mapFromJson(dynamic json) {
+    final map = <String, LocationInner>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = ValidationErrorLocInner.fromJson(entry.value);
+        final value = LocationInner.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -85,17 +79,17 @@ class ValidationErrorLocInner {
     return map;
   }
 
-  // maps a json object with a list of ValidationErrorLocInner-objects as value to a dart map
-  static Map<String, List<ValidationErrorLocInner>> mapListFromJson(
+  // maps a json object with a list of LocationInner-objects as value to a dart map
+  static Map<String, List<LocationInner>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<ValidationErrorLocInner>>{};
+    final map = <String, List<LocationInner>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = ValidationErrorLocInner.listFromJson(
+        map[entry.key] = LocationInner.listFromJson(
           entry.value,
           growable: growable,
         );

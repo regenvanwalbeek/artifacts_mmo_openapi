@@ -108,12 +108,30 @@ class GEOrderSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEOrderSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEOrderSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'),
+            'Required key "GEOrderSchema[id]" is missing from JSON.');
+        assert(json[r'id'] != null,
+            'Required key "GEOrderSchema[id]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "GEOrderSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "GEOrderSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "GEOrderSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "GEOrderSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GEOrderSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GEOrderSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "GEOrderSchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "GEOrderSchema[price]" has a null value in JSON.');
+        assert(json.containsKey(r'created_at'),
+            'Required key "GEOrderSchema[created_at]" is missing from JSON.');
+        assert(json[r'created_at'] != null,
+            'Required key "GEOrderSchema[created_at]" has a null value in JSON.');
         return true;
       }());
 

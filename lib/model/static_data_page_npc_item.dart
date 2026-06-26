@@ -118,12 +118,10 @@ class StaticDataPageNPCItem {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "StaticDataPageNPCItem[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "StaticDataPageNPCItem[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'data'),
+            'Required key "StaticDataPageNPCItem[data]" is missing from JSON.');
+        assert(json[r'data'] != null,
+            'Required key "StaticDataPageNPCItem[data]" has a null value in JSON.');
         return true;
       }());
 

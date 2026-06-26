@@ -48,12 +48,10 @@ class GECancelOrderSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GECancelOrderSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GECancelOrderSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'),
+            'Required key "GECancelOrderSchema[id]" is missing from JSON.');
+        assert(json[r'id'] != null,
+            'Required key "GECancelOrderSchema[id]" has a null value in JSON.');
         return true;
       }());
 

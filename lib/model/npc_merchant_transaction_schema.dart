@@ -63,12 +63,18 @@ class NpcMerchantTransactionSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "NpcMerchantTransactionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "NpcMerchantTransactionSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "NpcMerchantTransactionSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "NpcMerchantTransactionSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'transaction'),
+            'Required key "NpcMerchantTransactionSchema[transaction]" is missing from JSON.');
+        assert(json[r'transaction'] != null,
+            'Required key "NpcMerchantTransactionSchema[transaction]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "NpcMerchantTransactionSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "NpcMerchantTransactionSchema[character]" has a null value in JSON.');
         return true;
       }());
 

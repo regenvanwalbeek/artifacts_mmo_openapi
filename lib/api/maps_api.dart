@@ -47,6 +47,7 @@ class MapsApi {
     bool? hideBlockedMaps,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/maps';
@@ -88,6 +89,7 @@ class MapsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -121,6 +123,7 @@ class MapsApi {
     bool? hideBlockedMaps,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllMapsMapsGetWithHttpInfo(
       layer: layer,
@@ -129,6 +132,7 @@ class MapsApi {
       hideBlockedMaps: hideBlockedMaps,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -178,6 +182,7 @@ class MapsApi {
     bool? hideBlockedMaps,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/maps/{layer}'.replaceAll('{layer}', layer.toString());
@@ -216,6 +221,7 @@ class MapsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -249,6 +255,7 @@ class MapsApi {
     bool? hideBlockedMaps,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getLayerMapsMapsLayerGetWithHttpInfo(
       layer,
@@ -257,6 +264,7 @@ class MapsApi {
       hideBlockedMaps: hideBlockedMaps,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -285,8 +293,9 @@ class MapsApi {
   /// * [int] mapId (required):
   ///   The unique ID of the map.
   Future<Response> getMapByIdMapsIdMapIdGetWithHttpInfo(
-    int mapId,
-  ) async {
+    int mapId, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/maps/id/{map_id}'.replaceAll('{map_id}', mapId.toString());
 
@@ -307,6 +316,7 @@ class MapsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -319,10 +329,12 @@ class MapsApi {
   /// * [int] mapId (required):
   ///   The unique ID of the map.
   Future<MapResponseSchema?> getMapByIdMapsIdMapIdGet(
-    int mapId,
-  ) async {
+    int mapId, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getMapByIdMapsIdMapIdGetWithHttpInfo(
       mapId,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -359,8 +371,9 @@ class MapsApi {
   Future<Response> getMapByPositionMapsLayerXYGetWithHttpInfo(
     MapLayer layer,
     int x,
-    int y,
-  ) async {
+    int y, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/maps/{layer}/{x}/{y}'
         .replaceAll('{layer}', layer.toString())
@@ -384,6 +397,7 @@ class MapsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -404,12 +418,14 @@ class MapsApi {
   Future<MapResponseSchema?> getMapByPositionMapsLayerXYGet(
     MapLayer layer,
     int x,
-    int y,
-  ) async {
+    int y, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getMapByPositionMapsLayerXYGetWithHttpInfo(
       layer,
       x,
       y,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

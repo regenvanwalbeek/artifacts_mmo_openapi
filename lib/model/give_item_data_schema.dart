@@ -72,12 +72,22 @@ class GiveItemDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GiveItemDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GiveItemDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "GiveItemDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "GiveItemDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'items'),
+            'Required key "GiveItemDataSchema[items]" is missing from JSON.');
+        assert(json[r'items'] != null,
+            'Required key "GiveItemDataSchema[items]" has a null value in JSON.');
+        assert(json.containsKey(r'receiver_character'),
+            'Required key "GiveItemDataSchema[receiver_character]" is missing from JSON.');
+        assert(json[r'receiver_character'] != null,
+            'Required key "GiveItemDataSchema[receiver_character]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "GiveItemDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "GiveItemDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 

@@ -103,12 +103,30 @@ class AccountAchievementSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "AccountAchievementSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "AccountAchievementSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "AccountAchievementSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "AccountAchievementSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "AccountAchievementSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "AccountAchievementSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "AccountAchievementSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "AccountAchievementSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'points'),
+            'Required key "AccountAchievementSchema[points]" is missing from JSON.');
+        assert(json[r'points'] != null,
+            'Required key "AccountAchievementSchema[points]" has a null value in JSON.');
+        assert(json.containsKey(r'objectives'),
+            'Required key "AccountAchievementSchema[objectives]" is missing from JSON.');
+        assert(json[r'objectives'] != null,
+            'Required key "AccountAchievementSchema[objectives]" has a null value in JSON.');
+        assert(json.containsKey(r'rewards'),
+            'Required key "AccountAchievementSchema[rewards]" is missing from JSON.');
+        assert(json[r'rewards'] != null,
+            'Required key "AccountAchievementSchema[rewards]" has a null value in JSON.');
         return true;
       }());
 

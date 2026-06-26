@@ -48,12 +48,10 @@ class BankExtensionTransactionResponseSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "BankExtensionTransactionResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "BankExtensionTransactionResponseSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'data'),
+            'Required key "BankExtensionTransactionResponseSchema[data]" is missing from JSON.');
+        assert(json[r'data'] != null,
+            'Required key "BankExtensionTransactionResponseSchema[data]" has a null value in JSON.');
         return true;
       }());
 

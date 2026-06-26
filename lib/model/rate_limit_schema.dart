@@ -54,12 +54,14 @@ class RateLimitSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "RateLimitSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "RateLimitSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'type'),
+            'Required key "RateLimitSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "RateLimitSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'value'),
+            'Required key "RateLimitSchema[value]" is missing from JSON.');
+        assert(json[r'value'] != null,
+            'Required key "RateLimitSchema[value]" has a null value in JSON.');
         return true;
       }());
 

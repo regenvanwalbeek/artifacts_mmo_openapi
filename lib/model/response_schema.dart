@@ -48,12 +48,10 @@ class ResponseSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ResponseSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'message'),
+            'Required key "ResponseSchema[message]" is missing from JSON.');
+        assert(json[r'message'] != null,
+            'Required key "ResponseSchema[message]" has a null value in JSON.');
         return true;
       }());
 

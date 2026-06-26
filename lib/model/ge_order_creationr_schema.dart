@@ -69,12 +69,18 @@ class GEOrderCreationrSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEOrderCreationrSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEOrderCreationrSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "GEOrderCreationrSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "GEOrderCreationrSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GEOrderCreationrSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GEOrderCreationrSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "GEOrderCreationrSchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "GEOrderCreationrSchema[price]" has a null value in JSON.');
         return true;
       }());
 

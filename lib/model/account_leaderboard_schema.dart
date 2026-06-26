@@ -79,12 +79,26 @@ class AccountLeaderboardSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "AccountLeaderboardSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "AccountLeaderboardSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'position'),
+            'Required key "AccountLeaderboardSchema[position]" is missing from JSON.');
+        assert(json[r'position'] != null,
+            'Required key "AccountLeaderboardSchema[position]" has a null value in JSON.');
+        assert(json.containsKey(r'account'),
+            'Required key "AccountLeaderboardSchema[account]" is missing from JSON.');
+        assert(json[r'account'] != null,
+            'Required key "AccountLeaderboardSchema[account]" has a null value in JSON.');
+        assert(json.containsKey(r'status'),
+            'Required key "AccountLeaderboardSchema[status]" is missing from JSON.');
+        assert(json[r'status'] != null,
+            'Required key "AccountLeaderboardSchema[status]" has a null value in JSON.');
+        assert(json.containsKey(r'achievements_points'),
+            'Required key "AccountLeaderboardSchema[achievements_points]" is missing from JSON.');
+        assert(json[r'achievements_points'] != null,
+            'Required key "AccountLeaderboardSchema[achievements_points]" has a null value in JSON.');
+        assert(json.containsKey(r'gold'),
+            'Required key "AccountLeaderboardSchema[gold]" is missing from JSON.');
+        assert(json[r'gold'] != null,
+            'Required key "AccountLeaderboardSchema[gold]" has a null value in JSON.');
         return true;
       }());
 

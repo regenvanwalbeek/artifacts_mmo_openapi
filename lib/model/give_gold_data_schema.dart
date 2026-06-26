@@ -75,12 +75,22 @@ class GiveGoldDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GiveGoldDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GiveGoldDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "GiveGoldDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "GiveGoldDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GiveGoldDataSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GiveGoldDataSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'receiver_character'),
+            'Required key "GiveGoldDataSchema[receiver_character]" is missing from JSON.');
+        assert(json[r'receiver_character'] != null,
+            'Required key "GiveGoldDataSchema[receiver_character]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "GiveGoldDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "GiveGoldDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 

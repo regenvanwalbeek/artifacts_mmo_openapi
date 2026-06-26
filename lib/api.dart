@@ -172,6 +172,7 @@ part 'model/item_response_schema.dart';
 part 'model/item_schema.dart';
 part 'model/item_slot.dart';
 part 'model/item_type.dart';
+part 'model/location_inner.dart';
 part 'model/log_schema.dart';
 part 'model/log_type.dart';
 part 'model/map_access_type.dart';
@@ -256,7 +257,6 @@ part 'model/unequip_schema.dart';
 part 'model/use_item_response_schema.dart';
 part 'model/use_item_schema.dart';
 part 'model/validation_error.dart';
-part 'model/validation_error_loc_inner.dart';
 
 /// An [ApiClient] instance that uses the default values obtained from
 /// the OpenAPI specification file.

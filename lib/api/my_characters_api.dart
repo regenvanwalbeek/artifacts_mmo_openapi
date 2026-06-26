@@ -27,8 +27,9 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<Response> actionAcceptNewTaskMyNameActionTaskNewPostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/task/new'.replaceAll('{name}', name);
 
@@ -49,6 +50,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -61,11 +63,13 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<TaskResponseSchema?> actionAcceptNewTaskMyNameActionTaskNewPost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionAcceptNewTaskMyNameActionTaskNewPostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -95,8 +99,9 @@ class MyCharactersApi {
   ///   Name of your character.
   Future<Response>
       actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/bank/buy_expansion'.replaceAll('{name}', name);
@@ -118,6 +123,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -131,11 +137,13 @@ class MyCharactersApi {
   ///   Name of your character.
   Future<BankExtensionTransactionResponseSchema?>
       actionBuyBankExpansionMyNameActionBankBuyExpansionPost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -167,8 +175,9 @@ class MyCharactersApi {
   /// * [ChangeSkinCharacterSchema] changeSkinCharacterSchema (required):
   Future<Response> actionChangeSkinMyNameActionChangeSkinPostWithHttpInfo(
     String name,
-    ChangeSkinCharacterSchema changeSkinCharacterSchema,
-  ) async {
+    ChangeSkinCharacterSchema changeSkinCharacterSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/change_skin'.replaceAll('{name}', name);
 
@@ -189,6 +198,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -204,12 +214,14 @@ class MyCharactersApi {
   /// * [ChangeSkinCharacterSchema] changeSkinCharacterSchema (required):
   Future<ChangeSkinResponseSchema?> actionChangeSkinMyNameActionChangeSkinPost(
     String name,
-    ChangeSkinCharacterSchema changeSkinCharacterSchema,
-  ) async {
+    ChangeSkinCharacterSchema changeSkinCharacterSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionChangeSkinMyNameActionChangeSkinPostWithHttpInfo(
       name,
       changeSkinCharacterSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -243,8 +255,9 @@ class MyCharactersApi {
   Future<Response>
       actionClaimPendingItemMyNameActionClaimItemIdPostWithHttpInfo(
     String name,
-    String id,
-  ) async {
+    String id, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/claim_item/{id}'
         .replaceAll('{name}', name)
@@ -267,6 +280,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -284,12 +298,14 @@ class MyCharactersApi {
   Future<ClaimPendingItemResponseSchema?>
       actionClaimPendingItemMyNameActionClaimItemIdPost(
     String name,
-    String id,
-  ) async {
+    String id, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionClaimPendingItemMyNameActionClaimItemIdPostWithHttpInfo(
       name,
       id,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -318,8 +334,9 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<Response> actionCompleteTaskMyNameActionTaskCompletePostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/task/complete'.replaceAll('{name}', name);
 
@@ -340,6 +357,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -353,11 +371,13 @@ class MyCharactersApi {
   ///   Name of your character.
   Future<RewardDataResponseSchema?>
       actionCompleteTaskMyNameActionTaskCompletePost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionCompleteTaskMyNameActionTaskCompletePostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -389,8 +409,9 @@ class MyCharactersApi {
   /// * [CraftingSchema] craftingSchema (required):
   Future<Response> actionCraftingMyNameActionCraftingPostWithHttpInfo(
     String name,
-    CraftingSchema craftingSchema,
-  ) async {
+    CraftingSchema craftingSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/crafting'.replaceAll('{name}', name);
 
@@ -411,6 +432,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -426,11 +448,13 @@ class MyCharactersApi {
   /// * [CraftingSchema] craftingSchema (required):
   Future<SkillResponseSchema?> actionCraftingMyNameActionCraftingPost(
     String name,
-    CraftingSchema craftingSchema,
-  ) async {
+    CraftingSchema craftingSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionCraftingMyNameActionCraftingPostWithHttpInfo(
       name,
       craftingSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -462,8 +486,9 @@ class MyCharactersApi {
   /// * [SimpleItemSchema] simpleItemSchema (required):
   Future<Response> actionDeleteItemMyNameActionDeletePostWithHttpInfo(
     String name,
-    SimpleItemSchema simpleItemSchema,
-  ) async {
+    SimpleItemSchema simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/delete'.replaceAll('{name}', name);
 
@@ -484,6 +509,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -499,11 +525,13 @@ class MyCharactersApi {
   /// * [SimpleItemSchema] simpleItemSchema (required):
   Future<DeleteItemResponseSchema?> actionDeleteItemMyNameActionDeletePost(
     String name,
-    SimpleItemSchema simpleItemSchema,
-  ) async {
+    SimpleItemSchema simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionDeleteItemMyNameActionDeletePostWithHttpInfo(
       name,
       simpleItemSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -536,8 +564,9 @@ class MyCharactersApi {
   Future<Response>
       actionDepositBankGoldMyNameActionBankDepositGoldPostWithHttpInfo(
     String name,
-    DepositWithdrawGoldSchema depositWithdrawGoldSchema,
-  ) async {
+    DepositWithdrawGoldSchema depositWithdrawGoldSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/bank/deposit/gold'.replaceAll('{name}', name);
@@ -559,6 +588,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -575,12 +605,14 @@ class MyCharactersApi {
   Future<BankGoldTransactionResponseSchema?>
       actionDepositBankGoldMyNameActionBankDepositGoldPost(
     String name,
-    DepositWithdrawGoldSchema depositWithdrawGoldSchema,
-  ) async {
+    DepositWithdrawGoldSchema depositWithdrawGoldSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionDepositBankGoldMyNameActionBankDepositGoldPostWithHttpInfo(
       name,
       depositWithdrawGoldSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -613,8 +645,9 @@ class MyCharactersApi {
   Future<Response>
       actionDepositBankItemMyNameActionBankDepositItemPostWithHttpInfo(
     String name,
-    List<SimpleItemSchema> simpleItemSchema,
-  ) async {
+    List<SimpleItemSchema> simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/bank/deposit/item'.replaceAll('{name}', name);
@@ -636,6 +669,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -652,12 +686,14 @@ class MyCharactersApi {
   Future<BankItemTransactionResponseSchema?>
       actionDepositBankItemMyNameActionBankDepositItemPost(
     String name,
-    List<SimpleItemSchema> simpleItemSchema,
-  ) async {
+    List<SimpleItemSchema> simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionDepositBankItemMyNameActionBankDepositItemPostWithHttpInfo(
       name,
       simpleItemSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -689,8 +725,9 @@ class MyCharactersApi {
   /// * [EquipSchema] equipSchema (required):
   Future<Response> actionEquipItemMyNameActionEquipPostWithHttpInfo(
     String name,
-    EquipSchema equipSchema,
-  ) async {
+    EquipSchema equipSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/equip'.replaceAll('{name}', name);
 
@@ -711,6 +748,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -726,11 +764,13 @@ class MyCharactersApi {
   /// * [EquipSchema] equipSchema (required):
   Future<EquipmentResponseSchema?> actionEquipItemMyNameActionEquipPost(
     String name,
-    EquipSchema equipSchema,
-  ) async {
+    EquipSchema equipSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionEquipItemMyNameActionEquipPostWithHttpInfo(
       name,
       equipSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -763,6 +803,7 @@ class MyCharactersApi {
   Future<Response> actionFightMyNameActionFightPostWithHttpInfo(
     String name, {
     FightRequestSchema? fightRequestSchema,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/fight'.replaceAll('{name}', name);
@@ -784,6 +825,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -800,10 +842,12 @@ class MyCharactersApi {
   Future<CharacterFightResponseSchema?> actionFightMyNameActionFightPost(
     String name, {
     FightRequestSchema? fightRequestSchema,
+    Future<void>? abortTrigger,
   }) async {
     final response = await actionFightMyNameActionFightPostWithHttpInfo(
       name,
       fightRequestSchema: fightRequestSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -832,8 +876,9 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<Response> actionGatheringMyNameActionGatheringPostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/gathering'.replaceAll('{name}', name);
 
@@ -854,6 +899,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -866,10 +912,12 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<SkillResponseSchema?> actionGatheringMyNameActionGatheringPost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionGatheringMyNameActionGatheringPostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -901,8 +949,9 @@ class MyCharactersApi {
   /// * [GEBuyOrderSchema] gEBuyOrderSchema (required):
   Future<Response> actionGeBuyItemMyNameActionGrandexchangeBuyPostWithHttpInfo(
     String name,
-    GEBuyOrderSchema gEBuyOrderSchema,
-  ) async {
+    GEBuyOrderSchema gEBuyOrderSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/grandexchange/buy'.replaceAll('{name}', name);
@@ -924,6 +973,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -940,12 +990,14 @@ class MyCharactersApi {
   Future<GETransactionResponseSchema?>
       actionGeBuyItemMyNameActionGrandexchangeBuyPost(
     String name,
-    GEBuyOrderSchema gEBuyOrderSchema,
-  ) async {
+    GEBuyOrderSchema gEBuyOrderSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionGeBuyItemMyNameActionGrandexchangeBuyPostWithHttpInfo(
       name,
       gEBuyOrderSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -978,8 +1030,9 @@ class MyCharactersApi {
   Future<Response>
       actionGeCancelOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
     String name,
-    GECancelOrderSchema gECancelOrderSchema,
-  ) async {
+    GECancelOrderSchema gECancelOrderSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/grandexchange/cancel'.replaceAll('{name}', name);
@@ -1001,6 +1054,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1017,12 +1071,14 @@ class MyCharactersApi {
   Future<GETransactionResponseSchema?>
       actionGeCancelOrderMyNameActionGrandexchangeCancelPost(
     String name,
-    GECancelOrderSchema gECancelOrderSchema,
-  ) async {
+    GECancelOrderSchema gECancelOrderSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionGeCancelOrderMyNameActionGrandexchangeCancelPostWithHttpInfo(
       name,
       gECancelOrderSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1055,8 +1111,9 @@ class MyCharactersApi {
   Future<Response>
       actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPostWithHttpInfo(
     String name,
-    GEBuyOrderCreationSchema gEBuyOrderCreationSchema,
-  ) async {
+    GEBuyOrderCreationSchema gEBuyOrderCreationSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/grandexchange/create-buy-order'
         .replaceAll('{name}', name);
@@ -1078,6 +1135,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1094,12 +1152,14 @@ class MyCharactersApi {
   Future<GECreateOrderTransactionResponseSchema?>
       actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost(
     String name,
-    GEBuyOrderCreationSchema gEBuyOrderCreationSchema,
-  ) async {
+    GEBuyOrderCreationSchema gEBuyOrderCreationSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPostWithHttpInfo(
       name,
       gEBuyOrderCreationSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1132,8 +1192,9 @@ class MyCharactersApi {
   Future<Response>
       actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPostWithHttpInfo(
     String name,
-    GEOrderCreationrSchema gEOrderCreationrSchema,
-  ) async {
+    GEOrderCreationrSchema gEOrderCreationrSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/grandexchange/create-sell-order'
         .replaceAll('{name}', name);
@@ -1155,6 +1216,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1171,12 +1233,14 @@ class MyCharactersApi {
   Future<GECreateOrderTransactionResponseSchema?>
       actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(
     String name,
-    GEOrderCreationrSchema gEOrderCreationrSchema,
-  ) async {
+    GEOrderCreationrSchema gEOrderCreationrSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPostWithHttpInfo(
       name,
       gEOrderCreationrSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1208,8 +1272,9 @@ class MyCharactersApi {
   /// * [GEFillBuyOrderSchema] gEFillBuyOrderSchema (required):
   Future<Response> actionGeFillMyNameActionGrandexchangeFillPostWithHttpInfo(
     String name,
-    GEFillBuyOrderSchema gEFillBuyOrderSchema,
-  ) async {
+    GEFillBuyOrderSchema gEFillBuyOrderSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/grandexchange/fill'.replaceAll('{name}', name);
@@ -1231,6 +1296,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1247,12 +1313,14 @@ class MyCharactersApi {
   Future<GETransactionResponseSchema?>
       actionGeFillMyNameActionGrandexchangeFillPost(
     String name,
-    GEFillBuyOrderSchema gEFillBuyOrderSchema,
-  ) async {
+    GEFillBuyOrderSchema gEFillBuyOrderSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionGeFillMyNameActionGrandexchangeFillPostWithHttpInfo(
       name,
       gEFillBuyOrderSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1284,8 +1352,9 @@ class MyCharactersApi {
   /// * [GiveGoldSchema] giveGoldSchema (required):
   Future<Response> actionGiveGoldMyNameActionGiveGoldPostWithHttpInfo(
     String name,
-    GiveGoldSchema giveGoldSchema,
-  ) async {
+    GiveGoldSchema giveGoldSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/give/gold'.replaceAll('{name}', name);
 
@@ -1306,6 +1375,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1321,11 +1391,13 @@ class MyCharactersApi {
   /// * [GiveGoldSchema] giveGoldSchema (required):
   Future<GiveGoldResponseSchema?> actionGiveGoldMyNameActionGiveGoldPost(
     String name,
-    GiveGoldSchema giveGoldSchema,
-  ) async {
+    GiveGoldSchema giveGoldSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionGiveGoldMyNameActionGiveGoldPostWithHttpInfo(
       name,
       giveGoldSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1357,8 +1429,9 @@ class MyCharactersApi {
   /// * [GiveItemsSchema] giveItemsSchema (required):
   Future<Response> actionGiveItemsMyNameActionGiveItemPostWithHttpInfo(
     String name,
-    GiveItemsSchema giveItemsSchema,
-  ) async {
+    GiveItemsSchema giveItemsSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/give/item'.replaceAll('{name}', name);
 
@@ -1379,6 +1452,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1394,11 +1468,13 @@ class MyCharactersApi {
   /// * [GiveItemsSchema] giveItemsSchema (required):
   Future<GiveItemResponseSchema?> actionGiveItemsMyNameActionGiveItemPost(
     String name,
-    GiveItemsSchema giveItemsSchema,
-  ) async {
+    GiveItemsSchema giveItemsSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionGiveItemsMyNameActionGiveItemPostWithHttpInfo(
       name,
       giveItemsSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1430,8 +1506,9 @@ class MyCharactersApi {
   /// * [DestinationSchema] destinationSchema (required):
   Future<Response> actionMoveMyNameActionMovePostWithHttpInfo(
     String name,
-    DestinationSchema destinationSchema,
-  ) async {
+    DestinationSchema destinationSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/move'.replaceAll('{name}', name);
 
@@ -1452,6 +1529,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1467,11 +1545,13 @@ class MyCharactersApi {
   /// * [DestinationSchema] destinationSchema (required):
   Future<CharacterMovementResponseSchema?> actionMoveMyNameActionMovePost(
     String name,
-    DestinationSchema destinationSchema,
-  ) async {
+    DestinationSchema destinationSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionMoveMyNameActionMovePostWithHttpInfo(
       name,
       destinationSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1503,8 +1583,9 @@ class MyCharactersApi {
   /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
   Future<Response> actionNpcBuyItemMyNameActionNpcBuyPostWithHttpInfo(
     String name,
-    NpcMerchantBuySchema npcMerchantBuySchema,
-  ) async {
+    NpcMerchantBuySchema npcMerchantBuySchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/npc/buy'.replaceAll('{name}', name);
 
@@ -1525,6 +1606,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1541,11 +1623,13 @@ class MyCharactersApi {
   Future<NpcMerchantTransactionResponseSchema?>
       actionNpcBuyItemMyNameActionNpcBuyPost(
     String name,
-    NpcMerchantBuySchema npcMerchantBuySchema,
-  ) async {
+    NpcMerchantBuySchema npcMerchantBuySchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionNpcBuyItemMyNameActionNpcBuyPostWithHttpInfo(
       name,
       npcMerchantBuySchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1577,8 +1661,9 @@ class MyCharactersApi {
   /// * [NpcMerchantBuySchema] npcMerchantBuySchema (required):
   Future<Response> actionNpcSellItemMyNameActionNpcSellPostWithHttpInfo(
     String name,
-    NpcMerchantBuySchema npcMerchantBuySchema,
-  ) async {
+    NpcMerchantBuySchema npcMerchantBuySchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/npc/sell'.replaceAll('{name}', name);
 
@@ -1599,6 +1684,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1615,11 +1701,13 @@ class MyCharactersApi {
   Future<NpcMerchantTransactionResponseSchema?>
       actionNpcSellItemMyNameActionNpcSellPost(
     String name,
-    NpcMerchantBuySchema npcMerchantBuySchema,
-  ) async {
+    NpcMerchantBuySchema npcMerchantBuySchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionNpcSellItemMyNameActionNpcSellPostWithHttpInfo(
       name,
       npcMerchantBuySchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1651,8 +1739,9 @@ class MyCharactersApi {
   /// * [RecyclingSchema] recyclingSchema (required):
   Future<Response> actionRecyclingMyNameActionRecyclingPostWithHttpInfo(
     String name,
-    RecyclingSchema recyclingSchema,
-  ) async {
+    RecyclingSchema recyclingSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/recycling'.replaceAll('{name}', name);
 
@@ -1673,6 +1762,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1688,11 +1778,13 @@ class MyCharactersApi {
   /// * [RecyclingSchema] recyclingSchema (required):
   Future<RecyclingResponseSchema?> actionRecyclingMyNameActionRecyclingPost(
     String name,
-    RecyclingSchema recyclingSchema,
-  ) async {
+    RecyclingSchema recyclingSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionRecyclingMyNameActionRecyclingPostWithHttpInfo(
       name,
       recyclingSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1721,8 +1813,9 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<Response> actionRestMyNameActionRestPostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/rest'.replaceAll('{name}', name);
 
@@ -1743,6 +1836,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1755,10 +1849,12 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<CharacterRestResponseSchema?> actionRestMyNameActionRestPost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionRestMyNameActionRestPostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1787,8 +1883,9 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<Response> actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/task/cancel'.replaceAll('{name}', name);
 
@@ -1809,6 +1906,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1822,11 +1920,13 @@ class MyCharactersApi {
   ///   Name of your character.
   Future<TaskCancelledResponseSchema?>
       actionTaskCancelMyNameActionTaskCancelPost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1855,8 +1955,9 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<Response> actionTaskExchangeMyNameActionTaskExchangePostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/task/exchange'.replaceAll('{name}', name);
 
@@ -1877,6 +1978,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1890,11 +1992,13 @@ class MyCharactersApi {
   ///   Name of your character.
   Future<RewardDataResponseSchema?>
       actionTaskExchangeMyNameActionTaskExchangePost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionTaskExchangeMyNameActionTaskExchangePostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1926,8 +2030,9 @@ class MyCharactersApi {
   /// * [SimpleItemSchema] simpleItemSchema (required):
   Future<Response> actionTaskTradeMyNameActionTaskTradePostWithHttpInfo(
     String name,
-    SimpleItemSchema simpleItemSchema,
-  ) async {
+    SimpleItemSchema simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/task/trade'.replaceAll('{name}', name);
 
@@ -1948,6 +2053,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -1963,11 +2069,13 @@ class MyCharactersApi {
   /// * [SimpleItemSchema] simpleItemSchema (required):
   Future<TaskTradeResponseSchema?> actionTaskTradeMyNameActionTaskTradePost(
     String name,
-    SimpleItemSchema simpleItemSchema,
-  ) async {
+    SimpleItemSchema simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionTaskTradeMyNameActionTaskTradePostWithHttpInfo(
       name,
       simpleItemSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -1996,8 +2104,9 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   Future<Response> actionTransitionMyNameActionTransitionPostWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/transition'.replaceAll('{name}', name);
 
@@ -2018,6 +2127,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2031,11 +2141,13 @@ class MyCharactersApi {
   ///   Name of your character.
   Future<CharacterTransitionResponseSchema?>
       actionTransitionMyNameActionTransitionPost(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionTransitionMyNameActionTransitionPostWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2067,8 +2179,9 @@ class MyCharactersApi {
   /// * [UnequipSchema] unequipSchema (required):
   Future<Response> actionUnequipItemMyNameActionUnequipPostWithHttpInfo(
     String name,
-    UnequipSchema unequipSchema,
-  ) async {
+    UnequipSchema unequipSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/unequip'.replaceAll('{name}', name);
 
@@ -2089,6 +2202,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2104,11 +2218,13 @@ class MyCharactersApi {
   /// * [UnequipSchema] unequipSchema (required):
   Future<EquipmentResponseSchema?> actionUnequipItemMyNameActionUnequipPost(
     String name,
-    UnequipSchema unequipSchema,
-  ) async {
+    UnequipSchema unequipSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionUnequipItemMyNameActionUnequipPostWithHttpInfo(
       name,
       unequipSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2140,8 +2256,9 @@ class MyCharactersApi {
   /// * [SimpleItemSchema] simpleItemSchema (required):
   Future<Response> actionUseItemMyNameActionUsePostWithHttpInfo(
     String name,
-    SimpleItemSchema simpleItemSchema,
-  ) async {
+    SimpleItemSchema simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/{name}/action/use'.replaceAll('{name}', name);
 
@@ -2162,6 +2279,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2177,11 +2295,13 @@ class MyCharactersApi {
   /// * [SimpleItemSchema] simpleItemSchema (required):
   Future<UseItemResponseSchema?> actionUseItemMyNameActionUsePost(
     String name,
-    SimpleItemSchema simpleItemSchema,
-  ) async {
+    SimpleItemSchema simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await actionUseItemMyNameActionUsePostWithHttpInfo(
       name,
       simpleItemSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2214,8 +2334,9 @@ class MyCharactersApi {
   Future<Response>
       actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithHttpInfo(
     String name,
-    DepositWithdrawGoldSchema depositWithdrawGoldSchema,
-  ) async {
+    DepositWithdrawGoldSchema depositWithdrawGoldSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/bank/withdraw/gold'.replaceAll('{name}', name);
@@ -2237,6 +2358,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2253,12 +2375,14 @@ class MyCharactersApi {
   Future<BankGoldTransactionResponseSchema?>
       actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost(
     String name,
-    DepositWithdrawGoldSchema depositWithdrawGoldSchema,
-  ) async {
+    DepositWithdrawGoldSchema depositWithdrawGoldSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithHttpInfo(
       name,
       depositWithdrawGoldSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2291,8 +2415,9 @@ class MyCharactersApi {
   Future<Response>
       actionWithdrawBankItemMyNameActionBankWithdrawItemPostWithHttpInfo(
     String name,
-    List<SimpleItemSchema> simpleItemSchema,
-  ) async {
+    List<SimpleItemSchema> simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/my/{name}/action/bank/withdraw/item'.replaceAll('{name}', name);
@@ -2314,6 +2439,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2330,12 +2456,14 @@ class MyCharactersApi {
   Future<BankItemTransactionResponseSchema?>
       actionWithdrawBankItemMyNameActionBankWithdrawItemPost(
     String name,
-    List<SimpleItemSchema> simpleItemSchema,
-  ) async {
+    List<SimpleItemSchema> simpleItemSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await actionWithdrawBankItemMyNameActionBankWithdrawItemPostWithHttpInfo(
       name,
       simpleItemSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2369,6 +2497,7 @@ class MyCharactersApi {
   Future<Response> getAllCharactersLogsMyLogsGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/logs';
@@ -2397,6 +2526,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2414,10 +2544,12 @@ class MyCharactersApi {
   Future<DataPageLogSchema?> getAllCharactersLogsMyLogsGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllCharactersLogsMyLogsGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2455,6 +2587,7 @@ class MyCharactersApi {
     String name, {
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/logs/{name}'.replaceAll('{name}', name);
@@ -2483,6 +2616,7 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -2504,11 +2638,13 @@ class MyCharactersApi {
     String name, {
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getCharacterLogsMyLogsNameGetWithHttpInfo(
       name,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -2531,7 +2667,9 @@ class MyCharactersApi {
   /// List of your characters.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getMyCharactersMyCharactersGetWithHttpInfo() async {
+  Future<Response> getMyCharactersMyCharactersGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/characters';
 
@@ -2552,14 +2690,19 @@ class MyCharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Get My Characters
   ///
   /// List of your characters.
-  Future<MyCharactersListSchema?> getMyCharactersMyCharactersGet() async {
-    final response = await getMyCharactersMyCharactersGetWithHttpInfo();
+  Future<MyCharactersListSchema?> getMyCharactersMyCharactersGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getMyCharactersMyCharactersGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

@@ -80,12 +80,22 @@ class BankSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "BankSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "BankSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'slots'),
+            'Required key "BankSchema[slots]" is missing from JSON.');
+        assert(json[r'slots'] != null,
+            'Required key "BankSchema[slots]" has a null value in JSON.');
+        assert(json.containsKey(r'expansions'),
+            'Required key "BankSchema[expansions]" is missing from JSON.');
+        assert(json[r'expansions'] != null,
+            'Required key "BankSchema[expansions]" has a null value in JSON.');
+        assert(json.containsKey(r'next_expansion_cost'),
+            'Required key "BankSchema[next_expansion_cost]" is missing from JSON.');
+        assert(json[r'next_expansion_cost'] != null,
+            'Required key "BankSchema[next_expansion_cost]" has a null value in JSON.');
+        assert(json.containsKey(r'gold'),
+            'Required key "BankSchema[gold]" is missing from JSON.');
+        assert(json[r'gold'] != null,
+            'Required key "BankSchema[gold]" has a null value in JSON.');
         return true;
       }());
 

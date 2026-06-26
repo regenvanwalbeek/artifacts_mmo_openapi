@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **account** | **String** | Account character. | 
 **type** | [**LogType**](LogType.md) | Type of action. | 
 **description** | **String** | Description of action. | 
-**content** | [**Object**](.md) |  | 
+**content** | **Object** |  | 
 **cooldown** | **int** | Cooldown in seconds. | 
 **cooldownExpiration** | [**DateTime**](DateTime.md) | Datetime of cooldown expiration. | [optional] 
 **createdAt** | [**DateTime**](DateTime.md) | Datetime of creation. | 

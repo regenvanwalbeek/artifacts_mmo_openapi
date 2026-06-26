@@ -63,12 +63,18 @@ class InventorySlot {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "InventorySlot[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "InventorySlot[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'slot'),
+            'Required key "InventorySlot[slot]" is missing from JSON.');
+        assert(json[r'slot'] != null,
+            'Required key "InventorySlot[slot]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "InventorySlot[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "InventorySlot[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "InventorySlot[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "InventorySlot[quantity]" has a null value in JSON.');
         return true;
       }());
 

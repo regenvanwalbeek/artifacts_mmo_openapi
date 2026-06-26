@@ -647,12 +647,330 @@ class CharacterSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "CharacterSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "CharacterSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'account'),
+            'Required key "CharacterSchema[account]" is missing from JSON.');
+        assert(json[r'account'] != null,
+            'Required key "CharacterSchema[account]" has a null value in JSON.');
+        assert(json.containsKey(r'skin'),
+            'Required key "CharacterSchema[skin]" is missing from JSON.');
+        assert(json[r'skin'] != null,
+            'Required key "CharacterSchema[skin]" has a null value in JSON.');
+        assert(json.containsKey(r'level'),
+            'Required key "CharacterSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "CharacterSchema[level]" has a null value in JSON.');
+        assert(json.containsKey(r'xp'),
+            'Required key "CharacterSchema[xp]" is missing from JSON.');
+        assert(json[r'xp'] != null,
+            'Required key "CharacterSchema[xp]" has a null value in JSON.');
+        assert(json.containsKey(r'max_xp'),
+            'Required key "CharacterSchema[max_xp]" is missing from JSON.');
+        assert(json[r'max_xp'] != null,
+            'Required key "CharacterSchema[max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'gold'),
+            'Required key "CharacterSchema[gold]" is missing from JSON.');
+        assert(json[r'gold'] != null,
+            'Required key "CharacterSchema[gold]" has a null value in JSON.');
+        assert(json.containsKey(r'speed'),
+            'Required key "CharacterSchema[speed]" is missing from JSON.');
+        assert(json[r'speed'] != null,
+            'Required key "CharacterSchema[speed]" has a null value in JSON.');
+        assert(json.containsKey(r'mining_level'),
+            'Required key "CharacterSchema[mining_level]" is missing from JSON.');
+        assert(json[r'mining_level'] != null,
+            'Required key "CharacterSchema[mining_level]" has a null value in JSON.');
+        assert(json.containsKey(r'mining_xp'),
+            'Required key "CharacterSchema[mining_xp]" is missing from JSON.');
+        assert(json[r'mining_xp'] != null,
+            'Required key "CharacterSchema[mining_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'mining_max_xp'),
+            'Required key "CharacterSchema[mining_max_xp]" is missing from JSON.');
+        assert(json[r'mining_max_xp'] != null,
+            'Required key "CharacterSchema[mining_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'woodcutting_level'),
+            'Required key "CharacterSchema[woodcutting_level]" is missing from JSON.');
+        assert(json[r'woodcutting_level'] != null,
+            'Required key "CharacterSchema[woodcutting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'woodcutting_xp'),
+            'Required key "CharacterSchema[woodcutting_xp]" is missing from JSON.');
+        assert(json[r'woodcutting_xp'] != null,
+            'Required key "CharacterSchema[woodcutting_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'woodcutting_max_xp'),
+            'Required key "CharacterSchema[woodcutting_max_xp]" is missing from JSON.');
+        assert(json[r'woodcutting_max_xp'] != null,
+            'Required key "CharacterSchema[woodcutting_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'fishing_level'),
+            'Required key "CharacterSchema[fishing_level]" is missing from JSON.');
+        assert(json[r'fishing_level'] != null,
+            'Required key "CharacterSchema[fishing_level]" has a null value in JSON.');
+        assert(json.containsKey(r'fishing_xp'),
+            'Required key "CharacterSchema[fishing_xp]" is missing from JSON.');
+        assert(json[r'fishing_xp'] != null,
+            'Required key "CharacterSchema[fishing_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'fishing_max_xp'),
+            'Required key "CharacterSchema[fishing_max_xp]" is missing from JSON.');
+        assert(json[r'fishing_max_xp'] != null,
+            'Required key "CharacterSchema[fishing_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'weaponcrafting_level'),
+            'Required key "CharacterSchema[weaponcrafting_level]" is missing from JSON.');
+        assert(json[r'weaponcrafting_level'] != null,
+            'Required key "CharacterSchema[weaponcrafting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'weaponcrafting_xp'),
+            'Required key "CharacterSchema[weaponcrafting_xp]" is missing from JSON.');
+        assert(json[r'weaponcrafting_xp'] != null,
+            'Required key "CharacterSchema[weaponcrafting_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'weaponcrafting_max_xp'),
+            'Required key "CharacterSchema[weaponcrafting_max_xp]" is missing from JSON.');
+        assert(json[r'weaponcrafting_max_xp'] != null,
+            'Required key "CharacterSchema[weaponcrafting_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'gearcrafting_level'),
+            'Required key "CharacterSchema[gearcrafting_level]" is missing from JSON.');
+        assert(json[r'gearcrafting_level'] != null,
+            'Required key "CharacterSchema[gearcrafting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'gearcrafting_xp'),
+            'Required key "CharacterSchema[gearcrafting_xp]" is missing from JSON.');
+        assert(json[r'gearcrafting_xp'] != null,
+            'Required key "CharacterSchema[gearcrafting_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'gearcrafting_max_xp'),
+            'Required key "CharacterSchema[gearcrafting_max_xp]" is missing from JSON.');
+        assert(json[r'gearcrafting_max_xp'] != null,
+            'Required key "CharacterSchema[gearcrafting_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'jewelrycrafting_level'),
+            'Required key "CharacterSchema[jewelrycrafting_level]" is missing from JSON.');
+        assert(json[r'jewelrycrafting_level'] != null,
+            'Required key "CharacterSchema[jewelrycrafting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'jewelrycrafting_xp'),
+            'Required key "CharacterSchema[jewelrycrafting_xp]" is missing from JSON.');
+        assert(json[r'jewelrycrafting_xp'] != null,
+            'Required key "CharacterSchema[jewelrycrafting_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'jewelrycrafting_max_xp'),
+            'Required key "CharacterSchema[jewelrycrafting_max_xp]" is missing from JSON.');
+        assert(json[r'jewelrycrafting_max_xp'] != null,
+            'Required key "CharacterSchema[jewelrycrafting_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'cooking_level'),
+            'Required key "CharacterSchema[cooking_level]" is missing from JSON.');
+        assert(json[r'cooking_level'] != null,
+            'Required key "CharacterSchema[cooking_level]" has a null value in JSON.');
+        assert(json.containsKey(r'cooking_xp'),
+            'Required key "CharacterSchema[cooking_xp]" is missing from JSON.');
+        assert(json[r'cooking_xp'] != null,
+            'Required key "CharacterSchema[cooking_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'cooking_max_xp'),
+            'Required key "CharacterSchema[cooking_max_xp]" is missing from JSON.');
+        assert(json[r'cooking_max_xp'] != null,
+            'Required key "CharacterSchema[cooking_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'alchemy_level'),
+            'Required key "CharacterSchema[alchemy_level]" is missing from JSON.');
+        assert(json[r'alchemy_level'] != null,
+            'Required key "CharacterSchema[alchemy_level]" has a null value in JSON.');
+        assert(json.containsKey(r'alchemy_xp'),
+            'Required key "CharacterSchema[alchemy_xp]" is missing from JSON.');
+        assert(json[r'alchemy_xp'] != null,
+            'Required key "CharacterSchema[alchemy_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'alchemy_max_xp'),
+            'Required key "CharacterSchema[alchemy_max_xp]" is missing from JSON.');
+        assert(json[r'alchemy_max_xp'] != null,
+            'Required key "CharacterSchema[alchemy_max_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'hp'),
+            'Required key "CharacterSchema[hp]" is missing from JSON.');
+        assert(json[r'hp'] != null,
+            'Required key "CharacterSchema[hp]" has a null value in JSON.');
+        assert(json.containsKey(r'max_hp'),
+            'Required key "CharacterSchema[max_hp]" is missing from JSON.');
+        assert(json[r'max_hp'] != null,
+            'Required key "CharacterSchema[max_hp]" has a null value in JSON.');
+        assert(json.containsKey(r'haste'),
+            'Required key "CharacterSchema[haste]" is missing from JSON.');
+        assert(json[r'haste'] != null,
+            'Required key "CharacterSchema[haste]" has a null value in JSON.');
+        assert(json.containsKey(r'critical_strike'),
+            'Required key "CharacterSchema[critical_strike]" is missing from JSON.');
+        assert(json[r'critical_strike'] != null,
+            'Required key "CharacterSchema[critical_strike]" has a null value in JSON.');
+        assert(json.containsKey(r'wisdom'),
+            'Required key "CharacterSchema[wisdom]" is missing from JSON.');
+        assert(json[r'wisdom'] != null,
+            'Required key "CharacterSchema[wisdom]" has a null value in JSON.');
+        assert(json.containsKey(r'prospecting'),
+            'Required key "CharacterSchema[prospecting]" is missing from JSON.');
+        assert(json[r'prospecting'] != null,
+            'Required key "CharacterSchema[prospecting]" has a null value in JSON.');
+        assert(json.containsKey(r'initiative'),
+            'Required key "CharacterSchema[initiative]" is missing from JSON.');
+        assert(json[r'initiative'] != null,
+            'Required key "CharacterSchema[initiative]" has a null value in JSON.');
+        assert(json.containsKey(r'threat'),
+            'Required key "CharacterSchema[threat]" is missing from JSON.');
+        assert(json[r'threat'] != null,
+            'Required key "CharacterSchema[threat]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_fire'),
+            'Required key "CharacterSchema[attack_fire]" is missing from JSON.');
+        assert(json[r'attack_fire'] != null,
+            'Required key "CharacterSchema[attack_fire]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_earth'),
+            'Required key "CharacterSchema[attack_earth]" is missing from JSON.');
+        assert(json[r'attack_earth'] != null,
+            'Required key "CharacterSchema[attack_earth]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_water'),
+            'Required key "CharacterSchema[attack_water]" is missing from JSON.');
+        assert(json[r'attack_water'] != null,
+            'Required key "CharacterSchema[attack_water]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_air'),
+            'Required key "CharacterSchema[attack_air]" is missing from JSON.');
+        assert(json[r'attack_air'] != null,
+            'Required key "CharacterSchema[attack_air]" has a null value in JSON.');
+        assert(json.containsKey(r'dmg'),
+            'Required key "CharacterSchema[dmg]" is missing from JSON.');
+        assert(json[r'dmg'] != null,
+            'Required key "CharacterSchema[dmg]" has a null value in JSON.');
+        assert(json.containsKey(r'dmg_fire'),
+            'Required key "CharacterSchema[dmg_fire]" is missing from JSON.');
+        assert(json[r'dmg_fire'] != null,
+            'Required key "CharacterSchema[dmg_fire]" has a null value in JSON.');
+        assert(json.containsKey(r'dmg_earth'),
+            'Required key "CharacterSchema[dmg_earth]" is missing from JSON.');
+        assert(json[r'dmg_earth'] != null,
+            'Required key "CharacterSchema[dmg_earth]" has a null value in JSON.');
+        assert(json.containsKey(r'dmg_water'),
+            'Required key "CharacterSchema[dmg_water]" is missing from JSON.');
+        assert(json[r'dmg_water'] != null,
+            'Required key "CharacterSchema[dmg_water]" has a null value in JSON.');
+        assert(json.containsKey(r'dmg_air'),
+            'Required key "CharacterSchema[dmg_air]" is missing from JSON.');
+        assert(json[r'dmg_air'] != null,
+            'Required key "CharacterSchema[dmg_air]" has a null value in JSON.');
+        assert(json.containsKey(r'res_fire'),
+            'Required key "CharacterSchema[res_fire]" is missing from JSON.');
+        assert(json[r'res_fire'] != null,
+            'Required key "CharacterSchema[res_fire]" has a null value in JSON.');
+        assert(json.containsKey(r'res_earth'),
+            'Required key "CharacterSchema[res_earth]" is missing from JSON.');
+        assert(json[r'res_earth'] != null,
+            'Required key "CharacterSchema[res_earth]" has a null value in JSON.');
+        assert(json.containsKey(r'res_water'),
+            'Required key "CharacterSchema[res_water]" is missing from JSON.');
+        assert(json[r'res_water'] != null,
+            'Required key "CharacterSchema[res_water]" has a null value in JSON.');
+        assert(json.containsKey(r'res_air'),
+            'Required key "CharacterSchema[res_air]" is missing from JSON.');
+        assert(json[r'res_air'] != null,
+            'Required key "CharacterSchema[res_air]" has a null value in JSON.');
+        assert(json.containsKey(r'x'),
+            'Required key "CharacterSchema[x]" is missing from JSON.');
+        assert(json[r'x'] != null,
+            'Required key "CharacterSchema[x]" has a null value in JSON.');
+        assert(json.containsKey(r'y'),
+            'Required key "CharacterSchema[y]" is missing from JSON.');
+        assert(json[r'y'] != null,
+            'Required key "CharacterSchema[y]" has a null value in JSON.');
+        assert(json.containsKey(r'layer'),
+            'Required key "CharacterSchema[layer]" is missing from JSON.');
+        assert(json[r'layer'] != null,
+            'Required key "CharacterSchema[layer]" has a null value in JSON.');
+        assert(json.containsKey(r'map_id'),
+            'Required key "CharacterSchema[map_id]" is missing from JSON.');
+        assert(json[r'map_id'] != null,
+            'Required key "CharacterSchema[map_id]" has a null value in JSON.');
+        assert(json.containsKey(r'cooldown'),
+            'Required key "CharacterSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "CharacterSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'weapon_slot'),
+            'Required key "CharacterSchema[weapon_slot]" is missing from JSON.');
+        assert(json[r'weapon_slot'] != null,
+            'Required key "CharacterSchema[weapon_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'rune_slot'),
+            'Required key "CharacterSchema[rune_slot]" is missing from JSON.');
+        assert(json[r'rune_slot'] != null,
+            'Required key "CharacterSchema[rune_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'shield_slot'),
+            'Required key "CharacterSchema[shield_slot]" is missing from JSON.');
+        assert(json[r'shield_slot'] != null,
+            'Required key "CharacterSchema[shield_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'helmet_slot'),
+            'Required key "CharacterSchema[helmet_slot]" is missing from JSON.');
+        assert(json[r'helmet_slot'] != null,
+            'Required key "CharacterSchema[helmet_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'body_armor_slot'),
+            'Required key "CharacterSchema[body_armor_slot]" is missing from JSON.');
+        assert(json[r'body_armor_slot'] != null,
+            'Required key "CharacterSchema[body_armor_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'leg_armor_slot'),
+            'Required key "CharacterSchema[leg_armor_slot]" is missing from JSON.');
+        assert(json[r'leg_armor_slot'] != null,
+            'Required key "CharacterSchema[leg_armor_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'boots_slot'),
+            'Required key "CharacterSchema[boots_slot]" is missing from JSON.');
+        assert(json[r'boots_slot'] != null,
+            'Required key "CharacterSchema[boots_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'ring1_slot'),
+            'Required key "CharacterSchema[ring1_slot]" is missing from JSON.');
+        assert(json[r'ring1_slot'] != null,
+            'Required key "CharacterSchema[ring1_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'ring2_slot'),
+            'Required key "CharacterSchema[ring2_slot]" is missing from JSON.');
+        assert(json[r'ring2_slot'] != null,
+            'Required key "CharacterSchema[ring2_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'amulet_slot'),
+            'Required key "CharacterSchema[amulet_slot]" is missing from JSON.');
+        assert(json[r'amulet_slot'] != null,
+            'Required key "CharacterSchema[amulet_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'artifact1_slot'),
+            'Required key "CharacterSchema[artifact1_slot]" is missing from JSON.');
+        assert(json[r'artifact1_slot'] != null,
+            'Required key "CharacterSchema[artifact1_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'artifact2_slot'),
+            'Required key "CharacterSchema[artifact2_slot]" is missing from JSON.');
+        assert(json[r'artifact2_slot'] != null,
+            'Required key "CharacterSchema[artifact2_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'artifact3_slot'),
+            'Required key "CharacterSchema[artifact3_slot]" is missing from JSON.');
+        assert(json[r'artifact3_slot'] != null,
+            'Required key "CharacterSchema[artifact3_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'utility1_slot'),
+            'Required key "CharacterSchema[utility1_slot]" is missing from JSON.');
+        assert(json[r'utility1_slot'] != null,
+            'Required key "CharacterSchema[utility1_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'utility1_slot_quantity'),
+            'Required key "CharacterSchema[utility1_slot_quantity]" is missing from JSON.');
+        assert(json[r'utility1_slot_quantity'] != null,
+            'Required key "CharacterSchema[utility1_slot_quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'utility2_slot'),
+            'Required key "CharacterSchema[utility2_slot]" is missing from JSON.');
+        assert(json[r'utility2_slot'] != null,
+            'Required key "CharacterSchema[utility2_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'utility2_slot_quantity'),
+            'Required key "CharacterSchema[utility2_slot_quantity]" is missing from JSON.');
+        assert(json[r'utility2_slot_quantity'] != null,
+            'Required key "CharacterSchema[utility2_slot_quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'bag_slot'),
+            'Required key "CharacterSchema[bag_slot]" is missing from JSON.');
+        assert(json[r'bag_slot'] != null,
+            'Required key "CharacterSchema[bag_slot]" has a null value in JSON.');
+        assert(json.containsKey(r'task'),
+            'Required key "CharacterSchema[task]" is missing from JSON.');
+        assert(json[r'task'] != null,
+            'Required key "CharacterSchema[task]" has a null value in JSON.');
+        assert(json.containsKey(r'task_type'),
+            'Required key "CharacterSchema[task_type]" is missing from JSON.');
+        assert(json[r'task_type'] != null,
+            'Required key "CharacterSchema[task_type]" has a null value in JSON.');
+        assert(json.containsKey(r'task_progress'),
+            'Required key "CharacterSchema[task_progress]" is missing from JSON.');
+        assert(json[r'task_progress'] != null,
+            'Required key "CharacterSchema[task_progress]" has a null value in JSON.');
+        assert(json.containsKey(r'task_total'),
+            'Required key "CharacterSchema[task_total]" is missing from JSON.');
+        assert(json[r'task_total'] != null,
+            'Required key "CharacterSchema[task_total]" has a null value in JSON.');
+        assert(json.containsKey(r'inventory_max_items'),
+            'Required key "CharacterSchema[inventory_max_items]" is missing from JSON.');
+        assert(json[r'inventory_max_items'] != null,
+            'Required key "CharacterSchema[inventory_max_items]" has a null value in JSON.');
         return true;
       }());
 

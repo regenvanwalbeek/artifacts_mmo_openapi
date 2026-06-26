@@ -79,12 +79,26 @@ class EventMapSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "EventMapSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "EventMapSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'map_id'),
+            'Required key "EventMapSchema[map_id]" is missing from JSON.');
+        assert(json[r'map_id'] != null,
+            'Required key "EventMapSchema[map_id]" has a null value in JSON.');
+        assert(json.containsKey(r'x'),
+            'Required key "EventMapSchema[x]" is missing from JSON.');
+        assert(json[r'x'] != null,
+            'Required key "EventMapSchema[x]" has a null value in JSON.');
+        assert(json.containsKey(r'y'),
+            'Required key "EventMapSchema[y]" is missing from JSON.');
+        assert(json[r'y'] != null,
+            'Required key "EventMapSchema[y]" has a null value in JSON.');
+        assert(json.containsKey(r'layer'),
+            'Required key "EventMapSchema[layer]" is missing from JSON.');
+        assert(json[r'layer'] != null,
+            'Required key "EventMapSchema[layer]" has a null value in JSON.');
+        assert(json.containsKey(r'skin'),
+            'Required key "EventMapSchema[skin]" is missing from JSON.');
+        assert(json[r'skin'] != null,
+            'Required key "EventMapSchema[skin]" has a null value in JSON.');
         return true;
       }());
 

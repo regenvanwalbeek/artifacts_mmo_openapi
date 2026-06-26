@@ -31,6 +31,7 @@ class EventsApi {
   Future<Response> getAllActiveEventsEventsActiveGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/events/active';
@@ -59,6 +60,7 @@ class EventsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -76,10 +78,12 @@ class EventsApi {
   Future<StaticDataPageActiveEventSchema?> getAllActiveEventsEventsActiveGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllActiveEventsEventsActiveGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -117,6 +121,7 @@ class EventsApi {
     MapContentType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/events';
@@ -148,6 +153,7 @@ class EventsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -169,11 +175,13 @@ class EventsApi {
     MapContentType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllEventsEventsGetWithHttpInfo(
       type: type,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -201,8 +209,9 @@ class EventsApi {
   ///
   /// * [SpawnEventRequest] spawnEventRequest (required):
   Future<Response> spawnEventEventsSpawnPostWithHttpInfo(
-    SpawnEventRequest spawnEventRequest,
-  ) async {
+    SpawnEventRequest spawnEventRequest, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/events/spawn';
 
@@ -223,6 +232,7 @@ class EventsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -234,10 +244,12 @@ class EventsApi {
   ///
   /// * [SpawnEventRequest] spawnEventRequest (required):
   Future<ActiveEventResponseSchema?> spawnEventEventsSpawnPost(
-    SpawnEventRequest spawnEventRequest,
-  ) async {
+    SpawnEventRequest spawnEventRequest, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await spawnEventEventsSpawnPostWithHttpInfo(
       spawnEventRequest,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

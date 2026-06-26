@@ -86,12 +86,30 @@ class EventSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "EventSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "EventSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "EventSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "EventSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "EventSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "EventSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'content'),
+            'Required key "EventSchema[content]" is missing from JSON.');
+        assert(json[r'content'] != null,
+            'Required key "EventSchema[content]" has a null value in JSON.');
+        assert(json.containsKey(r'maps'),
+            'Required key "EventSchema[maps]" is missing from JSON.');
+        assert(json[r'maps'] != null,
+            'Required key "EventSchema[maps]" has a null value in JSON.');
+        assert(json.containsKey(r'duration'),
+            'Required key "EventSchema[duration]" is missing from JSON.');
+        assert(json[r'duration'] != null,
+            'Required key "EventSchema[duration]" has a null value in JSON.');
+        assert(json.containsKey(r'rate'),
+            'Required key "EventSchema[rate]" is missing from JSON.');
+        assert(json[r'rate'] != null,
+            'Required key "EventSchema[rate]" has a null value in JSON.');
         return true;
       }());
 

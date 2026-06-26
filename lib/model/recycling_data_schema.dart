@@ -63,12 +63,18 @@ class RecyclingDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "RecyclingDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "RecyclingDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "RecyclingDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "RecyclingDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'details'),
+            'Required key "RecyclingDataSchema[details]" is missing from JSON.');
+        assert(json[r'details'] != null,
+            'Required key "RecyclingDataSchema[details]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "RecyclingDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "RecyclingDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 

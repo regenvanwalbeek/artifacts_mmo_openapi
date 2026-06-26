@@ -26,8 +26,9 @@ class MyAccountApi {
   ///
   /// * [ChangePassword] changePassword (required):
   Future<Response> changePasswordMyChangePasswordPostWithHttpInfo(
-    ChangePassword changePassword,
-  ) async {
+    ChangePassword changePassword, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/change_password';
 
@@ -48,6 +49,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -59,10 +61,12 @@ class MyAccountApi {
   ///
   /// * [ChangePassword] changePassword (required):
   Future<ResponseSchema?> changePasswordMyChangePasswordPost(
-    ChangePassword changePassword,
-  ) async {
+    ChangePassword changePassword, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await changePasswordMyChangePasswordPostWithHttpInfo(
       changePassword,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -85,7 +89,9 @@ class MyAccountApi {
   /// Fetch account details.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getAccountDetailsMyDetailsGetWithHttpInfo() async {
+  Future<Response> getAccountDetailsMyDetailsGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/details';
 
@@ -106,14 +112,19 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Get Account Details
   ///
   /// Fetch account details.
-  Future<MyAccountDetailsSchema?> getAccountDetailsMyDetailsGet() async {
-    final response = await getAccountDetailsMyDetailsGetWithHttpInfo();
+  Future<MyAccountDetailsSchema?> getAccountDetailsMyDetailsGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getAccountDetailsMyDetailsGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -135,7 +146,9 @@ class MyAccountApi {
   /// Fetch bank details.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getBankDetailsMyBankGetWithHttpInfo() async {
+  Future<Response> getBankDetailsMyBankGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/bank';
 
@@ -156,14 +169,19 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Get Bank Details
   ///
   /// Fetch bank details.
-  Future<BankResponseSchema?> getBankDetailsMyBankGet() async {
-    final response = await getBankDetailsMyBankGetWithHttpInfo();
+  Future<BankResponseSchema?> getBankDetailsMyBankGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getBankDetailsMyBankGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -200,6 +218,7 @@ class MyAccountApi {
     String? itemCode,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/bank/items';
@@ -231,6 +250,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -252,11 +272,13 @@ class MyAccountApi {
     String? itemCode,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getBankItemsMyBankItemsGetWithHttpInfo(
       itemCode: itemCode,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -298,6 +320,7 @@ class MyAccountApi {
     String? code,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/grandexchange/history';
@@ -332,6 +355,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -357,12 +381,14 @@ class MyAccountApi {
     String? code,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeHistoryMyGrandexchangeHistoryGetWithHttpInfo(
       id: id,
       code: code,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -404,6 +430,7 @@ class MyAccountApi {
     GEOrderType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/grandexchange/orders';
@@ -438,6 +465,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -463,12 +491,14 @@ class MyAccountApi {
     GEOrderType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeOrdersMyGrandexchangeOrdersGetWithHttpInfo(
       code: code,
       type: type,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -502,6 +532,7 @@ class MyAccountApi {
   Future<Response> getPendingItemsMyPendingItemsGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/pending-items';
@@ -530,6 +561,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -547,10 +579,12 @@ class MyAccountApi {
   Future<DataPagePendingItemSchema?> getPendingItemsMyPendingItemsGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getPendingItemsMyPendingItemsGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

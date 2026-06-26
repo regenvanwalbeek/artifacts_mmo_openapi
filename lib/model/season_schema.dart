@@ -109,12 +109,14 @@ class SeasonSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "SeasonSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "SeasonSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'badges'),
+            'Required key "SeasonSchema[badges]" is missing from JSON.');
+        assert(json[r'badges'] != null,
+            'Required key "SeasonSchema[badges]" has a null value in JSON.');
+        assert(json.containsKey(r'skins'),
+            'Required key "SeasonSchema[skins]" is missing from JSON.');
+        assert(json[r'skins'] != null,
+            'Required key "SeasonSchema[skins]" has a null value in JSON.');
         return true;
       }());
 

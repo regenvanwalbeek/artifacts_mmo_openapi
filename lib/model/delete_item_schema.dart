@@ -63,12 +63,18 @@ class DeleteItemSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DeleteItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DeleteItemSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "DeleteItemSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "DeleteItemSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'item'),
+            'Required key "DeleteItemSchema[item]" is missing from JSON.');
+        assert(json[r'item'] != null,
+            'Required key "DeleteItemSchema[item]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "DeleteItemSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "DeleteItemSchema[character]" has a null value in JSON.');
         return true;
       }());
 

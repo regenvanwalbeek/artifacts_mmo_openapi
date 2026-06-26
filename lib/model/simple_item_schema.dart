@@ -58,12 +58,14 @@ class SimpleItemSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "SimpleItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "SimpleItemSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "SimpleItemSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "SimpleItemSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "SimpleItemSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "SimpleItemSchema[quantity]" has a null value in JSON.');
         return true;
       }());
 

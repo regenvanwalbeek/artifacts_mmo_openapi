@@ -103,12 +103,30 @@ class StatusSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "StatusSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "StatusSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'version'),
+            'Required key "StatusSchema[version]" is missing from JSON.');
+        assert(json[r'version'] != null,
+            'Required key "StatusSchema[version]" has a null value in JSON.');
+        assert(json.containsKey(r'server_time'),
+            'Required key "StatusSchema[server_time]" is missing from JSON.');
+        assert(json[r'server_time'] != null,
+            'Required key "StatusSchema[server_time]" has a null value in JSON.');
+        assert(json.containsKey(r'max_level'),
+            'Required key "StatusSchema[max_level]" is missing from JSON.');
+        assert(json[r'max_level'] != null,
+            'Required key "StatusSchema[max_level]" has a null value in JSON.');
+        assert(json.containsKey(r'max_skill_level'),
+            'Required key "StatusSchema[max_skill_level]" is missing from JSON.');
+        assert(json[r'max_skill_level'] != null,
+            'Required key "StatusSchema[max_skill_level]" has a null value in JSON.');
+        assert(json.containsKey(r'characters_online'),
+            'Required key "StatusSchema[characters_online]" is missing from JSON.');
+        assert(json[r'characters_online'] != null,
+            'Required key "StatusSchema[characters_online]" has a null value in JSON.');
+        assert(json.containsKey(r'rate_limits'),
+            'Required key "StatusSchema[rate_limits]" is missing from JSON.');
+        assert(json[r'rate_limits'] != null,
+            'Required key "StatusSchema[rate_limits]" has a null value in JSON.');
         return true;
       }());
 

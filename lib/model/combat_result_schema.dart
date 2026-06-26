@@ -72,12 +72,22 @@ class CombatResultSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CombatResultSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CombatResultSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'result'),
+            'Required key "CombatResultSchema[result]" is missing from JSON.');
+        assert(json[r'result'] != null,
+            'Required key "CombatResultSchema[result]" has a null value in JSON.');
+        assert(json.containsKey(r'turns'),
+            'Required key "CombatResultSchema[turns]" is missing from JSON.');
+        assert(json[r'turns'] != null,
+            'Required key "CombatResultSchema[turns]" has a null value in JSON.');
+        assert(json.containsKey(r'logs'),
+            'Required key "CombatResultSchema[logs]" is missing from JSON.');
+        assert(json[r'logs'] != null,
+            'Required key "CombatResultSchema[logs]" has a null value in JSON.');
+        assert(json.containsKey(r'character_results'),
+            'Required key "CombatResultSchema[character_results]" is missing from JSON.');
+        assert(json[r'character_results'] != null,
+            'Required key "CombatResultSchema[character_results]" has a null value in JSON.');
         return true;
       }());
 
@@ -87,17 +97,13 @@ class CombatResultSchema {
         logs: json[r'logs'] is Iterable
             ? (json[r'logs'] as Iterable).cast<String>().toList(growable: false)
             : const [],
-        characterResults: listObjectFromJson(json[r'character_results']!)!,
+        characterResults: json[r'character_results'] is Iterable
+            ? (json[r'character_results'] as Iterable)
+                .cast<Object>()
+                .toList(growable: false)
+            : const [],
       );
     }
-    return null;
-  }
-
-  static List<Object>? listObjectFromJson(dynamic json) {
-    if (json is List) {
-      return json.nonNulls.map((e) => e).toList();
-    }
-
     return null;
   }
 

@@ -99,12 +99,18 @@ class NPCItem {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "NPCItem[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "NPCItem[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "NPCItem[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "NPCItem[code]" has a null value in JSON.');
+        assert(json.containsKey(r'npc'),
+            'Required key "NPCItem[npc]" is missing from JSON.');
+        assert(json[r'npc'] != null,
+            'Required key "NPCItem[npc]" has a null value in JSON.');
+        assert(json.containsKey(r'currency'),
+            'Required key "NPCItem[currency]" is missing from JSON.');
+        assert(json[r'currency'] != null,
+            'Required key "NPCItem[currency]" has a null value in JSON.');
         return true;
       }());
 

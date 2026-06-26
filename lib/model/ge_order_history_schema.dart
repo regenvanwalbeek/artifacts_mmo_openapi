@@ -98,12 +98,34 @@ class GeOrderHistorySchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GeOrderHistorySchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GeOrderHistorySchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'order_id'),
+            'Required key "GeOrderHistorySchema[order_id]" is missing from JSON.');
+        assert(json[r'order_id'] != null,
+            'Required key "GeOrderHistorySchema[order_id]" has a null value in JSON.');
+        assert(json.containsKey(r'seller'),
+            'Required key "GeOrderHistorySchema[seller]" is missing from JSON.');
+        assert(json[r'seller'] != null,
+            'Required key "GeOrderHistorySchema[seller]" has a null value in JSON.');
+        assert(json.containsKey(r'buyer'),
+            'Required key "GeOrderHistorySchema[buyer]" is missing from JSON.');
+        assert(json[r'buyer'] != null,
+            'Required key "GeOrderHistorySchema[buyer]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "GeOrderHistorySchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "GeOrderHistorySchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GeOrderHistorySchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GeOrderHistorySchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "GeOrderHistorySchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "GeOrderHistorySchema[price]" has a null value in JSON.');
+        assert(json.containsKey(r'sold_at'),
+            'Required key "GeOrderHistorySchema[sold_at]" is missing from JSON.');
+        assert(json[r'sold_at'] != null,
+            'Required key "GeOrderHistorySchema[sold_at]" has a null value in JSON.');
         return true;
       }());
 

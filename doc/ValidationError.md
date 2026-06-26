@@ -8,7 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loc** | [**List<ValidationErrorLocInner>**](ValidationErrorLocInner.md) |  | [default to const []]
+**loc** | [**List<LocationInner>**](LocationInner.md) |  | [default to const []]
 **msg** | **String** |  | 
 **type** | **String** |  | 
 

@@ -57,12 +57,14 @@ class PasswordResetConfirmSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "PasswordResetConfirmSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "PasswordResetConfirmSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'token'),
+            'Required key "PasswordResetConfirmSchema[token]" is missing from JSON.');
+        assert(json[r'token'] != null,
+            'Required key "PasswordResetConfirmSchema[token]" has a null value in JSON.');
+        assert(json.containsKey(r'new_password'),
+            'Required key "PasswordResetConfirmSchema[new_password]" is missing from JSON.');
+        assert(json[r'new_password'] != null,
+            'Required key "PasswordResetConfirmSchema[new_password]" has a null value in JSON.');
         return true;
       }());
 

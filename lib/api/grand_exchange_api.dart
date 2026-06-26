@@ -40,6 +40,7 @@ class GrandExchangeApi {
     String? account,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/grandexchange/history/{code}'.replaceAll('{code}', code);
@@ -71,6 +72,7 @@ class GrandExchangeApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -96,12 +98,14 @@ class GrandExchangeApi {
     String? account,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
       code,
       account: account,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -130,8 +134,9 @@ class GrandExchangeApi {
   /// * [String] id (required):
   ///   The id of the order.
   Future<Response> getGeOrderGrandexchangeOrdersIdGetWithHttpInfo(
-    String id,
-  ) async {
+    String id, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/grandexchange/orders/{id}'.replaceAll('{id}', id);
 
@@ -152,6 +157,7 @@ class GrandExchangeApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -164,10 +170,12 @@ class GrandExchangeApi {
   /// * [String] id (required):
   ///   The id of the order.
   Future<GEOrderResponseSchema?> getGeOrderGrandexchangeOrdersIdGet(
-    String id,
-  ) async {
+    String id, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getGeOrderGrandexchangeOrdersIdGetWithHttpInfo(
       id,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -213,6 +221,7 @@ class GrandExchangeApi {
     GEOrderType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/grandexchange/orders';
@@ -250,6 +259,7 @@ class GrandExchangeApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -279,6 +289,7 @@ class GrandExchangeApi {
     GEOrderType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeOrdersGrandexchangeOrdersGetWithHttpInfo(
       code: code,
@@ -286,6 +297,7 @@ class GrandExchangeApi {
       type: type,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

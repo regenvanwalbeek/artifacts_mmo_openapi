@@ -56,12 +56,14 @@ class StorageEffectSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "StorageEffectSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "StorageEffectSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "StorageEffectSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "StorageEffectSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'value'),
+            'Required key "StorageEffectSchema[value]" is missing from JSON.');
+        assert(json[r'value'] != null,
+            'Required key "StorageEffectSchema[value]" has a null value in JSON.');
         return true;
       }());
 

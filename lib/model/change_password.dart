@@ -57,12 +57,14 @@ class ChangePassword {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ChangePassword[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ChangePassword[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'current_password'),
+            'Required key "ChangePassword[current_password]" is missing from JSON.');
+        assert(json[r'current_password'] != null,
+            'Required key "ChangePassword[current_password]" has a null value in JSON.');
+        assert(json.containsKey(r'new_password'),
+            'Required key "ChangePassword[new_password]" is missing from JSON.');
+        assert(json[r'new_password'] != null,
+            'Required key "ChangePassword[new_password]" has a null value in JSON.');
         return true;
       }());
 

@@ -43,6 +43,7 @@ class NPCsApi {
     String? currency,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/items';
@@ -80,6 +81,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -109,6 +111,7 @@ class NPCsApi {
     String? currency,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllNpcsItemsNpcsItemsGetWithHttpInfo(
       code: code,
@@ -116,6 +119,7 @@ class NPCsApi {
       currency: currency,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -165,6 +169,7 @@ class NPCsApi {
     String? item,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/details';
@@ -205,6 +210,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -238,6 +244,7 @@ class NPCsApi {
     String? item,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllNpcsNpcsDetailsGetWithHttpInfo(
       name: name,
@@ -246,6 +253,7 @@ class NPCsApi {
       item: item,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -283,6 +291,7 @@ class NPCsApi {
     String code, {
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/items/{code}'.replaceAll('{code}', code);
@@ -311,6 +320,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -332,11 +342,13 @@ class NPCsApi {
     String code, {
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getNpcItemsNpcsItemsCodeGetWithHttpInfo(
       code,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -365,8 +377,9 @@ class NPCsApi {
   /// * [String] code (required):
   ///   The code of the NPC.
   Future<Response> getNpcNpcsDetailsCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/details/{code}'.replaceAll('{code}', code);
 
@@ -387,6 +400,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -399,10 +413,12 @@ class NPCsApi {
   /// * [String] code (required):
   ///   The code of the NPC.
   Future<NPCResponseSchema?> getNpcNpcsDetailsCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getNpcNpcsDetailsCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

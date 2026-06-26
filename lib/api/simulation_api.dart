@@ -26,8 +26,9 @@ class SimulationApi {
   ///
   /// * [CombatSimulationRequestSchema] combatSimulationRequestSchema (required):
   Future<Response> fightSimulationSimulationFightSimulationPostWithHttpInfo(
-    CombatSimulationRequestSchema combatSimulationRequestSchema,
-  ) async {
+    CombatSimulationRequestSchema combatSimulationRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/simulation/fight_simulation';
 
@@ -48,6 +49,7 @@ class SimulationApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -60,11 +62,13 @@ class SimulationApi {
   /// * [CombatSimulationRequestSchema] combatSimulationRequestSchema (required):
   Future<CombatSimulationResponseSchema?>
       fightSimulationSimulationFightSimulationPost(
-    CombatSimulationRequestSchema combatSimulationRequestSchema,
-  ) async {
+    CombatSimulationRequestSchema combatSimulationRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await fightSimulationSimulationFightSimulationPostWithHttpInfo(
       combatSimulationRequestSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
