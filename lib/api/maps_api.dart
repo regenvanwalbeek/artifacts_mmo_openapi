@@ -35,6 +35,12 @@ class MapsApi {
   /// * [bool] hideBlockedMaps:
   ///   When true, excludes maps with access_type 'blocked' from the results.
   ///
+  /// * [bool] hideEvent:
+  ///   When true, does not overlay active events on maps.
+  ///
+  /// * [bool] transition:
+  ///   Filter maps by transition. True returns only maps with transitions, False returns only maps without.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -45,6 +51,8 @@ class MapsApi {
     MapContentType? contentType,
     String? contentCode,
     bool? hideBlockedMaps,
+    bool? hideEvent,
+    bool? transition,
     int? page,
     int? size,
     Future<void>? abortTrigger,
@@ -71,6 +79,12 @@ class MapsApi {
     if (hideBlockedMaps != null) {
       queryParams
           .addAll(_queryParams('', 'hide_blocked_maps', hideBlockedMaps));
+    }
+    if (hideEvent != null) {
+      queryParams.addAll(_queryParams('', 'hide_event', hideEvent));
+    }
+    if (transition != null) {
+      queryParams.addAll(_queryParams('', 'transition', transition));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -111,6 +125,12 @@ class MapsApi {
   /// * [bool] hideBlockedMaps:
   ///   When true, excludes maps with access_type 'blocked' from the results.
   ///
+  /// * [bool] hideEvent:
+  ///   When true, does not overlay active events on maps.
+  ///
+  /// * [bool] transition:
+  ///   Filter maps by transition. True returns only maps with transitions, False returns only maps without.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -121,6 +141,8 @@ class MapsApi {
     MapContentType? contentType,
     String? contentCode,
     bool? hideBlockedMaps,
+    bool? hideEvent,
+    bool? transition,
     int? page,
     int? size,
     Future<void>? abortTrigger,
@@ -130,6 +152,8 @@ class MapsApi {
       contentType: contentType,
       contentCode: contentCode,
       hideBlockedMaps: hideBlockedMaps,
+      hideEvent: hideEvent,
+      transition: transition,
       page: page,
       size: size,
       abortTrigger: abortTrigger,
@@ -170,6 +194,12 @@ class MapsApi {
   /// * [bool] hideBlockedMaps:
   ///   When true, excludes maps with access_type 'blocked' from the results.
   ///
+  /// * [bool] hideEvent:
+  ///   When true, does not overlay active events on maps.
+  ///
+  /// * [bool] transition:
+  ///   Filter maps by transition. True returns only maps with transitions, False returns only maps without.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -180,6 +210,8 @@ class MapsApi {
     MapContentType? contentType,
     String? contentCode,
     bool? hideBlockedMaps,
+    bool? hideEvent,
+    bool? transition,
     int? page,
     int? size,
     Future<void>? abortTrigger,
@@ -203,6 +235,12 @@ class MapsApi {
     if (hideBlockedMaps != null) {
       queryParams
           .addAll(_queryParams('', 'hide_blocked_maps', hideBlockedMaps));
+    }
+    if (hideEvent != null) {
+      queryParams.addAll(_queryParams('', 'hide_event', hideEvent));
+    }
+    if (transition != null) {
+      queryParams.addAll(_queryParams('', 'transition', transition));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -243,6 +281,12 @@ class MapsApi {
   /// * [bool] hideBlockedMaps:
   ///   When true, excludes maps with access_type 'blocked' from the results.
   ///
+  /// * [bool] hideEvent:
+  ///   When true, does not overlay active events on maps.
+  ///
+  /// * [bool] transition:
+  ///   Filter maps by transition. True returns only maps with transitions, False returns only maps without.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -253,6 +297,8 @@ class MapsApi {
     MapContentType? contentType,
     String? contentCode,
     bool? hideBlockedMaps,
+    bool? hideEvent,
+    bool? transition,
     int? page,
     int? size,
     Future<void>? abortTrigger,
@@ -262,6 +308,8 @@ class MapsApi {
       contentType: contentType,
       contentCode: contentCode,
       hideBlockedMaps: hideBlockedMaps,
+      hideEvent: hideEvent,
+      transition: transition,
       page: page,
       size: size,
       abortTrigger: abortTrigger,

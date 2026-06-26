@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.DataPageGeOrderHistorySchema
+# artifacts_mmo_openapi.model.DataPageGEOrderHistorySchema
 
 ## Load the model package
 ```dart
@@ -8,11 +8,11 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**List<GeOrderHistorySchema>**](GeOrderHistorySchema.md) |  | [default to const []]
-**total** | **int** |  | [optional] 
-**page** | **int** |  | [optional] 
-**size** | **int** |  | [optional] 
-**pages** | **int** |  | [optional] 
+**data** | [**List<GEOrderHistorySchema>**](GEOrderHistorySchema.md) |  | [default to const []]
+**total** | **int** |  | 
+**page** | **int** |  | 
+**size** | **int** |  | 
+**pages** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

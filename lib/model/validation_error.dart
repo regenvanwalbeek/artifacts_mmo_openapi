@@ -16,6 +16,8 @@ class ValidationError {
     this.loc = const [],
     required this.msg,
     required this.type,
+    this.input,
+    this.ctx,
   });
 
   List<LocationInner> loc;
@@ -24,27 +26,54 @@ class ValidationError {
 
   String type;
 
+  Object? input;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  Object? ctx;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is ValidationError &&
           _deepEquality.equals(other.loc, loc) &&
           other.msg == msg &&
-          other.type == type;
+          other.type == type &&
+          other.input == input &&
+          other.ctx == ctx;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (loc.hashCode) + (msg.hashCode) + (type.hashCode);
+      (loc.hashCode) +
+      (msg.hashCode) +
+      (type.hashCode) +
+      (input == null ? 0 : input!.hashCode) +
+      (ctx == null ? 0 : ctx!.hashCode);
 
   @override
-  String toString() => 'ValidationError[loc=$loc, msg=$msg, type=$type]';
+  String toString() =>
+      'ValidationError[loc=$loc, msg=$msg, type=$type, input=$input, ctx=$ctx]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'loc'] = this.loc;
     json[r'msg'] = this.msg;
     json[r'type'] = this.type;
+    if (this.input != null) {
+      json[r'input'] = this.input;
+    } else {
+      json[r'input'] = null;
+    }
+    if (this.ctx != null) {
+      json[r'ctx'] = this.ctx;
+    } else {
+      json[r'ctx'] = null;
+    }
     return json;
   }
 
@@ -78,6 +107,8 @@ class ValidationError {
         loc: LocationInner.listFromJson(json[r'loc']),
         msg: mapValueOfType<String>(json, r'msg')!,
         type: mapValueOfType<String>(json, r'type')!,
+        input: mapValueOfType<Object>(json, r'input'),
+        ctx: mapValueOfType<Object>(json, r'ctx'),
       );
     }
     return null;

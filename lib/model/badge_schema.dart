@@ -16,7 +16,6 @@ class BadgeSchema {
     required this.code,
     this.season,
     required this.description,
-    this.conditions = const [],
   });
 
   /// Code of the badge. This is the badge's unique identifier (ID).
@@ -34,29 +33,24 @@ class BadgeSchema {
   /// Description of the badge.
   String description;
 
-  /// Conditions to get the badge.
-  List<BadgeConditionSchema> conditions;
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is BadgeSchema &&
           other.code == code &&
           other.season == season &&
-          other.description == description &&
-          _deepEquality.equals(other.conditions, conditions);
+          other.description == description;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (code.hashCode) +
       (season == null ? 0 : season!.hashCode) +
-      (description.hashCode) +
-      (conditions.hashCode);
+      (description.hashCode);
 
   @override
   String toString() =>
-      'BadgeSchema[code=$code, season=$season, description=$description, conditions=$conditions]';
+      'BadgeSchema[code=$code, season=$season, description=$description]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -67,7 +61,6 @@ class BadgeSchema {
       json[r'season'] = null;
     }
     json[r'description'] = this.description;
-    json[r'conditions'] = this.conditions;
     return json;
   }
 
@@ -90,10 +83,6 @@ class BadgeSchema {
             'Required key "BadgeSchema[description]" is missing from JSON.');
         assert(json[r'description'] != null,
             'Required key "BadgeSchema[description]" has a null value in JSON.');
-        assert(json.containsKey(r'conditions'),
-            'Required key "BadgeSchema[conditions]" is missing from JSON.');
-        assert(json[r'conditions'] != null,
-            'Required key "BadgeSchema[conditions]" has a null value in JSON.');
         return true;
       }());
 
@@ -101,7 +90,6 @@ class BadgeSchema {
         code: mapValueOfType<String>(json, r'code')!,
         season: mapValueOfType<int>(json, r'season'),
         description: mapValueOfType<String>(json, r'description')!,
-        conditions: BadgeConditionSchema.listFromJson(json[r'conditions']),
       );
     }
     return null;
@@ -160,6 +148,5 @@ class BadgeSchema {
   static const requiredKeys = <String>{
     'code',
     'description',
-    'conditions',
   };
 }

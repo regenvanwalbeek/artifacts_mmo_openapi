@@ -23,14 +23,14 @@ class MapAccessType {
   String toJson() => value;
 
   static const standard = MapAccessType._(r'standard');
-  static const teleportation = MapAccessType._(r'teleportation');
+  static const restricted = MapAccessType._(r'restricted');
   static const conditional = MapAccessType._(r'conditional');
   static const blocked = MapAccessType._(r'blocked');
 
   /// List of all possible values in this [enum][MapAccessType].
   static const values = <MapAccessType>[
     standard,
-    teleportation,
+    restricted,
     conditional,
     blocked,
   ];
@@ -78,8 +78,8 @@ class MapAccessTypeTypeTransformer {
       switch (data) {
         case r'standard':
           return MapAccessType.standard;
-        case r'teleportation':
-          return MapAccessType.teleportation;
+        case r'restricted':
+          return MapAccessType.restricted;
         case r'conditional':
           return MapAccessType.conditional;
         case r'blocked':

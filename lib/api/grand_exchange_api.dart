@@ -93,7 +93,7 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?> getGeHistoryGrandexchangeHistoryCodeGet(
+  Future<DataPageGEOrderHistorySchema?> getGeHistoryGrandexchangeHistoryCodeGet(
     String code, {
     String? account,
     int? page,
@@ -117,8 +117,8 @@ class GrandExchangeApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageGeOrderHistorySchema',
-      ) as DataPageGeOrderHistorySchema;
+        'DataPageGEOrderHistorySchema',
+      ) as DataPageGEOrderHistorySchema;
     }
     return null;
   }
@@ -210,6 +210,9 @@ class GrandExchangeApi {
   /// * [GEOrderType] type:
   ///   Filter by order type (sell or buy).
   ///
+  /// * [ItemType] itemType:
+  ///   Filter by item type.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -219,6 +222,7 @@ class GrandExchangeApi {
     String? code,
     String? account,
     GEOrderType? type,
+    ItemType? itemType,
     int? page,
     int? size,
     Future<void>? abortTrigger,
@@ -241,6 +245,9 @@ class GrandExchangeApi {
     }
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
+    }
+    if (itemType != null) {
+      queryParams.addAll(_queryParams('', 'item_type', itemType));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -278,6 +285,9 @@ class GrandExchangeApi {
   /// * [GEOrderType] type:
   ///   Filter by order type (sell or buy).
   ///
+  /// * [ItemType] itemType:
+  ///   Filter by item type.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -287,6 +297,7 @@ class GrandExchangeApi {
     String? code,
     String? account,
     GEOrderType? type,
+    ItemType? itemType,
     int? page,
     int? size,
     Future<void>? abortTrigger,
@@ -295,6 +306,7 @@ class GrandExchangeApi {
       code: code,
       account: account,
       type: type,
+      itemType: itemType,
       page: page,
       size: size,
       abortTrigger: abortTrigger,

@@ -9,11 +9,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fightSimulationSimulationFightSimulationPost**](SimulationApi.md#fightsimulationsimulationfightsimulationpost) | **POST** /simulation/fight_simulation | Fight Simulation
+[**fightSimulationSimulationFightPost**](SimulationApi.md#fightsimulationsimulationfightpost) | **POST** /simulation/fight | Fight Simulation
 
 
-# **fightSimulationSimulationFightSimulationPost**
-> CombatSimulationResponseSchema fightSimulationSimulationFightSimulationPost(combatSimulationRequestSchema)
+# **fightSimulationSimulationFightPost**
+> CombatSimulationResponseSchema fightSimulationSimulationFightPost(combatSimulationRequestSchema)
 
 Fight Simulation
 
@@ -33,10 +33,10 @@ final api_instance = SimulationApi();
 final combatSimulationRequestSchema = CombatSimulationRequestSchema(); // CombatSimulationRequestSchema | 
 
 try {
-    final result = api_instance.fightSimulationSimulationFightSimulationPost(combatSimulationRequestSchema);
+    final result = api_instance.fightSimulationSimulationFightPost(combatSimulationRequestSchema);
     print(result);
 } catch (e) {
-    print('Exception when calling SimulationApi->fightSimulationSimulationFightSimulationPost: $e\n');
+    print('Exception when calling SimulationApi->fightSimulationSimulationFightPost: $e\n');
 }
 ```
 

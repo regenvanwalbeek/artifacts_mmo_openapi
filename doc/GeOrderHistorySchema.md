@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.GeOrderHistorySchema
+# artifacts_mmo_openapi.model.GEOrderHistorySchema
 
 ## Load the model package
 ```dart

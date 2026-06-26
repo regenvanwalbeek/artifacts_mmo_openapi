@@ -15,6 +15,7 @@ class RecyclingSchema {
   RecyclingSchema({
     required this.code,
     this.quantity = 1,
+    this.enhanced = false,
   });
 
   /// Item code.
@@ -25,25 +26,31 @@ class RecyclingSchema {
   /// Minimum value: 1
   int quantity;
 
+  /// Whether to use enhanced recycling.
+  bool enhanced;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
       other is RecyclingSchema &&
           other.code == code &&
-          other.quantity == quantity;
+          other.quantity == quantity &&
+          other.enhanced == enhanced;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (code.hashCode) + (quantity.hashCode);
+      (code.hashCode) + (quantity.hashCode) + (enhanced.hashCode);
 
   @override
-  String toString() => 'RecyclingSchema[code=$code, quantity=$quantity]';
+  String toString() =>
+      'RecyclingSchema[code=$code, quantity=$quantity, enhanced=$enhanced]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'code'] = this.code;
     json[r'quantity'] = this.quantity;
+    json[r'enhanced'] = this.enhanced;
     return json;
   }
 
@@ -68,6 +75,7 @@ class RecyclingSchema {
       return RecyclingSchema(
         code: mapValueOfType<String>(json, r'code')!,
         quantity: mapValueOfType<int>(json, r'quantity') ?? 1,
+        enhanced: mapValueOfType<bool>(json, r'enhanced') ?? false,
       );
     }
     return null;

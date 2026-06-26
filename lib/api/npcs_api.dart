@@ -105,7 +105,7 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<StaticDataPageNPCItem?> getAllNpcsItemsNpcsItemsGet({
+  Future<StaticDataPageNPCItemSchema?> getAllNpcsItemsNpcsItemsGet({
     String? code,
     String? npc,
     String? currency,
@@ -131,8 +131,8 @@ class NPCsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'StaticDataPageNPCItem',
-      ) as StaticDataPageNPCItem;
+        'StaticDataPageNPCItemSchema',
+      ) as StaticDataPageNPCItemSchema;
     }
     return null;
   }
@@ -338,7 +338,7 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<StaticDataPageNPCItem?> getNpcItemsNpcsItemsCodeGet(
+  Future<StaticDataPageNPCItemSchema?> getNpcItemsNpcsItemsCodeGet(
     String code, {
     int? page,
     int? size,
@@ -360,8 +360,8 @@ class NPCsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'StaticDataPageNPCItem',
-      ) as StaticDataPageNPCItem;
+        'StaticDataPageNPCItemSchema',
+      ) as StaticDataPageNPCItemSchema;
     }
     return null;
   }

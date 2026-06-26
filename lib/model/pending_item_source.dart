@@ -27,6 +27,7 @@ class PendingItemSource {
   static const grandExchange = PendingItemSource._(r'grand_exchange');
   static const admin = PendingItemSource._(r'admin');
   static const event = PendingItemSource._(r'event');
+  static const raid = PendingItemSource._(r'raid');
   static const other = PendingItemSource._(r'other');
 
   /// List of all possible values in this [enum][PendingItemSource].
@@ -35,6 +36,7 @@ class PendingItemSource {
     grandExchange,
     admin,
     event,
+    raid,
     other,
   ];
 
@@ -87,6 +89,8 @@ class PendingItemSourceTypeTransformer {
           return PendingItemSource.admin;
         case r'event':
           return PendingItemSource.event;
+        case r'raid':
+          return PendingItemSource.raid;
         case r'other':
           return PendingItemSource.other;
         default:

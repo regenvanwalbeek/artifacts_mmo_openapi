@@ -713,7 +713,7 @@ class MyCharactersApi {
 
   /// Action Equip Item
   ///
-  /// Equip an item on your character.
+  /// Equip multiple items on your character. The cooldown will be 3 seconds multiplied by the number of different items equipped.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -722,10 +722,10 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [EquipSchema] equipSchema (required):
+  /// * [List<EquipSchema>] equipSchema (required):
   Future<Response> actionEquipItemMyNameActionEquipPostWithHttpInfo(
     String name,
-    EquipSchema equipSchema, {
+    List<EquipSchema> equipSchema, {
     Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
@@ -754,17 +754,17 @@ class MyCharactersApi {
 
   /// Action Equip Item
   ///
-  /// Equip an item on your character.
+  /// Equip multiple items on your character. The cooldown will be 3 seconds multiplied by the number of different items equipped.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [EquipSchema] equipSchema (required):
+  /// * [List<EquipSchema>] equipSchema (required):
   Future<EquipmentResponseSchema?> actionEquipItemMyNameActionEquipPost(
     String name,
-    EquipSchema equipSchema, {
+    List<EquipSchema> equipSchema, {
     Future<void>? abortTrigger,
   }) async {
     final response = await actionEquipItemMyNameActionEquipPostWithHttpInfo(
@@ -1115,7 +1115,7 @@ class MyCharactersApi {
     Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/grandexchange/create-buy-order'
+    final path = r'/my/{name}/action/grandexchange/create_buy_order'
         .replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
@@ -1188,19 +1188,19 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
+  /// * [GEOrderCreationSchema] gEOrderCreationSchema (required):
   Future<Response>
       actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPostWithHttpInfo(
     String name,
-    GEOrderCreationrSchema gEOrderCreationrSchema, {
+    GEOrderCreationSchema gEOrderCreationSchema, {
     Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/{name}/action/grandexchange/create-sell-order'
+    final path = r'/my/{name}/action/grandexchange/create_sell_order'
         .replaceAll('{name}', name);
 
     // ignore: prefer_final_locals
-    Object? postBody = gEOrderCreationrSchema;
+    Object? postBody = gEOrderCreationSchema;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -1229,17 +1229,17 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [GEOrderCreationrSchema] gEOrderCreationrSchema (required):
+  /// * [GEOrderCreationSchema] gEOrderCreationSchema (required):
   Future<GECreateOrderTransactionResponseSchema?>
       actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(
     String name,
-    GEOrderCreationrSchema gEOrderCreationrSchema, {
+    GEOrderCreationSchema gEOrderCreationSchema, {
     Future<void>? abortTrigger,
   }) async {
     final response =
         await actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPostWithHttpInfo(
       name,
-      gEOrderCreationrSchema,
+      gEOrderCreationSchema,
       abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
@@ -2167,7 +2167,7 @@ class MyCharactersApi {
 
   /// Action Unequip Item
   ///
-  /// Unequip an item on your character.
+  /// Unequip multiple items on your character. The cooldown will be 3 seconds multiplied by the number of different items unequipped.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -2176,10 +2176,10 @@ class MyCharactersApi {
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [UnequipSchema] unequipSchema (required):
+  /// * [List<UnequipSchema>] unequipSchema (required):
   Future<Response> actionUnequipItemMyNameActionUnequipPostWithHttpInfo(
     String name,
-    UnequipSchema unequipSchema, {
+    List<UnequipSchema> unequipSchema, {
     Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
@@ -2208,17 +2208,17 @@ class MyCharactersApi {
 
   /// Action Unequip Item
   ///
-  /// Unequip an item on your character.
+  /// Unequip multiple items on your character. The cooldown will be 3 seconds multiplied by the number of different items unequipped.
   ///
   /// Parameters:
   ///
   /// * [String] name (required):
   ///   Name of your character.
   ///
-  /// * [UnequipSchema] unequipSchema (required):
+  /// * [List<UnequipSchema>] unequipSchema (required):
   Future<EquipmentResponseSchema?> actionUnequipItemMyNameActionUnequipPost(
     String name,
-    UnequipSchema unequipSchema, {
+    List<UnequipSchema> unequipSchema, {
     Future<void>? abortTrigger,
   }) async {
     final response = await actionUnequipItemMyNameActionUnequipPostWithHttpInfo(

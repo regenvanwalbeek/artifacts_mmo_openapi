@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the character. | 
 **account** | **String** | Account name. | 
-**skin** | [**CharacterSkin**](CharacterSkin.md) | Character skin code. | 
+**skin** | **String** | Character skin code. | 
 **level** | **int** | Combat level. | 
 **xp** | **int** | The current xp level of the combat level. | 
 **maxXp** | **int** | XP required to level up the character. | 
@@ -91,7 +91,7 @@ Name | Type | Description | Notes
 **taskProgress** | **int** | Task progression. | 
 **taskTotal** | **int** | Task total objective. | 
 **inventoryMaxItems** | **int** | Inventory max items. | 
-**inventory** | [**List<InventorySlot>**](InventorySlot.md) | List of inventory slots. | [optional] [default to const []]
+**inventory** | [**List<InventorySlotSchema>**](InventorySlotSchema.md) | List of inventory slots. | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

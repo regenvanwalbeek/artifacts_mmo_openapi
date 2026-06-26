@@ -16,7 +16,7 @@ class CharacterLeaderboardSchema {
     required this.position,
     required this.name,
     required this.account,
-    required this.status,
+    required this.member,
     required this.skin,
     required this.level,
     required this.totalXp,
@@ -49,7 +49,7 @@ class CharacterLeaderboardSchema {
   String account;
 
   /// Member status.
-  AccountStatus status;
+  bool member;
 
   /// Character skin code.
   String skin;
@@ -118,7 +118,7 @@ class CharacterLeaderboardSchema {
           other.position == position &&
           other.name == name &&
           other.account == account &&
-          other.status == status &&
+          other.member == member &&
           other.skin == skin &&
           other.level == level &&
           other.totalXp == totalXp &&
@@ -146,7 +146,7 @@ class CharacterLeaderboardSchema {
       (position.hashCode) +
       (name.hashCode) +
       (account.hashCode) +
-      (status.hashCode) +
+      (member.hashCode) +
       (skin.hashCode) +
       (level.hashCode) +
       (totalXp.hashCode) +
@@ -170,14 +170,14 @@ class CharacterLeaderboardSchema {
 
   @override
   String toString() =>
-      'CharacterLeaderboardSchema[position=$position, name=$name, account=$account, status=$status, skin=$skin, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, alchemyLevel=$alchemyLevel, alchemyTotalXp=$alchemyTotalXp, gold=$gold]';
+      'CharacterLeaderboardSchema[position=$position, name=$name, account=$account, member=$member, skin=$skin, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, alchemyLevel=$alchemyLevel, alchemyTotalXp=$alchemyTotalXp, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'position'] = this.position;
     json[r'name'] = this.name;
     json[r'account'] = this.account;
-    json[r'status'] = this.status;
+    json[r'member'] = this.member;
     json[r'skin'] = this.skin;
     json[r'level'] = this.level;
     json[r'total_xp'] = this.totalXp;
@@ -224,10 +224,10 @@ class CharacterLeaderboardSchema {
             'Required key "CharacterLeaderboardSchema[account]" is missing from JSON.');
         assert(json[r'account'] != null,
             'Required key "CharacterLeaderboardSchema[account]" has a null value in JSON.');
-        assert(json.containsKey(r'status'),
-            'Required key "CharacterLeaderboardSchema[status]" is missing from JSON.');
-        assert(json[r'status'] != null,
-            'Required key "CharacterLeaderboardSchema[status]" has a null value in JSON.');
+        assert(json.containsKey(r'member'),
+            'Required key "CharacterLeaderboardSchema[member]" is missing from JSON.');
+        assert(json[r'member'] != null,
+            'Required key "CharacterLeaderboardSchema[member]" has a null value in JSON.');
         assert(json.containsKey(r'skin'),
             'Required key "CharacterLeaderboardSchema[skin]" is missing from JSON.');
         assert(json[r'skin'] != null,
@@ -315,7 +315,7 @@ class CharacterLeaderboardSchema {
         position: mapValueOfType<int>(json, r'position')!,
         name: mapValueOfType<String>(json, r'name')!,
         account: mapValueOfType<String>(json, r'account')!,
-        status: AccountStatus.fromJson(json[r'status'])!,
+        member: mapValueOfType<bool>(json, r'member')!,
         skin: mapValueOfType<String>(json, r'skin')!,
         level: mapValueOfType<int>(json, r'level')!,
         totalXp: mapValueOfType<int>(json, r'total_xp')!,
@@ -400,7 +400,7 @@ class CharacterLeaderboardSchema {
     'position',
     'name',
     'account',
-    'status',
+    'member',
     'skin',
     'level',
     'total_xp',

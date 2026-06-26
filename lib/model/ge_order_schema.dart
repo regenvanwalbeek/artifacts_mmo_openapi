@@ -43,7 +43,6 @@ class GEOrderSchema {
   /// Item quantity.
   ///
   /// Minimum value: 1
-  /// Maximum value: 100
   int quantity;
 
   /// Item price per unit.

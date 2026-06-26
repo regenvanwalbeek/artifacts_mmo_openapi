@@ -33,7 +33,7 @@ class NPCSchema {
   NPCType type;
 
   /// Items sold/bought by the NPC.
-  List<SimpleNPCItem> items;
+  List<SimpleNPCItemSchema> items;
 
   @override
   bool operator ==(Object other) =>
@@ -103,7 +103,7 @@ class NPCSchema {
         code: mapValueOfType<String>(json, r'code')!,
         description: mapValueOfType<String>(json, r'description')!,
         type: NPCType.fromJson(json[r'type'])!,
-        items: SimpleNPCItem.listFromJson(json[r'items']),
+        items: SimpleNPCItemSchema.listFromJson(json[r'items']),
       );
     }
     return null;
