@@ -111,7 +111,7 @@ No authorization required
 
 Get Ge Orders
 
-Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
+Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to keep account searches explicit.
 
 ### Example
 ```dart

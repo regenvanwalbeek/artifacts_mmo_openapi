@@ -147,6 +147,12 @@ class NPCsApi {
   /// * [NPCType] type:
   ///   Type of NPCs.
   ///
+  /// * [String] currency:
+  ///   Currency code to filter NPCs that trade with this currency.
+  ///
+  /// * [String] item:
+  ///   Item code to filter NPCs that trade this item.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -155,6 +161,8 @@ class NPCsApi {
   Future<Response> getAllNpcsNpcsDetailsGetWithHttpInfo({
     String? name,
     NPCType? type,
+    String? currency,
+    String? item,
     int? page,
     int? size,
   }) async {
@@ -173,6 +181,12 @@ class NPCsApi {
     }
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
+    }
+    if (currency != null) {
+      queryParams.addAll(_queryParams('', 'currency', currency));
+    }
+    if (item != null) {
+      queryParams.addAll(_queryParams('', 'item', item));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -206,6 +220,12 @@ class NPCsApi {
   /// * [NPCType] type:
   ///   Type of NPCs.
   ///
+  /// * [String] currency:
+  ///   Currency code to filter NPCs that trade with this currency.
+  ///
+  /// * [String] item:
+  ///   Item code to filter NPCs that trade this item.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -214,12 +234,16 @@ class NPCsApi {
   Future<StaticDataPageNPCSchema?> getAllNpcsNpcsDetailsGet({
     String? name,
     NPCType? type,
+    String? currency,
+    String? item,
     int? page,
     int? size,
   }) async {
     final response = await getAllNpcsNpcsDetailsGetWithHttpInfo(
       name: name,
       type: type,
+      currency: currency,
+      item: item,
       page: page,
       size: size,
     );

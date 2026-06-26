@@ -567,6 +567,8 @@ class ApiClient {
           return SimpleEffectSchema.fromJson(value);
         case 'SimpleItemSchema':
           return SimpleItemSchema.fromJson(value);
+        case 'SimpleNPCItem':
+          return SimpleNPCItem.fromJson(value);
         case 'Skill':
           return SkillTypeTransformer().decode(value);
         case 'SkillDataSchema':

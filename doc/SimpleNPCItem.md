@@ -1,4 +1,4 @@
-# artifacts_mmo_openapi.model.GEOrderSchema
+# artifacts_mmo_openapi.model.SimpleNPCItem
 
 ## Load the model package
 ```dart
@@ -8,13 +8,10 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | Order id. | 
-**type** | [**GEOrderType**](GEOrderType.md) | Order type (sell or buy). | 
-**account** | **String** | Account linked to the order. | [optional] 
 **code** | **String** | Item code. | 
-**quantity** | **int** | Item quantity. | 
-**price** | **int** | Item price per unit. | 
-**createdAt** | [**DateTime**](DateTime.md) | Order created at. | 
+**currency** | **String** | Currency used to buy/sell the item. If it's not gold, it's the item code. | 
+**buyPrice** | **int** | Price to buy the item. | [optional] 
+**sellPrice** | **int** | Price to sell the item. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

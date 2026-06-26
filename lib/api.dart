@@ -217,6 +217,7 @@ part 'model/season_schema.dart';
 part 'model/season_skin_schema.dart';
 part 'model/simple_effect_schema.dart';
 part 'model/simple_item_schema.dart';
+part 'model/simple_npc_item.dart';
 part 'model/skill.dart';
 part 'model/skill_data_schema.dart';
 part 'model/skill_info_schema.dart';

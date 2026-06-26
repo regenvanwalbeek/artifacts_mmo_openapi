@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **code** | **String** | The code of the NPC. This is the NPC's unique identifier (ID). | 
 **description** | **String** | Description of the NPC. | 
 **type** | [**NPCType**](NPCType.md) | Type of the NPC. | 
+**items** | [**List<SimpleNPCItem>**](SimpleNPCItem.md) | Items sold/bought by the NPC. | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
