@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getAllNpcsItemsNpcsItemsGet**
-> StaticDataPageNPCItem getAllNpcsItemsNpcsItemsGet(code, npc, currency, page, size)
+> StaticDataPageNPCItemSchema getAllNpcsItemsNpcsItemsGet(code, npc, currency, page, size)
 
 Get All Npcs Items
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StaticDataPageNPCItem**](StaticDataPageNPCItem.md)
+[**StaticDataPageNPCItemSchema**](StaticDataPageNPCItemSchema.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getAllNpcsNpcsDetailsGet**
-> StaticDataPageNPCSchema getAllNpcsNpcsDetailsGet(name, type, page, size)
+> StaticDataPageNPCSchema getAllNpcsNpcsDetailsGet(name, type, currency, item, page, size)
 
 Get All Npcs
 
@@ -80,11 +80,13 @@ import 'package:artifacts_mmo_openapi/api.dart';
 final api_instance = NPCsApi();
 final name = name_example; // String | NPC name.
 final type = ; // NPCType | Type of NPCs.
+final currency = currency_example; // String | Currency code to filter NPCs that trade with this currency.
+final item = item_example; // String | Item code to filter NPCs that trade this item.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getAllNpcsNpcsDetailsGet(name, type, page, size);
+    final result = api_instance.getAllNpcsNpcsDetailsGet(name, type, currency, item, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling NPCsApi->getAllNpcsNpcsDetailsGet: $e\n');
@@ -97,6 +99,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| NPC name. | [optional] 
  **type** | [**NPCType**](.md)| Type of NPCs. | [optional] 
+ **currency** | **String**| Currency code to filter NPCs that trade with this currency. | [optional] 
+ **item** | **String**| Item code to filter NPCs that trade this item. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -116,7 +120,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getNpcItemsNpcsItemsCodeGet**
-> StaticDataPageNPCItem getNpcItemsNpcsItemsCodeGet(code, page, size)
+> StaticDataPageNPCItemSchema getNpcItemsNpcsItemsCodeGet(code, page, size)
 
 Get Npc Items
 
@@ -149,7 +153,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StaticDataPageNPCItem**](StaticDataPageNPCItem.md)
+[**StaticDataPageNPCItemSchema**](StaticDataPageNPCItemSchema.md)
 
 ### Authorization
 

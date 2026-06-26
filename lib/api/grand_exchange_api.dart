@@ -91,7 +91,7 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?> getGeHistoryGrandexchangeHistoryCodeGet(
+  Future<DataPageGEOrderHistorySchema?> getGeHistoryGrandexchangeHistoryCodeGet(
     String code, {
     String? account,
     int? page,
@@ -113,8 +113,8 @@ class GrandExchangeApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageGeOrderHistorySchema',
-      ) as DataPageGeOrderHistorySchema;
+        'DataPageGEOrderHistorySchema',
+      ) as DataPageGEOrderHistorySchema;
     }
     return null;
   }
@@ -187,7 +187,7 @@ class GrandExchangeApi {
 
   /// Get Ge Orders
   ///
-  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
+  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to keep account searches explicit.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -202,6 +202,9 @@ class GrandExchangeApi {
   /// * [GEOrderType] type:
   ///   Filter by order type (sell or buy).
   ///
+  /// * [ItemType] itemType:
+  ///   Filter by item type.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -211,6 +214,7 @@ class GrandExchangeApi {
     String? code,
     String? account,
     GEOrderType? type,
+    ItemType? itemType,
     int? page,
     int? size,
   }) async {
@@ -232,6 +236,9 @@ class GrandExchangeApi {
     }
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
+    }
+    if (itemType != null) {
+      queryParams.addAll(_queryParams('', 'item_type', itemType));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -255,7 +262,7 @@ class GrandExchangeApi {
 
   /// Get Ge Orders
   ///
-  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
+  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to keep account searches explicit.
   ///
   /// Parameters:
   ///
@@ -268,6 +275,9 @@ class GrandExchangeApi {
   /// * [GEOrderType] type:
   ///   Filter by order type (sell or buy).
   ///
+  /// * [ItemType] itemType:
+  ///   Filter by item type.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -277,6 +287,7 @@ class GrandExchangeApi {
     String? code,
     String? account,
     GEOrderType? type,
+    ItemType? itemType,
     int? page,
     int? size,
   }) async {
@@ -284,6 +295,7 @@ class GrandExchangeApi {
       code: code,
       account: account,
       type: type,
+      itemType: itemType,
       page: page,
       size: size,
     );

@@ -16,8 +16,8 @@ class ChangeSkinCharacterSchema {
     required this.skin,
   });
 
-  /// Your desired skin. Skins unlocked by default: 'men1', 'men2', 'men3', 'women1', 'women2', 'women3'.
-  CharacterSkin skin;
+  /// Your desired skin.
+  String skin;
 
   @override
   bool operator ==(Object other) =>
@@ -59,7 +59,7 @@ class ChangeSkinCharacterSchema {
       }());
 
       return ChangeSkinCharacterSchema(
-        skin: CharacterSkin.fromJson(json[r'skin'])!,
+        skin: mapValueOfType<String>(json, r'skin')!,
       );
     }
     return null;

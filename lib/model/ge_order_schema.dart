@@ -14,7 +14,7 @@ class GEOrderSchema {
   /// Returns a new [GEOrderSchema] instance.
   GEOrderSchema({
     required this.id,
-    this.type,
+    required this.type,
     this.account,
     required this.code,
     required this.quantity,
@@ -26,13 +26,7 @@ class GEOrderSchema {
   String id;
 
   /// Order type (sell or buy).
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  GEOrderType? type;
+  GEOrderType type;
 
   /// Account linked to the order.
   ///
@@ -49,7 +43,6 @@ class GEOrderSchema {
   /// Item quantity.
   ///
   /// Minimum value: 1
-  /// Maximum value: 100
   int quantity;
 
   /// Item price per unit.
@@ -76,7 +69,7 @@ class GEOrderSchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (id.hashCode) +
-      (type == null ? 0 : type!.hashCode) +
+      (type.hashCode) +
       (account == null ? 0 : account!.hashCode) +
       (code.hashCode) +
       (quantity.hashCode) +
@@ -90,11 +83,7 @@ class GEOrderSchema {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'id'] = this.id;
-    if (this.type != null) {
-      json[r'type'] = this.type;
-    } else {
-      json[r'type'] = null;
-    }
+    json[r'type'] = this.type;
     if (this.account != null) {
       json[r'account'] = this.account;
     } else {
@@ -129,7 +118,7 @@ class GEOrderSchema {
 
       return GEOrderSchema(
         id: mapValueOfType<String>(json, r'id')!,
-        type: GEOrderType.fromJson(json[r'type']),
+        type: GEOrderType.fromJson(json[r'type'])!,
         account: mapValueOfType<String>(json, r'account'),
         code: mapValueOfType<String>(json, r'code')!,
         quantity: mapValueOfType<int>(json, r'quantity')!,
@@ -192,6 +181,7 @@ class GEOrderSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'id',
+    'type',
     'code',
     'quantity',
     'price',

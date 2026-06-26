@@ -25,11 +25,11 @@ class SimulationApi {
   /// Parameters:
   ///
   /// * [CombatSimulationRequestSchema] combatSimulationRequestSchema (required):
-  Future<Response> fightSimulationSimulationFightSimulationPostWithHttpInfo(
+  Future<Response> fightSimulationSimulationFightPostWithHttpInfo(
     CombatSimulationRequestSchema combatSimulationRequestSchema,
   ) async {
     // ignore: prefer_const_declarations
-    final path = r'/simulation/fight_simulation';
+    final path = r'/simulation/fight';
 
     // ignore: prefer_final_locals
     Object? postBody = combatSimulationRequestSchema;
@@ -58,12 +58,10 @@ class SimulationApi {
   /// Parameters:
   ///
   /// * [CombatSimulationRequestSchema] combatSimulationRequestSchema (required):
-  Future<CombatSimulationResponseSchema?>
-      fightSimulationSimulationFightSimulationPost(
+  Future<CombatSimulationResponseSchema?> fightSimulationSimulationFightPost(
     CombatSimulationRequestSchema combatSimulationRequestSchema,
   ) async {
-    final response =
-        await fightSimulationSimulationFightSimulationPostWithHttpInfo(
+    final response = await fightSimulationSimulationFightPostWithHttpInfo(
       combatSimulationRequestSchema,
     );
     if (response.statusCode >= HttpStatus.badRequest) {

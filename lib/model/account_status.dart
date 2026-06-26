@@ -26,6 +26,7 @@ class AccountStatus {
   static const founder = AccountStatus._(r'founder');
   static const goldFounder = AccountStatus._(r'gold_founder');
   static const vipFounder = AccountStatus._(r'vip_founder');
+  static const goblin1 = AccountStatus._(r'goblin1');
 
   /// List of all possible values in this [enum][AccountStatus].
   static const values = <AccountStatus>[
@@ -33,6 +34,7 @@ class AccountStatus {
     founder,
     goldFounder,
     vipFounder,
+    goblin1,
   ];
 
   static AccountStatus? fromJson(dynamic value) =>
@@ -84,6 +86,8 @@ class AccountStatusTypeTransformer {
           return AccountStatus.goldFounder;
         case r'vip_founder':
           return AccountStatus.vipFounder;
+        case r'goblin1':
+          return AccountStatus.goblin1;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

@@ -23,7 +23,6 @@ class GEFillBuyOrderSchema {
   /// Item quantity to sell.
   ///
   /// Minimum value: 1
-  /// Maximum value: 100
   int quantity;
 
   @override

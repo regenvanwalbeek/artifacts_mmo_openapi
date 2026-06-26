@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** | Name of the character. | 
 **account** | **String** | Account name. | 
-**skin** | [**CharacterSkin**](CharacterSkin.md) | Character skin code. | 
+**skin** | **String** | Character skin code. | 
 **x** | **int** | Character x coordinate. | 
 **y** | **int** | Character y coordinate. | 
 **layer** | [**MapLayer**](MapLayer.md) | Character current layer. | 

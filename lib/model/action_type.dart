@@ -24,6 +24,7 @@ class ActionType {
 
   static const movement = ActionType._(r'movement');
   static const fight = ActionType._(r'fight');
+  static const raidFight = ActionType._(r'raid_fight');
   static const multiFight = ActionType._(r'multi_fight');
   static const crafting = ActionType._(r'crafting');
   static const gathering = ActionType._(r'gathering');
@@ -48,6 +49,7 @@ class ActionType {
   static const buyBankExpansion = ActionType._(r'buy_bank_expansion');
   static const giveItem = ActionType._(r'give_item');
   static const giveGold = ActionType._(r'give_gold');
+  static const raidDeposit = ActionType._(r'raid_deposit');
   static const changeSkin = ActionType._(r'change_skin');
   static const rename = ActionType._(r'rename');
   static const transition = ActionType._(r'transition');
@@ -55,11 +57,14 @@ class ActionType {
   static const sandboxGiveGold = ActionType._(r'sandbox_give_gold');
   static const sandboxGiveItem = ActionType._(r'sandbox_give_item');
   static const sandboxGiveXp = ActionType._(r'sandbox_give_xp');
+  static const sandboxClearCooldown = ActionType._(r'sandbox_clear_cooldown');
+  static const sandboxTeleport = ActionType._(r'sandbox_teleport');
 
   /// List of all possible values in this [enum][ActionType].
   static const values = <ActionType>[
     movement,
     fight,
+    raidFight,
     multiFight,
     crafting,
     gathering,
@@ -84,6 +89,7 @@ class ActionType {
     buyBankExpansion,
     giveItem,
     giveGold,
+    raidDeposit,
     changeSkin,
     rename,
     transition,
@@ -91,6 +97,8 @@ class ActionType {
     sandboxGiveGold,
     sandboxGiveItem,
     sandboxGiveXp,
+    sandboxClearCooldown,
+    sandboxTeleport,
   ];
 
   static ActionType? fromJson(dynamic value) =>
@@ -138,6 +146,8 @@ class ActionTypeTypeTransformer {
           return ActionType.movement;
         case r'fight':
           return ActionType.fight;
+        case r'raid_fight':
+          return ActionType.raidFight;
         case r'multi_fight':
           return ActionType.multiFight;
         case r'crafting':
@@ -186,6 +196,8 @@ class ActionTypeTypeTransformer {
           return ActionType.giveItem;
         case r'give_gold':
           return ActionType.giveGold;
+        case r'raid_deposit':
+          return ActionType.raidDeposit;
         case r'change_skin':
           return ActionType.changeSkin;
         case r'rename':
@@ -200,6 +212,10 @@ class ActionTypeTypeTransformer {
           return ActionType.sandboxGiveItem;
         case r'sandbox_give_xp':
           return ActionType.sandboxGiveXp;
+        case r'sandbox_clear_cooldown':
+          return ActionType.sandboxClearCooldown;
+        case r'sandbox_teleport':
+          return ActionType.sandboxTeleport;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

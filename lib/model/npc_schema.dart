@@ -17,6 +17,7 @@ class NPCSchema {
     required this.code,
     required this.description,
     required this.type,
+    this.items = const [],
   });
 
   /// Name of the NPC.
@@ -31,6 +32,9 @@ class NPCSchema {
   /// Type of the NPC.
   NPCType type;
 
+  /// Items sold/bought by the NPC.
+  List<SimpleNPCItemSchema> items;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -38,7 +42,8 @@ class NPCSchema {
           other.name == name &&
           other.code == code &&
           other.description == description &&
-          other.type == type;
+          other.type == type &&
+          _deepEquality.equals(other.items, items);
 
   @override
   int get hashCode =>
@@ -46,11 +51,12 @@ class NPCSchema {
       (name.hashCode) +
       (code.hashCode) +
       (description.hashCode) +
-      (type.hashCode);
+      (type.hashCode) +
+      (items.hashCode);
 
   @override
   String toString() =>
-      'NPCSchema[name=$name, code=$code, description=$description, type=$type]';
+      'NPCSchema[name=$name, code=$code, description=$description, type=$type, items=$items]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -58,6 +64,7 @@ class NPCSchema {
     json[r'code'] = this.code;
     json[r'description'] = this.description;
     json[r'type'] = this.type;
+    json[r'items'] = this.items;
     return json;
   }
 
@@ -86,6 +93,7 @@ class NPCSchema {
         code: mapValueOfType<String>(json, r'code')!,
         description: mapValueOfType<String>(json, r'description')!,
         type: NPCType.fromJson(json[r'type'])!,
+        items: SimpleNPCItemSchema.listFromJson(json[r'items']),
       );
     }
     return null;

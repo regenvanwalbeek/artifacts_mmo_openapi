@@ -15,10 +15,14 @@ class EventSchema {
   EventSchema({
     required this.name,
     required this.code,
-    required this.content,
+    this.content,
     this.maps = const [],
     required this.duration,
     required this.rate,
+    this.cooldown = 0,
+    this.price,
+    this.transition,
+    this.cooldownExpiration,
   });
 
   /// Name of the event.
@@ -28,7 +32,13 @@ class EventSchema {
   String code;
 
   /// Content of the event.
-  EventContentSchema content;
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  EventContentSchema? content;
 
   /// Map list of the event.
   List<EventMapSchema> maps;
@@ -39,6 +49,36 @@ class EventSchema {
   /// Rate spawn of the event. (1/rate every minute)
   int rate;
 
+  /// Cooldown in minutes before the event can be spawned with gems.
+  int cooldown;
+
+  /// Price in gems to spawn the event. Null if not purchasable.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  int? price;
+
+  /// Transition to add to the map when event is active.
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  TransitionSchema? transition;
+
+  /// Gems spawn cooldown expiration datetime (null if not on cooldown).
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  DateTime? cooldownExpiration;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -48,30 +88,59 @@ class EventSchema {
           other.content == content &&
           _deepEquality.equals(other.maps, maps) &&
           other.duration == duration &&
-          other.rate == rate;
+          other.rate == rate &&
+          other.cooldown == cooldown &&
+          other.price == price &&
+          other.transition == transition &&
+          other.cooldownExpiration == cooldownExpiration;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (name.hashCode) +
       (code.hashCode) +
-      (content.hashCode) +
+      (content == null ? 0 : content!.hashCode) +
       (maps.hashCode) +
       (duration.hashCode) +
-      (rate.hashCode);
+      (rate.hashCode) +
+      (cooldown.hashCode) +
+      (price == null ? 0 : price!.hashCode) +
+      (transition == null ? 0 : transition!.hashCode) +
+      (cooldownExpiration == null ? 0 : cooldownExpiration!.hashCode);
 
   @override
   String toString() =>
-      'EventSchema[name=$name, code=$code, content=$content, maps=$maps, duration=$duration, rate=$rate]';
+      'EventSchema[name=$name, code=$code, content=$content, maps=$maps, duration=$duration, rate=$rate, cooldown=$cooldown, price=$price, transition=$transition, cooldownExpiration=$cooldownExpiration]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'name'] = this.name;
     json[r'code'] = this.code;
-    json[r'content'] = this.content;
+    if (this.content != null) {
+      json[r'content'] = this.content;
+    } else {
+      json[r'content'] = null;
+    }
     json[r'maps'] = this.maps;
     json[r'duration'] = this.duration;
     json[r'rate'] = this.rate;
+    json[r'cooldown'] = this.cooldown;
+    if (this.price != null) {
+      json[r'price'] = this.price;
+    } else {
+      json[r'price'] = null;
+    }
+    if (this.transition != null) {
+      json[r'transition'] = this.transition;
+    } else {
+      json[r'transition'] = null;
+    }
+    if (this.cooldownExpiration != null) {
+      json[r'cooldown_expiration'] =
+          this.cooldownExpiration!.toUtc().toIso8601String();
+    } else {
+      json[r'cooldown_expiration'] = null;
+    }
     return json;
   }
 
@@ -98,10 +167,14 @@ class EventSchema {
       return EventSchema(
         name: mapValueOfType<String>(json, r'name')!,
         code: mapValueOfType<String>(json, r'code')!,
-        content: EventContentSchema.fromJson(json[r'content'])!,
+        content: EventContentSchema.fromJson(json[r'content']),
         maps: EventMapSchema.listFromJson(json[r'maps']),
         duration: mapValueOfType<int>(json, r'duration')!,
         rate: mapValueOfType<int>(json, r'rate')!,
+        cooldown: mapValueOfType<int>(json, r'cooldown') ?? 0,
+        price: mapValueOfType<int>(json, r'price'),
+        transition: TransitionSchema.fromJson(json[r'transition']),
+        cooldownExpiration: mapDateTime(json, r'cooldown_expiration', r''),
       );
     }
     return null;
@@ -160,7 +233,6 @@ class EventSchema {
   static const requiredKeys = <String>{
     'name',
     'code',
-    'content',
     'maps',
     'duration',
     'rate',

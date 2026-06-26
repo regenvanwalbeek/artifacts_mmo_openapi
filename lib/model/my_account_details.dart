@@ -21,7 +21,7 @@ class MyAccountDetails {
     this.badges = const [],
     this.skins = const [],
     required this.gems,
-    required this.eventToken,
+    this.memberToken = 0,
     required this.achievementsPoints,
     required this.banned,
     this.banReason,
@@ -36,7 +36,7 @@ class MyAccountDetails {
   /// Member status.
   bool member;
 
-  /// Member expiration date.
+  /// Membership expiration date.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -57,8 +57,8 @@ class MyAccountDetails {
   /// Gems.
   int gems;
 
-  /// Event tokens for spawning events.
-  int eventToken;
+  /// Member tokens manually granted as rewards for events. Each token can be redeemed for one month of membership.
+  int memberToken;
 
   /// Achievement points.
   int achievementsPoints;
@@ -87,7 +87,7 @@ class MyAccountDetails {
           _deepEquality.equals(other.badges, badges) &&
           _deepEquality.equals(other.skins, skins) &&
           other.gems == gems &&
-          other.eventToken == eventToken &&
+          other.memberToken == memberToken &&
           other.achievementsPoints == achievementsPoints &&
           other.banned == banned &&
           other.banReason == banReason;
@@ -103,14 +103,14 @@ class MyAccountDetails {
       (badges.hashCode) +
       (skins.hashCode) +
       (gems.hashCode) +
-      (eventToken.hashCode) +
+      (memberToken.hashCode) +
       (achievementsPoints.hashCode) +
       (banned.hashCode) +
       (banReason == null ? 0 : banReason!.hashCode);
 
   @override
   String toString() =>
-      'MyAccountDetails[username=$username, email=$email, member=$member, memberExpiration=$memberExpiration, status=$status, badges=$badges, skins=$skins, gems=$gems, eventToken=$eventToken, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
+      'MyAccountDetails[username=$username, email=$email, member=$member, memberExpiration=$memberExpiration, status=$status, badges=$badges, skins=$skins, gems=$gems, memberToken=$memberToken, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -127,7 +127,7 @@ class MyAccountDetails {
     json[r'badges'] = this.badges;
     json[r'skins'] = this.skins;
     json[r'gems'] = this.gems;
-    json[r'event_token'] = this.eventToken;
+    json[r'member_token'] = this.memberToken;
     json[r'achievements_points'] = this.achievementsPoints;
     json[r'banned'] = this.banned;
     if (this.banReason != null) {
@@ -175,7 +175,7 @@ class MyAccountDetails {
                 .toList(growable: false)
             : const [],
         gems: mapValueOfType<int>(json, r'gems')!,
-        eventToken: mapValueOfType<int>(json, r'event_token')!,
+        memberToken: mapValueOfType<int>(json, r'member_token') ?? 0,
         achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         banned: mapValueOfType<bool>(json, r'banned')!,
         banReason: mapValueOfType<String>(json, r'ban_reason'),
@@ -241,7 +241,6 @@ class MyAccountDetails {
     'status',
     'skins',
     'gems',
-    'event_token',
     'achievements_points',
     'banned',
   };
