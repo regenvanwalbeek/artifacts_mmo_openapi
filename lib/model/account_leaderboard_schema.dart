@@ -15,9 +15,8 @@ class AccountLeaderboardSchema {
   AccountLeaderboardSchema({
     required this.position,
     required this.account,
-    required this.member,
+    required this.status,
     required this.achievementsPoints,
-    this.completedAt,
     required this.gold,
   });
 
@@ -28,19 +27,10 @@ class AccountLeaderboardSchema {
   String account;
 
   /// Member status.
-  bool member;
+  AccountStatus status;
 
   /// Achievements points.
   int achievementsPoints;
-
-  /// Datetime when all achievement points were completed.
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  DateTime? completedAt;
 
   /// Gold in the account.
   int gold;
@@ -51,9 +41,8 @@ class AccountLeaderboardSchema {
       other is AccountLeaderboardSchema &&
           other.position == position &&
           other.account == account &&
-          other.member == member &&
+          other.status == status &&
           other.achievementsPoints == achievementsPoints &&
-          other.completedAt == completedAt &&
           other.gold == gold;
 
   @override
@@ -61,26 +50,20 @@ class AccountLeaderboardSchema {
       // ignore: unnecessary_parenthesis
       (position.hashCode) +
       (account.hashCode) +
-      (member.hashCode) +
+      (status.hashCode) +
       (achievementsPoints.hashCode) +
-      (completedAt == null ? 0 : completedAt!.hashCode) +
       (gold.hashCode);
 
   @override
   String toString() =>
-      'AccountLeaderboardSchema[position=$position, account=$account, member=$member, achievementsPoints=$achievementsPoints, completedAt=$completedAt, gold=$gold]';
+      'AccountLeaderboardSchema[position=$position, account=$account, status=$status, achievementsPoints=$achievementsPoints, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'position'] = this.position;
     json[r'account'] = this.account;
-    json[r'member'] = this.member;
+    json[r'status'] = this.status;
     json[r'achievements_points'] = this.achievementsPoints;
-    if (this.completedAt != null) {
-      json[r'completed_at'] = this.completedAt!.toUtc().toIso8601String();
-    } else {
-      json[r'completed_at'] = null;
-    }
     json[r'gold'] = this.gold;
     return json;
   }
@@ -108,9 +91,8 @@ class AccountLeaderboardSchema {
       return AccountLeaderboardSchema(
         position: mapValueOfType<int>(json, r'position')!,
         account: mapValueOfType<String>(json, r'account')!,
-        member: mapValueOfType<bool>(json, r'member')!,
+        status: AccountStatus.fromJson(json[r'status'])!,
         achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
-        completedAt: mapDateTime(json, r'completed_at', r''),
         gold: mapValueOfType<int>(json, r'gold')!,
       );
     }
@@ -170,7 +152,7 @@ class AccountLeaderboardSchema {
   static const requiredKeys = <String>{
     'position',
     'account',
-    'member',
+    'status',
     'achievements_points',
     'gold',
   };

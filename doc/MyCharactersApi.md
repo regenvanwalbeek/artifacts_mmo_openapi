@@ -23,8 +23,8 @@ Method | HTTP request | Description
 [**actionGatheringMyNameActionGatheringPost**](MyCharactersApi.md#actiongatheringmynameactiongatheringpost) | **POST** /my/{name}/action/gathering | Action Gathering
 [**actionGeBuyItemMyNameActionGrandexchangeBuyPost**](MyCharactersApi.md#actiongebuyitemmynameactiongrandexchangebuypost) | **POST** /my/{name}/action/grandexchange/buy | Action Ge Buy Item
 [**actionGeCancelOrderMyNameActionGrandexchangeCancelPost**](MyCharactersApi.md#actiongecancelordermynameactiongrandexchangecancelpost) | **POST** /my/{name}/action/grandexchange/cancel | Action Ge Cancel Order
-[**actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost**](MyCharactersApi.md#actiongecreatebuyordermynameactiongrandexchangecreatebuyorderpost) | **POST** /my/{name}/action/grandexchange/create_buy_order | Action Ge Create Buy Order
-[**actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost**](MyCharactersApi.md#actiongecreatesellordermynameactiongrandexchangecreatesellorderpost) | **POST** /my/{name}/action/grandexchange/create_sell_order | Action Ge Create Sell Order
+[**actionGeCreateBuyOrderMyNameActionGrandexchangeCreateBuyOrderPost**](MyCharactersApi.md#actiongecreatebuyordermynameactiongrandexchangecreatebuyorderpost) | **POST** /my/{name}/action/grandexchange/create-buy-order | Action Ge Create Buy Order
+[**actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost**](MyCharactersApi.md#actiongecreatesellordermynameactiongrandexchangecreatesellorderpost) | **POST** /my/{name}/action/grandexchange/create-sell-order | Action Ge Create Sell Order
 [**actionGeFillMyNameActionGrandexchangeFillPost**](MyCharactersApi.md#actiongefillmynameactiongrandexchangefillpost) | **POST** /my/{name}/action/grandexchange/fill | Action Ge Fill
 [**actionGiveGoldMyNameActionGiveGoldPost**](MyCharactersApi.md#actiongivegoldmynameactiongivegoldpost) | **POST** /my/{name}/action/give/gold | Action Give Gold
 [**actionGiveItemsMyNameActionGiveItemPost**](MyCharactersApi.md#actiongiveitemsmynameactiongiveitempost) | **POST** /my/{name}/action/give/item | Action Give Items
@@ -504,7 +504,7 @@ Name | Type | Description  | Notes
 
 Action Equip Item
 
-Equip multiple items on your character. The cooldown will be 3 seconds multiplied by the number of different items equipped.
+Equip an item on your character.
 
 ### Example
 ```dart
@@ -518,7 +518,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final equipSchema = [List<EquipSchema>()]; // List<EquipSchema> | 
+final equipSchema = EquipSchema(); // EquipSchema | 
 
 try {
     final result = api_instance.actionEquipItemMyNameActionEquipPost(name, equipSchema);
@@ -533,7 +533,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **equipSchema** | [**List<EquipSchema>**](EquipSchema.md)|  | 
+ **equipSchema** | [**EquipSchema**](EquipSchema.md)|  | 
 
 ### Return type
 
@@ -804,7 +804,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost**
-> GECreateOrderTransactionResponseSchema actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(name, gEOrderCreationSchema)
+> GECreateOrderTransactionResponseSchema actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(name, gEOrderCreationrSchema)
 
 Action Ge Create Sell Order
 
@@ -822,10 +822,10 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final gEOrderCreationSchema = GEOrderCreationSchema(); // GEOrderCreationSchema | 
+final gEOrderCreationrSchema = GEOrderCreationrSchema(); // GEOrderCreationrSchema | 
 
 try {
-    final result = api_instance.actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(name, gEOrderCreationSchema);
+    final result = api_instance.actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost(name, gEOrderCreationrSchema);
     print(result);
 } catch (e) {
     print('Exception when calling MyCharactersApi->actionGeCreateSellOrderMyNameActionGrandexchangeCreateSellOrderPost: $e\n');
@@ -837,7 +837,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **gEOrderCreationSchema** | [**GEOrderCreationSchema**](GEOrderCreationSchema.md)|  | 
+ **gEOrderCreationrSchema** | [**GEOrderCreationrSchema**](GEOrderCreationrSchema.md)|  | 
 
 ### Return type
 
@@ -1463,7 +1463,7 @@ Name | Type | Description  | Notes
 
 Action Unequip Item
 
-Unequip multiple items on your character. The cooldown will be 3 seconds multiplied by the number of different items unequipped.
+Unequip an item on your character.
 
 ### Example
 ```dart
@@ -1477,7 +1477,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 
 final api_instance = MyCharactersApi();
 final name = name_example; // String | Name of your character.
-final unequipSchema = [List<UnequipSchema>()]; // List<UnequipSchema> | 
+final unequipSchema = UnequipSchema(); // UnequipSchema | 
 
 try {
     final result = api_instance.actionUnequipItemMyNameActionUnequipPost(name, unequipSchema);
@@ -1492,7 +1492,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name of your character. | 
- **unequipSchema** | [**List<UnequipSchema>**](UnequipSchema.md)|  | 
+ **unequipSchema** | [**UnequipSchema**](UnequipSchema.md)|  | 
 
 ### Return type
 

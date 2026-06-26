@@ -26,7 +26,6 @@ class LogType {
   static const deleteCharacter = LogType._(r'delete_character');
   static const movement = LogType._(r'movement');
   static const fight = LogType._(r'fight');
-  static const raidFight = LogType._(r'raid_fight');
   static const multiFight = LogType._(r'multi_fight');
   static const crafting = LogType._(r'crafting');
   static const gathering = LogType._(r'gathering');
@@ -58,7 +57,6 @@ class LogType {
   static const giveGold = LogType._(r'give_gold');
   static const receiveItem = LogType._(r'receive_item');
   static const receiveGold = LogType._(r'receive_gold');
-  static const raidDeposit = LogType._(r'raid_deposit');
   static const changeSkin = LogType._(r'change_skin');
   static const rename = LogType._(r'rename');
   static const transition = LogType._(r'transition');
@@ -67,8 +65,6 @@ class LogType {
   static const sandboxGiveItem = LogType._(r'sandbox_give_item');
   static const sandboxGiveXp = LogType._(r'sandbox_give_xp');
   static const sandboxResetAccount = LogType._(r'sandbox_reset_account');
-  static const sandboxClearCooldown = LogType._(r'sandbox_clear_cooldown');
-  static const sandboxTeleport = LogType._(r'sandbox_teleport');
 
   /// List of all possible values in this [enum][LogType].
   static const values = <LogType>[
@@ -76,7 +72,6 @@ class LogType {
     deleteCharacter,
     movement,
     fight,
-    raidFight,
     multiFight,
     crafting,
     gathering,
@@ -108,7 +103,6 @@ class LogType {
     giveGold,
     receiveItem,
     receiveGold,
-    raidDeposit,
     changeSkin,
     rename,
     transition,
@@ -117,8 +111,6 @@ class LogType {
     sandboxGiveItem,
     sandboxGiveXp,
     sandboxResetAccount,
-    sandboxClearCooldown,
-    sandboxTeleport,
   ];
 
   static LogType? fromJson(dynamic value) =>
@@ -170,8 +162,6 @@ class LogTypeTypeTransformer {
           return LogType.movement;
         case r'fight':
           return LogType.fight;
-        case r'raid_fight':
-          return LogType.raidFight;
         case r'multi_fight':
           return LogType.multiFight;
         case r'crafting':
@@ -234,8 +224,6 @@ class LogTypeTypeTransformer {
           return LogType.receiveItem;
         case r'receive_gold':
           return LogType.receiveGold;
-        case r'raid_deposit':
-          return LogType.raidDeposit;
         case r'change_skin':
           return LogType.changeSkin;
         case r'rename':
@@ -252,10 +240,6 @@ class LogTypeTypeTransformer {
           return LogType.sandboxGiveXp;
         case r'sandbox_reset_account':
           return LogType.sandboxResetAccount;
-        case r'sandbox_clear_cooldown':
-          return LogType.sandboxClearCooldown;
-        case r'sandbox_teleport':
-          return LogType.sandboxTeleport;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

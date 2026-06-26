@@ -29,7 +29,7 @@ class ActiveCharacterSchema {
   String account;
 
   /// Character skin code.
-  String skin;
+  CharacterSkin skin;
 
   /// Character x coordinate.
   int x;
@@ -105,7 +105,7 @@ class ActiveCharacterSchema {
       return ActiveCharacterSchema(
         name: mapValueOfType<String>(json, r'name')!,
         account: mapValueOfType<String>(json, r'account')!,
-        skin: mapValueOfType<String>(json, r'skin')!,
+        skin: CharacterSkin.fromJson(json[r'skin'])!,
         x: mapValueOfType<int>(json, r'x')!,
         y: mapValueOfType<int>(json, r'y')!,
         layer: MapLayer.fromJson(json[r'layer'])!,

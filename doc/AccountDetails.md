@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **String** | Username. | 
 **member** | **bool** | Member status. | 
-**status** | [**AccountStatus**](AccountStatus.md) | Account status. Status for contributors during the alpha and beta phases. It is no longer possible to obtain founder status. | 
+**status** | [**AccountStatus**](AccountStatus.md) | Account status. | 
 **badges** | **List<String>** | Account badges. | [optional] [default to const []]
 **skins** | **List<String>** | Skins owned. | [default to const []]
 **achievementsPoints** | **int** | Achievement points. | 

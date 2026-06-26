@@ -9,218 +9,17 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**buyGemsMyBuyGemsPost**](MyAccountApi.md#buygemsmybuygemspost) | **POST** /my/buy_gems | Buy Gems
-[**buySubscriptionMySubscribeStripePost**](MyAccountApi.md#buysubscriptionmysubscribestripepost) | **POST** /my/subscribe/stripe | Subscribe with Stripe
-[**cancelSubscriptionMySubscribeCancelPost**](MyAccountApi.md#cancelsubscriptionmysubscribecancelpost) | **POST** /my/subscribe/cancel | Cancel Subscription
-[**changeEmailMyChangeEmailPost**](MyAccountApi.md#changeemailmychangeemailpost) | **POST** /my/change_email | Change Email
 [**changePasswordMyChangePasswordPost**](MyAccountApi.md#changepasswordmychangepasswordpost) | **POST** /my/change_password | Change Password
 [**getAccountDetailsMyDetailsGet**](MyAccountApi.md#getaccountdetailsmydetailsget) | **GET** /my/details | Get Account Details
 [**getBankDetailsMyBankGet**](MyAccountApi.md#getbankdetailsmybankget) | **GET** /my/bank | Get Bank Details
 [**getBankItemsMyBankItemsGet**](MyAccountApi.md#getbankitemsmybankitemsget) | **GET** /my/bank/items | Get Bank Items
 [**getGeHistoryMyGrandexchangeHistoryGet**](MyAccountApi.md#getgehistorymygrandexchangehistoryget) | **GET** /my/grandexchange/history | Get Ge History
 [**getGeOrdersMyGrandexchangeOrdersGet**](MyAccountApi.md#getgeordersmygrandexchangeordersget) | **GET** /my/grandexchange/orders | Get Ge Orders
-[**getMyGemsHistoryMyGemsHistoryGet**](MyAccountApi.md#getmygemshistorymygemshistoryget) | **GET** /my/gems_history | Get My Gems History
-[**getMyPurchaseHistoryMyPurchaseHistoryGet**](MyAccountApi.md#getmypurchasehistorymypurchasehistoryget) | **GET** /my/purchase_history | Get My Purchase History
-[**getMySubscriptionMySubscriptionGet**](MyAccountApi.md#getmysubscriptionmysubscriptionget) | **GET** /my/subscription | Get My Subscription
-[**getPendingItemsMyPendingItemsGet**](MyAccountApi.md#getpendingitemsmypendingitemsget) | **GET** /my/pending_items | Get Pending Items
-[**getRateLimitsMyRatesGet**](MyAccountApi.md#getratelimitsmyratesget) | **GET** /my/rates | Get Rate Limits
-[**subscribeWithMemberTokenMySubscribeMemberTokenPost**](MyAccountApi.md#subscribewithmembertokenmysubscribemembertokenpost) | **POST** /my/subscribe/member_token | Subscribe With Member Token
+[**getPendingItemsMyPendingItemsGet**](MyAccountApi.md#getpendingitemsmypendingitemsget) | **GET** /my/pending-items | Get Pending Items
 
-
-# **buyGemsMyBuyGemsPost**
-> CheckoutResponseWrapperSchema buyGemsMyBuyGemsPost(purchaseGemsRequestSchema)
-
-Buy Gems
-
-Purchase gems. Returns a Stripe checkout URL for payment.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-final purchaseGemsRequestSchema = PurchaseGemsRequestSchema(); // PurchaseGemsRequestSchema | 
-
-try {
-    final result = api_instance.buyGemsMyBuyGemsPost(purchaseGemsRequestSchema);
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->buyGemsMyBuyGemsPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **purchaseGemsRequestSchema** | [**PurchaseGemsRequestSchema**](PurchaseGemsRequestSchema.md)|  | 
-
-### Return type
-
-[**CheckoutResponseWrapperSchema**](CheckoutResponseWrapperSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **buySubscriptionMySubscribeStripePost**
-> CheckoutResponseWrapperSchema buySubscriptionMySubscribeStripePost(subscribeRequestSchema)
-
-Subscribe with Stripe
-
-Subscribe to become a member and unlock the benefits tied to your selected plan. You will receive a secure Stripe checkout URL to complete the payment.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-final subscribeRequestSchema = SubscribeRequestSchema(); // SubscribeRequestSchema | 
-
-try {
-    final result = api_instance.buySubscriptionMySubscribeStripePost(subscribeRequestSchema);
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->buySubscriptionMySubscribeStripePost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **subscribeRequestSchema** | [**SubscribeRequestSchema**](SubscribeRequestSchema.md)|  | 
-
-### Return type
-
-[**CheckoutResponseWrapperSchema**](CheckoutResponseWrapperSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **cancelSubscriptionMySubscribeCancelPost**
-> ResponseSchema cancelSubscriptionMySubscribeCancelPost()
-
-Cancel Subscription
-
-Cancel subscription at the end of the current billing period.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-
-try {
-    final result = api_instance.cancelSubscriptionMySubscribeCancelPost();
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->cancelSubscriptionMySubscribeCancelPost: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ResponseSchema**](ResponseSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **changeEmailMyChangeEmailPost**
-> ResponseSchema changeEmailMyChangeEmailPost(changeEmailSchema)
-
-Change Email
-
-Change your account email.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-final changeEmailSchema = ChangeEmailSchema(); // ChangeEmailSchema | 
-
-try {
-    final result = api_instance.changeEmailMyChangeEmailPost(changeEmailSchema);
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->changeEmailMyChangeEmailPost: $e\n');
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **changeEmailSchema** | [**ChangeEmailSchema**](ChangeEmailSchema.md)|  | 
-
-### Return type
-
-[**ResponseSchema**](ResponseSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **changePasswordMyChangePasswordPost**
-> ResponseSchema changePasswordMyChangePasswordPost(changePasswordSchema)
+> ResponseSchema changePasswordMyChangePasswordPost(changePassword)
 
 Change Password
 
@@ -237,10 +36,10 @@ import 'package:artifacts_mmo_openapi/api.dart';
 //defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
 
 final api_instance = MyAccountApi();
-final changePasswordSchema = ChangePasswordSchema(); // ChangePasswordSchema | 
+final changePassword = ChangePassword(); // ChangePassword | 
 
 try {
-    final result = api_instance.changePasswordMyChangePasswordPost(changePasswordSchema);
+    final result = api_instance.changePasswordMyChangePasswordPost(changePassword);
     print(result);
 } catch (e) {
     print('Exception when calling MyAccountApi->changePasswordMyChangePasswordPost: $e\n');
@@ -251,7 +50,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **changePasswordSchema** | [**ChangePasswordSchema**](ChangePasswordSchema.md)|  | 
+ **changePassword** | [**ChangePassword**](ChangePassword.md)|  | 
 
 ### Return type
 
@@ -412,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGeHistoryMyGrandexchangeHistoryGet**
-> DataPageGEOrderHistorySchema getGeHistoryMyGrandexchangeHistoryGet(id, code, page, size)
+> DataPageGeOrderHistorySchema getGeHistoryMyGrandexchangeHistoryGet(id, code, page, size)
 
 Get Ge History
 
@@ -453,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageGEOrderHistorySchema**](DataPageGEOrderHistorySchema.md)
+[**DataPageGeOrderHistorySchema**](DataPageGeOrderHistorySchema.md)
 
 ### Authorization
 
@@ -521,141 +320,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getMyGemsHistoryMyGemsHistoryGet**
-> GemTransactionListResponseSchema getMyGemsHistoryMyGemsHistoryGet()
-
-Get My Gems History
-
-List all gem credits and debits.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-
-try {
-    final result = api_instance.getMyGemsHistoryMyGemsHistoryGet();
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->getMyGemsHistoryMyGemsHistoryGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**GemTransactionListResponseSchema**](GemTransactionListResponseSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getMyPurchaseHistoryMyPurchaseHistoryGet**
-> PurchaseHistoryListResponseSchema getMyPurchaseHistoryMyPurchaseHistoryGet()
-
-Get My Purchase History
-
-List all purchases (subscriptions and gem packs).
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-
-try {
-    final result = api_instance.getMyPurchaseHistoryMyPurchaseHistoryGet();
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->getMyPurchaseHistoryMyPurchaseHistoryGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**PurchaseHistoryListResponseSchema**](PurchaseHistoryListResponseSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getMySubscriptionMySubscriptionGet**
-> SubscriptionResponseSchema getMySubscriptionMySubscriptionGet()
-
-Get My Subscription
-
-Get current subscription details.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-
-try {
-    final result = api_instance.getMySubscriptionMySubscriptionGet();
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->getMySubscriptionMySubscriptionGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**SubscriptionResponseSchema**](SubscriptionResponseSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **getPendingItemsMyPendingItemsGet**
 > DataPagePendingItemSchema getPendingItemsMyPendingItemsGet(page, size)
 
@@ -695,96 +359,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataPagePendingItemSchema**](DataPagePendingItemSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **getRateLimitsMyRatesGet**
-> RateLimitsSchema getRateLimitsMyRatesGet()
-
-Get Rate Limits
-
-Get all rate limits.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-
-try {
-    final result = api_instance.getRateLimitsMyRatesGet();
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->getRateLimitsMyRatesGet: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**RateLimitsSchema**](RateLimitsSchema.md)
-
-### Authorization
-
-[JWTBearer](../README.md#JWTBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **subscribeWithMemberTokenMySubscribeMemberTokenPost**
-> MemberTokenSubscriptionResponseSchema subscribeWithMemberTokenMySubscribeMemberTokenPost()
-
-Subscribe With Member Token
-
-Redeem a member token to start or extend membership by 30 days. Member tokens are manually granted as rewards for events. Member tokens cannot be redeemed while a Stripe subscription is active.
-
-### Example
-```dart
-import 'package:artifacts_mmo_openapi/api.dart';
-// TODO Configure HTTP Bearer authorization: JWTBearer
-// Case 1. Use String Token
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken('YOUR_ACCESS_TOKEN');
-// Case 2. Use Function which generate token.
-// String yourTokenGeneratorFunction() { ... }
-//defaultApiClient.getAuthentication<HttpBearerAuth>('JWTBearer').setAccessToken(yourTokenGeneratorFunction);
-
-final api_instance = MyAccountApi();
-
-try {
-    final result = api_instance.subscribeWithMemberTokenMySubscribeMemberTokenPost();
-    print(result);
-} catch (e) {
-    print('Exception when calling MyAccountApi->subscribeWithMemberTokenMySubscribeMemberTokenPost: $e\n');
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**MemberTokenSubscriptionResponseSchema**](MemberTokenSubscriptionResponseSchema.md)
 
 ### Authorization
 

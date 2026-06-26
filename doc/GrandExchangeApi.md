@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **getGeHistoryGrandexchangeHistoryCodeGet**
-> DataPageGEOrderHistorySchema getGeHistoryGrandexchangeHistoryCodeGet(code, account, page, size)
+> DataPageGeOrderHistorySchema getGeHistoryGrandexchangeHistoryCodeGet(code, account, page, size)
 
 Get Ge History
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DataPageGEOrderHistorySchema**](DataPageGEOrderHistorySchema.md)
+[**DataPageGeOrderHistorySchema**](DataPageGeOrderHistorySchema.md)
 
 ### Authorization
 
@@ -107,11 +107,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGeOrdersGrandexchangeOrdersGet**
-> DataPageGEOrderSchema getGeOrdersGrandexchangeOrdersGet(code, account, type, itemType, page, size)
+> DataPageGEOrderSchema getGeOrdersGrandexchangeOrdersGet(code, account, type, page, size)
 
 Get Ge Orders
 
-Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to keep account searches explicit.
+Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
 
 ### Example
 ```dart
@@ -121,12 +121,11 @@ final api_instance = GrandExchangeApi();
 final code = code_example; // String | The code of the item.
 final account = account_example; // String | The account that sells or buys items.
 final type = ; // GEOrderType | Filter by order type (sell or buy).
-final itemType = ; // ItemType | Filter by item type.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getGeOrdersGrandexchangeOrdersGet(code, account, type, itemType, page, size);
+    final result = api_instance.getGeOrdersGrandexchangeOrdersGet(code, account, type, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling GrandExchangeApi->getGeOrdersGrandexchangeOrdersGet: $e\n');
@@ -140,7 +139,6 @@ Name | Type | Description  | Notes
  **code** | **String**| The code of the item. | [optional] 
  **account** | **String**| The account that sells or buys items. | [optional] 
  **type** | [**GEOrderType**](.md)| Filter by order type (sell or buy). | [optional] 
- **itemType** | [**ItemType**](.md)| Filter by item type. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

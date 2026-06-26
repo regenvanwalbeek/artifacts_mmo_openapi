@@ -8,7 +8,7 @@ import 'package:artifacts_mmo_openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**skin** | **String** | Your desired skin. | 
+**skin** | [**CharacterSkin**](CharacterSkin.md) | Your desired skin. Skins unlocked by default: 'men1', 'men2', 'men3', 'women1', 'women2', 'women3'. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -29,7 +29,6 @@ class MapContentType {
   static const grandExchange = MapContentType._(r'grand_exchange');
   static const tasksMaster = MapContentType._(r'tasks_master');
   static const npc = MapContentType._(r'npc');
-  static const raid = MapContentType._(r'raid');
 
   /// List of all possible values in this [enum][MapContentType].
   static const values = <MapContentType>[
@@ -40,7 +39,6 @@ class MapContentType {
     grandExchange,
     tasksMaster,
     npc,
-    raid,
   ];
 
   static MapContentType? fromJson(dynamic value) =>
@@ -98,8 +96,6 @@ class MapContentTypeTypeTransformer {
           return MapContentType.tasksMaster;
         case r'npc':
           return MapContentType.npc;
-        case r'raid':
-          return MapContentType.raid;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

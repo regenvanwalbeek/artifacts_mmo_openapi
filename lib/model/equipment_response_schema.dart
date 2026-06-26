@@ -16,7 +16,7 @@ class EquipmentResponseSchema {
     required this.data,
   });
 
-  EquipmentTransactionSchema data;
+  EquipRequestSchema data;
 
   @override
   bool operator ==(Object other) =>
@@ -58,7 +58,7 @@ class EquipmentResponseSchema {
       }());
 
       return EquipmentResponseSchema(
-        data: EquipmentTransactionSchema.fromJson(json[r'data'])!,
+        data: EquipRequestSchema.fromJson(json[r'data'])!,
       );
     }
     return null;

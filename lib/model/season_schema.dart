@@ -16,7 +16,8 @@ class SeasonSchema {
     this.name,
     this.number,
     this.startDate,
-    this.rewards = const [],
+    this.badges = const [],
+    this.skins = const [],
   });
 
   /// Season name.
@@ -46,8 +47,11 @@ class SeasonSchema {
   ///
   DateTime? startDate;
 
-  /// Season rewards with required achievement points, sorted by points ascending.
-  List<StatusSeasonRewardSchema> rewards;
+  /// Season badges with required achievement points.
+  List<SeasonBadgeSchema> badges;
+
+  /// Season skins with required achievement points.
+  List<SeasonSkinSchema> skins;
 
   @override
   bool operator ==(Object other) =>
@@ -56,7 +60,8 @@ class SeasonSchema {
           other.name == name &&
           other.number == number &&
           other.startDate == startDate &&
-          _deepEquality.equals(other.rewards, rewards);
+          _deepEquality.equals(other.badges, badges) &&
+          _deepEquality.equals(other.skins, skins);
 
   @override
   int get hashCode =>
@@ -64,11 +69,12 @@ class SeasonSchema {
       (name == null ? 0 : name!.hashCode) +
       (number == null ? 0 : number!.hashCode) +
       (startDate == null ? 0 : startDate!.hashCode) +
-      (rewards.hashCode);
+      (badges.hashCode) +
+      (skins.hashCode);
 
   @override
   String toString() =>
-      'SeasonSchema[name=$name, number=$number, startDate=$startDate, rewards=$rewards]';
+      'SeasonSchema[name=$name, number=$number, startDate=$startDate, badges=$badges, skins=$skins]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -87,7 +93,8 @@ class SeasonSchema {
     } else {
       json[r'start_date'] = null;
     }
-    json[r'rewards'] = this.rewards;
+    json[r'badges'] = this.badges;
+    json[r'skins'] = this.skins;
     return json;
   }
 
@@ -115,7 +122,8 @@ class SeasonSchema {
         name: mapValueOfType<String>(json, r'name'),
         number: mapValueOfType<int>(json, r'number'),
         startDate: mapDateTime(json, r'start_date', r''),
-        rewards: StatusSeasonRewardSchema.listFromJson(json[r'rewards']),
+        badges: SeasonBadgeSchema.listFromJson(json[r'badges']),
+        skins: SeasonSkinSchema.listFromJson(json[r'skins']),
       );
     }
     return null;
@@ -172,6 +180,7 @@ class SeasonSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'rewards',
+    'badges',
+    'skins',
   };
 }

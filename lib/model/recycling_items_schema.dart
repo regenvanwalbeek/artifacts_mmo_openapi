@@ -14,41 +14,27 @@ class RecyclingItemsSchema {
   /// Returns a new [RecyclingItemsSchema] instance.
   RecyclingItemsSchema({
     this.items = const [],
-    this.enhanced = false,
-    this.gold = 0,
   });
 
   /// Objects received.
   List<DropSchema> items;
 
-  /// Whether enhanced recycling was used.
-  bool enhanced;
-
-  /// Gold spent for enhanced recycling.
-  int gold;
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RecyclingItemsSchema &&
-          _deepEquality.equals(other.items, items) &&
-          other.enhanced == enhanced &&
-          other.gold == gold;
+      other is RecyclingItemsSchema && _deepEquality.equals(other.items, items);
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (items.hashCode) + (enhanced.hashCode) + (gold.hashCode);
+      (items.hashCode);
 
   @override
-  String toString() =>
-      'RecyclingItemsSchema[items=$items, enhanced=$enhanced, gold=$gold]';
+  String toString() => 'RecyclingItemsSchema[items=$items]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'items'] = this.items;
-    json[r'enhanced'] = this.enhanced;
-    json[r'gold'] = this.gold;
     return json;
   }
 
@@ -74,8 +60,6 @@ class RecyclingItemsSchema {
 
       return RecyclingItemsSchema(
         items: DropSchema.listFromJson(json[r'items']),
-        enhanced: mapValueOfType<bool>(json, r'enhanced') ?? false,
-        gold: mapValueOfType<int>(json, r'gold') ?? 0,
       );
     }
     return null;

@@ -106,7 +106,7 @@ class CharacterSchema {
   String account;
 
   /// Character skin code.
-  String skin;
+  CharacterSkin skin;
 
   /// Combat level.
   int level;
@@ -359,7 +359,7 @@ class CharacterSchema {
   int inventoryMaxItems;
 
   /// List of inventory slots.
-  List<InventorySlotSchema> inventory;
+  List<InventorySlot> inventory;
 
   @override
   bool operator ==(Object other) =>
@@ -659,7 +659,7 @@ class CharacterSchema {
       return CharacterSchema(
         name: mapValueOfType<String>(json, r'name')!,
         account: mapValueOfType<String>(json, r'account')!,
-        skin: mapValueOfType<String>(json, r'skin')!,
+        skin: CharacterSkin.fromJson(json[r'skin'])!,
         level: mapValueOfType<int>(json, r'level')!,
         xp: mapValueOfType<int>(json, r'xp')!,
         maxXp: mapValueOfType<int>(json, r'max_xp')!,
@@ -746,7 +746,7 @@ class CharacterSchema {
         taskProgress: mapValueOfType<int>(json, r'task_progress')!,
         taskTotal: mapValueOfType<int>(json, r'task_total')!,
         inventoryMaxItems: mapValueOfType<int>(json, r'inventory_max_items')!,
-        inventory: InventorySlotSchema.listFromJson(json[r'inventory']),
+        inventory: InventorySlot.listFromJson(json[r'inventory']),
       );
     }
     return null;

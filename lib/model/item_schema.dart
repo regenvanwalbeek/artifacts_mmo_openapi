@@ -23,7 +23,6 @@ class ItemSchema {
     this.effects = const [],
     this.craft,
     required this.tradeable,
-    this.recyclable = false,
   });
 
   /// Item name.
@@ -64,9 +63,6 @@ class ItemSchema {
   /// Item tradeable status. A non-tradeable item cannot be exchanged or sold.
   bool tradeable;
 
-  /// Item recyclable status. A recyclable item can be recycled at the matching workshop.
-  bool recyclable;
-
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -80,8 +76,7 @@ class ItemSchema {
           _deepEquality.equals(other.conditions, conditions) &&
           _deepEquality.equals(other.effects, effects) &&
           other.craft == craft &&
-          other.tradeable == tradeable &&
-          other.recyclable == recyclable;
+          other.tradeable == tradeable;
 
   @override
   int get hashCode =>
@@ -95,12 +90,11 @@ class ItemSchema {
       (conditions.hashCode) +
       (effects.hashCode) +
       (craft == null ? 0 : craft!.hashCode) +
-      (tradeable.hashCode) +
-      (recyclable.hashCode);
+      (tradeable.hashCode);
 
   @override
   String toString() =>
-      'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, conditions=$conditions, effects=$effects, craft=$craft, tradeable=$tradeable, recyclable=$recyclable]';
+      'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, conditions=$conditions, effects=$effects, craft=$craft, tradeable=$tradeable]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -118,7 +112,6 @@ class ItemSchema {
       json[r'craft'] = null;
     }
     json[r'tradeable'] = this.tradeable;
-    json[r'recyclable'] = this.recyclable;
     return json;
   }
 
@@ -153,7 +146,6 @@ class ItemSchema {
         effects: SimpleEffectSchema.listFromJson(json[r'effects']),
         craft: CraftSchema.fromJson(json[r'craft']),
         tradeable: mapValueOfType<bool>(json, r'tradeable')!,
-        recyclable: mapValueOfType<bool>(json, r'recyclable') ?? false,
       );
     }
     return null;

@@ -25,14 +25,12 @@ class MonsterType {
   static const normal = MonsterType._(r'normal');
   static const elite = MonsterType._(r'elite');
   static const boss = MonsterType._(r'boss');
-  static const raidBoss = MonsterType._(r'raid_boss');
 
   /// List of all possible values in this [enum][MonsterType].
   static const values = <MonsterType>[
     normal,
     elite,
     boss,
-    raidBoss,
   ];
 
   static MonsterType? fromJson(dynamic value) =>
@@ -82,8 +80,6 @@ class MonsterTypeTypeTransformer {
           return MonsterType.elite;
         case r'boss':
           return MonsterType.boss;
-        case r'raid_boss':
-          return MonsterType.raidBoss;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');
