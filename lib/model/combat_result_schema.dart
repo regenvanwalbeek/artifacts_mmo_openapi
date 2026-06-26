@@ -99,7 +99,7 @@ class CombatResultSchema {
             : const [],
         characterResults: json[r'character_results'] is Iterable
             ? (json[r'character_results'] as Iterable)
-                .cast<Object>()
+                .map((e) => Map<String, Object>.from(e as Map))
                 .toList(growable: false)
             : const [],
       );
