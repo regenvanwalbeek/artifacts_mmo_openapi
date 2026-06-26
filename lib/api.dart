@@ -76,7 +76,6 @@ part 'model/add_character_schema.dart';
 part 'model/assistant_answer_data_schema.dart';
 part 'model/assistant_answer_schema.dart';
 part 'model/assistant_question_schema.dart';
-part 'model/badge_condition_schema.dart';
 part 'model/badge_response_schema.dart';
 part 'model/badge_schema.dart';
 part 'model/bank_extension_schema.dart';
