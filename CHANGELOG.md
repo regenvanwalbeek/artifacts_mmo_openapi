@@ -1,3 +1,7 @@
+## 8.0.0
+
+- Season 8 Generation
+
 ## 7.2.0
 
 - Regenerate for patch 7.0.2
