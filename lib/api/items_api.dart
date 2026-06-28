@@ -55,6 +55,7 @@ class ItemsApi {
     String? craftMaterial,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/items';
@@ -101,6 +102,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -142,6 +144,7 @@ class ItemsApi {
     String? craftMaterial,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllItemsItemsGetWithHttpInfo(
       name: name,
@@ -152,6 +155,7 @@ class ItemsApi {
       craftMaterial: craftMaterial,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -180,8 +184,9 @@ class ItemsApi {
   /// * [String] code (required):
   ///   The code of the item.
   Future<Response> getItemItemsCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/items/{code}'.replaceAll('{code}', code);
 
@@ -202,6 +207,7 @@ class ItemsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -214,10 +220,12 @@ class ItemsApi {
   /// * [String] code (required):
   ///   The code of the item.
   Future<ItemResponseSchema?> getItemItemsCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getItemItemsCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

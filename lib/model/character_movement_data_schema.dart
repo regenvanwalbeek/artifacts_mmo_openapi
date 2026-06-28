@@ -72,12 +72,22 @@ class CharacterMovementDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterMovementDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterMovementDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "CharacterMovementDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "CharacterMovementDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'destination'),
+            'Required key "CharacterMovementDataSchema[destination]" is missing from JSON.');
+        assert(json[r'destination'] != null,
+            'Required key "CharacterMovementDataSchema[destination]" has a null value in JSON.');
+        assert(json.containsKey(r'path'),
+            'Required key "CharacterMovementDataSchema[path]" is missing from JSON.');
+        assert(json[r'path'] != null,
+            'Required key "CharacterMovementDataSchema[path]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "CharacterMovementDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "CharacterMovementDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 
@@ -86,7 +96,11 @@ class CharacterMovementDataSchema {
         destination: MapSchema.fromJson(json[r'destination'])!,
         path: json[r'path'] is List
             ? (json[r'path'] as List)
-                .map((e) => listFromJson(json[r'path']))
+                .map((e) => e == null
+                    ? const <Object>[]
+                    : (e as List)
+                        .map((value) => value as Object)
+                        .toList(growable: false))
                 .toList()
             : const [],
         character: CharacterSchema.fromJson(json[r'character'])!,

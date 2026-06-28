@@ -79,12 +79,26 @@ class NpcItemTransactionSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "NpcItemTransactionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "NpcItemTransactionSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "NpcItemTransactionSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "NpcItemTransactionSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "NpcItemTransactionSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "NpcItemTransactionSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'currency'),
+            'Required key "NpcItemTransactionSchema[currency]" is missing from JSON.');
+        assert(json[r'currency'] != null,
+            'Required key "NpcItemTransactionSchema[currency]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "NpcItemTransactionSchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "NpcItemTransactionSchema[price]" has a null value in JSON.');
+        assert(json.containsKey(r'total_price'),
+            'Required key "NpcItemTransactionSchema[total_price]" is missing from JSON.');
+        assert(json[r'total_price'] != null,
+            'Required key "NpcItemTransactionSchema[total_price]" has a null value in JSON.');
         return true;
       }());
 

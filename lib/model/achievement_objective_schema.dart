@@ -75,12 +75,14 @@ class AchievementObjectiveSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "AchievementObjectiveSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "AchievementObjectiveSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'type'),
+            'Required key "AchievementObjectiveSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "AchievementObjectiveSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'total'),
+            'Required key "AchievementObjectiveSchema[total]" is missing from JSON.');
+        assert(json[r'total'] != null,
+            'Required key "AchievementObjectiveSchema[total]" has a null value in JSON.');
         return true;
       }());
 

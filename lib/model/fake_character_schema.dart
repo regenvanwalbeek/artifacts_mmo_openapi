@@ -329,12 +329,10 @@ class FakeCharacterSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "FakeCharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "FakeCharacterSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'level'),
+            'Required key "FakeCharacterSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "FakeCharacterSchema[level]" has a null value in JSON.');
         return true;
       }());
 

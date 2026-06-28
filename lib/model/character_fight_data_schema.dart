@@ -63,12 +63,18 @@ class CharacterFightDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterFightDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterFightDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "CharacterFightDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "CharacterFightDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'fight'),
+            'Required key "CharacterFightDataSchema[fight]" is missing from JSON.');
+        assert(json[r'fight'] != null,
+            'Required key "CharacterFightDataSchema[fight]" has a null value in JSON.');
+        assert(json.containsKey(r'characters'),
+            'Required key "CharacterFightDataSchema[characters]" is missing from JSON.');
+        assert(json[r'characters'] != null,
+            'Required key "CharacterFightDataSchema[characters]" has a null value in JSON.');
         return true;
       }());
 

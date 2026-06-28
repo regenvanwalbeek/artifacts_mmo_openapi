@@ -40,6 +40,7 @@ class GrandExchangeApi {
     String? account,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/grandexchange/history/{code}'.replaceAll('{code}', code);
@@ -71,6 +72,7 @@ class GrandExchangeApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -91,17 +93,19 @@ class GrandExchangeApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?> getGeHistoryGrandexchangeHistoryCodeGet(
+  Future<DataPageGEOrderHistorySchema?> getGeHistoryGrandexchangeHistoryCodeGet(
     String code, {
     String? account,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeHistoryGrandexchangeHistoryCodeGetWithHttpInfo(
       code,
       account: account,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -113,8 +117,8 @@ class GrandExchangeApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageGeOrderHistorySchema',
-      ) as DataPageGeOrderHistorySchema;
+        'DataPageGEOrderHistorySchema',
+      ) as DataPageGEOrderHistorySchema;
     }
     return null;
   }
@@ -130,8 +134,9 @@ class GrandExchangeApi {
   /// * [String] id (required):
   ///   The id of the order.
   Future<Response> getGeOrderGrandexchangeOrdersIdGetWithHttpInfo(
-    String id,
-  ) async {
+    String id, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/grandexchange/orders/{id}'.replaceAll('{id}', id);
 
@@ -152,6 +157,7 @@ class GrandExchangeApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -164,10 +170,12 @@ class GrandExchangeApi {
   /// * [String] id (required):
   ///   The id of the order.
   Future<GEOrderResponseSchema?> getGeOrderGrandexchangeOrdersIdGet(
-    String id,
-  ) async {
+    String id, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getGeOrderGrandexchangeOrdersIdGetWithHttpInfo(
       id,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -187,7 +195,7 @@ class GrandExchangeApi {
 
   /// Get Ge Orders
   ///
-  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
+  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to keep account searches explicit.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
@@ -202,6 +210,9 @@ class GrandExchangeApi {
   /// * [GEOrderType] type:
   ///   Filter by order type (sell or buy).
   ///
+  /// * [ItemType] itemType:
+  ///   Filter by item type.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -211,8 +222,10 @@ class GrandExchangeApi {
     String? code,
     String? account,
     GEOrderType? type,
+    ItemType? itemType,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/grandexchange/orders';
@@ -233,6 +246,9 @@ class GrandExchangeApi {
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
     }
+    if (itemType != null) {
+      queryParams.addAll(_queryParams('', 'item_type', itemType));
+    }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
     }
@@ -250,12 +266,13 @@ class GrandExchangeApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Get Ge Orders
   ///
-  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to decide whether to match seller or buyer.
+  /// Fetch all orders (sell and buy orders).  Use the `type` parameter to filter by order type; when using `account`, `type` is required to keep account searches explicit.
   ///
   /// Parameters:
   ///
@@ -268,6 +285,9 @@ class GrandExchangeApi {
   /// * [GEOrderType] type:
   ///   Filter by order type (sell or buy).
   ///
+  /// * [ItemType] itemType:
+  ///   Filter by item type.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -277,15 +297,19 @@ class GrandExchangeApi {
     String? code,
     String? account,
     GEOrderType? type,
+    ItemType? itemType,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeOrdersGrandexchangeOrdersGetWithHttpInfo(
       code: code,
       account: account,
       type: type,
+      itemType: itemType,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

@@ -23,6 +23,7 @@ class ItemSchema {
     this.effects = const [],
     this.craft,
     required this.tradeable,
+    this.recyclable = false,
   });
 
   /// Item name.
@@ -63,6 +64,9 @@ class ItemSchema {
   /// Item tradeable status. A non-tradeable item cannot be exchanged or sold.
   bool tradeable;
 
+  /// Item recyclable status. A recyclable item can be recycled at the matching workshop.
+  bool recyclable;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -76,7 +80,8 @@ class ItemSchema {
           _deepEquality.equals(other.conditions, conditions) &&
           _deepEquality.equals(other.effects, effects) &&
           other.craft == craft &&
-          other.tradeable == tradeable;
+          other.tradeable == tradeable &&
+          other.recyclable == recyclable;
 
   @override
   int get hashCode =>
@@ -90,11 +95,12 @@ class ItemSchema {
       (conditions.hashCode) +
       (effects.hashCode) +
       (craft == null ? 0 : craft!.hashCode) +
-      (tradeable.hashCode);
+      (tradeable.hashCode) +
+      (recyclable.hashCode);
 
   @override
   String toString() =>
-      'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, conditions=$conditions, effects=$effects, craft=$craft, tradeable=$tradeable]';
+      'ItemSchema[name=$name, code=$code, level=$level, type=$type, subtype=$subtype, description=$description, conditions=$conditions, effects=$effects, craft=$craft, tradeable=$tradeable, recyclable=$recyclable]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -112,6 +118,7 @@ class ItemSchema {
       json[r'craft'] = null;
     }
     json[r'tradeable'] = this.tradeable;
+    json[r'recyclable'] = this.recyclable;
     return json;
   }
 
@@ -126,12 +133,34 @@ class ItemSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ItemSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "ItemSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "ItemSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "ItemSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "ItemSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'level'),
+            'Required key "ItemSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "ItemSchema[level]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "ItemSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "ItemSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'subtype'),
+            'Required key "ItemSchema[subtype]" is missing from JSON.');
+        assert(json[r'subtype'] != null,
+            'Required key "ItemSchema[subtype]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "ItemSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "ItemSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'tradeable'),
+            'Required key "ItemSchema[tradeable]" is missing from JSON.');
+        assert(json[r'tradeable'] != null,
+            'Required key "ItemSchema[tradeable]" has a null value in JSON.');
         return true;
       }());
 
@@ -146,6 +175,7 @@ class ItemSchema {
         effects: SimpleEffectSchema.listFromJson(json[r'effects']),
         craft: CraftSchema.fromJson(json[r'craft']),
         tradeable: mapValueOfType<bool>(json, r'tradeable')!,
+        recyclable: mapValueOfType<bool>(json, r'recyclable') ?? false,
       );
     }
     return null;

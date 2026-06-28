@@ -17,6 +17,7 @@ class NPCSchema {
     required this.code,
     required this.description,
     required this.type,
+    this.items = const [],
   });
 
   /// Name of the NPC.
@@ -31,6 +32,9 @@ class NPCSchema {
   /// Type of the NPC.
   NPCType type;
 
+  /// Items sold/bought by the NPC.
+  List<SimpleNPCItemSchema> items;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -38,7 +42,8 @@ class NPCSchema {
           other.name == name &&
           other.code == code &&
           other.description == description &&
-          other.type == type;
+          other.type == type &&
+          _deepEquality.equals(other.items, items);
 
   @override
   int get hashCode =>
@@ -46,11 +51,12 @@ class NPCSchema {
       (name.hashCode) +
       (code.hashCode) +
       (description.hashCode) +
-      (type.hashCode);
+      (type.hashCode) +
+      (items.hashCode);
 
   @override
   String toString() =>
-      'NPCSchema[name=$name, code=$code, description=$description, type=$type]';
+      'NPCSchema[name=$name, code=$code, description=$description, type=$type, items=$items]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -58,6 +64,7 @@ class NPCSchema {
     json[r'code'] = this.code;
     json[r'description'] = this.description;
     json[r'type'] = this.type;
+    json[r'items'] = this.items;
     return json;
   }
 
@@ -72,12 +79,22 @@ class NPCSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "NPCSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "NPCSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "NPCSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "NPCSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "NPCSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "NPCSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "NPCSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "NPCSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "NPCSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "NPCSchema[type]" has a null value in JSON.');
         return true;
       }());
 
@@ -86,6 +103,7 @@ class NPCSchema {
         code: mapValueOfType<String>(json, r'code')!,
         description: mapValueOfType<String>(json, r'description')!,
         type: NPCType.fromJson(json[r'type'])!,
+        items: SimpleNPCItemSchema.listFromJson(json[r'items']),
       );
     }
     return null;

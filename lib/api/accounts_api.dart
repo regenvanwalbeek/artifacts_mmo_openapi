@@ -24,8 +24,9 @@ class AccountsApi {
   ///
   /// * [AddAccountSchema] addAccountSchema (required):
   Future<Response> createAccountAccountsCreatePostWithHttpInfo(
-    AddAccountSchema addAccountSchema,
-  ) async {
+    AddAccountSchema addAccountSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/accounts/create';
 
@@ -46,6 +47,7 @@ class AccountsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -55,10 +57,12 @@ class AccountsApi {
   ///
   /// * [AddAccountSchema] addAccountSchema (required):
   Future<ResponseSchema?> createAccountAccountsCreatePost(
-    AddAccountSchema addAccountSchema,
-  ) async {
+    AddAccountSchema addAccountSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await createAccountAccountsCreatePostWithHttpInfo(
       addAccountSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -86,8 +90,9 @@ class AccountsApi {
   ///
   /// * [PasswordResetRequestSchema] passwordResetRequestSchema (required):
   Future<Response> forgotPasswordAccountsForgotPasswordPostWithHttpInfo(
-    PasswordResetRequestSchema passwordResetRequestSchema,
-  ) async {
+    PasswordResetRequestSchema passwordResetRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/accounts/forgot_password';
 
@@ -108,6 +113,7 @@ class AccountsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -119,10 +125,12 @@ class AccountsApi {
   ///
   /// * [PasswordResetRequestSchema] passwordResetRequestSchema (required):
   Future<PasswordResetResponseSchema?> forgotPasswordAccountsForgotPasswordPost(
-    PasswordResetRequestSchema passwordResetRequestSchema,
-  ) async {
+    PasswordResetRequestSchema passwordResetRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await forgotPasswordAccountsForgotPasswordPostWithHttpInfo(
       passwordResetRequestSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -151,8 +159,9 @@ class AccountsApi {
   /// * [String] account (required):
   ///   The name of the account.
   Future<Response> getAccountAccountsAccountGetWithHttpInfo(
-    String account,
-  ) async {
+    String account, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/accounts/{account}'.replaceAll('{account}', account);
 
@@ -173,6 +182,7 @@ class AccountsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -185,10 +195,12 @@ class AccountsApi {
   /// * [String] account (required):
   ///   The name of the account.
   Future<AccountDetailsSchema?> getAccountAccountsAccountGet(
-    String account,
-  ) async {
+    String account, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getAccountAccountsAccountGetWithHttpInfo(
       account,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -235,6 +247,7 @@ class AccountsApi {
     bool? completed,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path =
@@ -270,6 +283,7 @@ class AccountsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -300,6 +314,7 @@ class AccountsApi {
     bool? completed,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response =
         await getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo(
@@ -308,6 +323,7 @@ class AccountsApi {
       completed: completed,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -336,8 +352,9 @@ class AccountsApi {
   /// * [String] account (required):
   ///   The name of the account.
   Future<Response> getAccountCharactersAccountsAccountCharactersGetWithHttpInfo(
-    String account,
-  ) async {
+    String account, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path =
         r'/accounts/{account}/characters'.replaceAll('{account}', account);
@@ -359,6 +376,7 @@ class AccountsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -372,11 +390,13 @@ class AccountsApi {
   ///   The name of the account.
   Future<CharactersListSchema?>
       getAccountCharactersAccountsAccountCharactersGet(
-    String account,
-  ) async {
+    String account, {
+    Future<void>? abortTrigger,
+  }) async {
     final response =
         await getAccountCharactersAccountsAccountCharactersGetWithHttpInfo(
       account,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -404,8 +424,9 @@ class AccountsApi {
   ///
   /// * [PasswordResetConfirmSchema] passwordResetConfirmSchema (required):
   Future<Response> resetPasswordAccountsResetPasswordPostWithHttpInfo(
-    PasswordResetConfirmSchema passwordResetConfirmSchema,
-  ) async {
+    PasswordResetConfirmSchema passwordResetConfirmSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/accounts/reset_password';
 
@@ -426,6 +447,7 @@ class AccountsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -437,10 +459,12 @@ class AccountsApi {
   ///
   /// * [PasswordResetConfirmSchema] passwordResetConfirmSchema (required):
   Future<PasswordResetResponseSchema?> resetPasswordAccountsResetPasswordPost(
-    PasswordResetConfirmSchema passwordResetConfirmSchema,
-  ) async {
+    PasswordResetConfirmSchema passwordResetConfirmSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await resetPasswordAccountsResetPasswordPostWithHttpInfo(
       passwordResetConfirmSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

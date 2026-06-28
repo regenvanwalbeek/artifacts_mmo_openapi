@@ -69,12 +69,22 @@ class TaskSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "TaskSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "TaskSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "TaskSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "TaskSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "TaskSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "TaskSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'total'),
+            'Required key "TaskSchema[total]" is missing from JSON.');
+        assert(json[r'total'] != null,
+            'Required key "TaskSchema[total]" has a null value in JSON.');
+        assert(json.containsKey(r'rewards'),
+            'Required key "TaskSchema[rewards]" is missing from JSON.');
+        assert(json[r'rewards'] != null,
+            'Required key "TaskSchema[rewards]" has a null value in JSON.');
         return true;
       }());
 

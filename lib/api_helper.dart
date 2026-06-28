@@ -80,9 +80,6 @@ String parameterToString(dynamic value) {
   if (value is CharacterLeaderboardType) {
     return CharacterLeaderboardTypeTypeTransformer().encode(value).toString();
   }
-  if (value is CharacterSkin) {
-    return CharacterSkinTypeTransformer().encode(value).toString();
-  }
   if (value is ConditionOperator) {
     return ConditionOperatorTypeTransformer().encode(value).toString();
   }
@@ -131,11 +128,35 @@ String parameterToString(dynamic value) {
   if (value is PendingItemSource) {
     return PendingItemSourceTypeTransformer().encode(value).toString();
   }
+  if (value is PurchaseType) {
+    return PurchaseTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is RaidInstanceResult) {
+    return RaidInstanceResultTypeTransformer().encode(value).toString();
+  }
+  if (value is RaidStatus) {
+    return RaidStatusTypeTransformer().encode(value).toString();
+  }
+  if (value is RaidWeekday) {
+    return RaidWeekdayTypeTransformer().encode(value).toString();
+  }
+  if (value is RewardType) {
+    return RewardTypeTypeTransformer().encode(value).toString();
+  }
   if (value is Skill) {
     return SkillTypeTransformer().encode(value).toString();
   }
+  if (value is StripeSubscriptionPlan) {
+    return StripeSubscriptionPlanTypeTransformer().encode(value).toString();
+  }
+  if (value is SubscriptionPlan) {
+    return SubscriptionPlanTypeTransformer().encode(value).toString();
+  }
   if (value is TaskType) {
     return TaskTypeTypeTransformer().encode(value).toString();
+  }
+  if (value is XPType) {
+    return XPTypeTypeTransformer().encode(value).toString();
   }
   return value.toString();
 }

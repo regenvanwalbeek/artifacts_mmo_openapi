@@ -63,12 +63,18 @@ class SimpleEffectSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "SimpleEffectSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "SimpleEffectSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "SimpleEffectSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "SimpleEffectSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'value'),
+            'Required key "SimpleEffectSchema[value]" is missing from JSON.');
+        assert(json[r'value'] != null,
+            'Required key "SimpleEffectSchema[value]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "SimpleEffectSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "SimpleEffectSchema[description]" has a null value in JSON.');
         return true;
       }());
 

@@ -114,12 +114,32 @@ class LogSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "LogSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "LogSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'character'),
+            'Required key "LogSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "LogSchema[character]" has a null value in JSON.');
+        assert(json.containsKey(r'account'),
+            'Required key "LogSchema[account]" is missing from JSON.');
+        assert(json[r'account'] != null,
+            'Required key "LogSchema[account]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "LogSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "LogSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "LogSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "LogSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'content'),
+            'Required key "LogSchema[content]" is missing from JSON.');
+        assert(json.containsKey(r'cooldown'),
+            'Required key "LogSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "LogSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'created_at'),
+            'Required key "LogSchema[created_at]" is missing from JSON.');
+        assert(json[r'created_at'] != null,
+            'Required key "LogSchema[created_at]" has a null value in JSON.');
         return true;
       }());
 

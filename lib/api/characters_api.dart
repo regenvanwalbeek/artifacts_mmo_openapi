@@ -26,8 +26,9 @@ class CharactersApi {
   ///
   /// * [AddCharacterSchema] addCharacterSchema (required):
   Future<Response> createCharacterCharactersCreatePostWithHttpInfo(
-    AddCharacterSchema addCharacterSchema,
-  ) async {
+    AddCharacterSchema addCharacterSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/characters/create';
 
@@ -48,6 +49,7 @@ class CharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -59,10 +61,12 @@ class CharactersApi {
   ///
   /// * [AddCharacterSchema] addCharacterSchema (required):
   Future<CharacterResponseSchema?> createCharacterCharactersCreatePost(
-    AddCharacterSchema addCharacterSchema,
-  ) async {
+    AddCharacterSchema addCharacterSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await createCharacterCharactersCreatePostWithHttpInfo(
       addCharacterSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -90,8 +94,9 @@ class CharactersApi {
   ///
   /// * [DeleteCharacterSchema] deleteCharacterSchema (required):
   Future<Response> deleteCharacterCharactersDeletePostWithHttpInfo(
-    DeleteCharacterSchema deleteCharacterSchema,
-  ) async {
+    DeleteCharacterSchema deleteCharacterSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/characters/delete';
 
@@ -112,6 +117,7 @@ class CharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -123,10 +129,12 @@ class CharactersApi {
   ///
   /// * [DeleteCharacterSchema] deleteCharacterSchema (required):
   Future<CharacterResponseSchema?> deleteCharacterCharactersDeletePost(
-    DeleteCharacterSchema deleteCharacterSchema,
-  ) async {
+    DeleteCharacterSchema deleteCharacterSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await deleteCharacterCharactersDeletePostWithHttpInfo(
       deleteCharacterSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -160,6 +168,7 @@ class CharactersApi {
   Future<Response> getActiveCharactersCharactersActiveGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/characters/active';
@@ -188,6 +197,7 @@ class CharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -206,10 +216,12 @@ class CharactersApi {
       getActiveCharactersCharactersActiveGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getActiveCharactersCharactersActiveGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -238,8 +250,9 @@ class CharactersApi {
   /// * [String] name (required):
   ///   The name of the character.
   Future<Response> getCharacterCharactersNameGetWithHttpInfo(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/characters/{name}'.replaceAll('{name}', name);
 
@@ -260,6 +273,7 @@ class CharactersApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -272,10 +286,12 @@ class CharactersApi {
   /// * [String] name (required):
   ///   The name of the character.
   Future<CharacterResponseSchema?> getCharacterCharactersNameGet(
-    String name,
-  ) async {
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getCharacterCharactersNameGetWithHttpInfo(
       name,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -289,6 +305,76 @@ class CharactersApi {
         await _decodeBodyBytes(response),
         'CharacterResponseSchema',
       ) as CharacterResponseSchema;
+    }
+    return null;
+  }
+
+  /// Get Character Stats
+  ///
+  /// Retrieve gameplay statistics for a character.  Stats are only visible if the character's account has an active subscription. Statistics are still collected for all accounts regardless of subscription status.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   The name of the character.
+  Future<Response> getCharacterStatsCharactersNameStatsGetWithHttpInfo(
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/characters/{name}/stats'.replaceAll('{name}', name);
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Get Character Stats
+  ///
+  /// Retrieve gameplay statistics for a character.  Stats are only visible if the character's account has an active subscription. Statistics are still collected for all accounts regardless of subscription status.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] name (required):
+  ///   The name of the character.
+  Future<CharacterStatsResponseSchema?> getCharacterStatsCharactersNameStatsGet(
+    String name, {
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getCharacterStatsCharactersNameStatsGetWithHttpInfo(
+      name,
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CharacterStatsResponseSchema',
+      ) as CharacterStatsResponseSchema;
     }
     return null;
   }

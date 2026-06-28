@@ -10,9 +10,9 @@
 
 part of openapi_generation;
 
-class GeOrderHistorySchema {
-  /// Returns a new [GeOrderHistorySchema] instance.
-  GeOrderHistorySchema({
+class GEOrderHistorySchema {
+  /// Returns a new [GEOrderHistorySchema] instance.
+  GEOrderHistorySchema({
     required this.orderId,
     required this.seller,
     required this.buyer,
@@ -37,7 +37,6 @@ class GeOrderHistorySchema {
   /// Item quantity.
   ///
   /// Minimum value: 1
-  /// Maximum value: 100
   int quantity;
 
   /// Item price per unit.
@@ -51,7 +50,7 @@ class GeOrderHistorySchema {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is GeOrderHistorySchema &&
+      other is GEOrderHistorySchema &&
           other.orderId == orderId &&
           other.seller == seller &&
           other.buyer == buyer &&
@@ -73,7 +72,7 @@ class GeOrderHistorySchema {
 
   @override
   String toString() =>
-      'GeOrderHistorySchema[orderId=$orderId, seller=$seller, buyer=$buyer, code=$code, quantity=$quantity, price=$price, soldAt=$soldAt]';
+      'GEOrderHistorySchema[orderId=$orderId, seller=$seller, buyer=$buyer, code=$code, quantity=$quantity, price=$price, soldAt=$soldAt]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -87,10 +86,10 @@ class GeOrderHistorySchema {
     return json;
   }
 
-  /// Returns a new [GeOrderHistorySchema] instance and imports its values from
+  /// Returns a new [GEOrderHistorySchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static GeOrderHistorySchema? fromJson(dynamic value) {
+  static GEOrderHistorySchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -98,16 +97,38 @@ class GeOrderHistorySchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GeOrderHistorySchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GeOrderHistorySchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'order_id'),
+            'Required key "GEOrderHistorySchema[order_id]" is missing from JSON.');
+        assert(json[r'order_id'] != null,
+            'Required key "GEOrderHistorySchema[order_id]" has a null value in JSON.');
+        assert(json.containsKey(r'seller'),
+            'Required key "GEOrderHistorySchema[seller]" is missing from JSON.');
+        assert(json[r'seller'] != null,
+            'Required key "GEOrderHistorySchema[seller]" has a null value in JSON.');
+        assert(json.containsKey(r'buyer'),
+            'Required key "GEOrderHistorySchema[buyer]" is missing from JSON.');
+        assert(json[r'buyer'] != null,
+            'Required key "GEOrderHistorySchema[buyer]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "GEOrderHistorySchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "GEOrderHistorySchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GEOrderHistorySchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GEOrderHistorySchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "GEOrderHistorySchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "GEOrderHistorySchema[price]" has a null value in JSON.');
+        assert(json.containsKey(r'sold_at'),
+            'Required key "GEOrderHistorySchema[sold_at]" is missing from JSON.');
+        assert(json[r'sold_at'] != null,
+            'Required key "GEOrderHistorySchema[sold_at]" has a null value in JSON.');
         return true;
       }());
 
-      return GeOrderHistorySchema(
+      return GEOrderHistorySchema(
         orderId: mapValueOfType<String>(json, r'order_id')!,
         seller: mapValueOfType<String>(json, r'seller')!,
         buyer: mapValueOfType<String>(json, r'buyer')!,
@@ -120,14 +141,14 @@ class GeOrderHistorySchema {
     return null;
   }
 
-  static List<GeOrderHistorySchema> listFromJson(
+  static List<GEOrderHistorySchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <GeOrderHistorySchema>[];
+    final result = <GEOrderHistorySchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = GeOrderHistorySchema.fromJson(row);
+        final value = GEOrderHistorySchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -136,12 +157,12 @@ class GeOrderHistorySchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, GeOrderHistorySchema> mapFromJson(dynamic json) {
-    final map = <String, GeOrderHistorySchema>{};
+  static Map<String, GEOrderHistorySchema> mapFromJson(dynamic json) {
+    final map = <String, GEOrderHistorySchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = GeOrderHistorySchema.fromJson(entry.value);
+        final value = GEOrderHistorySchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -150,17 +171,17 @@ class GeOrderHistorySchema {
     return map;
   }
 
-  // maps a json object with a list of GeOrderHistorySchema-objects as value to a dart map
-  static Map<String, List<GeOrderHistorySchema>> mapListFromJson(
+  // maps a json object with a list of GEOrderHistorySchema-objects as value to a dart map
+  static Map<String, List<GEOrderHistorySchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<GeOrderHistorySchema>>{};
+    final map = <String, List<GEOrderHistorySchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = GeOrderHistorySchema.listFromJson(
+        map[entry.key] = GEOrderHistorySchema.listFromJson(
           entry.value,
           growable: growable,
         );

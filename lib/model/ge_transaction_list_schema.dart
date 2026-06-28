@@ -63,12 +63,18 @@ class GETransactionListSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GETransactionListSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GETransactionListSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "GETransactionListSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "GETransactionListSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'order'),
+            'Required key "GETransactionListSchema[order]" is missing from JSON.');
+        assert(json[r'order'] != null,
+            'Required key "GETransactionListSchema[order]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "GETransactionListSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "GETransactionListSchema[character]" has a null value in JSON.');
         return true;
       }());
 

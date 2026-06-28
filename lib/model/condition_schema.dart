@@ -63,12 +63,18 @@ class ConditionSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ConditionSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ConditionSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "ConditionSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "ConditionSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'operator'),
+            'Required key "ConditionSchema[operator]" is missing from JSON.');
+        assert(json[r'operator'] != null,
+            'Required key "ConditionSchema[operator]" has a null value in JSON.');
+        assert(json.containsKey(r'value'),
+            'Required key "ConditionSchema[value]" is missing from JSON.');
+        assert(json[r'value'] != null,
+            'Required key "ConditionSchema[value]" has a null value in JSON.');
         return true;
       }());
 

@@ -32,6 +32,7 @@ class EffectsApi {
   Future<Response> getAllEffectsEffectsGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/effects';
@@ -60,6 +61,7 @@ class EffectsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -77,10 +79,12 @@ class EffectsApi {
   Future<StaticDataPageEffectSchema?> getAllEffectsEffectsGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllEffectsEffectsGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -109,8 +113,9 @@ class EffectsApi {
   /// * [String] code (required):
   ///   The code of the effect.
   Future<Response> getEffectEffectsCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/effects/{code}'.replaceAll('{code}', code);
 
@@ -131,6 +136,7 @@ class EffectsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -143,10 +149,12 @@ class EffectsApi {
   /// * [String] code (required):
   ///   The code of the effect.
   Future<EffectResponseSchema?> getEffectEffectsCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getEffectEffectsCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

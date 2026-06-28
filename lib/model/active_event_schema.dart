@@ -93,12 +93,34 @@ class ActiveEventSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ActiveEventSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ActiveEventSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "ActiveEventSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "ActiveEventSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "ActiveEventSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "ActiveEventSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'map'),
+            'Required key "ActiveEventSchema[map]" is missing from JSON.');
+        assert(json[r'map'] != null,
+            'Required key "ActiveEventSchema[map]" has a null value in JSON.');
+        assert(json.containsKey(r'previous_map'),
+            'Required key "ActiveEventSchema[previous_map]" is missing from JSON.');
+        assert(json[r'previous_map'] != null,
+            'Required key "ActiveEventSchema[previous_map]" has a null value in JSON.');
+        assert(json.containsKey(r'duration'),
+            'Required key "ActiveEventSchema[duration]" is missing from JSON.');
+        assert(json[r'duration'] != null,
+            'Required key "ActiveEventSchema[duration]" has a null value in JSON.');
+        assert(json.containsKey(r'expiration'),
+            'Required key "ActiveEventSchema[expiration]" is missing from JSON.');
+        assert(json[r'expiration'] != null,
+            'Required key "ActiveEventSchema[expiration]" has a null value in JSON.');
+        assert(json.containsKey(r'created_at'),
+            'Required key "ActiveEventSchema[created_at]" is missing from JSON.');
+        assert(json[r'created_at'] != null,
+            'Required key "ActiveEventSchema[created_at]" has a null value in JSON.');
         return true;
       }());
 

@@ -23,7 +23,6 @@ class GEBuyOrderSchema {
   /// Item quantity.
   ///
   /// Minimum value: 1
-  /// Maximum value: 100
   int quantity;
 
   @override
@@ -57,12 +56,14 @@ class GEBuyOrderSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEBuyOrderSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEBuyOrderSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'),
+            'Required key "GEBuyOrderSchema[id]" is missing from JSON.');
+        assert(json[r'id'] != null,
+            'Required key "GEBuyOrderSchema[id]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GEBuyOrderSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GEBuyOrderSchema[quantity]" has a null value in JSON.');
         return true;
       }());
 

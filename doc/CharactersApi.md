@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**deleteCharacterCharactersDeletePost**](CharactersApi.md#deletecharactercharactersdeletepost) | **POST** /characters/delete | Delete Character
 [**getActiveCharactersCharactersActiveGet**](CharactersApi.md#getactivecharacterscharactersactiveget) | **GET** /characters/active | Get Active Characters
 [**getCharacterCharactersNameGet**](CharactersApi.md#getcharactercharactersnameget) | **GET** /characters/{name} | Get Character
+[**getCharacterStatsCharactersNameStatsGet**](CharactersApi.md#getcharacterstatscharactersnamestatsget) | **GET** /characters/{name}/stats | Get Character Stats
 
 
 # **createCharacterCharactersCreatePost**
@@ -189,6 +190,49 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CharacterResponseSchema**](CharacterResponseSchema.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getCharacterStatsCharactersNameStatsGet**
+> CharacterStatsResponseSchema getCharacterStatsCharactersNameStatsGet(name)
+
+Get Character Stats
+
+Retrieve gameplay statistics for a character.  Stats are only visible if the character's account has an active subscription. Statistics are still collected for all accounts regardless of subscription status.
+
+### Example
+```dart
+import 'package:artifacts_mmo_openapi/api.dart';
+
+final api_instance = CharactersApi();
+final name = name_example; // String | The name of the character.
+
+try {
+    final result = api_instance.getCharacterStatsCharactersNameStatsGet(name);
+    print(result);
+} catch (e) {
+    print('Exception when calling CharactersApi->getCharacterStatsCharactersNameStatsGet: $e\n');
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| The name of the character. | 
+
+### Return type
+
+[**CharacterStatsResponseSchema**](CharacterStatsResponseSchema.md)
 
 ### Authorization
 

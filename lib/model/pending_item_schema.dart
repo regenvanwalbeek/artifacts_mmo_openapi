@@ -127,12 +127,26 @@ class PendingItemSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "PendingItemSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "PendingItemSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'),
+            'Required key "PendingItemSchema[id]" is missing from JSON.');
+        assert(json[r'id'] != null,
+            'Required key "PendingItemSchema[id]" has a null value in JSON.');
+        assert(json.containsKey(r'account'),
+            'Required key "PendingItemSchema[account]" is missing from JSON.');
+        assert(json[r'account'] != null,
+            'Required key "PendingItemSchema[account]" has a null value in JSON.');
+        assert(json.containsKey(r'source'),
+            'Required key "PendingItemSchema[source]" is missing from JSON.');
+        assert(json[r'source'] != null,
+            'Required key "PendingItemSchema[source]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "PendingItemSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "PendingItemSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'created_at'),
+            'Required key "PendingItemSchema[created_at]" is missing from JSON.');
+        assert(json[r'created_at'] != null,
+            'Required key "PendingItemSchema[created_at]" has a null value in JSON.');
         return true;
       }());
 

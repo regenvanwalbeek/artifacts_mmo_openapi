@@ -20,7 +20,9 @@ class TokenApi {
   /// Use your account as HTTPBasic Auth to generate your token to use the API. You can also generate your token directly on the website.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> generateTokenTokenPostWithHttpInfo() async {
+  Future<Response> generateTokenTokenPostWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/token';
 
@@ -41,14 +43,19 @@ class TokenApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Generate Token
   ///
   /// Use your account as HTTPBasic Auth to generate your token to use the API. You can also generate your token directly on the website.
-  Future<TokenResponseSchema?> generateTokenTokenPost() async {
-    final response = await generateTokenTokenPostWithHttpInfo();
+  Future<TokenResponseSchema?> generateTokenTokenPost({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await generateTokenTokenPostWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

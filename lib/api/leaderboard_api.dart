@@ -40,6 +40,7 @@ class LeaderboardApi {
     String? name,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/leaderboard/accounts';
@@ -74,6 +75,7 @@ class LeaderboardApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -100,6 +102,7 @@ class LeaderboardApi {
     String? name,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response =
         await getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo(
@@ -107,6 +110,7 @@ class LeaderboardApi {
       name: name,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -149,6 +153,7 @@ class LeaderboardApi {
     String? name,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/leaderboard/characters';
@@ -183,6 +188,7 @@ class LeaderboardApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -209,6 +215,7 @@ class LeaderboardApi {
     String? name,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response =
         await getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo(
@@ -216,6 +223,7 @@ class LeaderboardApi {
       name: name,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

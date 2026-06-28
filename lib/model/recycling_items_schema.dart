@@ -14,27 +14,41 @@ class RecyclingItemsSchema {
   /// Returns a new [RecyclingItemsSchema] instance.
   RecyclingItemsSchema({
     this.items = const [],
+    this.enhanced = false,
+    this.gold = 0,
   });
 
   /// Objects received.
   List<DropSchema> items;
 
+  /// Whether enhanced recycling was used.
+  bool enhanced;
+
+  /// Gold spent for enhanced recycling.
+  int gold;
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is RecyclingItemsSchema && _deepEquality.equals(other.items, items);
+      other is RecyclingItemsSchema &&
+          _deepEquality.equals(other.items, items) &&
+          other.enhanced == enhanced &&
+          other.gold == gold;
 
   @override
   int get hashCode =>
       // ignore: unnecessary_parenthesis
-      (items.hashCode);
+      (items.hashCode) + (enhanced.hashCode) + (gold.hashCode);
 
   @override
-  String toString() => 'RecyclingItemsSchema[items=$items]';
+  String toString() =>
+      'RecyclingItemsSchema[items=$items, enhanced=$enhanced, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'items'] = this.items;
+    json[r'enhanced'] = this.enhanced;
+    json[r'gold'] = this.gold;
     return json;
   }
 
@@ -49,17 +63,17 @@ class RecyclingItemsSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "RecyclingItemsSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "RecyclingItemsSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'items'),
+            'Required key "RecyclingItemsSchema[items]" is missing from JSON.');
+        assert(json[r'items'] != null,
+            'Required key "RecyclingItemsSchema[items]" has a null value in JSON.');
         return true;
       }());
 
       return RecyclingItemsSchema(
         items: DropSchema.listFromJson(json[r'items']),
+        enhanced: mapValueOfType<bool>(json, r'enhanced') ?? false,
+        gold: mapValueOfType<int>(json, r'gold') ?? 0,
       );
     }
     return null;

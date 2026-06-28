@@ -78,12 +78,22 @@ class DropRateSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DropRateSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DropRateSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "DropRateSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "DropRateSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'rate'),
+            'Required key "DropRateSchema[rate]" is missing from JSON.');
+        assert(json[r'rate'] != null,
+            'Required key "DropRateSchema[rate]" has a null value in JSON.');
+        assert(json.containsKey(r'min_quantity'),
+            'Required key "DropRateSchema[min_quantity]" is missing from JSON.');
+        assert(json[r'min_quantity'] != null,
+            'Required key "DropRateSchema[min_quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'max_quantity'),
+            'Required key "DropRateSchema[max_quantity]" is missing from JSON.');
+        assert(json[r'max_quantity'] != null,
+            'Required key "DropRateSchema[max_quantity]" has a null value in JSON.');
         return true;
       }());
 

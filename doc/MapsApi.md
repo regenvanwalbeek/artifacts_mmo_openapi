@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **getAllMapsMapsGet**
-> StaticDataPageMapSchema getAllMapsMapsGet(layer, contentType, contentCode, hideBlockedMaps, page, size)
+> StaticDataPageMapSchema getAllMapsMapsGet(layer, contentType, contentCode, hideBlockedMaps, hideEvent, transition, page, size)
 
 Get All Maps
 
@@ -31,11 +31,13 @@ final layer = ; // MapLayer | Filter maps by layer.
 final contentType = ; // MapContentType | Type of maps.
 final contentCode = contentCode_example; // String | Content code on the map.
 final hideBlockedMaps = true; // bool | When true, excludes maps with access_type 'blocked' from the results.
+final hideEvent = true; // bool | When true, does not overlay active events on maps.
+final transition = true; // bool | Filter maps by transition. True returns only maps with transitions, False returns only maps without.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getAllMapsMapsGet(layer, contentType, contentCode, hideBlockedMaps, page, size);
+    final result = api_instance.getAllMapsMapsGet(layer, contentType, contentCode, hideBlockedMaps, hideEvent, transition, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling MapsApi->getAllMapsMapsGet: $e\n');
@@ -50,6 +52,8 @@ Name | Type | Description  | Notes
  **contentType** | [**MapContentType**](.md)| Type of maps. | [optional] 
  **contentCode** | **String**| Content code on the map. | [optional] 
  **hideBlockedMaps** | **bool**| When true, excludes maps with access_type 'blocked' from the results. | [optional] [default to false]
+ **hideEvent** | **bool**| When true, does not overlay active events on maps. | [optional] [default to false]
+ **transition** | **bool**| Filter maps by transition. True returns only maps with transitions, False returns only maps without. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -69,7 +73,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getLayerMapsMapsLayerGet**
-> StaticDataPageMapSchema getLayerMapsMapsLayerGet(layer, contentType, contentCode, hideBlockedMaps, page, size)
+> StaticDataPageMapSchema getLayerMapsMapsLayerGet(layer, contentType, contentCode, hideBlockedMaps, hideEvent, transition, page, size)
 
 Get Layer Maps
 
@@ -84,11 +88,13 @@ final layer = ; // MapLayer | The layer of the map (interior, overworld, undergr
 final contentType = ; // MapContentType | Type of maps.
 final contentCode = contentCode_example; // String | Content code on the map.
 final hideBlockedMaps = true; // bool | When true, excludes maps with access_type 'blocked' from the results.
+final hideEvent = true; // bool | When true, does not overlay active events on maps.
+final transition = true; // bool | Filter maps by transition. True returns only maps with transitions, False returns only maps without.
 final page = 56; // int | Page number
 final size = 56; // int | Page size
 
 try {
-    final result = api_instance.getLayerMapsMapsLayerGet(layer, contentType, contentCode, hideBlockedMaps, page, size);
+    final result = api_instance.getLayerMapsMapsLayerGet(layer, contentType, contentCode, hideBlockedMaps, hideEvent, transition, page, size);
     print(result);
 } catch (e) {
     print('Exception when calling MapsApi->getLayerMapsMapsLayerGet: $e\n');
@@ -103,6 +109,8 @@ Name | Type | Description  | Notes
  **contentType** | [**MapContentType**](.md)| Type of maps. | [optional] 
  **contentCode** | **String**| Content code on the map. | [optional] 
  **hideBlockedMaps** | **bool**| When true, excludes maps with access_type 'blocked' from the results. | [optional] [default to false]
+ **hideEvent** | **bool**| When true, does not overlay active events on maps. | [optional] [default to false]
+ **transition** | **bool**| Filter maps by transition. True returns only maps with transitions, False returns only maps without. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 

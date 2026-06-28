@@ -21,7 +21,9 @@ class ServerDetailsApi {
   /// Return the status of the game server.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getServerDetailsGetWithHttpInfo() async {
+  Future<Response> getServerDetailsGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/';
 
@@ -42,14 +44,19 @@ class ServerDetailsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Get Server Details
   ///
   /// Return the status of the game server.
-  Future<StatusResponseSchema?> getServerDetailsGet() async {
-    final response = await getServerDetailsGetWithHttpInfo();
+  Future<StatusResponseSchema?> getServerDetailsGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getServerDetailsGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }

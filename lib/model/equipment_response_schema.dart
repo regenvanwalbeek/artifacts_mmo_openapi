@@ -16,7 +16,7 @@ class EquipmentResponseSchema {
     required this.data,
   });
 
-  EquipRequestSchema data;
+  EquipmentTransactionSchema data;
 
   @override
   bool operator ==(Object other) =>
@@ -48,17 +48,15 @@ class EquipmentResponseSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "EquipmentResponseSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "EquipmentResponseSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'data'),
+            'Required key "EquipmentResponseSchema[data]" is missing from JSON.');
+        assert(json[r'data'] != null,
+            'Required key "EquipmentResponseSchema[data]" has a null value in JSON.');
         return true;
       }());
 
       return EquipmentResponseSchema(
-        data: EquipRequestSchema.fromJson(json[r'data'])!,
+        data: EquipmentTransactionSchema.fromJson(json[r'data'])!,
       );
     }
     return null;

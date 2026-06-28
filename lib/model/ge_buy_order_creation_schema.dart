@@ -24,7 +24,6 @@ class GEBuyOrderCreationSchema {
   /// Item quantity.
   ///
   /// Minimum value: 1
-  /// Maximum value: 100
   int quantity;
 
   /// Item price per unit.
@@ -69,12 +68,18 @@ class GEBuyOrderCreationSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEBuyOrderCreationSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEBuyOrderCreationSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'code'),
+            'Required key "GEBuyOrderCreationSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "GEBuyOrderCreationSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GEBuyOrderCreationSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GEBuyOrderCreationSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "GEBuyOrderCreationSchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "GEBuyOrderCreationSchema[price]" has a null value in JSON.');
         return true;
       }());
 

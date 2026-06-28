@@ -63,12 +63,18 @@ class SkillDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "SkillDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "SkillDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "SkillDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "SkillDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'details'),
+            'Required key "SkillDataSchema[details]" is missing from JSON.');
+        assert(json[r'details'] != null,
+            'Required key "SkillDataSchema[details]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "SkillDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "SkillDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 

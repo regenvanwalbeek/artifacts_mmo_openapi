@@ -43,6 +43,7 @@ class NPCsApi {
     String? currency,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/items';
@@ -80,6 +81,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -103,12 +105,13 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<StaticDataPageNPCItem?> getAllNpcsItemsNpcsItemsGet({
+  Future<StaticDataPageNPCItemSchema?> getAllNpcsItemsNpcsItemsGet({
     String? code,
     String? npc,
     String? currency,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllNpcsItemsNpcsItemsGetWithHttpInfo(
       code: code,
@@ -116,6 +119,7 @@ class NPCsApi {
       currency: currency,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -127,8 +131,8 @@ class NPCsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'StaticDataPageNPCItem',
-      ) as StaticDataPageNPCItem;
+        'StaticDataPageNPCItemSchema',
+      ) as StaticDataPageNPCItemSchema;
     }
     return null;
   }
@@ -147,6 +151,12 @@ class NPCsApi {
   /// * [NPCType] type:
   ///   Type of NPCs.
   ///
+  /// * [String] currency:
+  ///   Currency code to filter NPCs that trade with this currency.
+  ///
+  /// * [String] item:
+  ///   Item code to filter NPCs that trade this item.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -155,8 +165,11 @@ class NPCsApi {
   Future<Response> getAllNpcsNpcsDetailsGetWithHttpInfo({
     String? name,
     NPCType? type,
+    String? currency,
+    String? item,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/details';
@@ -173,6 +186,12 @@ class NPCsApi {
     }
     if (type != null) {
       queryParams.addAll(_queryParams('', 'type', type));
+    }
+    if (currency != null) {
+      queryParams.addAll(_queryParams('', 'currency', currency));
+    }
+    if (item != null) {
+      queryParams.addAll(_queryParams('', 'item', item));
     }
     if (page != null) {
       queryParams.addAll(_queryParams('', 'page', page));
@@ -191,6 +210,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -206,6 +226,12 @@ class NPCsApi {
   /// * [NPCType] type:
   ///   Type of NPCs.
   ///
+  /// * [String] currency:
+  ///   Currency code to filter NPCs that trade with this currency.
+  ///
+  /// * [String] item:
+  ///   Item code to filter NPCs that trade this item.
+  ///
   /// * [int] page:
   ///   Page number
   ///
@@ -214,14 +240,20 @@ class NPCsApi {
   Future<StaticDataPageNPCSchema?> getAllNpcsNpcsDetailsGet({
     String? name,
     NPCType? type,
+    String? currency,
+    String? item,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllNpcsNpcsDetailsGetWithHttpInfo(
       name: name,
       type: type,
+      currency: currency,
+      item: item,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -259,6 +291,7 @@ class NPCsApi {
     String code, {
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/items/{code}'.replaceAll('{code}', code);
@@ -287,6 +320,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -304,15 +338,17 @@ class NPCsApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<StaticDataPageNPCItem?> getNpcItemsNpcsItemsCodeGet(
+  Future<StaticDataPageNPCItemSchema?> getNpcItemsNpcsItemsCodeGet(
     String code, {
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getNpcItemsNpcsItemsCodeGetWithHttpInfo(
       code,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -324,8 +360,8 @@ class NPCsApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'StaticDataPageNPCItem',
-      ) as StaticDataPageNPCItem;
+        'StaticDataPageNPCItemSchema',
+      ) as StaticDataPageNPCItemSchema;
     }
     return null;
   }
@@ -341,8 +377,9 @@ class NPCsApi {
   /// * [String] code (required):
   ///   The code of the NPC.
   Future<Response> getNpcNpcsDetailsCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/npcs/details/{code}'.replaceAll('{code}', code);
 
@@ -363,6 +400,7 @@ class NPCsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -375,10 +413,12 @@ class NPCsApi {
   /// * [String] code (required):
   ///   The code of the NPC.
   Future<NPCResponseSchema?> getNpcNpcsDetailsCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getNpcNpcsDetailsCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

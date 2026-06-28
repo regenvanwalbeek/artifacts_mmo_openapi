@@ -31,6 +31,7 @@ class BadgesApi {
   Future<Response> getAllBadgesBadgesGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/badges';
@@ -59,6 +60,7 @@ class BadgesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -76,10 +78,12 @@ class BadgesApi {
   Future<StaticDataPageBadgeSchema?> getAllBadgesBadgesGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllBadgesBadgesGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -108,8 +112,9 @@ class BadgesApi {
   /// * [String] code (required):
   ///   The code of the badge.
   Future<Response> getBadgeBadgesCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/badges/{code}'.replaceAll('{code}', code);
 
@@ -130,6 +135,7 @@ class BadgesApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -142,10 +148,12 @@ class BadgesApi {
   /// * [String] code (required):
   ///   The code of the badge.
   Future<BadgeResponseSchema?> getBadgeBadgesCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getBadgeBadgesCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

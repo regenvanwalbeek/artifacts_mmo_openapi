@@ -79,12 +79,26 @@ class ResourceSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ResourceSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ResourceSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "ResourceSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "ResourceSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "ResourceSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "ResourceSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'skill'),
+            'Required key "ResourceSchema[skill]" is missing from JSON.');
+        assert(json[r'skill'] != null,
+            'Required key "ResourceSchema[skill]" has a null value in JSON.');
+        assert(json.containsKey(r'level'),
+            'Required key "ResourceSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "ResourceSchema[level]" has a null value in JSON.');
+        assert(json.containsKey(r'drops'),
+            'Required key "ResourceSchema[drops]" is missing from JSON.');
+        assert(json[r'drops'] != null,
+            'Required key "ResourceSchema[drops]" has a null value in JSON.');
         return true;
       }());
 

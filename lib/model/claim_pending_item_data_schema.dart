@@ -63,12 +63,18 @@ class ClaimPendingItemDataSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ClaimPendingItemDataSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ClaimPendingItemDataSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'cooldown'),
+            'Required key "ClaimPendingItemDataSchema[cooldown]" is missing from JSON.');
+        assert(json[r'cooldown'] != null,
+            'Required key "ClaimPendingItemDataSchema[cooldown]" has a null value in JSON.');
+        assert(json.containsKey(r'item'),
+            'Required key "ClaimPendingItemDataSchema[item]" is missing from JSON.');
+        assert(json[r'item'] != null,
+            'Required key "ClaimPendingItemDataSchema[item]" has a null value in JSON.');
+        assert(json.containsKey(r'character'),
+            'Required key "ClaimPendingItemDataSchema[character]" is missing from JSON.');
+        assert(json[r'character'] != null,
+            'Required key "ClaimPendingItemDataSchema[character]" has a null value in JSON.');
         return true;
       }());
 

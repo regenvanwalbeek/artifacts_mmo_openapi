@@ -16,8 +16,8 @@ class ChangeSkinCharacterSchema {
     required this.skin,
   });
 
-  /// Your desired skin. Skins unlocked by default: 'men1', 'men2', 'men3', 'women1', 'women2', 'women3'.
-  CharacterSkin skin;
+  /// Your desired skin.
+  String skin;
 
   @override
   bool operator ==(Object other) =>
@@ -49,17 +49,15 @@ class ChangeSkinCharacterSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ChangeSkinCharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ChangeSkinCharacterSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'skin'),
+            'Required key "ChangeSkinCharacterSchema[skin]" is missing from JSON.');
+        assert(json[r'skin'] != null,
+            'Required key "ChangeSkinCharacterSchema[skin]" has a null value in JSON.');
         return true;
       }());
 
       return ChangeSkinCharacterSchema(
-        skin: CharacterSkin.fromJson(json[r'skin'])!,
+        skin: mapValueOfType<String>(json, r'skin')!,
       );
     }
     return null;

@@ -20,8 +20,8 @@ class AddCharacterSchema {
   /// Your desired character name. It's unique and all players can see it.
   String name;
 
-  /// Your desired skin. Skins unlocked by default: 'men1', 'men2', 'men3', 'women1', 'women2', 'women3'.
-  CharacterSkin skin;
+  /// Your desired skin.
+  String skin;
 
   @override
   bool operator ==(Object other) =>
@@ -54,18 +54,20 @@ class AddCharacterSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "AddCharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "AddCharacterSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "AddCharacterSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "AddCharacterSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'skin'),
+            'Required key "AddCharacterSchema[skin]" is missing from JSON.');
+        assert(json[r'skin'] != null,
+            'Required key "AddCharacterSchema[skin]" has a null value in JSON.');
         return true;
       }());
 
       return AddCharacterSchema(
         name: mapValueOfType<String>(json, r'name')!,
-        skin: CharacterSkin.fromJson(json[r'skin'])!,
+        skin: mapValueOfType<String>(json, r'skin')!,
       );
     }
     return null;

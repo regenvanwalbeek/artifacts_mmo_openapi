@@ -21,7 +21,7 @@ class MyAccountDetails {
     this.badges = const [],
     this.skins = const [],
     required this.gems,
-    required this.eventToken,
+    this.memberToken = 0,
     required this.achievementsPoints,
     required this.banned,
     this.banReason,
@@ -36,7 +36,7 @@ class MyAccountDetails {
   /// Member status.
   bool member;
 
-  /// Member expiration date.
+  /// Membership expiration date.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -57,8 +57,8 @@ class MyAccountDetails {
   /// Gems.
   int gems;
 
-  /// Event tokens for spawning events.
-  int eventToken;
+  /// Member tokens manually granted as rewards for events. Each token can be redeemed for one month of membership.
+  int memberToken;
 
   /// Achievement points.
   int achievementsPoints;
@@ -87,7 +87,7 @@ class MyAccountDetails {
           _deepEquality.equals(other.badges, badges) &&
           _deepEquality.equals(other.skins, skins) &&
           other.gems == gems &&
-          other.eventToken == eventToken &&
+          other.memberToken == memberToken &&
           other.achievementsPoints == achievementsPoints &&
           other.banned == banned &&
           other.banReason == banReason;
@@ -103,14 +103,14 @@ class MyAccountDetails {
       (badges.hashCode) +
       (skins.hashCode) +
       (gems.hashCode) +
-      (eventToken.hashCode) +
+      (memberToken.hashCode) +
       (achievementsPoints.hashCode) +
       (banned.hashCode) +
       (banReason == null ? 0 : banReason!.hashCode);
 
   @override
   String toString() =>
-      'MyAccountDetails[username=$username, email=$email, member=$member, memberExpiration=$memberExpiration, status=$status, badges=$badges, skins=$skins, gems=$gems, eventToken=$eventToken, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
+      'MyAccountDetails[username=$username, email=$email, member=$member, memberExpiration=$memberExpiration, status=$status, badges=$badges, skins=$skins, gems=$gems, memberToken=$memberToken, achievementsPoints=$achievementsPoints, banned=$banned, banReason=$banReason]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -127,7 +127,7 @@ class MyAccountDetails {
     json[r'badges'] = this.badges;
     json[r'skins'] = this.skins;
     json[r'gems'] = this.gems;
-    json[r'event_token'] = this.eventToken;
+    json[r'member_token'] = this.memberToken;
     json[r'achievements_points'] = this.achievementsPoints;
     json[r'banned'] = this.banned;
     if (this.banReason != null) {
@@ -149,12 +149,38 @@ class MyAccountDetails {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "MyAccountDetails[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "MyAccountDetails[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'username'),
+            'Required key "MyAccountDetails[username]" is missing from JSON.');
+        assert(json[r'username'] != null,
+            'Required key "MyAccountDetails[username]" has a null value in JSON.');
+        assert(json.containsKey(r'email'),
+            'Required key "MyAccountDetails[email]" is missing from JSON.');
+        assert(json[r'email'] != null,
+            'Required key "MyAccountDetails[email]" has a null value in JSON.');
+        assert(json.containsKey(r'member'),
+            'Required key "MyAccountDetails[member]" is missing from JSON.');
+        assert(json[r'member'] != null,
+            'Required key "MyAccountDetails[member]" has a null value in JSON.');
+        assert(json.containsKey(r'status'),
+            'Required key "MyAccountDetails[status]" is missing from JSON.');
+        assert(json[r'status'] != null,
+            'Required key "MyAccountDetails[status]" has a null value in JSON.');
+        assert(json.containsKey(r'skins'),
+            'Required key "MyAccountDetails[skins]" is missing from JSON.');
+        assert(json[r'skins'] != null,
+            'Required key "MyAccountDetails[skins]" has a null value in JSON.');
+        assert(json.containsKey(r'gems'),
+            'Required key "MyAccountDetails[gems]" is missing from JSON.');
+        assert(json[r'gems'] != null,
+            'Required key "MyAccountDetails[gems]" has a null value in JSON.');
+        assert(json.containsKey(r'achievements_points'),
+            'Required key "MyAccountDetails[achievements_points]" is missing from JSON.');
+        assert(json[r'achievements_points'] != null,
+            'Required key "MyAccountDetails[achievements_points]" has a null value in JSON.');
+        assert(json.containsKey(r'banned'),
+            'Required key "MyAccountDetails[banned]" is missing from JSON.');
+        assert(json[r'banned'] != null,
+            'Required key "MyAccountDetails[banned]" has a null value in JSON.');
         return true;
       }());
 
@@ -175,7 +201,7 @@ class MyAccountDetails {
                 .toList(growable: false)
             : const [],
         gems: mapValueOfType<int>(json, r'gems')!,
-        eventToken: mapValueOfType<int>(json, r'event_token')!,
+        memberToken: mapValueOfType<int>(json, r'member_token') ?? 0,
         achievementsPoints: mapValueOfType<int>(json, r'achievements_points')!,
         banned: mapValueOfType<bool>(json, r'banned')!,
         banReason: mapValueOfType<String>(json, r'ban_reason'),
@@ -241,7 +267,6 @@ class MyAccountDetails {
     'status',
     'skins',
     'gems',
-    'event_token',
     'achievements_points',
     'banned',
   };

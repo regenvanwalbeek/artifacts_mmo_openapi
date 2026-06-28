@@ -16,23 +16,24 @@ class MyAccountApi {
 
   final ApiClient apiClient;
 
-  /// Change Password
+  /// Buy Gems
   ///
-  /// Change your account password. Changing the password reset the account token.
+  /// Purchase gems. Returns a Stripe checkout URL for payment.
   ///
   /// Note: This method returns the HTTP [Response].
   ///
   /// Parameters:
   ///
-  /// * [ChangePassword] changePassword (required):
-  Future<Response> changePasswordMyChangePasswordPostWithHttpInfo(
-    ChangePassword changePassword,
-  ) async {
+  /// * [PurchaseGemsRequestSchema] purchaseGemsRequestSchema (required):
+  Future<Response> buyGemsMyBuyGemsPostWithHttpInfo(
+    PurchaseGemsRequestSchema purchaseGemsRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/change_password';
+    final path = r'/my/buy_gems';
 
     // ignore: prefer_final_locals
-    Object? postBody = changePassword;
+    Object? postBody = purchaseGemsRequestSchema;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -48,6 +49,268 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Buy Gems
+  ///
+  /// Purchase gems. Returns a Stripe checkout URL for payment.
+  ///
+  /// Parameters:
+  ///
+  /// * [PurchaseGemsRequestSchema] purchaseGemsRequestSchema (required):
+  Future<CheckoutResponseWrapperSchema?> buyGemsMyBuyGemsPost(
+    PurchaseGemsRequestSchema purchaseGemsRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await buyGemsMyBuyGemsPostWithHttpInfo(
+      purchaseGemsRequestSchema,
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CheckoutResponseWrapperSchema',
+      ) as CheckoutResponseWrapperSchema;
+    }
+    return null;
+  }
+
+  /// Subscribe with Stripe
+  ///
+  /// Subscribe to become a member and unlock the benefits tied to your selected plan. You will receive a secure Stripe checkout URL to complete the payment.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [SubscribeRequestSchema] subscribeRequestSchema (required):
+  Future<Response> buySubscriptionMySubscribeStripePostWithHttpInfo(
+    SubscribeRequestSchema subscribeRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/subscribe/stripe';
+
+    // ignore: prefer_final_locals
+    Object? postBody = subscribeRequestSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Subscribe with Stripe
+  ///
+  /// Subscribe to become a member and unlock the benefits tied to your selected plan. You will receive a secure Stripe checkout URL to complete the payment.
+  ///
+  /// Parameters:
+  ///
+  /// * [SubscribeRequestSchema] subscribeRequestSchema (required):
+  Future<CheckoutResponseWrapperSchema?> buySubscriptionMySubscribeStripePost(
+    SubscribeRequestSchema subscribeRequestSchema, {
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await buySubscriptionMySubscribeStripePostWithHttpInfo(
+      subscribeRequestSchema,
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'CheckoutResponseWrapperSchema',
+      ) as CheckoutResponseWrapperSchema;
+    }
+    return null;
+  }
+
+  /// Cancel Subscription
+  ///
+  /// Cancel subscription at the end of the current billing period.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> cancelSubscriptionMySubscribeCancelPostWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/subscribe/cancel';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Cancel Subscription
+  ///
+  /// Cancel subscription at the end of the current billing period.
+  Future<ResponseSchema?> cancelSubscriptionMySubscribeCancelPost({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await cancelSubscriptionMySubscribeCancelPostWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ResponseSchema',
+      ) as ResponseSchema;
+    }
+    return null;
+  }
+
+  /// Change Email
+  ///
+  /// Change your account email.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [ChangeEmailSchema] changeEmailSchema (required):
+  Future<Response> changeEmailMyChangeEmailPostWithHttpInfo(
+    ChangeEmailSchema changeEmailSchema, {
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/change_email';
+
+    // ignore: prefer_final_locals
+    Object? postBody = changeEmailSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Change Email
+  ///
+  /// Change your account email.
+  ///
+  /// Parameters:
+  ///
+  /// * [ChangeEmailSchema] changeEmailSchema (required):
+  Future<ResponseSchema?> changeEmailMyChangeEmailPost(
+    ChangeEmailSchema changeEmailSchema, {
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await changeEmailMyChangeEmailPostWithHttpInfo(
+      changeEmailSchema,
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'ResponseSchema',
+      ) as ResponseSchema;
+    }
+    return null;
+  }
+
+  /// Change Password
+  ///
+  /// Change your account password. Changing the password reset the account token.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [ChangePasswordSchema] changePasswordSchema (required):
+  Future<Response> changePasswordMyChangePasswordPostWithHttpInfo(
+    ChangePasswordSchema changePasswordSchema, {
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/change_password';
+
+    // ignore: prefer_final_locals
+    Object? postBody = changePasswordSchema;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>['application/json'];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -57,12 +320,14 @@ class MyAccountApi {
   ///
   /// Parameters:
   ///
-  /// * [ChangePassword] changePassword (required):
+  /// * [ChangePasswordSchema] changePasswordSchema (required):
   Future<ResponseSchema?> changePasswordMyChangePasswordPost(
-    ChangePassword changePassword,
-  ) async {
+    ChangePasswordSchema changePasswordSchema, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await changePasswordMyChangePasswordPostWithHttpInfo(
-      changePassword,
+      changePasswordSchema,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -85,7 +350,9 @@ class MyAccountApi {
   /// Fetch account details.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getAccountDetailsMyDetailsGetWithHttpInfo() async {
+  Future<Response> getAccountDetailsMyDetailsGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/details';
 
@@ -106,14 +373,19 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Get Account Details
   ///
   /// Fetch account details.
-  Future<MyAccountDetailsSchema?> getAccountDetailsMyDetailsGet() async {
-    final response = await getAccountDetailsMyDetailsGetWithHttpInfo();
+  Future<MyAccountDetailsSchema?> getAccountDetailsMyDetailsGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getAccountDetailsMyDetailsGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -135,7 +407,9 @@ class MyAccountApi {
   /// Fetch bank details.
   ///
   /// Note: This method returns the HTTP [Response].
-  Future<Response> getBankDetailsMyBankGetWithHttpInfo() async {
+  Future<Response> getBankDetailsMyBankGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/bank';
 
@@ -156,14 +430,19 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
   /// Get Bank Details
   ///
   /// Fetch bank details.
-  Future<BankResponseSchema?> getBankDetailsMyBankGet() async {
-    final response = await getBankDetailsMyBankGetWithHttpInfo();
+  Future<BankResponseSchema?> getBankDetailsMyBankGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getBankDetailsMyBankGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
@@ -200,6 +479,7 @@ class MyAccountApi {
     String? itemCode,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/bank/items';
@@ -231,6 +511,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -252,11 +533,13 @@ class MyAccountApi {
     String? itemCode,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getBankItemsMyBankItemsGetWithHttpInfo(
       itemCode: itemCode,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -298,6 +581,7 @@ class MyAccountApi {
     String? code,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/grandexchange/history';
@@ -332,6 +616,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -352,17 +637,19 @@ class MyAccountApi {
   ///
   /// * [int] size:
   ///   Page size
-  Future<DataPageGeOrderHistorySchema?> getGeHistoryMyGrandexchangeHistoryGet({
+  Future<DataPageGEOrderHistorySchema?> getGeHistoryMyGrandexchangeHistoryGet({
     String? id,
     String? code,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeHistoryMyGrandexchangeHistoryGetWithHttpInfo(
       id: id,
       code: code,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -374,8 +661,8 @@ class MyAccountApi {
         response.statusCode != HttpStatus.noContent) {
       return await apiClient.deserializeAsync(
         await _decodeBodyBytes(response),
-        'DataPageGeOrderHistorySchema',
-      ) as DataPageGeOrderHistorySchema;
+        'DataPageGEOrderHistorySchema',
+      ) as DataPageGEOrderHistorySchema;
     }
     return null;
   }
@@ -404,6 +691,7 @@ class MyAccountApi {
     GEOrderType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/my/grandexchange/orders';
@@ -438,6 +726,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -463,12 +752,14 @@ class MyAccountApi {
     GEOrderType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getGeOrdersMyGrandexchangeOrdersGetWithHttpInfo(
       code: code,
       type: type,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -482,6 +773,178 @@ class MyAccountApi {
         await _decodeBodyBytes(response),
         'DataPageGEOrderSchema',
       ) as DataPageGEOrderSchema;
+    }
+    return null;
+  }
+
+  /// Get My Gems History
+  ///
+  /// List all gem credits and debits.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getMyGemsHistoryMyGemsHistoryGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/gems_history';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Get My Gems History
+  ///
+  /// List all gem credits and debits.
+  Future<GemTransactionListResponseSchema?> getMyGemsHistoryMyGemsHistoryGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getMyGemsHistoryMyGemsHistoryGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'GemTransactionListResponseSchema',
+      ) as GemTransactionListResponseSchema;
+    }
+    return null;
+  }
+
+  /// Get My Purchase History
+  ///
+  /// List all purchases (subscriptions and gem packs).
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getMyPurchaseHistoryMyPurchaseHistoryGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/purchase_history';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Get My Purchase History
+  ///
+  /// List all purchases (subscriptions and gem packs).
+  Future<PurchaseHistoryListResponseSchema?>
+      getMyPurchaseHistoryMyPurchaseHistoryGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getMyPurchaseHistoryMyPurchaseHistoryGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'PurchaseHistoryListResponseSchema',
+      ) as PurchaseHistoryListResponseSchema;
+    }
+    return null;
+  }
+
+  /// Get My Subscription
+  ///
+  /// Get current subscription details.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getMySubscriptionMySubscriptionGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/subscription';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Get My Subscription
+  ///
+  /// Get current subscription details.
+  Future<SubscriptionResponseSchema?> getMySubscriptionMySubscriptionGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getMySubscriptionMySubscriptionGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'SubscriptionResponseSchema',
+      ) as SubscriptionResponseSchema;
     }
     return null;
   }
@@ -502,9 +965,10 @@ class MyAccountApi {
   Future<Response> getPendingItemsMyPendingItemsGetWithHttpInfo({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
-    final path = r'/my/pending-items';
+    final path = r'/my/pending_items';
 
     // ignore: prefer_final_locals
     Object? postBody;
@@ -530,6 +994,7 @@ class MyAccountApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -547,10 +1012,12 @@ class MyAccountApi {
   Future<DataPagePendingItemSchema?> getPendingItemsMyPendingItemsGet({
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getPendingItemsMyPendingItemsGetWithHttpInfo(
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -564,6 +1031,123 @@ class MyAccountApi {
         await _decodeBodyBytes(response),
         'DataPagePendingItemSchema',
       ) as DataPagePendingItemSchema;
+    }
+    return null;
+  }
+
+  /// Get Rate Limits
+  ///
+  /// Get all rate limits.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response> getRateLimitsMyRatesGetWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/rates';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Get Rate Limits
+  ///
+  /// Get all rate limits.
+  Future<RateLimitsSchema?> getRateLimitsMyRatesGet({
+    Future<void>? abortTrigger,
+  }) async {
+    final response = await getRateLimitsMyRatesGetWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'RateLimitsSchema',
+      ) as RateLimitsSchema;
+    }
+    return null;
+  }
+
+  /// Subscribe With Member Token
+  ///
+  /// Redeem a member token to start or extend membership by 30 days. Member tokens are manually granted as rewards for events. Member tokens cannot be redeemed while a Stripe subscription is active.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  Future<Response>
+      subscribeWithMemberTokenMySubscribeMemberTokenPostWithHttpInfo({
+    Future<void>? abortTrigger,
+  }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/my/subscribe/member_token';
+
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    const contentTypes = <String>[];
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
+    );
+  }
+
+  /// Subscribe With Member Token
+  ///
+  /// Redeem a member token to start or extend membership by 30 days. Member tokens are manually granted as rewards for events. Member tokens cannot be redeemed while a Stripe subscription is active.
+  Future<MemberTokenSubscriptionResponseSchema?>
+      subscribeWithMemberTokenMySubscribeMemberTokenPost({
+    Future<void>? abortTrigger,
+  }) async {
+    final response =
+        await subscribeWithMemberTokenMySubscribeMemberTokenPostWithHttpInfo(
+      abortTrigger: abortTrigger,
+    );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty &&
+        response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(
+        await _decodeBodyBytes(response),
+        'MemberTokenSubscriptionResponseSchema',
+      ) as MemberTokenSubscriptionResponseSchema;
     }
     return null;
   }

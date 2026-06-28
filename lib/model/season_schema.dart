@@ -16,8 +16,7 @@ class SeasonSchema {
     this.name,
     this.number,
     this.startDate,
-    this.badges = const [],
-    this.skins = const [],
+    this.rewards = const [],
   });
 
   /// Season name.
@@ -47,11 +46,8 @@ class SeasonSchema {
   ///
   DateTime? startDate;
 
-  /// Season badges with required achievement points.
-  List<SeasonBadgeSchema> badges;
-
-  /// Season skins with required achievement points.
-  List<SeasonSkinSchema> skins;
+  /// Season rewards with required achievement points, sorted by points ascending.
+  List<StatusSeasonRewardSchema> rewards;
 
   @override
   bool operator ==(Object other) =>
@@ -60,8 +56,7 @@ class SeasonSchema {
           other.name == name &&
           other.number == number &&
           other.startDate == startDate &&
-          _deepEquality.equals(other.badges, badges) &&
-          _deepEquality.equals(other.skins, skins);
+          _deepEquality.equals(other.rewards, rewards);
 
   @override
   int get hashCode =>
@@ -69,12 +64,11 @@ class SeasonSchema {
       (name == null ? 0 : name!.hashCode) +
       (number == null ? 0 : number!.hashCode) +
       (startDate == null ? 0 : startDate!.hashCode) +
-      (badges.hashCode) +
-      (skins.hashCode);
+      (rewards.hashCode);
 
   @override
   String toString() =>
-      'SeasonSchema[name=$name, number=$number, startDate=$startDate, badges=$badges, skins=$skins]';
+      'SeasonSchema[name=$name, number=$number, startDate=$startDate, rewards=$rewards]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -93,8 +87,7 @@ class SeasonSchema {
     } else {
       json[r'start_date'] = null;
     }
-    json[r'badges'] = this.badges;
-    json[r'skins'] = this.skins;
+    json[r'rewards'] = this.rewards;
     return json;
   }
 
@@ -109,12 +102,10 @@ class SeasonSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "SeasonSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "SeasonSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'rewards'),
+            'Required key "SeasonSchema[rewards]" is missing from JSON.');
+        assert(json[r'rewards'] != null,
+            'Required key "SeasonSchema[rewards]" has a null value in JSON.');
         return true;
       }());
 
@@ -122,8 +113,7 @@ class SeasonSchema {
         name: mapValueOfType<String>(json, r'name'),
         number: mapValueOfType<int>(json, r'number'),
         startDate: mapDateTime(json, r'start_date', r''),
-        badges: SeasonBadgeSchema.listFromJson(json[r'badges']),
-        skins: SeasonSkinSchema.listFromJson(json[r'skins']),
+        rewards: StatusSeasonRewardSchema.listFromJson(json[r'rewards']),
       );
     }
     return null;
@@ -180,7 +170,6 @@ class SeasonSchema {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'badges',
-    'skins',
+    'rewards',
   };
 }

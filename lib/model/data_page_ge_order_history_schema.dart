@@ -10,58 +10,34 @@
 
 part of openapi_generation;
 
-class DataPageGeOrderHistorySchema {
-  /// Returns a new [DataPageGeOrderHistorySchema] instance.
-  DataPageGeOrderHistorySchema({
+class DataPageGEOrderHistorySchema {
+  /// Returns a new [DataPageGEOrderHistorySchema] instance.
+  DataPageGEOrderHistorySchema({
     this.data = const [],
-    this.total,
-    this.page,
-    this.size,
-    this.pages,
+    required this.total,
+    required this.page,
+    required this.size,
+    required this.pages,
   });
 
-  List<GeOrderHistorySchema> data;
+  List<GEOrderHistorySchema> data;
 
   /// Minimum value: 0
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? total;
+  int total;
 
   /// Minimum value: 1
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? page;
+  int page;
 
   /// Minimum value: 1
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? size;
+  int size;
 
   /// Minimum value: 0
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  int? pages;
+  int pages;
 
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DataPageGeOrderHistorySchema &&
+      other is DataPageGEOrderHistorySchema &&
           _deepEquality.equals(other.data, data) &&
           other.total == total &&
           other.page == page &&
@@ -72,45 +48,29 @@ class DataPageGeOrderHistorySchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (data.hashCode) +
-      (total == null ? 0 : total!.hashCode) +
-      (page == null ? 0 : page!.hashCode) +
-      (size == null ? 0 : size!.hashCode) +
-      (pages == null ? 0 : pages!.hashCode);
+      (total.hashCode) +
+      (page.hashCode) +
+      (size.hashCode) +
+      (pages.hashCode);
 
   @override
   String toString() =>
-      'DataPageGeOrderHistorySchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
+      'DataPageGEOrderHistorySchema[data=$data, total=$total, page=$page, size=$size, pages=$pages]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'data'] = this.data;
-    if (this.total != null) {
-      json[r'total'] = this.total;
-    } else {
-      json[r'total'] = null;
-    }
-    if (this.page != null) {
-      json[r'page'] = this.page;
-    } else {
-      json[r'page'] = null;
-    }
-    if (this.size != null) {
-      json[r'size'] = this.size;
-    } else {
-      json[r'size'] = null;
-    }
-    if (this.pages != null) {
-      json[r'pages'] = this.pages;
-    } else {
-      json[r'pages'] = null;
-    }
+    json[r'total'] = this.total;
+    json[r'page'] = this.page;
+    json[r'size'] = this.size;
+    json[r'pages'] = this.pages;
     return json;
   }
 
-  /// Returns a new [DataPageGeOrderHistorySchema] instance and imports its values from
+  /// Returns a new [DataPageGEOrderHistorySchema] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static DataPageGeOrderHistorySchema? fromJson(dynamic value) {
+  static DataPageGEOrderHistorySchema? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -118,34 +78,48 @@ class DataPageGeOrderHistorySchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "DataPageGeOrderHistorySchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "DataPageGeOrderHistorySchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'data'),
+            'Required key "DataPageGEOrderHistorySchema[data]" is missing from JSON.');
+        assert(json[r'data'] != null,
+            'Required key "DataPageGEOrderHistorySchema[data]" has a null value in JSON.');
+        assert(json.containsKey(r'total'),
+            'Required key "DataPageGEOrderHistorySchema[total]" is missing from JSON.');
+        assert(json[r'total'] != null,
+            'Required key "DataPageGEOrderHistorySchema[total]" has a null value in JSON.');
+        assert(json.containsKey(r'page'),
+            'Required key "DataPageGEOrderHistorySchema[page]" is missing from JSON.');
+        assert(json[r'page'] != null,
+            'Required key "DataPageGEOrderHistorySchema[page]" has a null value in JSON.');
+        assert(json.containsKey(r'size'),
+            'Required key "DataPageGEOrderHistorySchema[size]" is missing from JSON.');
+        assert(json[r'size'] != null,
+            'Required key "DataPageGEOrderHistorySchema[size]" has a null value in JSON.');
+        assert(json.containsKey(r'pages'),
+            'Required key "DataPageGEOrderHistorySchema[pages]" is missing from JSON.');
+        assert(json[r'pages'] != null,
+            'Required key "DataPageGEOrderHistorySchema[pages]" has a null value in JSON.');
         return true;
       }());
 
-      return DataPageGeOrderHistorySchema(
-        data: GeOrderHistorySchema.listFromJson(json[r'data']),
-        total: mapValueOfType<int>(json, r'total'),
-        page: mapValueOfType<int>(json, r'page'),
-        size: mapValueOfType<int>(json, r'size'),
-        pages: mapValueOfType<int>(json, r'pages'),
+      return DataPageGEOrderHistorySchema(
+        data: GEOrderHistorySchema.listFromJson(json[r'data']),
+        total: mapValueOfType<int>(json, r'total')!,
+        page: mapValueOfType<int>(json, r'page')!,
+        size: mapValueOfType<int>(json, r'size')!,
+        pages: mapValueOfType<int>(json, r'pages')!,
       );
     }
     return null;
   }
 
-  static List<DataPageGeOrderHistorySchema> listFromJson(
+  static List<DataPageGEOrderHistorySchema> listFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final result = <DataPageGeOrderHistorySchema>[];
+    final result = <DataPageGEOrderHistorySchema>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = DataPageGeOrderHistorySchema.fromJson(row);
+        final value = DataPageGEOrderHistorySchema.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -154,12 +128,12 @@ class DataPageGeOrderHistorySchema {
     return result.toList(growable: growable);
   }
 
-  static Map<String, DataPageGeOrderHistorySchema> mapFromJson(dynamic json) {
-    final map = <String, DataPageGeOrderHistorySchema>{};
+  static Map<String, DataPageGEOrderHistorySchema> mapFromJson(dynamic json) {
+    final map = <String, DataPageGEOrderHistorySchema>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = DataPageGeOrderHistorySchema.fromJson(entry.value);
+        final value = DataPageGEOrderHistorySchema.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -168,17 +142,17 @@ class DataPageGeOrderHistorySchema {
     return map;
   }
 
-  // maps a json object with a list of DataPageGeOrderHistorySchema-objects as value to a dart map
-  static Map<String, List<DataPageGeOrderHistorySchema>> mapListFromJson(
+  // maps a json object with a list of DataPageGEOrderHistorySchema-objects as value to a dart map
+  static Map<String, List<DataPageGEOrderHistorySchema>> mapListFromJson(
     dynamic json, {
     bool growable = false,
   }) {
-    final map = <String, List<DataPageGeOrderHistorySchema>>{};
+    final map = <String, List<DataPageGEOrderHistorySchema>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = DataPageGeOrderHistorySchema.listFromJson(
+        map[entry.key] = DataPageGEOrderHistorySchema.listFromJson(
           entry.value,
           growable: growable,
         );
@@ -190,5 +164,9 @@ class DataPageGeOrderHistorySchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'data',
+    'total',
+    'page',
+    'size',
+    'pages',
   };
 }

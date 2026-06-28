@@ -14,7 +14,7 @@ class GEOrderSchema {
   /// Returns a new [GEOrderSchema] instance.
   GEOrderSchema({
     required this.id,
-    this.type,
+    required this.type,
     this.account,
     required this.code,
     required this.quantity,
@@ -26,13 +26,7 @@ class GEOrderSchema {
   String id;
 
   /// Order type (sell or buy).
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  GEOrderType? type;
+  GEOrderType type;
 
   /// Account linked to the order.
   ///
@@ -49,7 +43,6 @@ class GEOrderSchema {
   /// Item quantity.
   ///
   /// Minimum value: 1
-  /// Maximum value: 100
   int quantity;
 
   /// Item price per unit.
@@ -76,7 +69,7 @@ class GEOrderSchema {
   int get hashCode =>
       // ignore: unnecessary_parenthesis
       (id.hashCode) +
-      (type == null ? 0 : type!.hashCode) +
+      (type.hashCode) +
       (account == null ? 0 : account!.hashCode) +
       (code.hashCode) +
       (quantity.hashCode) +
@@ -90,11 +83,7 @@ class GEOrderSchema {
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'id'] = this.id;
-    if (this.type != null) {
-      json[r'type'] = this.type;
-    } else {
-      json[r'type'] = null;
-    }
+    json[r'type'] = this.type;
     if (this.account != null) {
       json[r'account'] = this.account;
     } else {
@@ -118,18 +107,36 @@ class GEOrderSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "GEOrderSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "GEOrderSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'id'),
+            'Required key "GEOrderSchema[id]" is missing from JSON.');
+        assert(json[r'id'] != null,
+            'Required key "GEOrderSchema[id]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "GEOrderSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "GEOrderSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "GEOrderSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "GEOrderSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'quantity'),
+            'Required key "GEOrderSchema[quantity]" is missing from JSON.');
+        assert(json[r'quantity'] != null,
+            'Required key "GEOrderSchema[quantity]" has a null value in JSON.');
+        assert(json.containsKey(r'price'),
+            'Required key "GEOrderSchema[price]" is missing from JSON.');
+        assert(json[r'price'] != null,
+            'Required key "GEOrderSchema[price]" has a null value in JSON.');
+        assert(json.containsKey(r'created_at'),
+            'Required key "GEOrderSchema[created_at]" is missing from JSON.');
+        assert(json[r'created_at'] != null,
+            'Required key "GEOrderSchema[created_at]" has a null value in JSON.');
         return true;
       }());
 
       return GEOrderSchema(
         id: mapValueOfType<String>(json, r'id')!,
-        type: GEOrderType.fromJson(json[r'type']),
+        type: GEOrderType.fromJson(json[r'type'])!,
         account: mapValueOfType<String>(json, r'account'),
         code: mapValueOfType<String>(json, r'code')!,
         quantity: mapValueOfType<int>(json, r'quantity')!,
@@ -192,6 +199,7 @@ class GEOrderSchema {
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
     'id',
+    'type',
     'code',
     'quantity',
     'price',

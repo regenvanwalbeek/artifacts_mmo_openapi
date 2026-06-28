@@ -29,7 +29,7 @@ class ActiveCharacterSchema {
   String account;
 
   /// Character skin code.
-  CharacterSkin skin;
+  String skin;
 
   /// Character x coordinate.
   int x;
@@ -93,19 +93,41 @@ class ActiveCharacterSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "ActiveCharacterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "ActiveCharacterSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "ActiveCharacterSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "ActiveCharacterSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'account'),
+            'Required key "ActiveCharacterSchema[account]" is missing from JSON.');
+        assert(json[r'account'] != null,
+            'Required key "ActiveCharacterSchema[account]" has a null value in JSON.');
+        assert(json.containsKey(r'skin'),
+            'Required key "ActiveCharacterSchema[skin]" is missing from JSON.');
+        assert(json[r'skin'] != null,
+            'Required key "ActiveCharacterSchema[skin]" has a null value in JSON.');
+        assert(json.containsKey(r'x'),
+            'Required key "ActiveCharacterSchema[x]" is missing from JSON.');
+        assert(json[r'x'] != null,
+            'Required key "ActiveCharacterSchema[x]" has a null value in JSON.');
+        assert(json.containsKey(r'y'),
+            'Required key "ActiveCharacterSchema[y]" is missing from JSON.');
+        assert(json[r'y'] != null,
+            'Required key "ActiveCharacterSchema[y]" has a null value in JSON.');
+        assert(json.containsKey(r'layer'),
+            'Required key "ActiveCharacterSchema[layer]" is missing from JSON.');
+        assert(json[r'layer'] != null,
+            'Required key "ActiveCharacterSchema[layer]" has a null value in JSON.');
+        assert(json.containsKey(r'map_id'),
+            'Required key "ActiveCharacterSchema[map_id]" is missing from JSON.');
+        assert(json[r'map_id'] != null,
+            'Required key "ActiveCharacterSchema[map_id]" has a null value in JSON.');
         return true;
       }());
 
       return ActiveCharacterSchema(
         name: mapValueOfType<String>(json, r'name')!,
         account: mapValueOfType<String>(json, r'account')!,
-        skin: CharacterSkin.fromJson(json[r'skin'])!,
+        skin: mapValueOfType<String>(json, r'skin')!,
         x: mapValueOfType<int>(json, r'x')!,
         y: mapValueOfType<int>(json, r'y')!,
         layer: MapLayer.fromJson(json[r'layer'])!,

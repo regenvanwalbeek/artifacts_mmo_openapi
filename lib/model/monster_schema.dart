@@ -177,12 +177,78 @@ class MonsterSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "MonsterSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "MonsterSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "MonsterSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "MonsterSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "MonsterSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "MonsterSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'level'),
+            'Required key "MonsterSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "MonsterSchema[level]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "MonsterSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "MonsterSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'hp'),
+            'Required key "MonsterSchema[hp]" is missing from JSON.');
+        assert(json[r'hp'] != null,
+            'Required key "MonsterSchema[hp]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_fire'),
+            'Required key "MonsterSchema[attack_fire]" is missing from JSON.');
+        assert(json[r'attack_fire'] != null,
+            'Required key "MonsterSchema[attack_fire]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_earth'),
+            'Required key "MonsterSchema[attack_earth]" is missing from JSON.');
+        assert(json[r'attack_earth'] != null,
+            'Required key "MonsterSchema[attack_earth]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_water'),
+            'Required key "MonsterSchema[attack_water]" is missing from JSON.');
+        assert(json[r'attack_water'] != null,
+            'Required key "MonsterSchema[attack_water]" has a null value in JSON.');
+        assert(json.containsKey(r'attack_air'),
+            'Required key "MonsterSchema[attack_air]" is missing from JSON.');
+        assert(json[r'attack_air'] != null,
+            'Required key "MonsterSchema[attack_air]" has a null value in JSON.');
+        assert(json.containsKey(r'res_fire'),
+            'Required key "MonsterSchema[res_fire]" is missing from JSON.');
+        assert(json[r'res_fire'] != null,
+            'Required key "MonsterSchema[res_fire]" has a null value in JSON.');
+        assert(json.containsKey(r'res_earth'),
+            'Required key "MonsterSchema[res_earth]" is missing from JSON.');
+        assert(json[r'res_earth'] != null,
+            'Required key "MonsterSchema[res_earth]" has a null value in JSON.');
+        assert(json.containsKey(r'res_water'),
+            'Required key "MonsterSchema[res_water]" is missing from JSON.');
+        assert(json[r'res_water'] != null,
+            'Required key "MonsterSchema[res_water]" has a null value in JSON.');
+        assert(json.containsKey(r'res_air'),
+            'Required key "MonsterSchema[res_air]" is missing from JSON.');
+        assert(json[r'res_air'] != null,
+            'Required key "MonsterSchema[res_air]" has a null value in JSON.');
+        assert(json.containsKey(r'critical_strike'),
+            'Required key "MonsterSchema[critical_strike]" is missing from JSON.');
+        assert(json[r'critical_strike'] != null,
+            'Required key "MonsterSchema[critical_strike]" has a null value in JSON.');
+        assert(json.containsKey(r'initiative'),
+            'Required key "MonsterSchema[initiative]" is missing from JSON.');
+        assert(json[r'initiative'] != null,
+            'Required key "MonsterSchema[initiative]" has a null value in JSON.');
+        assert(json.containsKey(r'min_gold'),
+            'Required key "MonsterSchema[min_gold]" is missing from JSON.');
+        assert(json[r'min_gold'] != null,
+            'Required key "MonsterSchema[min_gold]" has a null value in JSON.');
+        assert(json.containsKey(r'max_gold'),
+            'Required key "MonsterSchema[max_gold]" is missing from JSON.');
+        assert(json[r'max_gold'] != null,
+            'Required key "MonsterSchema[max_gold]" has a null value in JSON.');
+        assert(json.containsKey(r'drops'),
+            'Required key "MonsterSchema[drops]" is missing from JSON.');
+        assert(json[r'drops'] != null,
+            'Required key "MonsterSchema[drops]" has a null value in JSON.');
         return true;
       }());
 

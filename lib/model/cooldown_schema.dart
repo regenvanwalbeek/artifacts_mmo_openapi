@@ -79,12 +79,26 @@ class CooldownSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CooldownSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CooldownSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'total_seconds'),
+            'Required key "CooldownSchema[total_seconds]" is missing from JSON.');
+        assert(json[r'total_seconds'] != null,
+            'Required key "CooldownSchema[total_seconds]" has a null value in JSON.');
+        assert(json.containsKey(r'remaining_seconds'),
+            'Required key "CooldownSchema[remaining_seconds]" is missing from JSON.');
+        assert(json[r'remaining_seconds'] != null,
+            'Required key "CooldownSchema[remaining_seconds]" has a null value in JSON.');
+        assert(json.containsKey(r'started_at'),
+            'Required key "CooldownSchema[started_at]" is missing from JSON.');
+        assert(json[r'started_at'] != null,
+            'Required key "CooldownSchema[started_at]" has a null value in JSON.');
+        assert(json.containsKey(r'expiration'),
+            'Required key "CooldownSchema[expiration]" is missing from JSON.');
+        assert(json[r'expiration'] != null,
+            'Required key "CooldownSchema[expiration]" has a null value in JSON.');
+        assert(json.containsKey(r'reason'),
+            'Required key "CooldownSchema[reason]" is missing from JSON.');
+        assert(json[r'reason'] != null,
+            'Required key "CooldownSchema[reason]" has a null value in JSON.');
         return true;
       }());
 

@@ -79,12 +79,26 @@ class CharacterMultiFightResultSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterMultiFightResultSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterMultiFightResultSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'character_name'),
+            'Required key "CharacterMultiFightResultSchema[character_name]" is missing from JSON.');
+        assert(json[r'character_name'] != null,
+            'Required key "CharacterMultiFightResultSchema[character_name]" has a null value in JSON.');
+        assert(json.containsKey(r'xp'),
+            'Required key "CharacterMultiFightResultSchema[xp]" is missing from JSON.');
+        assert(json[r'xp'] != null,
+            'Required key "CharacterMultiFightResultSchema[xp]" has a null value in JSON.');
+        assert(json.containsKey(r'gold'),
+            'Required key "CharacterMultiFightResultSchema[gold]" is missing from JSON.');
+        assert(json[r'gold'] != null,
+            'Required key "CharacterMultiFightResultSchema[gold]" has a null value in JSON.');
+        assert(json.containsKey(r'drops'),
+            'Required key "CharacterMultiFightResultSchema[drops]" is missing from JSON.');
+        assert(json[r'drops'] != null,
+            'Required key "CharacterMultiFightResultSchema[drops]" has a null value in JSON.');
+        assert(json.containsKey(r'final_hp'),
+            'Required key "CharacterMultiFightResultSchema[final_hp]" is missing from JSON.');
+        assert(json[r'final_hp'] != null,
+            'Required key "CharacterMultiFightResultSchema[final_hp]" has a null value in JSON.');
         return true;
       }());
 

@@ -16,7 +16,7 @@ class CharacterLeaderboardSchema {
     required this.position,
     required this.name,
     required this.account,
-    required this.status,
+    required this.member,
     required this.skin,
     required this.level,
     required this.totalXp,
@@ -49,7 +49,7 @@ class CharacterLeaderboardSchema {
   String account;
 
   /// Member status.
-  AccountStatus status;
+  bool member;
 
   /// Character skin code.
   String skin;
@@ -118,7 +118,7 @@ class CharacterLeaderboardSchema {
           other.position == position &&
           other.name == name &&
           other.account == account &&
-          other.status == status &&
+          other.member == member &&
           other.skin == skin &&
           other.level == level &&
           other.totalXp == totalXp &&
@@ -146,7 +146,7 @@ class CharacterLeaderboardSchema {
       (position.hashCode) +
       (name.hashCode) +
       (account.hashCode) +
-      (status.hashCode) +
+      (member.hashCode) +
       (skin.hashCode) +
       (level.hashCode) +
       (totalXp.hashCode) +
@@ -170,14 +170,14 @@ class CharacterLeaderboardSchema {
 
   @override
   String toString() =>
-      'CharacterLeaderboardSchema[position=$position, name=$name, account=$account, status=$status, skin=$skin, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, alchemyLevel=$alchemyLevel, alchemyTotalXp=$alchemyTotalXp, gold=$gold]';
+      'CharacterLeaderboardSchema[position=$position, name=$name, account=$account, member=$member, skin=$skin, level=$level, totalXp=$totalXp, miningLevel=$miningLevel, miningTotalXp=$miningTotalXp, woodcuttingLevel=$woodcuttingLevel, woodcuttingTotalXp=$woodcuttingTotalXp, fishingLevel=$fishingLevel, fishingTotalXp=$fishingTotalXp, weaponcraftingLevel=$weaponcraftingLevel, weaponcraftingTotalXp=$weaponcraftingTotalXp, gearcraftingLevel=$gearcraftingLevel, gearcraftingTotalXp=$gearcraftingTotalXp, jewelrycraftingLevel=$jewelrycraftingLevel, jewelrycraftingTotalXp=$jewelrycraftingTotalXp, cookingLevel=$cookingLevel, cookingTotalXp=$cookingTotalXp, alchemyLevel=$alchemyLevel, alchemyTotalXp=$alchemyTotalXp, gold=$gold]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
     json[r'position'] = this.position;
     json[r'name'] = this.name;
     json[r'account'] = this.account;
-    json[r'status'] = this.status;
+    json[r'member'] = this.member;
     json[r'skin'] = this.skin;
     json[r'level'] = this.level;
     json[r'total_xp'] = this.totalXp;
@@ -212,12 +212,102 @@ class CharacterLeaderboardSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "CharacterLeaderboardSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "CharacterLeaderboardSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'position'),
+            'Required key "CharacterLeaderboardSchema[position]" is missing from JSON.');
+        assert(json[r'position'] != null,
+            'Required key "CharacterLeaderboardSchema[position]" has a null value in JSON.');
+        assert(json.containsKey(r'name'),
+            'Required key "CharacterLeaderboardSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "CharacterLeaderboardSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'account'),
+            'Required key "CharacterLeaderboardSchema[account]" is missing from JSON.');
+        assert(json[r'account'] != null,
+            'Required key "CharacterLeaderboardSchema[account]" has a null value in JSON.');
+        assert(json.containsKey(r'member'),
+            'Required key "CharacterLeaderboardSchema[member]" is missing from JSON.');
+        assert(json[r'member'] != null,
+            'Required key "CharacterLeaderboardSchema[member]" has a null value in JSON.');
+        assert(json.containsKey(r'skin'),
+            'Required key "CharacterLeaderboardSchema[skin]" is missing from JSON.');
+        assert(json[r'skin'] != null,
+            'Required key "CharacterLeaderboardSchema[skin]" has a null value in JSON.');
+        assert(json.containsKey(r'level'),
+            'Required key "CharacterLeaderboardSchema[level]" is missing from JSON.');
+        assert(json[r'level'] != null,
+            'Required key "CharacterLeaderboardSchema[level]" has a null value in JSON.');
+        assert(json.containsKey(r'total_xp'),
+            'Required key "CharacterLeaderboardSchema[total_xp]" is missing from JSON.');
+        assert(json[r'total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'mining_level'),
+            'Required key "CharacterLeaderboardSchema[mining_level]" is missing from JSON.');
+        assert(json[r'mining_level'] != null,
+            'Required key "CharacterLeaderboardSchema[mining_level]" has a null value in JSON.');
+        assert(json.containsKey(r'mining_total_xp'),
+            'Required key "CharacterLeaderboardSchema[mining_total_xp]" is missing from JSON.');
+        assert(json[r'mining_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[mining_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'woodcutting_level'),
+            'Required key "CharacterLeaderboardSchema[woodcutting_level]" is missing from JSON.');
+        assert(json[r'woodcutting_level'] != null,
+            'Required key "CharacterLeaderboardSchema[woodcutting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'woodcutting_total_xp'),
+            'Required key "CharacterLeaderboardSchema[woodcutting_total_xp]" is missing from JSON.');
+        assert(json[r'woodcutting_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[woodcutting_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'fishing_level'),
+            'Required key "CharacterLeaderboardSchema[fishing_level]" is missing from JSON.');
+        assert(json[r'fishing_level'] != null,
+            'Required key "CharacterLeaderboardSchema[fishing_level]" has a null value in JSON.');
+        assert(json.containsKey(r'fishing_total_xp'),
+            'Required key "CharacterLeaderboardSchema[fishing_total_xp]" is missing from JSON.');
+        assert(json[r'fishing_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[fishing_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'weaponcrafting_level'),
+            'Required key "CharacterLeaderboardSchema[weaponcrafting_level]" is missing from JSON.');
+        assert(json[r'weaponcrafting_level'] != null,
+            'Required key "CharacterLeaderboardSchema[weaponcrafting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'weaponcrafting_total_xp'),
+            'Required key "CharacterLeaderboardSchema[weaponcrafting_total_xp]" is missing from JSON.');
+        assert(json[r'weaponcrafting_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[weaponcrafting_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'gearcrafting_level'),
+            'Required key "CharacterLeaderboardSchema[gearcrafting_level]" is missing from JSON.');
+        assert(json[r'gearcrafting_level'] != null,
+            'Required key "CharacterLeaderboardSchema[gearcrafting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'gearcrafting_total_xp'),
+            'Required key "CharacterLeaderboardSchema[gearcrafting_total_xp]" is missing from JSON.');
+        assert(json[r'gearcrafting_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[gearcrafting_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'jewelrycrafting_level'),
+            'Required key "CharacterLeaderboardSchema[jewelrycrafting_level]" is missing from JSON.');
+        assert(json[r'jewelrycrafting_level'] != null,
+            'Required key "CharacterLeaderboardSchema[jewelrycrafting_level]" has a null value in JSON.');
+        assert(json.containsKey(r'jewelrycrafting_total_xp'),
+            'Required key "CharacterLeaderboardSchema[jewelrycrafting_total_xp]" is missing from JSON.');
+        assert(json[r'jewelrycrafting_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[jewelrycrafting_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'cooking_level'),
+            'Required key "CharacterLeaderboardSchema[cooking_level]" is missing from JSON.');
+        assert(json[r'cooking_level'] != null,
+            'Required key "CharacterLeaderboardSchema[cooking_level]" has a null value in JSON.');
+        assert(json.containsKey(r'cooking_total_xp'),
+            'Required key "CharacterLeaderboardSchema[cooking_total_xp]" is missing from JSON.');
+        assert(json[r'cooking_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[cooking_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'alchemy_level'),
+            'Required key "CharacterLeaderboardSchema[alchemy_level]" is missing from JSON.');
+        assert(json[r'alchemy_level'] != null,
+            'Required key "CharacterLeaderboardSchema[alchemy_level]" has a null value in JSON.');
+        assert(json.containsKey(r'alchemy_total_xp'),
+            'Required key "CharacterLeaderboardSchema[alchemy_total_xp]" is missing from JSON.');
+        assert(json[r'alchemy_total_xp'] != null,
+            'Required key "CharacterLeaderboardSchema[alchemy_total_xp]" has a null value in JSON.');
+        assert(json.containsKey(r'gold'),
+            'Required key "CharacterLeaderboardSchema[gold]" is missing from JSON.');
+        assert(json[r'gold'] != null,
+            'Required key "CharacterLeaderboardSchema[gold]" has a null value in JSON.');
         return true;
       }());
 
@@ -225,7 +315,7 @@ class CharacterLeaderboardSchema {
         position: mapValueOfType<int>(json, r'position')!,
         name: mapValueOfType<String>(json, r'name')!,
         account: mapValueOfType<String>(json, r'account')!,
-        status: AccountStatus.fromJson(json[r'status'])!,
+        member: mapValueOfType<bool>(json, r'member')!,
         skin: mapValueOfType<String>(json, r'skin')!,
         level: mapValueOfType<int>(json, r'level')!,
         totalXp: mapValueOfType<int>(json, r'total_xp')!,
@@ -310,7 +400,7 @@ class CharacterLeaderboardSchema {
     'position',
     'name',
     'account',
-    'status',
+    'member',
     'skin',
     'level',
     'total_xp',

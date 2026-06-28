@@ -63,12 +63,18 @@ class AddAccountSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "AddAccountSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "AddAccountSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'username'),
+            'Required key "AddAccountSchema[username]" is missing from JSON.');
+        assert(json[r'username'] != null,
+            'Required key "AddAccountSchema[username]" has a null value in JSON.');
+        assert(json.containsKey(r'password'),
+            'Required key "AddAccountSchema[password]" is missing from JSON.');
+        assert(json[r'password'] != null,
+            'Required key "AddAccountSchema[password]" has a null value in JSON.');
+        assert(json.containsKey(r'email'),
+            'Required key "AddAccountSchema[email]" is missing from JSON.');
+        assert(json[r'email'] != null,
+            'Required key "AddAccountSchema[email]" has a null value in JSON.');
         return true;
       }());
 

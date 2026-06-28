@@ -27,8 +27,9 @@ class AchievementsApi {
   /// * [String] code (required):
   ///   The code of the achievement.
   Future<Response> getAchievementAchievementsCodeGetWithHttpInfo(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     // ignore: prefer_const_declarations
     final path = r'/achievements/{code}'.replaceAll('{code}', code);
 
@@ -49,6 +50,7 @@ class AchievementsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -61,10 +63,12 @@ class AchievementsApi {
   /// * [String] code (required):
   ///   The code of the achievement.
   Future<AchievementResponseSchema?> getAchievementAchievementsCodeGet(
-    String code,
-  ) async {
+    String code, {
+    Future<void>? abortTrigger,
+  }) async {
     final response = await getAchievementAchievementsCodeGetWithHttpInfo(
       code,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));
@@ -102,6 +106,7 @@ class AchievementsApi {
     AchievementType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     // ignore: prefer_const_declarations
     final path = r'/achievements';
@@ -133,6 +138,7 @@ class AchievementsApi {
       headerParams,
       formParams,
       contentTypes.isEmpty ? null : contentTypes.first,
+      abortTrigger: abortTrigger,
     );
   }
 
@@ -154,11 +160,13 @@ class AchievementsApi {
     AchievementType? type,
     int? page,
     int? size,
+    Future<void>? abortTrigger,
   }) async {
     final response = await getAllAchievementsAchievementsGetWithHttpInfo(
       type: type,
       page: page,
       size: size,
+      abortTrigger: abortTrigger,
     );
     if (response.statusCode >= HttpStatus.badRequest) {
       throw ApiException(response.statusCode, await _decodeBodyBytes(response));

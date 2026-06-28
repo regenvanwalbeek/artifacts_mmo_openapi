@@ -79,12 +79,26 @@ class EffectSchema {
       // Note 1: the values aren't checked for validity beyond being non-null.
       // Note 2: this code is stripped in release mode!
       assert(() {
-        requiredKeys.forEach((key) {
-          assert(json.containsKey(key),
-              'Required key "EffectSchema[$key]" is missing from JSON.');
-          assert(json[key] != null,
-              'Required key "EffectSchema[$key]" has a null value in JSON.');
-        });
+        assert(json.containsKey(r'name'),
+            'Required key "EffectSchema[name]" is missing from JSON.');
+        assert(json[r'name'] != null,
+            'Required key "EffectSchema[name]" has a null value in JSON.');
+        assert(json.containsKey(r'code'),
+            'Required key "EffectSchema[code]" is missing from JSON.');
+        assert(json[r'code'] != null,
+            'Required key "EffectSchema[code]" has a null value in JSON.');
+        assert(json.containsKey(r'description'),
+            'Required key "EffectSchema[description]" is missing from JSON.');
+        assert(json[r'description'] != null,
+            'Required key "EffectSchema[description]" has a null value in JSON.');
+        assert(json.containsKey(r'type'),
+            'Required key "EffectSchema[type]" is missing from JSON.');
+        assert(json[r'type'] != null,
+            'Required key "EffectSchema[type]" has a null value in JSON.');
+        assert(json.containsKey(r'subtype'),
+            'Required key "EffectSchema[subtype]" is missing from JSON.');
+        assert(json[r'subtype'] != null,
+            'Required key "EffectSchema[subtype]" has a null value in JSON.');
         return true;
       }());
 
